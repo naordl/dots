@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Remove cached packages
+yay -Scc
+
+# Remove orphaned packages
+yay -Rns $(yay -Qtdq)
+
+# Remove unwanted dependencies
+yay -Yc
+
+# Clean up the cache directory
+rm -rf ~/.cache/*
+
+# Clean up old journals
+sudo journalctl --vacuum-time=2weeks
+
+# Refresh pacman mirrorlist
+sudo reflector -c Romania -a 6 --sort rate --save /etc/pacman.d/mirrorlist

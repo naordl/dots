@@ -1,0 +1,236 @@
+# _ _____                    __ _       
+# (_)___ /    ___ ___  _ __  / _(_) __ _ 
+# | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |___) | | (_| (_) | | | |  _| | (_| |
+# |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                  |___/
+
+# Set variable $exec and $execa
+set $exec exec --no-startup-id
+set $execa exec_always --no-startup-id
+
+# Set mod key
+set $mod Mod4
+
+# Font
+font pango:DejaVu Sans Mono Book 9
+
+# Use mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return $exec "$TERMINAL"
+bindsym $mod+Shift+Return $exec "$TERMINAL -t FLOATTERM"
+
+# Kill focused window
+bindsym $mod+Shift+q "kill"
+
+# Start Rofi
+bindsym $mod+d $exec "rofi -show run -theme bmenu"
+
+# Change focus
+bindsym $mod+h "focus left"
+bindsym $mod+j "focus down"
+bindsym $mod+k "focus up"
+bindsym $mod+l "focus right"
+
+# Move focused window
+bindsym $mod+Shift+h "move left"
+bindsym $mod+Shift+j "move down"
+bindsym $mod+Shift+k "move up"
+bindsym $mod+Shift+l "move right"
+
+# Resize window
+bindsym $mod+ctrl+h "resize shrink width 10 px or 10 ppt"
+bindsym $mod+ctrl+j "resize grow height 10 px or 10 ppt"
+bindsym $mod+ctrl+k "resize shrink height 10 px or 10 ppt"
+bindsym $mod+ctrl+l "resize grow width 10 px or 10 ppt"
+
+# Split in horizontal orientation
+bindsym $mod+Shift+v "split h"
+
+# Split in vertical orientation
+bindsym $mod+v "split v"
+
+# Enter fullscreen mode for the focused window
+bindsym $mod+f "fullscreen toggle"
+
+# Change window layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+t layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space "floating toggle"
+
+# Change focus between tiling / floating windows
+bindsym $mod+space "focus mode_toggle"
+
+# Focus follows mouse
+focus_follows_mouse "no"
+
+# Switch to workspace
+bindsym $mod+1 "workspace 1"
+bindsym $mod+2 "workspace 2"
+bindsym $mod+3 "workspace 3"
+bindsym $mod+4 "workspace 4"
+bindsym $mod+5 "workspace 5"
+bindsym $mod+6 "workspace 6"
+bindsym $mod+7 "workspace 7"
+bindsym $mod+8 "workspace 8"
+bindsym $mod+9 "workspace 9"
+bindsym $mod+0 "workspace 10"
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 "move container to workspace 1"
+bindsym $mod+Shift+2 "move container to workspace 2"
+bindsym $mod+Shift+3 "move container to workspace 3"
+bindsym $mod+Shift+4 "move container to workspace 4"
+bindsym $mod+Shift+5 "move container to workspace 5"
+bindsym $mod+Shift+6 "move container to workspace 6"
+bindsym $mod+Shift+7 "move container to workspace 7"
+bindsym $mod+Shift+8 "move container to workspace 8"
+bindsym $mod+Shift+9 "move container to workspace 9"
+bindsym $mod+Shift+0 "move container to workspace 10"
+
+# Restart i3
+bindsym $mod+Shift+r "restart"
+
+# Window colors
+#                       Background      Border          Text            Indicator
+client.focused          #000000		#BEBEBEBF	#ffffff		#BEBEBEBF
+client.unfocused        #000000		#404040BF	#808080		#404040BF
+client.focused_inactive #000000		#404040		#808080		#404040
+client.urgent           #E53935		#E53935		$ffffff		#E53935
+
+# Start i3bar
+bar {
+        i3bar_command i3bar -t
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+	font pango:DejaVu Sans Mono, Font Awesome 5 Free Solid, Font Awesome 5 Free Regular 10
+	tray_output none
+	colors {
+		background #000000BF
+		statusline #ffffff
+	    	separator  #757575
+       	#                  	   Border	Background	Text
+		focused_workspace  #000000BF    #000000BF       #ffffff
+		active_workspace   #000000BF    #000000BF 	#808080
+		inactive_workspace #000000BF    #000000BF 	#808080
+		urgent_workspace   #E53935      #E53935  	#ffffff
+		binding_mode       #2f343a      #900000 	#ffffff
+	}
+}
+
+# Rules
+for_window [title="FLOATTERM"] floating enable
+
+# Gaps
+gaps inner 8
+gaps outer 0
+# smart_gaps on
+
+# Window decorations
+new_window pixel 1
+new_float pixel 1
+
+# Window borders
+hide_edge_borders both
+default_border pixel 2
+
+# Volume controls
+bindsym XF86AudioRaiseVolume $exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume $exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute $exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute $exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp   	$exec "sudo xbacklight -inc 5; brightness=$(xbacklight -get); notify-send --hint=string:x-dunst-stack-tag:brightness  $brightness% && pkill -RTMIN+1 i3blocks"
+bindsym XF86MonBrightnessDown 	$exec "sudo xbacklight -dec 5; brightness=$(xbacklight -get); notify-send --hint=string:x-dunst-stack-tag:brightness  $brightness% && pkill -RTMIN+1 i3blocks"
+
+# Toggle touchpad
+bindsym XF86TouchpadToggle 	$exec "toggletouchpad"
+
+# Media player controls
+bindsym XF86AudioPlay  		$exec "playerctl play"
+bindsym XF86AudioPause 		$exec "playerctl pause"
+bindsym XF86AudioNext  		$exec "playerctl next"
+bindsym XF86AudioPrev  		$exec "playerctl previous"
+
+# Print screen
+bindsym Print			$exec "maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png"
+
+# Print focused window
+bindsym Ctrl+Print 		$exec "maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
+
+# Snip screen
+bindsym Shift+Print		$exec "maim -o -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png"
+
+# Volume mixer
+bindsym $mod+Shift+P		$exec "$TERMINAL -e pulsemixer"
+
+# Task manager
+bindsym Ctrl+Shift+Escape 	$exec "$TERMINAL -e htop"
+
+# Browser
+bindsym $mod+W			$exec "$BROWSER"
+
+# File manager
+bindsym $mod+R			$exec "$TERMINAL -e $FILE"
+
+# Calculator
+bindsym $mod+Shift+c		$exec "$TERMINAL -t FLOATTERM -e bc"
+
+# Bluetooth
+bindsym $mod+Shift+b		$exec "blueman-manager"
+
+# Display settings
+bindsym $mod+P 			$exec "arandr"
+
+# Show power menu
+bindsym $mod+F12 		$exec "powermenu"
+
+# Lock the screen
+bindsym $mod+x			$exec "lockscreen"
+
+# Show network manager
+bindsym $mod+Shift+N		$exec "networkmanager_dmenu"
+
+# Kill the compositor
+bindsym $mod+Shift+I 		$exec "killall picom"
+
+# Disable gaps, hide bar
+bindsym $mod+Shift+O		$exec "i3-msg bar mode hide; i3-msg gaps inner all set 0; i3-msg gaps outer all set 0"
+
+### STARTUP ###
+
+# Focus workspace 1
+$exec "i3-msg 'workspace 1'"
+
+# Start autotiling
+$execa "autotiling"
+
+# Set wallpaper
+$exec "setbg"
+
+# Start compositor
+$execa "picom"
+
+# Start notification daemon
+$execa "dunst"
+
+# Start power manager
+#$exec "xfce4-power-manager"
+
+# Set keyboard layout
+$exec "setxkbmap -layout hu"
+
+# Start automatic lockscreen
+$exec "xss-lock --transfer-sleep-lock -- ~/.scripts/lockscreen"
+
+# Start geoclue agent
+$exec "/usr/lib/geoclue-2.0/demos/agent"
+
+# Start unclutter
+$exec "unclutter"

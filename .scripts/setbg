@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Run 'setbg' on a file, the file will be copied to wall.png and set as wallpaper. If you pass it no arguments then it will just set the wallpaper.
+
+# Check if there are arguments
+[ -f "$1" ] && cp "$1" ~/.config/wall.png
+
+# Use feh to set the wallpaper
+feh --no-fehbg --bg-fill ~/.config/wall.png

@@ -1,0 +1,2 @@
+#!/bin/sh
+brightness=$(xbacklight -get | cut -d'.' -f 1); echo $brightness%

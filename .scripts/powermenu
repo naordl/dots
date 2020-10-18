@@ -1,0 +1,21 @@
+#!/bin/sh
+
+chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | rofi -dmenu -i -location 0 -lines 8 -width 13 -padding 0 -theme bmenu)
+
+if [[ $chosen = "Lock" ]]; then
+	sleep 1; lockscreen
+elif [[ $chosen = "Logout" ]]; then
+	bspc quit; i3-msg exit
+elif [[ $chosen = "Shutdown" ]]; then
+	systemctl poweroff
+elif [[ $chosen = "Reboot" ]]; then
+	systemctl reboot
+elif [[ $chosen = "Suspend" ]]; then
+	systemctl suspend
+elif [[ $chosen = "Hibernate" ]]; then
+	systemctl hibernate
+elif [[ $chosen = "Hybrid-sleep" ]]; then
+	systemctl hibernate
+elif [[ $chosen = "Suspend-then-hibernate" ]]; then
+	systemctl suspend-then-hibernate
+fi
