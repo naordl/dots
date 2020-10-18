@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # !!!DISCLAIMER!!!
-#acpi_call
 # THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
 
 # Install yay AUR helper
@@ -129,7 +128,7 @@ cd .dotfiles
 cp -r .config ~/.config
 cp -r .scripts ~/.scripts
 cp .bash_aliases .bash_profile .bashrc .xinitrc ~/
-sudo cp -r etc /etc 
+sudo cp -rf etc/* /etc/ 
 
 # CLONE WALLPAPERS REPO
 mkdir -p ~/Pictures/; cd ~/Pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
