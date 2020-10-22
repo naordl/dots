@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# idk how it works tbh
+free | awk '/Mem/{printf("%.0f%"), $3/($2+.000000001)*100} /buffers\/cache/{printf(", buffers: %.1f%"), $4/($3+$4)+.000000001*100}';
