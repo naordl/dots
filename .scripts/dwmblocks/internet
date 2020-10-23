@@ -1,8 +1,20 @@
 #!/bin/sh
 
-case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-	down) wifiicon=" DOWN" ;;
-	up) wifiicon="$(awk '/^\s*w/ { print "", int($3 * 100 / 70) "% " }' /proc/net/wireless)" ;;
-esac
+# Check to see if there's a wired connection
+CONNAME=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 
-printf "%s%s\n" "$wifiicon" "$(sed "s/down/ DOWN/;s/up//" /sys/class/net/e*/operstate 2>/dev/null)"
+# If there's not, check for wifi connection
+if [ "$CONNAME" = "" ]; then
+	CONNAME=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
+fi
+
+# If there's no connection, display explamation marks
+if [ "$CONNAME" = "" ]; then
+	CONNAME="  /  "
+fi
+
+# Check for private ip
+PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
+
+# Print the result
+printf "$CONNAME $PRIVATE"
