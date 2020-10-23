@@ -13,7 +13,7 @@ set $execa exec_always --no-startup-id
 set $mod Mod4
 
 # Font
-font pango:DejaVu Sans Mono Book 9
+font pango:DejaVu Sans 9
 
 # Use mouse+$mod to drag floating windows
 floating_modifier $mod
