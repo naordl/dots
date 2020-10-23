@@ -95,6 +95,8 @@ SOFTWARE="
 # MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
 	nm-connection-editor	
+	xdotool
+	xclip
 	exa
 	playerctl
 	acpi
@@ -105,7 +107,6 @@ DEPENDENCIES="
 	feh
 	unrar
 	unzip
-	acpi_call
 	"
 
 # SETUP FOR THE INSTALL COMMAND
