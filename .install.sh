@@ -100,6 +100,7 @@ DEPENDENCIES="
 	exa
 	playerctl
 	acpi
+	pamixer
 	alsa-utils
 	sysstat
 	gvfs
