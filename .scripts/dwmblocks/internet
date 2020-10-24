@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # Check to see if there's a wired connection
-CONNAME=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
+CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 
 # If there's not, check for wifi connection
-if [ "$CONNAME" = "" ]; then
-	CONNAME=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
+if [ "$CONNTYPE" = "" ]; then
+	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
 fi
 
-# If there's no connection, display explamation marks
-if [ "$CONNAME" = "" ]; then
+# If there's no internet connection, display exclamation marks
+if [ "$CONNTYPE" = "" ]; then
 	CONNAME="  /  "
 fi
 
@@ -17,4 +17,4 @@ fi
 PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
 
 # Print the result
-printf "$CONNAME $PRIVATE"
+printf "$CONNTYPE $PRIVATE"
