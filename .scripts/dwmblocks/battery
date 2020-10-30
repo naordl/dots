@@ -1,4 +1,12 @@
 #!/bin/sh
 
-# magic lol
-acpi | sed "s/Battery [0-9]: //;s/[Dd]ischarging, / /;s/[Nn]ot charging, / /;s/[Cc]harging, / /;s/[Uu]nknown, / /;s/[Ff]ull, / /;s/ \(remaining\|until charged\)//"; exit
+BATT=$(cat /sys/class/power_supply/BAT0/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+if [ "$STATUS" = "Charging" ]; then
+	ICON=""
+else
+	ICON=""
+fi
+
+printf "$ICON $BATT%%"
