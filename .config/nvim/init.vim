@@ -1,6 +1,11 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath=&runtimepath
-"source ~/.vimrc
+" Call on plugins (vim-plug)
+call plug#begin('~/local/share/nvim/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+" Load gruvbox colorscheme
+autocmd vimenter * colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'soft'
 
 " Recognize filetypes
 filetype plugin indent on
