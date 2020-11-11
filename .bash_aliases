@@ -45,3 +45,4 @@ alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
+alias mntfs="sudo mount -t ntfs"
