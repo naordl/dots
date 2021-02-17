@@ -6,6 +6,12 @@
 
 config_version: 2
 settings:
+  content.notifications:
+    https://www.youtube.com: false
+  statusbar.show:
+    global: always
+  tabs.show:
+    global: always
   url.default_page:
     global: about:blank
   url.start_pages:
