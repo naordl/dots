@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# !!!DISCLAIMER!!!
+# !!!ATTENTION!!!
 # THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
 
-# Install yay AUR helper
-sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si
+# Install the Paru AUR helper
+sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
 
 # ESSENTIALS
 xorg="xorg-server xorg-xinit"
@@ -34,7 +34,10 @@ ESSENTIALS="
 	"
 
 # WM
-i3="i3-gaps i3blocks i3lock autotiling-git xss-lock" # AUR PACKAGE
+# i3 =
+i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
+# DWM =
+mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
 
 WM="
 	$i3
@@ -53,9 +56,9 @@ AESTETHICS="
 
 # SOFTWARE
 terminal="alacritty"
-launcher="rofi"
+#launcher="rofi"
 notifications="dunst"
-browser="firefox"
+browser="brave-bin"
 compositor="picom"
 taskmanager="htop"
 networkmanager="networkmanager-dmenu-git"
@@ -63,7 +66,7 @@ audiomixer="pulsemixer"
 filemanager="ranger python-ueberzug-git" # AUR PACKAGE
 mediaplayer="mpv"
 displaysettings="arandr"
-redshift="redshift"
+nightlight="redshift"
 printscreen="maim"
 ssh="openssh" # systemctl enable sshd
 pdfviewer="zathura zathura-pdf-poppler"
@@ -83,7 +86,7 @@ SOFTWARE="
 	$filemanager
 	$mediaplayer
 	$displaysettings
-	$redshift
+	$nightlight
 	$printscreen
 	$ssh
 	$pdfviewer
@@ -94,6 +97,7 @@ SOFTWARE="
 
 # MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
+	xss-lock
 	nm-connection-editor	
 	xdotool
 	xclip
@@ -106,12 +110,20 @@ DEPENDENCIES="
 	gvfs
 	imagemagick
 	feh
-	unrar
+	rar
 	unzip
+	zip
+	rar
+	p7zip
+	bzip2
+	gzip
+	rsync
+	wmctrl
+	i3lock
 	"
 
 # SETUP FOR THE INSTALL COMMAND
-install="yay -Syu --noconfirm --needed
+install="paru -Syu --noconfirm --needed
 	$ESSENTIALS
 	$WM
 	$AESTETHICS
@@ -123,34 +135,36 @@ $install
 sleep 1
 
 # INSTALL DOTFILES
-cd /tmp
-git clone https://github.com/demo2k20/.dotfiles.git
-sleep 1
-cd .dotfiles
-cp -r .config ~/.config
-cp -r .scripts ~/.scripts
-cp .bash_aliases .bash_profile .bashrc .xinitrc ~/
-sudo cp -rf etc/* /etc/ 
+cd /tmp; sleep 1
+git clone https://github.com/demo2k20/.dotfiles.git; sleep 1
+cd .dotfiles; sleep 1
+cp -r .config ~/.config; sleep 1
+cp -r .scripts ~/.scripts; sleep 1
+cp .bash_aliases .bash_profile .bashrc .xinitrc ~/; sleep 1
+sudo cp -r etc/* /etc/; sleep 1
+sudo cp -r root/ /; sleep 1
+
+# INSTALL MANTIS THEME
+mkdir -p ~/Downloads; cd ~/Downloads; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; mkdir -p ~/.themes; cp -r Mantis/ Mantis\ Dusk/ Mantis\ Night/ ~/.themes; cd ..; rm -rf mantis-theme; sleep 1
 
 # CLONE WALLPAPERS REPO
-mkdir -p ~/Pictures/; cd ~/Pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
+mkdir -p ~/Pictures/; cd ~/Pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git; sleep 1
 
 # AFTERMATH CLEANUP
-chmod +x -R ~/.scripts
-chmod +x -R ~/.config/i3/i3blocks
-sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/
-sleep 2
-sudo chmod 644 /etc/systemd/system/disablenvidia.service
-sudo systemctl enable disablenvidia
-systemctl enable --user --now redshift
-sudo systemctl enable --now bluetooth
-sudo systemctl enable --now sshd
-sudo systemctl enable --now tlp
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo updatedb
-rm -f ~/.bash_history
-yay -Syu --noconfirm
-cd
-clear
-neofetch
+chmod +x -R ~/.scripts; sleep 1
+chmod +x -R ~/.config/i3/i3blocks; sleep 1
+sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/; sleep 1
+sudo chmod 644 /etc/systemd/system/disablenvidia.service; sleep 1
+sudo systemctl enable disablenvidia; sleep 1
+systemctl enable --user redshift; sleep 1
+sudo systemctl enable bluetooth; sleep 1
+sudo systemctl enable sshd; sleep 1
+sudo systemctl enable tlp; sleep 1
+sudo grub-mkconfig -o /boot/grub/grub.cfg; sleep 1
+sudo updatedb; sleep 1
+paru -Syu --noconfirm; sleep 1
+rm -f ~/.bash_history; sleep 1
+cd; sleep 1
+clear; sleep 1
+neofetch; sleep 1
 echo " Dotfiles installation finished. Reboot for changes to take effect."

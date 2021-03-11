@@ -1,12 +1,3 @@
-" Call on plugins (vim-plug)
-call plug#begin('~/local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
-call plug#end()
-
-" Load gruvbox colorscheme
-autocmd vimenter * colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'soft'
-
 " Recognize filetypes
 filetype plugin indent on
 
@@ -31,7 +22,7 @@ highlight CursorLine guibg=#303000 ctermbg=234
 set cursorcolumn
 highlight CursorColumn guibg=#303000 ctermbg=234
 
-" Enable trailing whitespace on save
+" Enable the deletion of trailing whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e
 
 " Disable auto commenting
@@ -43,6 +34,9 @@ set smartcase
 
 " Enable autocompletion
 set wildmode=longest,list,full
+
+" Set .viminfo location
+set viminfo="~/.config/vim/viminfo"
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
