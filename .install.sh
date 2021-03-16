@@ -138,8 +138,8 @@ sleep 1
 cd /tmp; sleep 1
 git clone https://github.com/demo2k20/.dotfiles.git; sleep 1
 cd .dotfiles; sleep 1
-cp -r .config ~/.config; sleep 1
-cp -r .scripts ~/.scripts; sleep 1
+cp -r .config/ ~/; sleep 1
+cp -r .scripts/ ~/; sleep 1
 cp .bash_aliases .bash_profile .bashrc .xinitrc ~/; sleep 1
 sudo cp -r etc/* /etc/; sleep 1
 sudo cp -r root/ /; sleep 1
