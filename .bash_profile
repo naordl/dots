@@ -30,5 +30,5 @@ export PF_COL1="3"
 export PF_COL2="7"
 export PF_COL3="3"
 
-# Start graphical server on tty1
+# Start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
