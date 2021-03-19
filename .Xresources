@@ -1,0 +1,12 @@
+! Bar Background
+dwm.normbgcolor: #222222
+! Inactive Border
+dwm.normbordercolor: #444444
+! Inactive Text
+dwm.normfgcolor: #bbbbbb
+! Active Text
+dwm.selfgcolor: #eeeeee
+! Active Border
+dwm.selbordercolor: #005577
+! Bar Window Title Background Color
+dwm.selbgcolor: #005577
