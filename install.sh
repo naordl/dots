@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# !!!ATTENTION!!!
 # THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
 
 # Install the Paru AUR helper
@@ -113,7 +112,6 @@ DEPENDENCIES="
 	rar
 	unzip
 	zip
-	rar
 	p7zip
 	bzip2
 	gzip
