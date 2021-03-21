@@ -2,75 +2,93 @@
 # wm independent hotkeys
 #
 
-# launch a terminal
+# terminal
 super + Return
 	$TERMINAL
 
+# floating terminal
+super + shift + Return
+	$TERMINAL --class floatterm
+
 # program launcher
 super + d
-	rofi -show run -show-icons -lines 8
+	dmenu_run
 
-# pulse Audio controls
-XF86AudioRaiseVolume 
-	pactl set-sink-volume 0 +5% #increase sound volume
+# pulseaudio controls
+XF86AudioRaiseVolume
+        pactl set-sink-volume 0 +5% #increase volume
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5% #decrease sound volume
-XF86AudioMute 
-	pactl set-sink-mute 0 toggle # mute sound
+        pactl set-sink-volume 0 -5% #decrease volume
+XF86AudioMute
+        pactl set-sink-mute 0 toggle # mute
 
 # screen brightness controls
 XF86MonBrightnessUp
-	sudo xbacklight -inc 10; brightness=$(xbacklight -get); notify-send --hint=string:x-dunst-stack-tag:brightness " $brightness%"
+        sudo xbacklight -inc 5"
 XF86MonBrightnessDown
-	sudo xbacklight -dec 10; brightness=$(xbacklight -get); notify-send --hint=string:x-dunst-stack-tag:brightness " $brightness%"
+        sudo xbacklight -dec 5
+
+# media controls
+XF86AudioPlay
+ 	playerctl play
+XF86AudioPause
+	playerctl pause
+XF86XK_AudioNext
+	playerctl next
+XF86XK_AudioPrev
+	playerctl previous
 
 # print screen
 Print
-	maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
+        maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
 
 # snip screen
 shift + Print
-	maim -s -o /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+        maim -s -o /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
-# volume mixer
+# snip active window
+control + Print
+	maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+
+# networkmanager
+super + shift + n
+	networkmanager_dmenu
+
+# bluetooth manager
+super + shift + b
+	$TERMINAL -e bluetoothctl
+
+# pulseaudio mixer
 super + shift + p
-	$TERMINAL -e pulsemixer
+        $TERMINAL -e pulsemixer
 
-# task manager
+# htop
 super + shift + Escape
-	$TERMINAL -e htop
+        $TERMINAL -e htop
 
 # browser
 super + w
-	$BROWSER
+        $BROWSER
 
-# file manager
+# lf file manager
 super + r
-	bspc desktop -f ^3; $TERMINAL -e $FILE
+	$TERMINAL -e $FILE
 
 # display settings
 super + p
-	arandr
+        arandr
 
-# show power menu
+# power menu
 super + F12
-	~/.scripts/powermenu
-
-# restart compton
-super + shift + i
-	killall compton; sleep 1; compton --config ~/.config/compton/compton.conf
-
-# restart polybar
-super + shift + u
-	killall polybar; sleep 2; ~/.scripts/polybarstart
-
-# disable gaps, padding and polybar
-super + o
-	polybar-msg cmd hide; bspc config top_padding 0; bspc config bottom_padding 0; bspc config window_gap 0; bspc config border_width 0
+        powermenu
 
 # toggle touchpad
 super + End
-	~/.scripts/toggletouchpad
+	toggletouchpad
+
+# lockscreen
+super + x
+	lockscreen
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -80,7 +98,6 @@ super + Escape
 # bspwm hotkeys
 #
 
-
 # restart bspwm
 super + shift + r
 	bspc wm -r
@@ -89,9 +106,17 @@ super + shift + r
 super + shift + q
 	bspc node -c
 
+# alternate between the tiled and monocle layout
+# super + m
+# 	bspc desktop -l next
+
 # send the newest marked node to the newest preselected node
- super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# super + y
+# 	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+# super + g
+#	bspc node -s biggest.window
 
 #
 # state/flags
@@ -102,8 +127,8 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# super + ctrl + {m,x,y,z}
+#	bspc node -g {marked,locked,sticky,private}
 
 #
 # focus/swap
@@ -113,33 +138,51 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the last monitor
-super + Tab
-	bspc monitor -f next
+# focus the node for the given path jump
+# super + {p,b,comma,period}
+#	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+#super + bracket{left,right}
+#	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+# super + {o,i}
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} focused:'^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
 # preselect
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+# super + ctrl + {h,j,k,l}
+#	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# super + ctrl + {1-9}
+#	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+# super + ctrl + space
+#	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+# super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
@@ -147,7 +190,7 @@ super + ctrl + shift + space
 
 # resize windows
 super + alt + {h,j,k,l}
-	$SHELL ~/.config/sxhkd/resize {x -, y +, y -, x +}
+	$SHELL $HOME/.config/sxhkd/resize.sh {x -, y +, y -, x +}
 
 # move a floating window
 super + {Left,Down,Up,Right}

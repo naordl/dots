@@ -35,9 +35,6 @@ set smartcase
 " Enable autocompletion
 set wildmode=longest,list,full
 
-" Set .viminfo location
-set viminfo="~/.config/vim/viminfo"
-
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 " Update binds when sxhkdrc is updated.

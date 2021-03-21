@@ -118,6 +118,7 @@ DEPENDENCIES="
 	rsync
 	wmctrl
 	i3lock
+	libnotify
 	"
 
 # SETUP FOR THE INSTALL COMMAND
