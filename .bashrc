@@ -13,10 +13,9 @@ bind 'set completion-ignore-case on'
 
 # Prompt
 # Custom blue
-#PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]X\[\033[01;34m\] \")$\[\033[00m\] "
-
-# Gruvbox
-export PS1="\[$(tput bold)\]\[\033[38;5;148m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;220m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]X\[\033[01;34m\] \")$\[\033[00m\] "
 
 # Import aliases
 source ~/.bash_aliases
+
+pfetch

@@ -1,3 +1,7 @@
+call plug#begin()
+Plug 'ap/vim-css-color'
+call plug#end()
+
 " Recognize filetypes
 filetype plugin indent on
 
@@ -12,15 +16,15 @@ filetype plugin indent on
 " set clipboard+=unnamedplus
 
 " Enable cursor line
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#303000 ctermbg=234
-
-" Enable cursor column
-set cursorcolumn
-highlight CursorColumn guibg=#303000 ctermbg=234
+" set cursorline
+" hi cursorline cterm=none term=none
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
+" highlight CursorLine guibg=#303000 ctermbg=234
+" 
+" " Enable cursor column
+" set cursorcolumn
+" highlight CursorColumn guibg=#303000 ctermbg=234
 
 " Enable the deletion of trailing whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e

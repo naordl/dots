@@ -6,4 +6,4 @@
 [ -f "$1" ] && cp "$1" ~/.config/wall.png
 
 # Use feh to set the wallpaper
-feh --no-fehbg --bg-fill ~/.config/wall.png
+xwallpaper --zoom ~/.config/wall.png

@@ -6,10 +6,10 @@
 
 # Set default programs
 export EDITOR="nvim"
-export TERMINAL="st"
-export BROWSER="brave"
+export TERMINAL="alacritty"
+export BROWSER="qutebrowser"
 export READER="zathura"
-export FILE="ranger"
+export FILE="lf"
 
 # Add ~/.scripts to $PATH
 PATH=$PATH$( find $HOME/.scripts/ -type d -printf ":%p" )
@@ -26,8 +26,8 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 # Pfetch environment variables
 export PF_INFO="ascii os host kernel wm uptime pkgs memory"
 export PF_ASCII="artix"
-export PF_COL1="3"
-export PF_COL2="7"
+export PF_COL1="4"
+export PF_COL2="8"
 export PF_COL3="3"
 
 # Start graphical server on tty1 on login

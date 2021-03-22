@@ -55,9 +55,9 @@ AESTETHICS="
 
 # SOFTWARE
 terminal="alacritty"
-#launcher="rofi"
+launcher="dmenu"
 notifications="dunst"
-browser="brave-bin"
+browser="qutebrowser"
 compositor="picom"
 taskmanager="htop"
 networkmanager="networkmanager-dmenu-git"
@@ -71,7 +71,7 @@ ssh="openssh" # systemctl enable sshd
 pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
-sysinfo="neofetch"
+sysinfo="pfetch"
 
 SOFTWARE="
 	$terminal
@@ -108,7 +108,7 @@ DEPENDENCIES="
 	sysstat
 	gvfs
 	imagemagick
-	feh
+	xwallpaper
 	rar
 	unzip
 	zip
@@ -119,6 +119,8 @@ DEPENDENCIES="
 	wmctrl
 	i3lock
 	libnotify
+	youtube-dl
+	xdg-user-dirs
 	"
 
 # SETUP FOR THE INSTALL COMMAND
@@ -164,6 +166,7 @@ sudo updatedb; sleep 1
 paru -Syu --noconfirm; sleep 1
 rm -f ~/.bash_history; sleep 1
 cd; sleep 1
+xdg-user-dirs-update; sleep 1
 clear; sleep 1
-neofetch; sleep 1
+pfetch; sleep 1
 echo " Dotfiles installation finished. Reboot for changes to take effect."
