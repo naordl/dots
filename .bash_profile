@@ -34,4 +34,4 @@ export PF_COL2="8"
 export PF_COL3="3"
 
 # Start graphical server on tty1 on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc; fi
