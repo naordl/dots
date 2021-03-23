@@ -136,20 +136,18 @@ $install
 sleep 1
 
 # INSTALL DOTFILES
-cd /tmp; sleep 1
-git clone https://github.com/demo2k20/.dotfiles.git; sleep 1
-cd .dotfiles; sleep 1
+cd ~/.dotfiles; sleep 1
 cp -r .config/ ~/; sleep 1
 cp -r .scripts/ ~/; sleep 1
-cp .bash_aliases .bash_profile .bashrc .xinitrc ~/; sleep 1
+cp .bash_aliases .bash_profile .bashrc ~/; sleep 1
 sudo cp -r etc/* /etc/; sleep 1
 sudo cp -r root/ /; sleep 1
 
 # INSTALL MANTIS THEME
-mkdir -p ~/Downloads; cd ~/Downloads; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; mkdir -p ~/.themes; cp -r Mantis/ Mantis\ Dusk/ Mantis\ Night/ ~/.themes; cd ..; rm -rf mantis-theme; sleep 1
+cd /tmp; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; sudo cp -r Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes; cd ..; sleep 1
 
 # CLONE WALLPAPERS REPO
-mkdir -p ~/Pictures/; cd ~/Pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git; sleep 1
+mkdir -p ~/pictures; git clone https://github.com/DiscoBiscuit99/wallpapers.git; sleep 1
 
 # AFTERMATH CLEANUP
 chmod +x -R ~/.scripts; sleep 1
