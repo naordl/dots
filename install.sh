@@ -164,8 +164,13 @@ sudo systemctl enable tlp; sleep 1
 sudo grub-mkconfig -o /boot/grub/grub.cfg; sleep 1
 sudo updatedb; sleep 1
 paru -Syu --noconfirm; sleep 1
+bash; sleep 1
 rm -f ~/.bash_history; sleep 1
 rm -f ~/.bash_logout; sleep 1
+rm -f ~/.pki/; sleep 1
+rm -f ~/.icons/; sleep 1
+rm -f ~/.Xauthority; sleep 1
+
 cd; sleep 1
 xdg-user-dirs-update; sleep 1
 clear; sleep 1
