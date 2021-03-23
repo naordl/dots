@@ -37,7 +37,7 @@ ESSENTIALS="
 i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
 
 # bspwm =
-bspwm="bspwm bsp-layout"
+bspwm="bspwm bsp-layout xorg-xsetroot" # AUR PACKAGE
 
 # DWM =
 #mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
@@ -69,7 +69,7 @@ networkmanager="networkmanager-dmenu-git"
 audiomixer="pulsemixer"
 filemanager="ranger python-ueberzug-git" # AUR PACKAGE
 mediaplayer="mpv"
-displaysettings="arandr"
+displaysettings="xorg-xrandr arandr"
 nightlight="redshift"
 printscreen="maim"
 ssh="openssh" # systemctl enable sshd
@@ -125,7 +125,8 @@ DEPENDENCIES="
 	i3lock
 	libnotify
 	youtube-dl
-	xdg-user-dirs
+	xdg-user-dir
+	xorg-xrdb
 	"
 
 # SETUP FOR THE INSTALL COMMAND
@@ -138,44 +139,41 @@ install="paru -Syu --noconfirm --needed
 	"
 # RUN THE INSTALL COMMAND
 $install
-sleep 1
 
-# INSTALL DOTFILES
-cd ~/.dotfiles; sleep 1
-cp -r .config/ ~/; sleep 1
-cp -r .local/ ~/; sleep 1
-cp .bash_aliases .bash_profile .bashrc ~/; sleep 1
-sudo cp -r etc/* /etc/; sleep 1
-sudo cp -r root/ /; sleep 1
+# DEPLOY DOTFILES
+cd ~/.dotfiles
+cp -rv .config/ ~/
+cp -rv .local/ ~/
+cp -rv .bash_aliases .bash_profile .bashrc ~/
+sudo cp -rv etc/* /etc/
+sudo cp -rv root/ /
 
 # INSTALL MANTIS THEME
-cd /tmp; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; sudo cp -r Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes; cd ..; sleep 1
+cd /tmp; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
 
 # CLONE WALLPAPERS REPO
-mkdir -p ~/pictures; git clone https://github.com/DiscoBiscuit99/wallpapers.git; sleep 1
+mkdir -pv ~/pictures; cd ~/pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
 
-# AFTERMATH CLEANUP
-chmod +x -R ~/.local/bin; sleep 1
-chmod +x -R ~/.config/i3/i3blocks; sleep 1
-sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/; sleep 1
-sudo chmod 644 /etc/systemd/system/disablenvidia.service; sleep 1
-sudo systemctl enable disablenvidia; sleep 1
-systemctl enable --user redshift; sleep 1
-sudo systemctl enable bluetooth; sleep 1
-sudo systemctl enable sshd; sleep 1
-sudo systemctl enable tlp; sleep 1
-sudo grub-mkconfig -o /boot/grub/grub.cfg; sleep 1
-sudo updatedb; sleep 1
-paru -Syu --noconfirm; sleep 1
-bash; sleep 1
-rm -f ~/.bash_history; sleep 1
-rm -f ~/.bash_logout; sleep 1
-rm -f ~/.pki/; sleep 1
-rm -f ~/.icons/; sleep 1
-rm -f ~/.Xauthority; sleep 1
-
-cd; sleep 1
-xdg-user-dirs-update; sleep 1
-clear; sleep 1
-pfetch; sleep 1
-echo " Dotfiles installation finished. Reboot for changes to take effect."
+# CLEANUP
+cd
+chmod +x -R ~/.local/bin/
+chmod +x -R ~/.config/i3/i3blocks/
+sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/
+sudo chmod 644 /etc/systemd/system/disablenvidia.service
+sudo systemctl enable disablenvidia
+sudo systemctl enable bluetooth
+sudo systemctl enable sshd
+sudo systemctl enable tlp
+systemctl enable --user redshift
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo updatedb
+paru -Syu --noconfirm
+rm -rfv ~/.bash_history
+rm -rfv ~/.bash_logout
+rm -rfv ~/.pki/
+rm -rfv ~/.icons/
+rm -rfv ~/.Xauthority
+xdg-user-dirs-update
+clear
+pfetch
+echo "Successfully finished deploying dotfiles. Reboot for the changes to take effect."
