@@ -35,11 +35,16 @@ ESSENTIALS="
 # WM
 # i3 =
 i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
+
+# bspwm =
+bspwm="bspwm bsp-layout"
+
 # DWM =
-mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
+#mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
 
 WM="
 	$i3
+	$bspwm
 	"
 
 # AESTETHICS
