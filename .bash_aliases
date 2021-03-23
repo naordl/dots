@@ -24,6 +24,9 @@ echo "'$1' is not a valid file!"
 fi
 }
 
+# startx
+alias startx="startx ~.config/X11/xinitrc"
+
 # shortcuts
 alias ls='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
