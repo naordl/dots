@@ -1,0 +1,5 @@
+#!/bin/sh
+
+maim /tmp/screen.png
+convert /tmp/screen.png -blur 0x6 /tmp/screen.png
+i3lock -e -f -c 000000 -i /tmp/screen.png

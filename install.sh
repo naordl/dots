@@ -138,7 +138,7 @@ sleep 1
 # INSTALL DOTFILES
 cd ~/.dotfiles; sleep 1
 cp -r .config/ ~/; sleep 1
-cp -r .scripts/ ~/; sleep 1
+cp -r .local/ ~/; sleep 1
 cp .bash_aliases .bash_profile .bashrc ~/; sleep 1
 sudo cp -r etc/* /etc/; sleep 1
 sudo cp -r root/ /; sleep 1
@@ -150,7 +150,7 @@ cd /tmp; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-them
 mkdir -p ~/pictures; git clone https://github.com/DiscoBiscuit99/wallpapers.git; sleep 1
 
 # AFTERMATH CLEANUP
-chmod +x -R ~/.scripts; sleep 1
+chmod +x -R ~/.local/bin; sleep 1
 chmod +x -R ~/.config/i3/i3blocks; sleep 1
 sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/; sleep 1
 sudo chmod 644 /etc/systemd/system/disablenvidia.service; sleep 1

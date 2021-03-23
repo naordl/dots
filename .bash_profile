@@ -12,7 +12,7 @@ export READER="zathura"
 export FILE="lf"
 
 # Add ~/.scripts to $PATH
-PATH=$PATH$( find $HOME/.scripts/ -type d -printf ":%p" )
+PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"

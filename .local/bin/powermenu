@@ -1,6 +1,6 @@
 #!/bin/sh
 
-chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | dmenu -p Powermenu: )
+chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | dmenu -p Choose wisely: )
 
 if [[ $chosen = "Lock" ]]; then
 	sleep 1; lockscreen
