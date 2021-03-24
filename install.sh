@@ -175,13 +175,15 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+xdg-user-dirs-update
+source ~/.bash_profile
+$SHELL
 rm -rfv ~/.cache/*
 rm -rfv ~/.bash_history
 rm -rfv ~/.bash_logout
 rm -rfv ~/.pki/
 rm -rfv ~/.icons/
 rm -rfv ~/.Xauthority
-xdg-user-dirs-update
 clear
 pfetch
 echo "Successfully finished deploying dotfiles. Reboot for the changes to take effect."
