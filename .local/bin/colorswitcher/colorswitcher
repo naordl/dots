@@ -1,0 +1,20 @@
+#!/bin/sh
+# dependencies: dmenu, my dotfiles
+
+alacrittydir="$HOME/.config/alacritty"
+xresourcesdir="$HOME/.config/X11"
+colordir="$HOME/.local/bin/colorswitcher/colors"
+choice="$(printf 'Solarized Light\nSolarized Dark' | dmenu)"
+
+if [ "$choice" == "Solarized Light" ]; then
+	cat $alacrittydir/base.yml $colordir/solarized_light/solarized_light.yml > $alacrittydir/alacritty.yml
+	cat $colordir/solarized_light/solarized_light.x > $xresourcesdir/Xresources
+	bspc wm -r
+elif [ "$choice" == "Solarized Dark" ]; then
+	cat $alacrittydir/base.yml $colordir/solarized_dark/solarized_dark.yml > $alacrittydir/alacritty.yml
+	cat $colordir/solarized_dark/solarized_dark.x > $xresourcesdir/Xresources
+	bspc wm -r
+else
+	exit
+fi
+

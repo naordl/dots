@@ -12,7 +12,11 @@ super + shift + Return
 
 # program launcher
 super + d
-	dmenu_run
+	dmenu_run -p "Run: "
+
+# color switcher
+super + o
+	colorswitcher
 
 # pulseaudio controls
 XF86AudioRaiseVolume

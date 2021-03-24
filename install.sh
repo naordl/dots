@@ -37,7 +37,7 @@ ESSENTIALS="
 i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
 
 # bspwm =
-bspwm="bspwm bsp-layout xorg-xsetroot" # AUR PACKAGE
+bspwm="bspwm bsp-layout xorg-xsetroot polybar" # AUR PACKAGE
 
 # DWM =
 #mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
@@ -77,6 +77,7 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 sysinfo="pfetch"
+manuals="man-db man-pages"
 
 SOFTWARE="
 	$terminal
@@ -97,6 +98,7 @@ SOFTWARE="
 	$unclutter
 	$locate
 	$sysinfo
+	$manuals
 	"
 
 # MY SCRIPT DEPENDENCIES
@@ -127,6 +129,7 @@ DEPENDENCIES="
 	youtube-dl
 	xdg-user-dir
 	xorg-xrdb
+	reflector
 	"
 
 # SETUP FOR THE INSTALL COMMAND
@@ -141,7 +144,7 @@ install="paru -Syu --noconfirm --needed
 $install
 
 # DEPLOY DOTFILES
-cd ~/.dotfiles
+cd ~/.dotfiles/
 cp -rv .config/ ~/
 cp -rv .local/ ~/
 cp -rv .bash_aliases .bash_profile .bashrc ~/
@@ -167,7 +170,12 @@ sudo systemctl enable tlp
 systemctl enable --user redshift
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo updatedb
+sudo pacman -Rns i3-wm --noconfirm
 paru -Syu --noconfirm
+paru -Scc --noconfirm
+paru -Rns $(paru -Qtdq) --noconfirm
+sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+rm -rfv ~/.cache/*
 rm -rfv ~/.bash_history
 rm -rfv ~/.bash_logout
 rm -rfv ~/.pki/

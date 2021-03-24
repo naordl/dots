@@ -1,9 +1,10 @@
-! Solarized Light
+! Solarized Dark
 ! special
-*.foreground:   #586e75
-*.background:   #fdf6e3
-*.cursorColor:  #586e75
-*.selbackground: #268bd2
+*.foreground:   #93a1a1
+*.background:   #002b36
+*.cursorColor:  #93a1a1
+*.selbackground: #657b83
+
 
 ! black
 *.color0:       #002b36
@@ -34,5 +35,5 @@
 *.color14:      #2aa198
 
 ! white
-*.color7:       #a8b3b3
+*.color7:       #4e4e4e
 *.color15:      #fdf6e3
