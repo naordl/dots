@@ -3,9 +3,9 @@
 chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | dmenu -i -p "Choose wisely: ")
 
 if [[ $chosen = "Lock" ]]; then
-	sleep 1; lockscreen
+	lockscreen
 elif [[ $chosen = "Logout" ]]; then
-	bspc quit; i3-msg exit || killall xinit
+	bspc quit || i3-msg exit
 elif [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then
