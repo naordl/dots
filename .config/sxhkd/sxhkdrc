@@ -18,6 +18,10 @@ super + d
 super + o
 	colorswitcher
 
+# ranger file manager
+super + r
+	$TERMINAL -e $FILE
+
 # pulseaudio controls
 XF86AudioRaiseVolume
         pactl set-sink-volume 0 +5% #increase volume

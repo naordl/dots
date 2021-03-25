@@ -4,7 +4,7 @@
 alacrittydir="$HOME/.config/alacritty"
 xresourcesdir="$HOME/.config/X11"
 colordir="$HOME/.local/bin/colorswitcher/colors"
-choice="$(printf 'Solarized Light\nSolarized Dark' | dmenu)"
+choice="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark' | dmenu)"
 
 if [ "$choice" == "Solarized Light" ]; then
 	cat $alacrittydir/base.yml $colordir/solarized_light/solarized_light.yml > $alacrittydir/alacritty.yml
@@ -14,7 +14,10 @@ elif [ "$choice" == "Solarized Dark" ]; then
 	cat $alacrittydir/base.yml $colordir/solarized_dark/solarized_dark.yml > $alacrittydir/alacritty.yml
 	cat $colordir/solarized_dark/solarized_dark.x > $xresourcesdir/Xresources
 	bspc wm -r
+elif [ "$choice" == "Gruvbox Dark" ]; then
+	cat $alacrittydir/base.yml $colordir/gruvbox_dark/gruvbox_dark.yml > $alacrittydir/alacritty.yml
+	cat $colordir/gruvbox_dark/gruvbox_dark.x > $xresourcesdir/Xresources
+	bspc wm -r
 else
 	exit
 fi
-

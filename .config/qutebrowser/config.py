@@ -339,7 +339,7 @@ c.colors.completion.category.fg = xresources["*.foreground"]
 c.colors.completion.item.selected.bg = xresources["*.background"]
 c.colors.completion.item.selected.fg = xresources["*.foreground"]
 
-# If not in light theme
+# If not in Solarized Light theme
 if xresources["*.background"] != "#fdf6e3":
     # c.qt.args = ['blink-settings=darkMode=4']
     # c.colors.webpage.prefers_color_scheme_dark = True

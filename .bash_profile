@@ -9,7 +9,7 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="qutebrowser"
 export READER="zathura"
-export FILE="lf"
+export FILE="ranger"
 
 # Add ~/.scripts to $PATH
 PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )

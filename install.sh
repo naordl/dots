@@ -60,14 +60,14 @@ AESTETHICS="
 
 # SOFTWARE
 terminal="alacritty"
-launcher="dmenu"
+#launcher="" # CLONE PERSONAL DMENU BUILD
 notifications="dunst"
 browser="qutebrowser"
 compositor="picom"
 taskmanager="htop"
 networkmanager="networkmanager-dmenu-git"
 audiomixer="pulsemixer"
-filemanager="ranger python-ueberzug-git" # AUR PACKAGE
+filemanager="ranger ueberzug"
 mediaplayer="mpv"
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift"
@@ -113,7 +113,6 @@ DEPENDENCIES="
 	pamixer
 	alsa-utils
 	sysstat
-	gvfs
 	imagemagick
 	xwallpaper
 	rar
@@ -151,11 +150,14 @@ cp -rv .bash_aliases .bash_profile .bashrc ~/
 sudo cp -rv etc/* /etc/
 sudo cp -rv root/ /
 
-# INSTALL MANTIS THEME
-cd /tmp; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
+# CLONE MANTIS THEME
+cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
 
 # CLONE WALLPAPERS REPO
 mkdir -pv ~/pictures; cd ~/pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
+
+# CLONE PERSONAL DMENU BUILD
+cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo make clean install
 
 # CLEANUP
 cd
