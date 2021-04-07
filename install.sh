@@ -69,6 +69,7 @@ networkmanager="networkmanager-dmenu-git"
 audiomixer="pulsemixer"
 filemanager="ranger ueberzug"
 mediaplayer="mpv"
+imageviewer="sxiv"
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift"
 printscreen="maim"
@@ -90,6 +91,7 @@ SOFTWARE="
 	$audiomixer
 	$filemanager
 	$mediaplayer
+	$imageviewer
 	$displaysettings
 	$nightlight
 	$printscreen
