@@ -129,6 +129,11 @@ DEPENDENCIES="
 	xdg-user-dirs
 	xorg-xrdb
 	reflector
+	ffmpegthumbnailer
+	poppler
+	atool
+	highlight
+	mediainfo
 	"
 
 # SETUP FOR THE INSTALL COMMAND

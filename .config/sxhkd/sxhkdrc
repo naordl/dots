@@ -32,7 +32,7 @@ XF86AudioMute
 
 # screen brightness controls
 XF86MonBrightnessUp
-        sudo xbacklight -inc 5"
+        sudo xbacklight -inc 5
 XF86MonBrightnessDown
         sudo xbacklight -dec 5
 
