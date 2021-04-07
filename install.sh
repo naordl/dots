@@ -126,7 +126,7 @@ DEPENDENCIES="
 	i3lock
 	libnotify
 	youtube-dl
-	xdg-user-dir
+	xdg-user-dirs
 	xorg-xrdb
 	reflector
 	"
@@ -177,6 +177,7 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+mkdir documents downloads music pictures videos
 xdg-user-dirs-update
 source ~/.bash_profile
 $SHELL

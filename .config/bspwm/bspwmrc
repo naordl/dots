@@ -1,6 +1,7 @@
 #! /bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+xrandr --output eDP1 --mode 1366x768 --pos 0x312 --output DP1 --primary --mode 1920x1080 --pos 1366x0
 xrdb ~/.config/X11/Xresources
 setbg &
 $HOME/.config/polybar/launch.sh
@@ -10,7 +11,9 @@ setxkbmap hu &
 dunst &
 unclutter &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor DP1 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -f primary
 
 bspc config border_width                  2
 bspc config window_gap                    16

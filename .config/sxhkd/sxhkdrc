@@ -159,8 +159,12 @@ super + {_,shift + }c
 #	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+#super + {grave,Tab}
+#	bspc {node,desktop} -f last
+
+# focus the last monitor
+super + Tab
+	bspc monitor -f next
 
 # focus the older or newer node in the focus history
 # super + {o,i}
@@ -168,9 +172,14 @@ super + {grave,Tab}
 #	bspc node {older,newer} -f; \
 #	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# focus or send to given desktop
+super + {1-9}
+	D={1-9}; \
+	bspc desktop -f "$(bspc query -D -m | sed -n "$D p")"
+
+super + shift + {1-9}
+	D={1-9}; \
+	bspc node -d "$(bspc query -D -m | sed -n "$D p")"
 
 #
 # preselect
