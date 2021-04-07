@@ -134,6 +134,9 @@ DEPENDENCIES="
 	atool
 	highlight
 	mediainfo
+	dash
+	checkbashisms
+	dashbinsh
 	"
 
 # SETUP FOR THE INSTALL COMMAND
@@ -155,6 +158,10 @@ cp -rv .bash_aliases .bash_profile .bashrc ~/
 sudo cp -rv etc/* /etc/
 sudo cp -rv root/ /
 
+# INSTALL VIMPLUG
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # CLONE MANTIS THEME
 cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
 
@@ -166,6 +173,7 @@ cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo m
 
 # CLEANUP
 cd
+sudo ln -sfT dash /usr/bin/sh
 chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
 sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | dmenu -i -p "Choose wisely: ")
 

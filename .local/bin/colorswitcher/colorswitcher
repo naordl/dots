@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # dependencies: dmenu, my dotfiles
 
 alacrittydir="$HOME/.config/alacritty"

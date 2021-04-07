@@ -78,7 +78,7 @@ super + shift + Escape
 super + w
         $BROWSER
 
-# lf file manager
+# file manager
 super + r
 	$TERMINAL -e $FILE
 
@@ -162,7 +162,7 @@ super + {_,shift + }c
 #super + {grave,Tab}
 #	bspc {node,desktop} -f last
 
-# focus the last monitor
+# focus the next monitor
 super + Tab
 	bspc monitor -f next
 
