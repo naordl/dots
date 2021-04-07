@@ -30,7 +30,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Liberation Mono
+    family: Fira Code
   size: 11
 
   # Offset is the extra space around each character

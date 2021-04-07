@@ -16,7 +16,7 @@ bluetooth="bluez bluez-utils blueman bcm43142a0-firmware" # AUR PACKAGE # sudo s
 raidcard="aic94xx-firmware" # AUR PACKAGE
 westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
-fonts="ttf-liberation ttf-dejavu"
+fonts="ttf-fira-code ttf-dejavu"
 
 ESSENTIALS=" 
 	$xorg
