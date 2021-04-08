@@ -50,7 +50,7 @@ WM="
 # AESTETHICS
 iconfonts="ttf-font-awesome"
 icontheme="papirus-icon-theme" # AUR PACKAGE
-gtktheme="lxappearance" # GITHUB REPO MANTIS NIGHT
+gtktheme="breeze lxappearance" # GITHUB REPO MANTIS NIGHT
 
 AESTETHICS="
 	$iconfonts
