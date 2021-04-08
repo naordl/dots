@@ -1,6 +1,17 @@
 call plug#begin()
 Plug 'ap/vim-css-color'
+Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_default_coefficient = 0.7
+let g:limelight_paragraph_span = 1
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+let g:limelight_priority = -1
 
 " Recognize filetypes
 filetype plugin indent on

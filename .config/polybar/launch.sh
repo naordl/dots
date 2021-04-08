@@ -8,4 +8,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bars
 polybar top -r &
-polybar top2 -r &
+#polybar top2 -r &

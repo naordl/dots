@@ -72,6 +72,8 @@ wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+enable-ipc = true
+
 [bar/top2]
 monitor = DP1
 width = 100%
@@ -116,6 +118,8 @@ wm-restack = bspwm
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+enable-ipc = true
 
 [module/xwindow]
 type = internal/xwindow

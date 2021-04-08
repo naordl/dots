@@ -94,6 +94,10 @@ super + F12
 super + End
 	toggletouchpad
 
+# toggle polybar
+super + shift + i
+	bspc config top_padding 0; polybar-msg cmd toggle
+
 # lockscreen
 super + x
 	lockscreen
