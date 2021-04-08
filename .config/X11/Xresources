@@ -1,29 +1,38 @@
-*.selbackground: #928374
-! hard contrast: *.background: #1d2021
-*.background: #282828
-! soft contrast: *.background: #32302f
-*.foreground: #ebdbb2
-! Black + DarkGrey
-*.color0:  #282828
-*.color8:  #928374
-! DarkRed + Red
-*.color1:  #cc241d
-*.color9:  #fb4934
-! DarkGreen + Green
-*.color2:  #98971a
-*.color10: #b8bb26
-! DarkYellow + Yellow
-*.color3:  #d79921
-*.color11: #fabd2f
-! DarkBlue + Blue
-*.color4:  #458588
-*.color12: #83a598
-! DarkMagenta + Magenta
-*.color5:  #b16286
-*.color13: #d3869b
-! DarkCyan + Cyan
-*.color6:  #689d6a
-*.color14: #8ec07c
-! LightGrey + White
-*.color7:  #a89984
-*.color15: #ebdbb2
+! Solarized Light
+! special
+*.foreground:   #586e75
+*.background:   #fdf6e3
+*.cursorColor:  #586e75
+*.selbackground: #268bd2
+
+! black
+*.color0:       #002b36
+*.color8:       #657b83
+
+! red
+*.color1:       #dc322f
+*.color9:       #dc322f
+
+! green
+*.color2:       #859900
+*.color10:      #859900
+
+! yellow
+*.color3:       #b58900
+*.color11:      #b58900
+
+! blue
+*.color4:       #268bd2
+*.color12:      #268bd2
+
+! magenta
+*.color5:       #6c71c4
+*.color13:      #6c71c4
+
+! cyan
+*.color6:       #2aa198
+*.color14:      #2aa198
+
+! white
+*.color7:       #a8b3b3
+*.color15:      #fdf6e3

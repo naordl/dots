@@ -8,7 +8,7 @@ $HOME/.config/polybar/launch.sh
 picom &
 xsetroot -cursor_name left_ptr &
 setxkbmap hu &
-dunst &
+startdunst &
 unclutter &
 
 bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10

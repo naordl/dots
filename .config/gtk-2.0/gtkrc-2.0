@@ -1,8 +1,8 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/roli/.gtkrc-2.0.mine"
-gtk-theme-name="Mantis Dusk"
+include "/home/roland/.gtkrc-2.0.mine"
+gtk-theme-name="Breeze"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="DejaVu Sans 10"
 gtk-cursor-theme-name="Adwaita"

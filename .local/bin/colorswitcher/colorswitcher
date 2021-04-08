@@ -9,14 +9,17 @@ choice="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark' | dmenu)"
 if [ "$choice" == "Solarized Light" ]; then
 	cat $alacrittydir/base.yml $colordir/solarized_light/solarized_light.yml > $alacrittydir/alacritty.yml
 	cat $colordir/solarized_light/solarized_light.x > $xresourcesdir/Xresources
+	notify-send "Changing color scheme to $choice!"
 	bspc wm -r
 elif [ "$choice" == "Solarized Dark" ]; then
 	cat $alacrittydir/base.yml $colordir/solarized_dark/solarized_dark.yml > $alacrittydir/alacritty.yml
 	cat $colordir/solarized_dark/solarized_dark.x > $xresourcesdir/Xresources
+	notify-send "Changing color scheme to $choice!"
 	bspc wm -r
 elif [ "$choice" == "Gruvbox Dark" ]; then
 	cat $alacrittydir/base.yml $colordir/gruvbox_dark/gruvbox_dark.yml > $alacrittydir/alacritty.yml
 	cat $colordir/gruvbox_dark/gruvbox_dark.x > $xresourcesdir/Xresources
+	notify-send "Changing color scheme to $choice!"
 	bspc wm -r
 else
 	exit
