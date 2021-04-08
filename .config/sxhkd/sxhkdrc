@@ -19,7 +19,7 @@ super + shift + o
 	colorswitcher
 
 # nightlight
-super + shift + l
+super + shift + u
 	nightlight
 
 # ranger file manager

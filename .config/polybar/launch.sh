@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Terminate already running bar instances
 killall -q polybar
@@ -8,4 +8,8 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bars
 polybar top -r &
-#polybar top2 -r &
+
+external_monitor=$(xrandr --query | grep -w 'DP1')
+if [[ $external_monitor = *connected* ]]; then
+	polybar top_external -r &
+fi
