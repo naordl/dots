@@ -15,8 +15,12 @@ super + d
 	dmenu_run -p "Run: "
 
 # color switcher
-super + o
+super + shift + o
 	colorswitcher
+
+# nightlight
+super + shift + l
+	nightlight
 
 # ranger file manager
 super + r

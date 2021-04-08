@@ -138,6 +138,7 @@ DEPENDENCIES="
 	dash
 	checkbashisms
 	dashbinsh
+	acpi_call
 	"
 
 # SETUP FOR THE INSTALL COMMAND

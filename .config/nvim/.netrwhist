@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/roland/.dotfiles'
+let g:netrw_dirhist_8='/home/roland/.config/redshift'
 let g:netrw_dirhist_7='/home/roland/.local/bin'
 let g:netrw_dirhist_6='/home/roland/.local'
 let g:netrw_dirhist_5='/home/roland'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_3='/home/roland/.config/polybar'
 let g:netrw_dirhist_2='/home/roland/.config'
 let g:netrw_dirhist_1='/home/roland'
 let g:netrw_dirhist_0='/home/roland/.local/dmenu'
-let g:netrw_dirhist_9='/home/roland/.local'
-let g:netrw_dirhist_8='/home/roland'

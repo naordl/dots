@@ -1,0 +1,14 @@
+#!/bin/sh
+
+choice=$(printf "on\noff" | dmenu -p "Turn nightlight on/off")
+case $choice in
+	on)
+	  redshift -PO 3500
+	  ;;
+	off)
+	  redshift -PO 5700
+	  ;;
+	*)
+	  exit
+	  ;;
+esac
