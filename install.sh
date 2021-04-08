@@ -134,7 +134,6 @@ DEPENDENCIES="
 	ffmpegthumbnailer
 	poppler
 	atool
-	highlight
 	mediainfo
 	dash
 	checkbashisms
