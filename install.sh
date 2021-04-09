@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
+# RUN THIS SCRIPT FROM TTY2!
 
 # Install the Paru AUR helper
 sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
@@ -33,13 +34,13 @@ ESSENTIALS="
 	"
 
 # WM
-# i3 =
+# i3
 i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
 
-# bspwm =
+# bspwm
 bspwm="bspwm bsp-layout xorg-xsetroot polybar" # AUR PACKAGE
 
-# DWM =
+# DWM
 #mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
 
 WM="
@@ -178,13 +179,13 @@ cd
 sudo ln -sfT dash /usr/bin/sh
 chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
-sudo cp /etc/systemd/system/disablenvidia.service /lib/systemd/system/
+sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
 sudo systemctl enable disablenvidia
+sudo systemctl enable getty@tty1
 sudo systemctl enable bluetooth
 sudo systemctl enable sshd
 sudo systemctl enable tlp
-systemctl enable --user redshift
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo updatedb
 sudo pacman -Rns i3-wm --noconfirm
@@ -192,7 +193,7 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-mkdir documents downloads music pictures videos
+mkdir -pv ~/{documents,downloads,music,pictures,videos}
 xdg-user-dirs-update
 source ~/.bash_profile
 $SHELL
