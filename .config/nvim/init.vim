@@ -23,6 +23,9 @@ filetype plugin indent on
 " Turn on syntax highlighting
 :syntax on
 
+" Bind Ctrl+W to Ctrl+Backspace
+inoremap <C-H> <C-W>
+
 " Use system clipboard (dependency: xclip)
 " set clipboard+=unnamedplus
 
