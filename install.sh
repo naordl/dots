@@ -141,6 +141,7 @@ DEPENDENCIES="
 	dashbinsh
 	acpi_call
 	fzf
+	cronie
 	"
 
 # SETUP FOR THE INSTALL COMMAND
@@ -178,6 +179,7 @@ cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo m
 # CLEANUP
 cd
 sudo ln -sfT dash /usr/bin/sh
+crontab ~/.config/crontab.save.dinh
 chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/

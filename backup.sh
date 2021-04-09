@@ -8,6 +8,8 @@ case "$choice" in
 	  echo "Backing up dotfiles..."
 	  echo "Backing up bash configuration..."
 	  cp -rv ~/.bashrc ~/.bash_profile ~/.bash_aliases ~/.dotfiles/
+	  echo "Backing up crontab..."
+	  crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh ~/.dotfiles/.config/
 	  echo "Backing up config files..."
 	  cp -rv ~/.config/{alacritty,bspwm,dunst,git,gtk-2.0,gtk-3.0,i3,networkmanager-dmenu,nvim,picom,polybar,qutebrowser,ranger,sxhkd,vis,X11,user-dirs.dirs,user-dirs.locale,wall.png} ~/.dotfiles/.config/
 	  echo "Backing up scripts..."

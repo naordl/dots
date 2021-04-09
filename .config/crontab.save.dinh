@@ -1,0 +1,2 @@
+* 20 * * * /usr/bin/redshift -PO 3500
+* 7 * * * /usr/bin/redshift -PO 5700
