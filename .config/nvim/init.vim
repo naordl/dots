@@ -1,3 +1,4 @@
+" Call plugins
 call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'plasticboy/vim-markdown'
@@ -5,13 +6,22 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
 
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_default_coefficient = 0.7
-let g:limelight_paragraph_span = 1
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-let g:limelight_priority = -1
+" Set leader key to ','
+let mapleader =","
+
+" Bind leader + f to Goyo
+map <leader>f :Goyo \| set linebreak<CR>
+
+" Automatically enable Limelight in Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Disable folding in markdown files
+let g:vim_markdown_folding_disabled = 1
+
+" Limelight bg settings
+hi Normal ctermbg=NONE guibg=NONE
+let g:limelight_conceal_ctermfg = 244
 
 " Recognize filetypes
 filetype plugin indent on
