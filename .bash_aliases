@@ -27,6 +27,10 @@ fi
 # startx
 alias startx="startx ~.config/X11/xinitrc"
 
+# fzf scripts
+# edit scripts and config files
+es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+
 # shortcuts
 alias ls='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
