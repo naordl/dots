@@ -1,4 +1,4 @@
-"" ----- CALL PLUGINS -----
+"" ----- CALL PLUGINS (VIM-PLUG) -----
 call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'plasticboy/vim-markdown'
@@ -64,6 +64,8 @@ set smartcase
 " Enable autocompletion
 set wildmode=longest,list,full
 
+" Enable bottom right ruler
+set ruler
 
 " Use system clipboard (dependency: xclip)
 " set clipboard+=unnamedplus
