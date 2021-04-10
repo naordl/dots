@@ -39,6 +39,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias pac='sudo pacman'
 alias mkd='mkdir -p'
+alias smkd='sudo mkdir -p'
 alias r='ranger'
 alias sr='sudo ranger'
 alias vim='nvim'
@@ -49,3 +50,5 @@ alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias mntfs="sudo mount -t ntfs"
+#alias convertnotes="pandoc notes.md --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'sansfont:Iosevka' -V 'monofont:Iosevka' -V 'mathfont:Iosevka' -o notes.pdf"
+alias convertnotes="pandoc --pdf-engine=xelatex -V 'mainfont:Times New Roman' notes.md -o notes.pdf"

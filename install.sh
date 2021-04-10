@@ -162,6 +162,7 @@ cp -rv .config/ ~/
 cp -rv .local/ ~/
 cp -rv .bash_aliases .bash_profile .bashrc ~/
 sudo cp -rv etc/* /etc/
+sudo cp -rv usr/* /usr/
 sudo cp -rv root/ /
 
 # INSTALL VIMPLUG
@@ -181,6 +182,7 @@ cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo m
 cd
 sudo ln -sfT dash /usr/bin/sh
 crontab ~/.config/crontab.save.dinh
+sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
@@ -199,6 +201,7 @@ paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir -pv ~/{documents,downloads,music,pictures,videos}
+sudo fc-cache --force
 xdg-user-dirs-update
 source ~/.bash_profile
 $SHELL
