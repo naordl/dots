@@ -142,6 +142,7 @@ DEPENDENCIES="
 	acpi_call
 	fzf
 	cronie
+	ntfs-3g
 	"
 
 # SETUP FOR THE INSTALL COMMAND
