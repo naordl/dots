@@ -185,6 +185,7 @@ chmod +x -R ~/.config/i3/i3blocks/
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
 sudo systemctl enable disablenvidia
+sudo systemctl enable cronie
 sudo systemctl enable getty@tty1
 sudo systemctl enable bluetooth
 sudo systemctl enable sshd
