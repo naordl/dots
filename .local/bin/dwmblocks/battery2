@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+if [ "$CAPACITY" -lt "95" ]; then
+	if [ "$STATUS" = "Charging" ]; then
+		ICON=""
+	else
+		ICON=""
+	fi
+else
+	ICON=""
+fi
+
+printf "$ICON $CAPACITY%%"

@@ -6,7 +6,7 @@ case $choice in
 	  redshift -PO 3500
 	  ;;
 	off)
-	  redshift -PO 5700
+	  redshift -PO 6500
 	  ;;
 	*)
 	  exit
