@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
-# RUN THIS SCRIPT FROM TTY2!
+## THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
+## RUN THIS SCRIPT FROM TTY2!
 
-# Install the Paru AUR helper
+## Install the Paru AUR helper
 sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
 
-# ESSENTIALS
+## ESSENTIALS
 xorg="xorg-server xorg-xinit"
 gpu="xf86-video-intel"
 wifi="broadcom-wl"
@@ -14,8 +14,8 @@ audio="pulseaudio pulseaudio-alsa"
 touchpad="libinput" # Insert the libinput file from github repo to /etc/X11/xorg.conf.d/40-libinput.conf
 batterysaver="tlp"
 bluetooth="bluez bluez-utils blueman bcm43142a0-firmware" # AUR PACKAGE # sudo systemctl enable bluetooth.service
-raidcard="aic94xx-firmware" # AUR PACKAGE
-westerndigital="wd719x-firmware" # AUR PACKAGE
+# raidcard="aic94xx-firmware" # AUR PACKAGE
+# westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
 fonts="ttf-fira-code ttf-dejavu"
 
@@ -33,7 +33,7 @@ ESSENTIALS="
 	$fonts
 	"
 
-# WM
+## WM
 # i3
 i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
 
@@ -41,14 +41,14 @@ i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
 bspwm="bspwm bsp-layout xorg-xsetroot polybar" # AUR PACKAGE
 
 # DWM
-#mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
+# mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
 
 WM="
 	$i3
 	$bspwm
 	"
 
-# AESTETHICS
+## AESTETHICS
 iconfonts="ttf-font-awesome"
 icontheme="papirus-icon-theme" # AUR PACKAGE
 gtktheme="breeze lxappearance" # GITHUB REPO MANTIS NIGHT
@@ -59,9 +59,9 @@ AESTETHICS="
 	$gtktheme
 	"
 
-# SOFTWARE
+## SOFTWARE
 terminal="alacritty"
-#launcher="" # CLONE PERSONAL DMENU BUILD
+# launcher="" # CLONE PERSONAL DMENU BUILD
 notifications="dunst"
 browser="qutebrowser"
 compositor="picom"
@@ -104,7 +104,7 @@ SOFTWARE="
 	$manuals
 	"
 
-# MY SCRIPT DEPENDENCIES
+## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
 	xss-lock
 	nm-connection-editor	
@@ -145,7 +145,7 @@ DEPENDENCIES="
 	ntfs-3g
 	"
 
-# SETUP FOR THE INSTALL COMMAND
+## SETUP FOR THE INSTALL COMMAND
 install="paru -Syu --noconfirm --needed
 	$ESSENTIALS
 	$WM
@@ -153,10 +153,10 @@ install="paru -Syu --noconfirm --needed
 	$SOFTWARE
 	$DEPENDENCIES
 	"
-# RUN THE INSTALL COMMAND
+## RUN THE INSTALL COMMAND
 $install
 
-# DEPLOY DOTFILES
+## DEPLOY DOTFILES
 cd ~/.dotfiles/
 cp -rv .config/ ~/
 cp -rv .local/ ~/
@@ -165,20 +165,20 @@ sudo cp -rv etc/* /etc/
 sudo cp -rv usr/* /usr/
 sudo cp -rv root/ /
 
-# INSTALL VIMPLUG
+## INSTALL VIMPLUG
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# CLONE MANTIS THEME
+## CLONE MANTIS THEME
 cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
 
-# CLONE WALLPAPERS REPO
+## CLONE WALLPAPERS REPO
 mkdir -pv ~/pictures; cd ~/pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
 
-# CLONE PERSONAL DMENU BUILD
+## CLONE PERSONAL DMENU BUILD
 cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo make clean install
 
-# CLEANUP
+## CLEANUP
 cd
 sudo ln -sfT dash /usr/bin/sh
 crontab ~/.config/crontab.save.dinh
@@ -196,10 +196,10 @@ sudo systemctl enable tlp
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo updatedb
 sudo pacman -Rns i3-wm --noconfirm
+sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
-sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir -pv ~/{documents,downloads,music,pictures,videos}
 sudo fc-cache --force
 xdg-user-dirs-update
