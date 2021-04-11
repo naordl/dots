@@ -1,6 +1,0 @@
-#!/bin/sh
-
-CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
-if [ "$CAPACITY" -lt 50 ]; then
-	notify-send -u critical -t "10000" "BATTERY LOW!"
-fi
