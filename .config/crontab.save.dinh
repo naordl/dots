@@ -1,3 +1,3 @@
-*/5 * * * * /home/roland/.local/bin/cronjobs/testbattery
-* 20 * * * /usr/bin/redshift -PO 3500
-* 7 * * * /usr/bin/redshift -PO 5700
+*/5 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.bash_profile; ~/.local/bin/crons/battnotify
+* 20 * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.bash_profile; /usr/bin/redshift -PO 3500
+* 7 * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.bash_profile; /usr/bin/redshift -PO 6500
