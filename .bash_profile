@@ -6,6 +6,7 @@
 
 # Set default programs
 export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="qutebrowser"
 export READER="zathura"

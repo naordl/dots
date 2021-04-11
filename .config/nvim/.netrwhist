@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/roland/.config/polybar'
 let g:netrw_dirhist_2='/home/roland/.dotfiles'
 let g:netrw_dirhist_1='/home/roland/.dotfiles/etc/X11/xorg.conf.d'
 let g:netrw_dirhist_0='/home/roland/.dotfiles/etc/X11'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/etc/cron.daily'
 let g:netrw_dirhist_6='/home/roland/.dotfiles'
 let g:netrw_dirhist_5='/home/roland/.dotfiles/etc/systemd/system'
 let g:netrw_dirhist_4='/home/roland/.dotfiles/etc/systemd/system/getty@tty5.service.d'
-let g:netrw_dirhist_3='/home/roland/.dotfiles/etc/systemd/system'
