@@ -28,17 +28,17 @@ super + r
 
 # pulseaudio controls
 XF86AudioRaiseVolume
-        pactl set-sink-volume 0 +5% #increase volume
+        pactl set-sink-volume 0 +5%; polybar-msg hook volume 1 #increase volume
 XF86AudioLowerVolume
-        pactl set-sink-volume 0 -5% #decrease volume
+        pactl set-sink-volume 0 -5%; polybar-msg hook volume 1 #decrease volume
 XF86AudioMute
-        pactl set-sink-mute 0 toggle # mute
+        pactl set-sink-mute 0 toggle; polybar-msg hook volume 1 # mute
 
 # screen brightness controls
 XF86MonBrightnessUp
-        sudo xbacklight -inc 5
+        sudo xbacklight -inc 5; polybar-msg hook brightness 1
 XF86MonBrightnessDown
-        sudo xbacklight -dec 5
+        sudo xbacklight -dec 5; polybar-msg hook brightness 1
 
 # media controls
 XF86AudioPlay

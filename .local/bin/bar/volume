@@ -3,5 +3,5 @@
 # Check if the audio is muted. If it is, display a muted speaker.
 [ $(pamixer --get-mute) = true ] && echo  && exit
 
-# Otherwise, print a speaker and the volume per cent.
+# Otherwise, print a speaker and the volume percent.
 printf " $(pamixer --get-volume)%%"

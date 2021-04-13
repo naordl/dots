@@ -24,7 +24,7 @@ let g:limelight_conceal_ctermfg = 244
 " Set leader key to ','
 let mapleader =","
 
-" leader + F toggles Goyo
+" leader + f toggles Goyo
 map <leader>f :Goyo \| set linebreak<CR>
 
 " Ctrl+Backspace deletes last word
@@ -36,6 +36,12 @@ map <F8> :setlocal spell! spelllang=en_us<CR>
 " F5 clears whitespace
 nnoremap <silent> <F5> :%s/\s\+$//<cr>
 
+" used for markdown: leader + g compiles to docx using pandoc, then libreoffice converts it to pdf
+" map <leader>g :w! \| !pandoc --pdf-engine=xelatex -V 'mainfont:Times New Roman' -s % -o %:r.pdf<CR>
+map <leader>g :w! \| !pandoc % -s -o %:r.docx; libreoffice --convert-to pdf:writer_pdf_Export %:r.docx --outdir .<CR>
+
+" used for latex: leader + G compiles to pdf using the xelatex engine
+map <leader>G :w! \| !xelatex %<CR>
 
 "" ----- QUALITY OF LIFE ------
 " Show if there is a tab or not
