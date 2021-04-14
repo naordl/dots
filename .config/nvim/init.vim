@@ -4,6 +4,7 @@ Plug 'ap/vim-css-color'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
@@ -12,36 +13,58 @@ call plug#end()
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-" Disable folding in markdown files
+" Markdown file settings
+set conceallevel=2
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 0
 
-" Limelight bg settings
+" Limelight background settings
 hi Normal ctermbg=NONE guibg=NONE
 let g:limelight_conceal_ctermfg = 244
 
 
 "" ----- KEYBINDS -----
-" Set leader key to ','
+" Set the leader key to ','
 let mapleader =","
 
-" leader + f toggles Goyo
-map <leader>f :Goyo \| set linebreak<CR>
+" Ctrl + n - new tab
+map <silent> <C-n> :tabnew<CR>
 
-" Ctrl+Backspace deletes last word
+" Tab - cycle through open tabs
+map <silent> <c-i> :tabnext<CR>
+
+" Ctrl + w - close tab
+map <silent> <C-w> :tabclose<CR>
+
+" Ctrl + Backspace - delete last word
 inoremap <C-H> <C-W>
 
-" F8 enables spellchecking (use 'z=' for correction suggestions)
+" F2 - toggle line numbers
+map <silent> <F2> :set nonumber! norelativenumber!<CR>
+
+" F5 - clear whitespace
+nnoremap <silent> <F5> :%s/\s\+$//<CR>
+
+" F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" F5 clears whitespace
-nnoremap <silent> <F5> :%s/\s\+$//<cr>
+" Leader + f - fuzzy finder in the currect working directory (fzf plugin)
+map <leader>f :Files %:p:h<CR>
 
-" used for markdown: leader + g compiles to docx using pandoc, then libreoffice converts it to pdf
-" map <leader>g :w! \| !pandoc --pdf-engine=xelatex -V 'mainfont:Times New Roman' -s % -o %:r.pdf<CR>
-map <leader>g :w! \| !pandoc % -s -o %:r.docx; libreoffice --convert-to pdf:writer_pdf_Export %:r.docx --outdir .<CR>
+" Leader + g - toggle Goyo
+map <silent> <leader>g :Goyo \| set linebreak<CR>
 
-" used for latex: leader + G compiles to pdf using the xelatex engine
-map <leader>G :w! \| !xelatex %<CR>
+" Leader + z - open the current file's pdf version using zathura
+map <leader>z :w! \| !zathura %:r.pdf &<CR>
+
+" Leader + d - convert to docx using pandoc
+map <leader>d :!pandoc % -s -o %:r.docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
+
+" Leader + c - compile to pdf using pandoc with the xelatex engine
+map <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=2cm'<CR>
+
 
 "" ----- QUALITY OF LIFE ------
 " Show if there is a tab or not
@@ -60,7 +83,7 @@ set number
 " Turn on syntax highlighting
 syntax on
 
-" Disable auto commenting
+" Disable auto commenting on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Disable case sensitivity
@@ -82,8 +105,8 @@ set ruler
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
 " highlight CursorLine guibg=#303000 ctermbg=234
-"
-" " Enable cursor column
+
+" Enable cursor column
 " set cursorcolumn
 " highlight CursorColumn guibg=#303000 ctermbg=234
 

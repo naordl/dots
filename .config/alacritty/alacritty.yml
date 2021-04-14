@@ -62,7 +62,7 @@ cursor:
 # Live config reload (changes require restart)
 live_config_reload: true
 
-# Key bindings
+# Keybindings
 key_bindings:
   - { key: V,		mods: Control|Shift, 	action: Paste            }
   - { key: C,		mods: Control|Shift, 	action: Copy             }

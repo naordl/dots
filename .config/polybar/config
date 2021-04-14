@@ -37,7 +37,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -83,7 +83,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -95,7 +95,8 @@ font-3 = Font Awesome 5 Brands:style=Regular:fontformat=truetype:size=10:antiali
 
 modules-left = bspwm
 ;modules-center = mpd
-modules-right = temp memory cpu disk keyboard internet brightness volume battery date
+;modules-right = temp memory cpu disk keyboard internet brightness volume battery date
+modules-right = internet brightness volume battery date
 
 tray-position = right
 tray-padding = 2

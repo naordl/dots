@@ -14,6 +14,8 @@ case "$choice" in
 	  cp -rv ~/.config/{alacritty,bspwm,dunst,git,gtk-2.0,gtk-3.0,i3,networkmanager-dmenu,nvim,picom,polybar,qutebrowser,ranger,sxhkd,vis,X11,user-dirs.dirs,user-dirs.locale,wall.png} ~/.dotfiles/.config/
 	  echo "Backing up scripts..."
 	  cp -rv ~/.local/bin ~/.dotfiles/.local/
+	  echo "Backing up pandoc templates..."
+	  cp -rv ~/.local/pandoc ~/.dotfiles/.local/
 	  tput setaf 2; echo "Backup successful! You may now commit the changes."
 	  ;;
 	no)

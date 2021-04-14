@@ -86,6 +86,10 @@ super + w
 super + r
 	$TERMINAL -e $FILE
 
+# pdf viewer
+super + y
+	zathura
+
 # display settings
 super + p
         arandr
