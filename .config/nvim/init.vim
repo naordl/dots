@@ -67,7 +67,7 @@ map <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:T
 
 
 "" ----- QUALITY OF LIFE ------
-" Show if there is a tab or not
+" Show tabs and whitespaces
 set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
 
 " Enable undo history file

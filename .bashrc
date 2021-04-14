@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -15,7 +13,6 @@ bind 'set completion-ignore-case on'
 bind '\C-h.':backward-kill-word
 
 # Prompt
-# Custom blue
 PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]X\[\033[01;34m\] \")$\[\033[00m\] "
 
 # Import aliases

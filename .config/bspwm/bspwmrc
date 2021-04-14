@@ -3,6 +3,8 @@
 ## sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+pgrep -fl 'pidswallow -gl' || pidswallow -gl
+
 ## auto-detect monitors
 autodisplay
 

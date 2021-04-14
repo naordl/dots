@@ -32,6 +32,8 @@ alias startx="startx ~.config/X11/xinitrc"
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
 alias ls='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
