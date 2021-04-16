@@ -3,11 +3,22 @@
 ## sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-## auto-detect monitors
-autodisplay
-
 ## autostart
-autostart
+xrdb ~/.config/X11/Xresources
+setbg &
+~/.config/polybar/launch.sh &
+picom &
+xsetroot -cursor_name left_ptr &
+setxkbmap hu &
+startdunst &
+unclutter &
+xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen &
+
+## auto-detect monitors
+external_monitor=$(xrandr --query | grep -w 'DP1')
+if [[ $external_monitor = *connected* ]]; then
+        xrandr --output eDP1 --mode 1366x768 --pos 0x312 --output DP1 --primary --mode 1920x1080 --pos 1366x0
+fi
 
 ## workspaces
 bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9
@@ -41,17 +52,6 @@ bspc config pointer_modifier              mod4
 bspc config pointer_action1               move
 bspc config pointer_action2               resize_side
 bspc config pointer_action3               resize_corner
-
-## layouts (monadtall)
-bsp-layout set tall 1 --master-size 0.5
-bsp-layout set tall 2 --master-size 0.5
-bsp-layout set tall 3 --master-size 0.5
-bsp-layout set tall 4 --master-size 0.5
-bsp-layout set tall 5 --master-size 0.5
-bsp-layout set tall 6 --master-size 0.5
-bsp-layout set tall 7 --master-size 0.5
-bsp-layout set tall 8 --master-size 0.5
-bsp-layout set tall 9 --master-size 0.5
 
 ## colors
 # bspc config normal_border_color         "#30302f"

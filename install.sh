@@ -72,7 +72,7 @@ filemanager="ranger ueberzug"
 mediaplayer="mpv"
 imageviewer="sxiv"
 displaysettings="xorg-xrandr arandr"
-nightlight="redshift"
+nightlight="redshift-minimal"
 printscreen="maim"
 ssh="openssh" # systemctl enable sshd
 pdfviewer="zathura zathura-pdf-poppler"
@@ -195,7 +195,7 @@ sudo systemctl enable disablenvidia
 sudo systemctl enable cronie
 sudo systemctl enable getty@tty1
 sudo systemctl enable bluetooth
-sudo systemctl enable sshd
+#sudo systemctl enable sshd
 sudo systemctl enable tlp
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
