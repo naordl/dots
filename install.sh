@@ -143,6 +143,7 @@ DEPENDENCIES="
 	fzf
 	cronie
 	ntfs-3g
+	python-pip
 	"
 
 ## SETUP FOR THE INSTALL COMMAND
