@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/roland/.config/bspwm'
 let g:netrw_dirhist_5='/home/roland/.config/sxhkd'
 let g:netrw_dirhist_4='/home/roland/.config/bspwm'
 let g:netrw_dirhist_3='/home/roland/.config/polybar'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_0='/home/roland/.dotfiles/etc/X11'
 let g:netrw_dirhist_9='/home/roland/.dotfiles/etc'
 let g:netrw_dirhist_8='/home/roland/.dotfiles'
 let g:netrw_dirhist_7='/etc/cron.daily'
-let g:netrw_dirhist_6='/home/roland/.dotfiles'

@@ -7,12 +7,12 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 xrdb ~/.config/X11/Xresources
 setbg &
 ~/.config/polybar/launch.sh &
-picom &
 xsetroot -cursor_name left_ptr &
 setxkbmap hu &
-startdunst &
-unclutter &
-xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen &
+pgrep -x picom > /dev/null || picom &
+pgrep -x dunst > /dev/null || startdunst &
+pgrep -x unclutter > /dev/null || unclutter &
+pgrep -x xss-lock > /dev/null || xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen &
 
 ## auto-detect monitors
 external_monitor=$(xrandr --query | grep -w 'DP1')
