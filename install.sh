@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ## THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
 ## RUN THIS SCRIPT FROM TTY2!
