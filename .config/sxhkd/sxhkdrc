@@ -82,6 +82,10 @@ super + shift + Escape
 super + w
         $BROWSER
 
+# alt browser
+super + shift + w
+        $ALTBROWSER
+
 # file manager
 super + r
 	$TERMINAL -e $FILE

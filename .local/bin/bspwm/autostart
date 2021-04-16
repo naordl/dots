@@ -3,7 +3,7 @@
 ## autostart
 xrdb ~/.config/X11/Xresources
 setbg &
-~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh; sleep 1
 picom &
 xsetroot -cursor_name left_ptr &
 setxkbmap hu &

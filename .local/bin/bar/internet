@@ -3,18 +3,23 @@
 # Check to see if there's a wired connection
 CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 
-# If there's not, check for wifi connection
-if [ "$CONNTYPE" = "" ]; then
-	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
-fi
-
-# If there's no internet connection, display exclamation marks
-if [ "$CONNTYPE" = "" ]; then
-	CONNAME="  /  "
-fi
-
 # Check for private ip
 PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
 
-# Print the result
-printf "$CONNTYPE $PRIVATE"
+# If there is, a wired connection, print it
+if [ "$CONNTYPE" = "" ]; then
+	printf "$CONNTYPE $PRIVATE"
+fi
+
+# If there's not, check for wifi connection and print it
+if [ "$CONNTYPE" = "" ]; then
+	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
+	WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $10}')
+	printf "$CONNTYPE $WIFISTRENGTH%%"
+fi
+
+# If there's no internet connection, print exclamation marks
+if [ "$CONNTYPE" = "" ]; then
+	CONNTYPE="  /  "
+	printf "$CONNTYPE"
+fi

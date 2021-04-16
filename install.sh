@@ -194,6 +194,7 @@ sudo systemctl enable bluetooth
 sudo systemctl enable sshd
 sudo systemctl enable tlp
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo mkinitcpio -P
 sudo updatedb
 sudo pacman -Rns i3-wm --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
