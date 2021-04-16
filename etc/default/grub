@@ -3,7 +3,7 @@
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 vga=current udev.log_level=3 rd.systemd.show_status=auto i915.fastboot=1"
 GRUB_CMDLINE_LINUX="resume=/dev/sdb3"
 
 # Preload both GPT and MBR modules so that they are not missed
