@@ -1,16 +1,36 @@
 #!/bin/sh
 
 # Remove cached packages
-paru -Scc
+printf "Remove cached packages? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	paru -Scc --noconfirm
+fi
 
 # Remove orphaned packages
-paru -Rns $(paru -Qtdq)
+printf "Remove orphaned packages? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	paru -Rns $(paru -Qtdq) --noconfirm
+fi
 
 # Clean up the cache directory
-rm -rf ~/.cache/*
+printf "Clean up ~/.cache directory? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	rm -rf ~/.cache/*
+fi
 
-# Clean up old journals
-sudo journalctl --vacuum-time=2weeks
+# Delete old journals
+printf "Delete old journals? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	sudo journalctl --vacuum-time=2weeks
+fi
 
 # Refresh pacman mirrorlist
-sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+printf "Refresh packman mirrorlist? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+fi
