@@ -13,7 +13,11 @@ bind 'set completion-ignore-case on'
 bind '\C-h.':backward-kill-word
 
 # Prompt
-PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]X\[\033[01;34m\] \")$\[\033[00m\] "
+# Custom Blue
+# PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]X\[\033[01;34m\] \")$\[\033[00m\] "
+
+# Luke's Promp
+export PS1="\[\033[38;5;1m\][\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;10m\]@\[$(tput sgr0)\]\[\033[38;5;14m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;1m\]]\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]"
 
 # Import aliases
 source ~/.bash_aliases

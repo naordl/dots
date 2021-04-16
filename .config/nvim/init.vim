@@ -5,6 +5,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -12,6 +14,19 @@ call plug#end()
 " Automatically enable Limelight in Goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger='<tab>'
+
+" shortcut to go to next position
+let g:UltiSnipsJumpForwardTrigger='<C-l>'
+
+" shortcut to go to previous position
+let g:UltiSnipsJumpBackwardTrigger='<C-h>'
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 
 " Markdown file settings
 set conceallevel=2
@@ -29,11 +44,11 @@ let g:limelight_conceal_ctermfg = 244
 " Set the leader key to ','
 let mapleader =","
 
-" Ctrl + n - new tab
-map <silent> <C-n> :tabnew<CR>
+" Ctrl + t - new tab
+map <silent> <C-t> :tabnew<CR>
 
-" Tab - cycle through open tabs
-map <silent> <c-i> :tabnext<CR>
+" Ctrl + n - next tab
+map <silent> <C-n> :tabnext<CR>
 
 " Ctrl + w - close tab
 map <silent> <C-w> :tabclose<CR>

@@ -185,6 +185,7 @@ crontab ~/.config/crontab.save.dinh
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
+python -m pip install --user --upgrade pynvim # to be able to use vim-snippets
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
 sudo cp -rv /etc/systemd/system/systemd-fsck-root.service /usr/lib/systemd/system/
