@@ -24,7 +24,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
 
@@ -36,4 +37,4 @@ export PF_COL2="8"
 export PF_COL3="3"
 
 # Start graphical server on tty1 on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc &> /dev/null; fi

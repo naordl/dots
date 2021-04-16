@@ -187,6 +187,10 @@ chmod +x -R ~/.local/bin/
 chmod +x -R ~/.config/i3/i3blocks/
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
+sudo cp -rv /etc/systemd/system/systemd-fsck-root.service /usr/lib/systemd/system/
+sudo chmod 644 /etc/systemd/system/systemd-fsck-root.service
+sudo cp -rv /etc/systemd/system/systemd-fsck@.service /usr/lib/systemd/system/
+sudo chmod 644 /etc/systemd/system/systemd-fsck@.service
 sudo systemctl enable disablenvidia
 sudo systemctl enable cronie
 sudo systemctl enable getty@tty1
