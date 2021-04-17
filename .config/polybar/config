@@ -170,7 +170,7 @@ interval = 60
 [module/disk]
 type = custom/script
 exec = disk
-interval = 120
+interval = 480
 
 [module/brightness]
 type = custom/ipc
@@ -194,7 +194,7 @@ interval = 60
 
 [module/date]
 type = custom/script
-exec = date +%I:%M%P
+exec = date "+%a %m/%d %I:%M%P"
 format-prefix = " "
 interval = 60
 
