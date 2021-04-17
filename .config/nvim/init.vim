@@ -15,29 +15,22 @@ call plug#end()
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger='<tab>'
-
-" shortcut to go to next position
-let g:UltiSnipsJumpForwardTrigger='<C-l>'
-
-" shortcut to go to previous position
-let g:UltiSnipsJumpBackwardTrigger='<C-h>'
-
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+" Limelight background settings
+hi Normal ctermbg=NONE guibg=NONE
+let g:limelight_conceal_ctermfg = 244
 
 " Markdown file settings
-set conceallevel=2
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 0
+set conceallevel=2
 
-" Limelight background settings
-hi Normal ctermbg=NONE guibg=NONE
-let g:limelight_conceal_ctermfg = 244
+" Snippets
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<C-l>'
+let g:UltiSnipsJumpBackwardTrigger='<C-h>'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 
 
 "" ----- KEYBINDS -----

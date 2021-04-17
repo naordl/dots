@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Are you sure you want to merge your dotfiles? (yes/no)"
+printf "Are you sure you want to merge your dotfiles? (yes/no) "
 read choice
 
 case "$choice" in
