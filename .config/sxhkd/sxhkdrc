@@ -28,11 +28,11 @@ super + r
 
 # pulseaudio controls
 XF86AudioRaiseVolume
-        pactl set-sink-volume 0 +5%; polybar-msg hook volume 1 #increase volume
+        pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 #increase volume
 XF86AudioLowerVolume
-        pactl set-sink-volume 0 -5%; polybar-msg hook volume 1 #decrease volume
+        pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 #decrease volume
 XF86AudioMute
-        pactl set-sink-mute 0 toggle; polybar-msg hook volume 1 # mute
+        pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 # mute
 
 # screen brightness controls
 XF86MonBrightnessUp
