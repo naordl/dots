@@ -7,6 +7,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
@@ -31,6 +33,8 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<C-l>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+
+let g:airline_section_b = '%{strftime("%I:%M%P")}'
 
 
 "" ----- KEYBINDS -----
@@ -58,8 +62,8 @@ nnoremap <silent> <F5> :%s/\s\+$//<CR>
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" Leader + f - fuzzy finder in the currect working directory (fzf plugin)
-map <leader>f :Files %:p:h<CR>
+" Leader + f - system-wide fuzzy finder using mlocate and fzf
+map <leader>f :Locate .<CR>
 
 " Leader + g - toggle Goyo
 map <silent> <leader>g :Goyo \| set linebreak<CR>

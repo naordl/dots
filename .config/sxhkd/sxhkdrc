@@ -28,21 +28,21 @@ super + r
 
 # pulseaudio controls
 XF86AudioRaiseVolume
-        pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 #increase volume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 #increase volume
 XF86AudioLowerVolume
-        pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 #decrease volume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 #decrease volume
 XF86AudioMute
-        pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 # mute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 # mute
 
 # screen brightness controls
 XF86MonBrightnessUp
-        sudo xbacklight -inc 5; polybar-msg hook brightness 1
+	sudo xbacklight -inc 5; polybar-msg hook brightness 1
 XF86MonBrightnessDown
-        sudo xbacklight -dec 5; polybar-msg hook brightness 1
+	sudo xbacklight -dec 5; polybar-msg hook brightness 1
 
 # media controls
 XF86AudioPlay
- 	playerctl play
+	playerctl play
 XF86AudioPause
 	playerctl pause
 XF86XK_AudioNext
@@ -52,11 +52,11 @@ XF86XK_AudioPrev
 
 # print screen
 Print
-        maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
+	maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
 
 # snip screen
 shift + Print
-        maim -s -o /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+	maim -s -o /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
 # snip active window
 control + Print
@@ -72,19 +72,19 @@ super + shift + b
 
 # pulseaudio mixer
 super + shift + p
-        $TERMINAL -e pulsemixer
+	$TERMINAL -e pulsemixer
 
 # htop
 super + shift + Escape
-        $TERMINAL -e htop
+	$TERMINAL -e htop
 
 # browser
 super + w
-        $BROWSER
+	$BROWSER
 
 # alt browser
 super + shift + w
-        $ALTBROWSER
+	$ALTBROWSER
 
 # file manager
 super + r
@@ -96,11 +96,11 @@ super + y
 
 # display settings
 super + p
-        arandr
+	arandr
 
 # power menu
 super + F12
-        powermenu
+	powermenu
 
 # toggle touchpad
 super + End
