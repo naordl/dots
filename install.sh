@@ -77,6 +77,7 @@ printscreen="maim"
 ssh="openssh" # systemctl enable sshd
 pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
+clipboardmanager="clipmenu"
 locate="mlocate" # sudo updatedb
 sysinfo="pfetch"
 manuals="man-db man-pages"
@@ -99,6 +100,7 @@ SOFTWARE="
 	$ssh
 	$pdfviewer
 	$unclutter
+	$clipboardmanager
 	$locate
 	$sysinfo
 	$manuals
@@ -203,6 +205,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo updatedb
 sudo pacman -Rns i3-wm --noconfirm
+sudo pacman -Rdd dmenu --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm
 paru -Scc --noconfirm

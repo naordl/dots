@@ -20,6 +20,7 @@ setxkbmap hu &
 pgrep -x picom > /dev/null || picom &
 pgrep -x dunst > /dev/null || startdunst &
 pgrep -x unclutter > /dev/null || unclutter &
+pgrep -x clipmenud > /dev/null || clipmenud &
 pgrep -x xss-lock > /dev/null || xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen &
 
 ## workspaces

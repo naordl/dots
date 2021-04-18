@@ -22,6 +22,10 @@ super + shift + o
 super + shift + u
 	nightlight
 
+# clipboard manager
+super + shift + c
+	clipmenu
+
 # ranger file manager
 super + r
 	$TERMINAL -e $FILE
