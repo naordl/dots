@@ -1,5 +1,13 @@
 #!/bin/sh
 
+## auto-detect monitors
+external_monitor=$(xrandr --query | grep -w 'DP1' | awk {'print $2'})
+if [ "$external_monitor" = "connected" ]; then
+	xrandr --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --off
+else
+	xrandr --output eDP1 --primary --mode 1366x768 --rotate normal
+fi
+
 ## sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
 
@@ -13,14 +21,6 @@ pgrep -x picom > /dev/null || picom &
 pgrep -x dunst > /dev/null || startdunst &
 pgrep -x unclutter > /dev/null || unclutter &
 pgrep -x xss-lock > /dev/null || xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen &
-
-## auto-detect monitors
-external_monitor=$(xrandr --query | grep -w 'DP1' | awk {'print $2'})
-if [ "$external_monitor" = "connected" ]; then
-	xrandr --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --off
-else
-	xrandr --output eDP1 --primary --mode 1366x768 --rotate normal
-fi
 
 ## workspaces
 bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9
