@@ -24,7 +24,7 @@ super + shift + u
 
 # clipboard manager
 super + shift + c
-	clipmenu
+	clipmenu -i
 
 # ranger file manager
 super + r
