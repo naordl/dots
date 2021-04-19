@@ -1,1 +1,3 @@
+# xrdb ~/.config/X11/Xresources
+# exec dwm
 exec bspwm
