@@ -146,6 +146,7 @@ DEPENDENCIES="
 	cronie
 	ntfs-3g
 	python-pip
+	bc
 	"
 
 ## SETUP FOR THE INSTALL COMMAND
@@ -222,5 +223,4 @@ rm -rfv ~/.pki/
 rm -rfv ~/.icons/
 rm -rfv ~/.Xauthority
 clear
-pfetch
 echo "Successfully finished deploying dotfiles. Reboot for the changes to take effect."
