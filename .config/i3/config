@@ -123,5 +123,11 @@ new_float pixel 1
 hide_edge_borders none
 default_border pixel 2
 
+$exec $TERMINAL -t floatterm
 for_window [title="floatterm"] floating enable
+for_window [title="floatterm"] move scratchpad
+bindsym $mod+Shift+Return [title="floatterm"] scratchpad show; [title="floatterm"] move position center
+
+for_window [title="calc"] floating enable
+
 assign [class="discord"] 7
