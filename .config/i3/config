@@ -56,8 +56,8 @@ bindsym $mod+Ctrl+j resize grow height 2 px or 2 ppt
 bindsym $mod+Ctrl+k resize shrink height 2 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 2 px or 2 ppt
 
-bindsym $mod+period split h
-bindsym $mod+Shift+period split v
+bindsym $mod+period split v
+bindsym $mod+Shift+period split h
 
 bindsym $mod+f fullscreen toggle
 
