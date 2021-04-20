@@ -47,7 +47,7 @@ font-1 = Font Awesome 5 Free:style=Regular:fontformat=truetype:size=10:antialias
 font-2 = Font Awesome 5 Free:style=Solid:fontformat=truetype:size=10:antialias=true;2
 font-3 = Font Awesome 5 Brands:style=Regular:fontformat=truetype:size=10:antialias=true;2
 
-modules-left = bspwm
+modules-left = bspwm i3
 ;modules-center = mpd
 modules-right = internet brightness volume battery date
 tray-position = right
@@ -93,7 +93,7 @@ font-1 = Font Awesome 5 Free:style=Regular:fontformat=truetype:size=10:antialias
 font-2 = Font Awesome 5 Free:style=Solid:fontformat=truetype:size=10:antialias=true;2
 font-3 = Font Awesome 5 Brands:style=Regular:fontformat=truetype:size=10:antialias=true;2
 
-modules-left = bspwm
+modules-left = bspwm i3
 ;modules-center = mpd
 ;modules-right = temp memory cpu disk keyboard internet brightness volume battery date
 modules-right = internet brightness volume battery date
@@ -125,6 +125,45 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = false
+
+index-sort = true
+enable-click = false
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = false
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = #e60053
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 1
+
+label-visible = %index%
+label-visible-underline = ${colors.primary}
+label-visible-padding = 1
+
+label-urgent = %index%
+;label-urgent-foreground = 
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
 
 [module/bspwm]
 type = internal/bspwm

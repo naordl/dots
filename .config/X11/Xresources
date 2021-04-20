@@ -27,18 +27,3 @@
 ! LightGrey + White
 *.color7:  #a89984
 *.color15: #ebdbb2
-
-! dwm stuff
-dwm.normbgcolor: #282828
-dwm.normbordercolor: #282828
-dwm.normfgcolor: #928374
-dwm.selbgcolor: #282828
-dwm.selbordercolor: #ebdbb2
-dwm.selfgcolor: #ebdbb2
-dwm.borderpx: 2
-!dwm.snap
-!dwm.showbar
-!dwm.topbar
-!dwm.nmaster
-!dwm.resizehints
-!dwm.mfact
