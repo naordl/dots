@@ -7,7 +7,7 @@ set $execa exec_always --no-startup-id
 $exec "sxhkd"
 $exec "xrdb ~/.config/X11/Xresources"
 $execa "setbg"
-$execa "~/.config/polybar/launch.sh"
+$execa "startpolybar"
 $execa "setxkbmap hu"
 $exec "picom"
 $exec "startdunst"
