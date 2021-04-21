@@ -24,14 +24,14 @@ _comp_options+=(globdots)
 bindkey -v
 export KEYTIMEOUT=1
 
-# use vim keys in tab complete menu:
+# use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# change cursor shape for different vi modes.
+# change cursor shape for different vi modes
 function zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
@@ -47,6 +47,8 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# purge the god forsaken ~/.pki file
+[ -f ~/.pki ] || rm -rf ~/.pki
 
 # aliases
 # archive extractor
