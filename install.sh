@@ -60,6 +60,7 @@ AESTETHICS="
 	"
 
 ## SOFTWARE
+shell="zsh"
 terminal="alacritty"
 # launcher="" # CLONE PERSONAL DMENU BUILD
 notifications="dunst"
@@ -83,6 +84,7 @@ sysinfo="pfetch"
 manuals="man-db man-pages"
 
 SOFTWARE="
+	$shell
 	$terminal
 	$launcher
 	$notifications
@@ -164,7 +166,8 @@ $install
 cd ~/.dotfiles/
 cp -rv .config/ ~/
 cp -rv .local/ ~/
-cp -rv .bash_aliases .bash_profile .bashrc ~/
+cp -rv .zprofile ~/
+cp -rv .hushlogin ~/.hushlogin
 sudo cp -rv etc/* /etc/
 sudo cp -rv usr/* /usr/
 sudo cp -rv root/ /
@@ -185,6 +188,8 @@ cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo m
 ## CLEANUP
 cd
 sudo ln -sfT dash /usr/bin/sh
+sudo chsh -s /bin/zsh root
+sudo chsh -s /bin/zsh $USER
 crontab ~/.config/crontab.save.dinh
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R ~/.local/bin/

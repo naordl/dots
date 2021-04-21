@@ -114,7 +114,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+r restart
 
 gaps inner 8
-gaps outer 16
+gaps outer 0
 # smart_gaps on
 
 new_window pixel 1

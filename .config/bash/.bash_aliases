@@ -1,4 +1,4 @@
-# ~/.aliasrc
+# ~/.bash_aliases
 
 # archive extractor
 # dependencies: rar, zip, unzip, p7zip, bzip2, gzip

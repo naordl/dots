@@ -1,8 +1,6 @@
 #
-# ~/.bash_profile
+# .zprofile
 #
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Set default programs
 export EDITOR="nvim"
@@ -13,7 +11,7 @@ export ALTBROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
 
-# Add ~/.scripts to $PATH
+# Add ~/.local/bin/ to $PATH
 PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )
 
 # Environment variables
@@ -28,13 +26,7 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
-
-# Pfetch environment variables
-export PF_INFO="ascii os host kernel wm uptime pkgs memory"
-export PF_ASCII="artix"
-export PF_COL1="4"
-export PF_COL2="8"
-export PF_COL3="3"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
 # Start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc &> /dev/null; fi
