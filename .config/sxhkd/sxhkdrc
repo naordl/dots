@@ -1,14 +1,12 @@
-#
 # wm independent hotkeys
-#
 
 # terminal
 super + Return
 	$TERMINAL
 
 # floating terminal
-#super + shift + Return
-#	$TERMINAL -t floatterm
+super + shift + Return
+	$TERMINAL -t floatterm
 
 # program launcher
 super + d

@@ -71,6 +71,11 @@ focus_follows_mouse no
 
 bindsym $mod+Tab focus output left
 
+bindsym $mod+Up move up 20px
+bindsym $mod+Left move left 20px
+bindsym $mod+Down move down 20px
+bindsym $mod+Right move right 20px
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -123,11 +128,12 @@ new_float pixel 1
 hide_edge_borders none
 default_border pixel 2
 
-$exec $TERMINAL -t floatterm
-for_window [title="floatterm"] floating enable
-for_window [title="floatterm"] move scratchpad
-bindsym $mod+Shift+Return [title="floatterm"] scratchpad show; [title="floatterm"] move position center
+$exec $TERMINAL -t dropdown
+for_window [title="dropdown"] floating enable
+for_window [title="dropdown"] move scratchpad
+bindsym $mod+Ctrl+Return [title="dropdown"] scratchpad show; [title="dropdown"] move position center
 
 for_window [title="calc"] floating enable
+for_window [title="floatterm"] floating enable
 
 assign [class="discord"] 7
