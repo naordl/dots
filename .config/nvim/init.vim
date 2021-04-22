@@ -34,6 +34,7 @@ let g:UltiSnipsJumpForwardTrigger='<C-l>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 
+" Show currect time in vim-airline
 let g:airline_section_b = '%{strftime("%I:%M%P")}'
 
 

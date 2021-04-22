@@ -1,5 +1,5 @@
 #
-# .zprofile
+# ~/.zprofile
 #
 
 # Set default programs

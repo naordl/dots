@@ -2,6 +2,17 @@
 
 # prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
+setopt PROMPT_SP
+
+# case insensitivity
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+setopt MENU_COMPLETE
+
+# enable autocd
+setopt autocd
+
+# disable ctrl+s
+stty stop undef
 
 # history
 HISTSIZE=10000
@@ -103,3 +114,6 @@ alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias mntfs="sudo mount -t ntfs"
+
+# cd and ls at the same time
+chpwd() ls
