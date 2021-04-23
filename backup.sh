@@ -18,7 +18,6 @@ case "$choice" in
 	  cp -rv ~/.local/bin $DOTDIR/.local/
 	  echo "Backing up pandoc templates..."
 	  cp -rv ~/.local/pandoc $DOTDIR/.local/
-	  tput setaf 2; echo "Backup successful! You may now commit the changes."
 	  echo "Backing up /etc/ stuff..."
 	  cp -rv /etc/default/grub $DOTDIR/etc/default/
 	  cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
@@ -29,7 +28,8 @@ case "$choice" in
 	  cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
 	  cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
 	  echo "Backing up /root/ stuff..."
-	  cp -rv /root/{.bashrc,.zshrc} $DOTDIR/root/
+	  sudo cp -rv /root/{.bashrc,.zshrc} $DOTDIR/root/; chown -R $USER:$USER $DOTDIR/root
+	  tput setaf 2; echo "Backup successful! You may now commit the changes."
 	  ;;
 	no)
 	  echo "Exiting..."
