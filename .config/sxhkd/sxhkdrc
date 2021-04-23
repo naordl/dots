@@ -10,7 +10,7 @@ super + shift + Return
 
 # program launcher
 super + d
-	dmenu_run -p "Run: "
+	dmenu_run -i -p "Run: "
 
 # color switcher
 super + shift + o
@@ -58,7 +58,7 @@ shift + Print
 
 # snip active window
 control + Print
-	maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+	maim -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
 
 # networkmanager
 super + shift + n

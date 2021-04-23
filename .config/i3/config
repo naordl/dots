@@ -128,11 +128,6 @@ new_float pixel 1
 hide_edge_borders none
 default_border pixel 2
 
-$exec $TERMINAL -t dropdown
-for_window [title="dropdown"] floating enable
-for_window [title="dropdown"] move scratchpad
-bindsym $mod+Ctrl+Return [title="dropdown"] scratchpad show; [title="dropdown"] move position center
-
 for_window [title="calc"] floating enable
 for_window [title="floatterm"] floating enable
 
