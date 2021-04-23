@@ -114,6 +114,7 @@ alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias mntfs="sudo mount -t ntfs"
+alias d="cd ~/.local/dots"
 
 # cd and ls at the same time
 chpwd() ls
