@@ -40,7 +40,7 @@ XF86MonBrightnessDown
 
 # media controls
 XF86AudioPlay
-	playerctl play
+	playerctl play-pause
 XF86AudioPause
 	playerctl pause
 XF86XK_AudioNext
