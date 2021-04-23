@@ -218,8 +218,8 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 mkdir -pv ~/{doc,dow,mus,pic,vid}
-sudo fc-cache --force
 xdg-user-dirs-update
+sudo fc-cache --force
 source ~/.zprofile
 $SHELL
 rm -rfv ~/.cache/*
