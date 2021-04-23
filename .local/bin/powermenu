@@ -1,21 +1,26 @@
-#!/bin/bash
+#!/bin/sh
 
-chosen=$(echo -e "Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | dmenu -i -p "Choose wisely: ")
+choice=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely: ")
 
-if [[ $chosen = "Lock" ]]; then
-	lockscreen
-elif [[ $chosen = "Logout" ]]; then
-	bspc quit || i3-msg exit
-elif [[ $chosen = "Shutdown" ]]; then
-	systemctl poweroff
-elif [[ $chosen = "Reboot" ]]; then
-	systemctl reboot
-elif [[ $chosen = "Suspend" ]]; then
-	systemctl suspend
-elif [[ $chosen = "Hibernate" ]]; then
-	systemctl hibernate
-elif [[ $chosen = "Hybrid-sleep" ]]; then
-	systemctl hibernate
-elif [[ $chosen = "Suspend-then-hibernate" ]]; then
-	systemctl suspend-then-hibernate
-fi
+case "$choice" in
+	Lock)
+	  lockscreen
+	  ;;
+	Logout)
+	  bspc quit || i3-msg exit
+	  ;;
+	Shutdown)
+	  systemctl poweroff
+	  ;;
+	Reboot)
+	  systemctl reboot
+	  ;;
+	Suspend)
+	  systemctl suspend
+	  ;;
+	Hibernate)
+	  systemctl hibernate
+	  ;;
+	*)
+	  exit
+esac

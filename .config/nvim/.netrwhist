@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/roland/.config/GIMP/2.10/backups'
+let g:netrw_dirhist_1='/home/roland/.local/bin/colorswitcher'
 let g:netrw_dirhist_0='/home/roland/.config/tmux'
 let g:netrw_dirhist_9='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
 let g:netrw_dirhist_8='/home/roland/.config/nvim/plugged/vim-snippets'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
 let g:netrw_dirhist_5='/home/roland/.config/nvim/plugged/vim-snippets'
 let g:netrw_dirhist_4='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
 let g:netrw_dirhist_3='/home/roland/.config/nvim/plugged/vim-snippets'
-let g:netrw_dirhist_2='/home/roland/.local/bin/colorswitcher'
-let g:netrw_dirhist_1='/etc/X11/xinit/xinitrc.d'

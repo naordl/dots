@@ -35,7 +35,7 @@ ESSENTIALS="
 
 ## WM
 # i3
-i3="i3-gaps i3blocks autotiling-git" # AUR PACKAGE
+i3="i3-gaps" # AUR PACKAGE
 
 # bspwm
 bspwm="bspwm bsp-layout xorg-xsetroot polybar" # AUR PACKAGE
@@ -80,7 +80,6 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 clipboardmanager="clipmenu"
 locate="mlocate" # sudo updatedb
-sysinfo="pfetch"
 manuals="man-db man-pages"
 
 SOFTWARE="
@@ -104,7 +103,6 @@ SOFTWARE="
 	$unclutter
 	$clipboardmanager
 	$locate
-	$sysinfo
 	$manuals
 	"
 
@@ -163,14 +161,17 @@ install="paru -Syu --noconfirm --needed
 $install
 
 ## DEPLOY DOTFILES
-cd ~/.dotfiles/
+# --- SET DOTFILES DIR --- #
+export DOTDIR="$HOME/.local/dots"
+
+cd $DOTDIR
 cp -rv .config/ ~/
 cp -rv .local/ ~/
 cp -rv .zprofile ~/
 cp -rv .hushlogin ~/.hushlogin
 sudo cp -rv etc/* /etc/
 sudo cp -rv usr/* /usr/
-sudo cp -rv root/ /
+sudo cp -rv root/* /root/
 
 ## INSTALL VIMPLUG
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -180,10 +181,10 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
 
 ## CLONE WALLPAPERS REPO
-mkdir -pv ~/pictures; cd ~/pictures/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
+mkdir -pv ~/pic; cd ~/pic/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
 
 ## CLONE PERSONAL DMENU BUILD
-cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; sudo make clean install
+cd ~/.local/; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; make; sudo make clean install
 
 ## CLEANUP
 cd
@@ -191,9 +192,9 @@ sudo ln -sfT dash /usr/bin/sh
 sudo chsh -s /bin/zsh root
 sudo chsh -s /bin/zsh $USER
 crontab ~/.config/crontab.save.dinh
+sudo crontab ~/.config/root-crontab.save.dinh
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R ~/.local/bin/
-chmod +x -R ~/.config/i3/i3blocks/
 python -m pip install --user --upgrade pynvim # to be able to use vim-snippets
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
@@ -210,18 +211,19 @@ sudo systemctl enable tlp
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo updatedb
-sudo pacman -Rns i3-wm --noconfirm
+#sudo pacman -Rns i3-wm --noconfirm
 sudo pacman -Rdd dmenu --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
-mkdir -pv ~/{documents,downloads,music,pictures,videos}
+mkdir -pv ~/{doc,dow,mus,pic,vid}
 sudo fc-cache --force
 xdg-user-dirs-update
-source ~/.bash_profile
+source ~/.zprofile
 $SHELL
 rm -rfv ~/.cache/*
+rm -rfv ~/.bash_profile
 rm -rfv ~/.bash_history
 rm -rfv ~/.bash_logout
 rm -rfv ~/.pki/
