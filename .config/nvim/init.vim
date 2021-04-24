@@ -139,8 +139,8 @@ noremap <right> :echoerr "USE L INSTEAD RETARD."<CR>
 
 
 "" ----- AUTORUN ON FILESAVE -----
-" Run xrdb whenever Xdefaults or Xresources are updated.
+" Run xrdb when Xdefaults or Xresources are updated
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
-" Update binds when sxhkdrc is updated.
+" Update binds when sxhkdrc is updated
 autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
