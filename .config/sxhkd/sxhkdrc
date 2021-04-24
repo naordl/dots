@@ -16,6 +16,10 @@ super + d
 super + shift + o
 	colorswitcher
 
+# phonemes
+super + F1
+	phonemes
+
 # nightlight
 super + shift + u
 	nightlight
