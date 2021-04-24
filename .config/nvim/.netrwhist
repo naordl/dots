@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing Specialized Texts/5 - Research Paper Outline/Corrected'
+let g:netrw_dirhist_5='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing Specialized Texts/5 - Research Paper Outline'
+let g:netrw_dirhist_4='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing Specialized Texts'
+let g:netrw_dirhist_3='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing Specialized Texts/8 - The Introduction'
 let g:netrw_dirhist_2='/home/roland/.config/GIMP/2.10/backups'
 let g:netrw_dirhist_1='/home/roland/.local/bin/colorswitcher'
 let g:netrw_dirhist_0='/home/roland/.config/tmux'
 let g:netrw_dirhist_9='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
 let g:netrw_dirhist_8='/home/roland/.config/nvim/plugged/vim-snippets'
 let g:netrw_dirhist_7='/home/roland/.config/nvim/plugged/vim-snippets/.git'
-let g:netrw_dirhist_6='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
-let g:netrw_dirhist_5='/home/roland/.config/nvim/plugged/vim-snippets'
-let g:netrw_dirhist_4='/home/roland/.config/nvim/plugged/vim-snippets/snippets'
-let g:netrw_dirhist_3='/home/roland/.config/nvim/plugged/vim-snippets'

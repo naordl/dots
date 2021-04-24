@@ -109,6 +109,10 @@ set wildmode=longest,list,full
 " Enable bottom right ruler
 set ruler
 
+" Enable wrapping and linebreak
+set wrap
+set linebreak
+
 " Use system clipboard (dependency: xclip)
 " set clipboard+=unnamedplus
 
@@ -125,6 +129,13 @@ set ruler
 
 " Enable the deletion of whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e
+
+
+"" ----- DISABLE ARROW KEYS IN NORMAL MODE-----
+noremap <up> :echoerr "USE K INSTEAD, RETARD."<CR>
+noremap <down> :echoerr "USE J INSTEAD RETARD."<CR>
+noremap <left> :echoerr "USE H INSTEAD RETARD."<CR>
+noremap <right> :echoerr "USE L INSTEAD RETARD."<CR>
 
 
 "" ----- AUTORUN ON FILESAVE -----

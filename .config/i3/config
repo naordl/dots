@@ -9,7 +9,7 @@ $exec "xrdb ~/.config/X11/Xresources"
 $execa "setbg"
 $execa "startpolybar"
 $execa "setxkbmap hu"
-$exec "picom"
+$execa "picom"
 $exec "startdunst"
 $exec "unclutter"
 $exec "clipmenud"
@@ -61,9 +61,7 @@ bindsym $mod+Shift+period split h
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle tabbed split
 
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle

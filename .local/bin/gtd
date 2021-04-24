@@ -29,14 +29,18 @@ fi
 # Loop through commands $3 amount of times.
 for ((i=$multiplier; i>0; i=i-1)); do
 	echo "Get things done! ($1 mins)"
-	playerctl pause                                      # Pause music.
+	playerctl pause > /dev/null                          # Pause music.
 	polybar-msg cmd hide > /dev/null                     # Hide bar.
+	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
+	killall picom > /dev/null                            # Kill compositor.
 	notify-send -u critical -t "5000" "Get things done!" # Send notification.
 	sleep "$study_mins"                                  # Start studying session.
 
 	echo "Break time! ($2 mins)"
-	playerctl play                                       # Start music.
+	playerctl play > /dev/null                           # Start music.
 	polybar-msg cmd show > /dev/null                     # Show bar.
+	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
+	picom > /dev/null                                    # Kill compositor.
 	notify-send -u critical -t "5000" "Break time!"      # Send notification.
 	sleep $break_mins                                    # Start break session.
 done
