@@ -132,7 +132,7 @@ set linebreak
 
 
 "" ----- DISABLE ARROW KEYS IN NORMAL MODE-----
-noremap <up> :echoerr "USE K INSTEAD, RETARD."<CR>
+noremap <up> :echoerr "USE K INSTEAD RETARD."<CR>
 noremap <down> :echoerr "USE J INSTEAD RETARD."<CR>
 noremap <left> :echoerr "USE H INSTEAD RETARD."<CR>
 noremap <right> :echoerr "USE L INSTEAD RETARD."<CR>
