@@ -5,5 +5,5 @@
 # Check if there are arguments
 [ -f "$1" ] && cp "$1" ~/.config/wall.png
 
-# Use feh to set the wallpaper
+# Use xwallpaper to set the wallpaper
 xwallpaper --zoom ~/.config/wall.png

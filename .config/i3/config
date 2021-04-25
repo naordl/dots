@@ -65,7 +65,9 @@ bindsym $mod+e layout toggle tabbed split
 
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
+
 focus_follows_mouse no
+title_align center
 
 bindsym $mod+Tab focus output left
 

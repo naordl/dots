@@ -40,7 +40,7 @@ for ((i=$multiplier; i>0; i=i-1)); do
 	playerctl play > /dev/null                           # Start music.
 	polybar-msg cmd show > /dev/null                     # Show bar.
 	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
-	picom > /dev/null                                    # Kill compositor.
+	picom & > /dev/null                                  # Kill compositor.
 	notify-send -u critical -t "5000" "Break time!"      # Send notification.
 	sleep $break_mins                                    # Start break session.
 done

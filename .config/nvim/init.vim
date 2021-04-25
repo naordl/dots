@@ -63,6 +63,9 @@ nnoremap <silent> <F5> :%s/\s\+$//<CR>
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
+" Leader + b - show buffers with fzf
+map <silent> <leader>b :Buffers<CR>
+
 " Leader + f - system-wide fuzzy finder using mlocate and fzf
 map <leader>f :Locate .<CR>
 

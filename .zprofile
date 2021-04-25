@@ -4,8 +4,8 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
-export BROWSER="qutebrowser"
-export ALTBROWSER="brave"
+export BROWSER="brave"
+export ALTBROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
 

@@ -12,8 +12,9 @@ window:
 
   # Window title
   title: Alacritty
+  dynamic_title: true
 
-  # Window class (Linux/BSD only):
+  # Window class
   class:
     # Application instance name
     instance: Alacritty
@@ -31,7 +32,7 @@ font:
   # Normal (roman) font face
   normal:
     family: Fira Code
-  size: 13
+  size: 12
 
   # Offset is the extra space around each character
   offset:
@@ -76,7 +77,7 @@ key_bindings:
 draw_bold_text_with_bright_colors: true
 
 # Background transparency
-background_opacity: 0.9
+background_opacity: 0.95
 
 # This color sceme is called 'default' on terminal.sexy
 #colors:
