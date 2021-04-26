@@ -9,10 +9,24 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 
 "" ----- PLUGIN SETTINGS -----
+" Colorscheme
+set termguicolors
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_transparent_bg=0
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_hls_cursor='orange'
+let g:gruvbox_italicize_comments=1
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='medium'
+
 " Automatically enable Limelight in Goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -35,12 +49,18 @@ let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
 
 " Show currect time in vim-airline
-" let g:airline_section_b = '%{strftime("%I:%M%P")}'
+let g:airline_section_y = '%{strftime("%I:%M%P")}'
 
 
 "" ----- KEYBINDS -----
 " Set the leader key to ','
 let mapleader =","
+
+" Shift + arrow keys resize splits
+nnoremap <S-Up> :resize +2<CR>
+nnoremap <S-Down> :resize -2<CR>
+nnoremap <S-Left> :vertical resize +2<CR>
+nnoremap <S-Right> :vertical resize -2<CR>
 
 " Ctrl + t - new tab
 map <silent> <C-t> :tabnew<CR>
