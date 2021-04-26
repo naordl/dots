@@ -43,6 +43,10 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 set conceallevel=2
 
+" Vimwiki settings
+set nocompatible
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+
 " Snippets
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<C-l>'
@@ -84,6 +88,9 @@ nnoremap <silent> <F5> :%s/\s\+$//<CR>
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
+" Leader + w - save file silently
+nnoremap <silent><leader>w :silent w<CR>
+
 " Leader + t - show table of contents in md
 map <silent> <leader>t :Toc<CR>
 
@@ -107,6 +114,7 @@ map <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:T
 
 
 "" ----- QUALITY OF LIFE ------
+
 " Show tabs and whitespaces
 set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
 
