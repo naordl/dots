@@ -33,7 +33,7 @@ set_from_resource $lightgrey   color7  #000000
 set_from_resource $white       color15 #000000
 
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $white      $white      $darkgrey   $darkgrey   $darkgrey
+client.focused          $darkgrey   $darkgrey   $white      $darkgrey   $darkgrey
 client.unfocused        $black      $black      $darkgrey   $darkgrey
 client.focused_inactive $black      $black      $white      $darkgrey   $darkgrey
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
