@@ -109,15 +109,13 @@ SOFTWARE="
 ## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
 	xss-lock
-	nm-connection-editor	
+	nm-connection-editor
 	xdotool
 	xclip
 	exa
 	playerctl
 	acpi
-	pamixer
 	alsa-utils
-	sysstat
 	imagemagick
 	xwallpaper
 	rar

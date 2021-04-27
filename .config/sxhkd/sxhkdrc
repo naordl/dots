@@ -54,11 +54,11 @@ XF86XK_AudioPrev
 
 # print screen
 Print
-	maim -o /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
+	maim /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
 
 # snip screen
 shift + Print
-	maim -s -o /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+	maim -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
 # snip active window
 control + Print
