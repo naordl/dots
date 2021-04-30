@@ -16,7 +16,7 @@ call plug#end()
 set termguicolors
 let g:gruvbox_italic=1
 let g:gruvbox_bold=1
-let g:gruvbox_transparent_bg=0
+let g:gruvbox_transparent_bg=1
 let g:gruvbox_underline=1
 let g:gruvbox_undercurl=1
 let g:gruvbox_hls_cursor='orange'
@@ -24,6 +24,7 @@ let g:gruvbox_italicize_comments=0
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='medium'
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " Automatically enable Limelight in Goyo
 autocmd! User GoyoEnter Limelight

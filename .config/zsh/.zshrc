@@ -55,8 +55,8 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[5 q' # use beam shape cursor on startup
+preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 
 # purge the god forsaken ~/.pki file
 [ -f ~/.pki ] || rm -rf ~/.pki
@@ -68,7 +68,7 @@ alias startx="startx ~.config/X11/xinitrc"
 # edit scripts and config files
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
-# shortcuts
+# aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='exa -lah --color=auto --group-directories-first'
