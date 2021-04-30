@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# specify bookmarks file location
+bookmarks="$HOME/.local/bookmarks"
+
+# prompt the user for a choice
+choice=$(sort ~/.local/bookmarks | awk {'print $1'} | dmenu -i -l 10 -p 'Bookmark: ')
+
+# if the user did not choose anything, exit the script
+if [ "$choice" != "" ]; then
+	url=$(grep -i $choice $bookmarks | awk {'print $2'}) # get the url from the file
+else
+	exit
+fi
+
+# if the url exists, launch it with default browser
+if [ "$url" != "" ]; then
+	$BROWSER $url > /dev/null
+else
+	exit
+fi

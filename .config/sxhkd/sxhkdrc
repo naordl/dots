@@ -20,6 +20,10 @@ super + shift + o
 super + F1
 	phonemes
 
+# bookmarks
+super + b
+	bookmenu
+
 # nightlight
 super + shift + u
 	nightlight
