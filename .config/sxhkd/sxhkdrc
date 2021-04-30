@@ -61,7 +61,7 @@ super + F7
 	playerctl --player=mpd play-pause
 super + F8
 	playerctl --player=mpd next
-super + f6
+super + F6
 	playerctl --player=mpd previous
 
 # music
