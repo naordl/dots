@@ -18,6 +18,8 @@ case "$choice" in
 	  cp -rv ~/.local/bin $DOTDIR/.local/
 	  echo "Backing up pandoc templates..."
 	  cp -rv ~/.local/pandoc $DOTDIR/.local/
+	  echo "Backing up bookmarks..."
+	  cp -rv ~/.local/bookmarks $DOTDIR/.local/
 	  echo "Backing up /etc/ stuff..."
 	  cp -rv /etc/default/grub $DOTDIR/etc/default/
 	  cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
