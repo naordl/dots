@@ -1,0 +1,12 @@
+#!/bin/sh
+
+state=$(mpc -v | grep -o playing)
+
+if [ "$state" != "playing" ]; then
+	echo ""
+fi
+
+if [ "$state" = playing ]; then
+	song=$(mpc -v | awk NR==1)
+	printf " $song"
+fi

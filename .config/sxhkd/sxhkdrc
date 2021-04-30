@@ -56,6 +56,7 @@ XF86XK_AudioNext
 XF86XK_AudioPrev
 	playerctl previous
 
+# media controls (for mpd)
 super + F7
 	playerctl --player=mpd play-pause
 super + F8
