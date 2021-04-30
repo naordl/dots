@@ -146,6 +146,7 @@ DEPENDENCIES="
 	ntfs-3g
 	python-pip
 	bc
+	xorg-xinput
 	"
 
 ## SETUP FOR THE INSTALL COMMAND

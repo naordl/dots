@@ -49,8 +49,6 @@ XF86MonBrightnessDown
 # media controls
 XF86AudioPlay
 	playerctl play-pause
-XF86AudioPause
-	playerctl pause
 XF86XK_AudioNext
 	playerctl next
 XF86XK_AudioPrev
@@ -64,7 +62,7 @@ super + F8
 super + F6
 	playerctl --player=mpd previous
 
-# music
+# music player
 super + m
 	$TERMINAL -e ncmpcpp
 

@@ -48,8 +48,7 @@ font-2 = Font Awesome 5 Free:style=Solid:fontformat=truetype:size=9:antialias=tr
 font-3 = Font Awesome 5 Brands:style=Regular:fontformat=truetype:size=9:antialias=true;2
 
 modules-left = i3
-modules-center = mpd
-modules-right = internet brightness volume battery date
+modules-right = song internet brightness volume battery date
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
@@ -140,7 +139,7 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 ; label-separator = |
 
-[module/mpd]
+[module/song]
 type = custom/script
 exec = song
 interval = 5
