@@ -1,22 +1,47 @@
-snippet header "Create the YAML header for a markdown file."
+snippet note
 ---
-title: $1
-author: $2
-date: `!v strftime("%d-%m-%Y")`
 toc: true
 toc-title: Table of Contents
 
 ---
+
+> Instructor: $1 \
+> Date: `!v strftime("%d.%m.%Y")` \
+# $2
 endsnippet
 
-snippet notes "Quickly take notes."
----
-toc: true
-toc-title: Table of Contents
+snippet date
+`!v strftime("%d.%m.%Y")`
+endsnippet
 
----
+snippet [
+[${1:text}](${2:https://address})
+endsnippet
 
-# $1
-> Instructor: $2 \
-> Date: `!v strftime("%d-%m-%Y")` \
+snippet ![
+![${1:alttext}](${2:/images/image.jpg})
+endsnippet
+
+snippet **
+**${1:bold}**
+endsnippet
+
+snippet __
+__${1:bold}__
+endsnippet
+
+snippet *
+*${1:italic}*
+endsnippet
+
+snippet _
+_${1:italic}_
+endsnippet
+
+snippet ~
+~${1:strikethrough}~
+endsnippet
+
+snippet "
+"${1:quote}"
 endsnippet

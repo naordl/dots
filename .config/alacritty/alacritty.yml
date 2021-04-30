@@ -6,8 +6,8 @@ window:
     columns: 100
     lines: 25
   padding:
-    x: 2
-    y: 2
+    x: 1
+    y: 1
   dynamic_padding: true
 
   # Window title

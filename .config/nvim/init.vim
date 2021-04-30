@@ -6,9 +6,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'dkarter/bullets.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -22,7 +20,7 @@ let g:gruvbox_transparent_bg=0
 let g:gruvbox_underline=1
 let g:gruvbox_undercurl=1
 let g:gruvbox_hls_cursor='orange'
-let g:gruvbox_italicize_comments=1
+let g:gruvbox_italicize_comments=0
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='medium'
@@ -35,26 +33,28 @@ autocmd! User GoyoLeave Limelight!
 hi Normal ctermbg=NONE guibg=NONE
 let g:limelight_conceal_ctermfg = 244
 
-" Markdown file settings
+" Markdown settings
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_strikethrough = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
-set conceallevel=2
-
-" Vimwiki settings
-set nocompatible
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+set conceallevel=0
 
 " Snippets
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<C-l>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+let g:UltiSnipsSnippetDirectories=["snips"]
 
 " Show currect time in vim-airline
-let g:airline_section_y = '%{strftime("%I:%M%P")}'
+" let g:airline_section_y = '%{strftime("%I:%M%P")}'
+
+
+"" ----- STATUS LINE -----
+highlight clear StatusLine
+set laststatus=0
+set noruler
 
 
 "" ----- KEYBINDS -----
@@ -140,9 +140,6 @@ set smartcase
 
 " Enable autocompletion
 set wildmode=longest,list,full
-
-" Enable bottom right ruler
-set ruler
 
 " Enable wrapping and linebreak
 set wrap
