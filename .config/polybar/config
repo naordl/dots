@@ -48,7 +48,7 @@ font-2 = Font Awesome 5 Free:style=Solid:fontformat=truetype:size=9:antialias=tr
 font-3 = Font Awesome 5 Brands:style=Regular:fontformat=truetype:size=9:antialias=true;2
 
 modules-left = i3
-;modules-center = mpd
+modules-center = mpd
 modules-right = internet brightness volume battery date
 tray-position = right
 tray-padding = 2
@@ -142,7 +142,7 @@ label-empty-padding = 1
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
 
 icon-prev = 
 icon-stop = 

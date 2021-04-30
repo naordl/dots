@@ -221,9 +221,11 @@ sudo fc-cache --force
 source ~/.zprofile
 $SHELL
 rm -rfv ~/.cache/*
+rm -rfv ~/.bashrc
 rm -rfv ~/.bash_profile
 rm -rfv ~/.bash_history
 rm -rfv ~/.bash_logout
+rm -rfv ~/.bash_login
 rm -rfv ~/.pki/
 rm -rfv ~/.icons/
 rm -rfv ~/.Xauthority
