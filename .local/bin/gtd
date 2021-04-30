@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Help with the flag "-h".
 if [ $1 = "-h" ]; then
@@ -21,8 +21,8 @@ break_mins="$2m"
 multiplier="$3"
 
 
-if [ "$multiplier" = "" ]; then # If no multiplier specified, set its value to 1.
-	multiplier="1"
+if [ "$multiplier" = "" ]; then # If no multiplier specified,
+	multiplier="1" # set its value to 1.
 fi
 
 
@@ -32,6 +32,7 @@ for ((i=$multiplier; i>0; i=i-1)); do
 	playerctl pause > /dev/null                          # Pause music.
 	polybar-msg cmd hide > /dev/null                     # Hide bar.
 	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
+	i3-msg gaps outer all toggle 20 > /dev/null           # Toggle gaps.
 	notify-send -u critical -t "5000" "Get things done!" # Send notification.
 	sleep "$study_mins"                                  # Start studying session.
 
@@ -39,6 +40,7 @@ for ((i=$multiplier; i>0; i=i-1)); do
 	playerctl play > /dev/null                           # Start music.
 	polybar-msg cmd show > /dev/null                     # Show bar.
 	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
+	i3-msg gaps outer all toggle 20 > /dev/null           # Toggle gaps.
 	notify-send -u critical -t "5000" "Break time!"      # Send notification.
 	sleep $break_mins                                    # Start break session.
 done
