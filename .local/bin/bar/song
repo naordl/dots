@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# dependency: mpc, mpd
+
 state=$(mpc -v | grep -o playing)
 
 if [ "$state" != "playing" ]; then

@@ -64,6 +64,10 @@ super + F8
 super + f6
 	playerctl --player=mpd previous
 
+# music
+super + m
+	$TERMINAL -e ncmpcpp
+
 # print screen
 Print
 	maim /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
