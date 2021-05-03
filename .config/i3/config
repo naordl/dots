@@ -4,8 +4,9 @@ floating_modifier $mod
 
 set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
+
 $exec "sxhkd"
-$exec "xrdb ~/.config/X11/Xresources"
+#$exec "xrdb ~/.config/X11/Xresources"
 $execa "setbg"
 $execa "startpolybar"
 $execa "setxkbmap hu"
@@ -13,7 +14,7 @@ $execa "picom"
 $exec "startdunst"
 $exec "unclutter"
 $exec "clipmenud"
-$exec "xss-lock --transfer-sleep-lock -- ~/.local/bin/lockscreen"
+$exec "xss-lock -- ~/.local/bin/lockscreen"
 $exec "mpd"
 $exec "mpDris2"
 

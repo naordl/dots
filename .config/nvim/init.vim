@@ -116,6 +116,9 @@ map <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:T
 
 "" ----- QUALITY OF LIFE ------
 
+" Cursor stays relatively in the middle while scrolling
+set scrolloff=8
+
 " Show tabs and whitespaces
 set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
 

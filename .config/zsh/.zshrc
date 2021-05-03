@@ -2,7 +2,8 @@
 
 # prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
-unsetopt PROMPT_SP
+# unsetopt PROMPT_SP
+unsetopt prompt_cr prompt_sp
 
 # case insensitivity
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

@@ -1,20 +1,18 @@
 #!/bin/sh
 
-# Check to see if there's a wired connection
+# Check to see if there is a wired connection
 CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 
-# Check for private ip
-PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
-
-# If there is, a wired connection, print it
+# If there is a wired connection, print it
 if [ "$CONNTYPE" = "" ]; then
+	PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1) # Local ip
 	printf "$CONNTYPE $PRIVATE"
 fi
 
-# If there's not, check for wifi connection and print it
+# If there is not, check for wifi connection and print it
 if [ "$CONNTYPE" = "" ]; then
 	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
-	WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $10}')
+	WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $8}')
 	printf "$CONNTYPE $WIFISTRENGTH%%"
 fi
 
