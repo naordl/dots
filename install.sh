@@ -64,7 +64,7 @@ shell="zsh"
 terminal="alacritty"
 # launcher="" # CLONE PERSONAL DMENU BUILD
 notifications="dunst"
-browser="qutebrowser"
+browser="brave-bin"
 compositor="picom"
 taskmanager="htop"
 networkmanager="networkmanager-dmenu-git"
@@ -79,7 +79,6 @@ printscreen="maim"
 ssh="openssh" # systemctl enable sshd
 pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
-clipboardmanager="clipmenu"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
 
@@ -102,7 +101,6 @@ SOFTWARE="
 	$ssh
 	$pdfviewer
 	$unclutter
-	$clipboardmanager
 	$locate
 	$manuals
 	"
@@ -117,34 +115,26 @@ DEPENDENCIES="
 	playerctl
 	acpi
 	alsa-utils
+	pamixer
 	imagemagick
 	xwallpaper
 	rar
 	unzip
 	zip
-	p7zip
-	bzip2
-	gzip
 	rsync
-	wmctrl
 	i3lock
 	libnotify
 	youtube-dl
 	xdg-user-dirs
 	xorg-xrdb
 	reflector
-	ffmpegthumbnailer
-	poppler
-	atool
-	mediainfo
 	dash
-	checkbashisms
 	dashbinsh
+	checkbashisms
 	acpi_call
 	fzf
 	cronie
 	ntfs-3g
-	python-pip
 	bc
 	xorg-xinput
 	"
@@ -195,7 +185,6 @@ crontab ~/.config/crontab.save.dinh
 sudo crontab ~/.config/root-crontab.save.dinh
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R ~/.local/bin/
-python -m pip install --user --upgrade pynvim # to be able to use vim-snippets
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
 sudo cp -rv /etc/systemd/system/systemd-fsck-root.service /usr/lib/systemd/system/
@@ -217,6 +206,7 @@ sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
+paru -Qdttq | paru -Rns - --noconfirm
 mkdir -pv ~/{doc,dow,mus,pic,vid}
 xdg-user-dirs-update
 sudo fc-cache --force
