@@ -7,7 +7,7 @@ set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
 $execa "setbg"
-#$execa "startpolybar"
+# $execa "startpolybar"
 $execa "setxkbmap hu"
 $execa "picom"
 $exec "startdunst"
@@ -119,9 +119,10 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 bindsym $mod+Shift+r restart
 
-gaps inner 4
+gaps inner 0
 gaps outer 0
 # smart_gaps on
+smart_borders on
 
 new_window pixel 1
 new_float pixel 1
@@ -136,6 +137,6 @@ assign [class="discord"] 7
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:Fira Code 10,Font Awesome 5 Free Solid 10
-	tray_output right
+	font pango:Fira Code 10,Font Awesome 5 Free 10
+	tray_output primary
 }
