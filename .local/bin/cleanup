@@ -4,6 +4,7 @@
 printf "Remove cached packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
+	sudo pacman -Scc --noconfirm
 	paru -Scc --noconfirm
 fi
 
@@ -11,7 +12,16 @@ fi
 printf "Remove orphaned packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
+	pacman -Rns $(sudo pacman -Qtdq) --noconfirm
 	paru -Rns $(paru -Qtdq) --noconfirm
+fi
+
+# Remove unneeded packages
+printf "Remove unneeded packages? (yes/no) "
+read CHOICE
+if [ "$CHOICE" = yes ]; then
+	pacman -Qdttq | sudo pacman -Rns -
+	paru -Qdttq | paru -Rns -
 fi
 
 # Clean up the cache directory

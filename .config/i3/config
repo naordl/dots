@@ -6,14 +6,12 @@ set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
-#$exec "xrdb ~/.config/X11/Xresources"
 $execa "setbg"
 $execa "startpolybar"
 $execa "setxkbmap hu"
 $execa "picom"
 $exec "startdunst"
 $exec "unclutter"
-$exec "clipmenud"
 $exec "xss-lock -- ~/.local/bin/lockscreen"
 $exec "mpd"
 $exec "mpDris2"
@@ -121,8 +119,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 bindsym $mod+Shift+r restart
 
-gaps inner 8
-gaps outer 20
+gaps inner 4
+gaps outer 0
 # smart_gaps on
 
 new_window pixel 1

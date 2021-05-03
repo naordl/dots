@@ -28,10 +28,6 @@ super + b
 super + shift + u
 	nightlight
 
-# clipboard manager
-super + shift + c
-	clipmenu -i
-
 # pulseaudio controls
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 #increase volume
@@ -40,7 +36,7 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 # mute
 
-# screen brightness controls
+# brightness controls
 XF86MonBrightnessUp
 	sudo xbacklight -inc 5; polybar-msg hook brightness 1
 XF86MonBrightnessDown
@@ -97,10 +93,6 @@ super + shift + Escape
 # browser
 super + w
 	$BROWSER
-
-# alt browser
-super + shift + w
-	$ALTBROWSER
 
 # file manager
 super + r

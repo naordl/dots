@@ -84,7 +84,7 @@ pin-workspaces = true
 strip-wsnumbers = false
 
 index-sort = true
-enable-click = false
+enable-click = true
 enable-scroll = false
 wrapping-scroll = false
 reverse-scroll = false
@@ -176,7 +176,7 @@ interval = 60
 
 [module/date]
 type = custom/script
-exec = date "+%a %m/%d %I:%M%P"
+exec = date "+%a %d/%m %I:%M%P"
 format-prefix = " "
 interval = 60
 
