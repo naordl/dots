@@ -3,6 +3,9 @@
 ## THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
 ## RUN THIS SCRIPT FROM TTY2!
 
+## SET DOTFILES DIR
+export DOTDIR="$HOME/.local/dots"
+
 ## Install the Paru AUR helper
 sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
 
@@ -151,9 +154,6 @@ install="paru -Syu --noconfirm --needed
 $install
 
 ## DEPLOY DOTFILES
-# --- SET DOTFILES DIR --- #
-export DOTDIR="$HOME/.local/dots"
-
 cd $DOTDIR
 cp -rv .config/ ~/
 cp -rv .local/ ~/
