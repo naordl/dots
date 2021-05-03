@@ -91,6 +91,7 @@ alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias mntfs="sudo mount -t ntfs"
 alias d="cd ~/.local/dots"
+alias n="ncmpcpp"
 
 # cd and ls at the same time
 chpwd() ls

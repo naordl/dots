@@ -137,6 +137,6 @@ assign [class="discord"] 7
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:Fira Code 10,Font Awesome 5 Free 10
+	font pango:Fira Code,Font Awesome 5 Free 10
 	tray_output primary
 }

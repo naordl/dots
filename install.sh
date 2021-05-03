@@ -121,6 +121,7 @@ DEPENDENCIES="
 	pamixer
 	imagemagick
 	xwallpaper
+	wmctrl
 	rar
 	unzip
 	zip
