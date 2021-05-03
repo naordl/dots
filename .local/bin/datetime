@@ -1,0 +1,5 @@
+#!/bin/sh
+
+datetime=$(date "+%a %d/%m %I:%M%P")
+
+printf "$datetime\n"

@@ -9,4 +9,4 @@ else
 	ICON=""
 fi
 
-printf "$ICON $CAPACITY%%"
+printf "$ICON $CAPACITY%%\n"

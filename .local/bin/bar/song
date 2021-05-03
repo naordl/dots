@@ -10,5 +10,5 @@ fi
 
 if [ "$state" = playing ]; then
 	song=$(mpc -v | awk NR==1)
-	printf " $song"
+	printf " $song\n"
 fi

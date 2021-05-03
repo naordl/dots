@@ -6,18 +6,18 @@ CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 # If there is a wired connection, print it
 if [ "$CONNTYPE" = "" ]; then
 	PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1) # Local ip
-	printf "$CONNTYPE $PRIVATE"
+	printf "$CONNTYPE $PRIVATE\n"
 fi
 
 # If there is not, check for wifi connection and print it
 if [ "$CONNTYPE" = "" ]; then
 	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
 	WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $8}')
-	printf "$CONNTYPE $WIFISTRENGTH%%"
+	printf "$CONNTYPE $WIFISTRENGTH%%\n"
 fi
 
 # If there's no internet connection, print exclamation marks
 if [ "$CONNTYPE" = "" ]; then
 	CONNTYPE="  /  "
-	printf "$CONNTYPE"
+	printf "$CONNTYPE\n"
 fi

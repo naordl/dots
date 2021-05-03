@@ -4,4 +4,4 @@
 [ $(pamixer --get-mute) = true ] && echo  && exit
 
 # Otherwise, print a speaker and the volume percent.
-printf " $(pamixer --get-volume)%%"
+printf " $(pamixer --get-volume)%%\n"

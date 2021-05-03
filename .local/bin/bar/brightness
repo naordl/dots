@@ -1,3 +1,3 @@
 #!/bin/sh
 
-printf " $(xbacklight -get)%%"
+printf " $(xbacklight -get)%%\n"

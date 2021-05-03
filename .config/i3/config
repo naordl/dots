@@ -7,7 +7,7 @@ set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
 $execa "setbg"
-$execa "startpolybar"
+#$execa "startpolybar"
 $execa "setxkbmap hu"
 $execa "picom"
 $exec "startdunst"
@@ -133,3 +133,9 @@ for_window [title="calc"] floating enable
 for_window [title="floatterm"] floating enable
 
 assign [class="discord"] 7
+
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	font pango:Fira Code 10,Font Awesome 5 Free Solid 10
+	tray_output right
+}
