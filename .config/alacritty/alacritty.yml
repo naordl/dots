@@ -51,13 +51,15 @@ selection:
   dynamic_title: true
 
 cursor:
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  style: Block
+  style:
+# Values for `shape`:
+#   - ▇ Block
+#   - _ Underline
+#   - | Beam
+    shape: Block
+    blinking: Never
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the window is unfocused
+# If this is `true`, the cursor will be rendered as a hollow box when the window is unfocused
   unfocused_hollow: true
 
 # Live config reload (changes require restart)

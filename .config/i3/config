@@ -139,4 +139,16 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	font pango:Fira Code,Font Awesome 5 Free 10
 	tray_output primary
+	colors {
+            statusline         $white
+            background         $black
+            separator          $black
+
+#                              BORDER       BACKGROUND   TEXT
+            focused_workspace  $white       $darkgrey    $white
+            inactive_workspace $black       $black       $white
+            active_workspace   $darkgrey    $darkgrey    $white
+            urgent_workspace   $darkred     $darkred     $white
+            binding_mode       $darkred     $darkred     $white
+	}
 }
