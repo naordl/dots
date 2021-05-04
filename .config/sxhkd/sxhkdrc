@@ -28,19 +28,19 @@ super + b
 super + shift + u
 	nightlight
 
-# pulseaudio controls
-XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 #increase volume
-XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 #decrease volume
-XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 # mute
-
 # brightness controls
 XF86MonBrightnessUp
-	sudo xbacklight -inc 5; polybar-msg hook brightness 1
+	sudo xbacklight -inc 5; polybar-msg hook brightness 1 || pkill -SIGRTMIN+1 i3blocks
 XF86MonBrightnessDown
-	sudo xbacklight -dec 5; polybar-msg hook brightness 1
+	sudo xbacklight -dec 5; polybar-msg hook brightness 1 || pkill -SIGRTMIN+1 i3blocks
+
+# pulseaudio controls
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks #increase volume
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks #decrease volume
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks # mute
 
 # media controls
 XF86AudioPlay
@@ -118,9 +118,9 @@ super + F12
 super + Insert
 	toggletouchpad
 
-# toggle polybar
+# toggle bar
 super + shift + i
-	polybar-msg cmd toggle
+	polybar-msg cmd toggle || i3-msg bar mode toggle
 
 # lockscreen
 super + x
