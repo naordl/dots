@@ -122,6 +122,7 @@ DEPENDENCIES="
 	imagemagick
 	xwallpaper
 	wmctrl
+	python-pip
 	rar
 	unzip
 	zip
