@@ -1,17 +1,16 @@
 # ~/.zprofile
 
-# Set default programs
+# set default programs
 export EDITOR="nvim"
-export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
 
-# Add ~/.local/bin/ to $PATH
+# add ~/.local/bin/ to $PATH
 PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )
 
-# Environment variables
+# environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -24,5 +23,5 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-# Start graphical server on tty1 on login
+# start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc &> /dev/null; fi

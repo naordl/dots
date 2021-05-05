@@ -63,15 +63,13 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 [ -f ~/.icons ] || rm -rf ~/.icons
 
 # startx
-alias startx="startx ~.config/X11/xinitrc"
+alias startx="startx ~/.config/X11/xinitrc"
 
 # fzf scripts
-# edit scripts and config files
+# es - edit scripts and config files
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # aliases
-alias ..='cd ..'
-alias ...='cd ../..'
 alias ls='ls --color=auto --group-directories-first -A'
 alias ll='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
@@ -94,5 +92,5 @@ alias mntfs="sudo mount -t ntfs"
 alias d="cd ~/.local/dots"
 alias n="ncmpcpp"
 
-# cd and ls at the same time
+# cd and ls simultaneously
 chpwd() ls
