@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:Fira Code 10
+font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 set $exec exec --no-startup-id
@@ -137,7 +137,7 @@ assign [class="discord"] 7
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:Fira Code, Font Awesome 5 Free 10
+	font pango:DejaVu Sans Mono, Font Awesome 5 Free 10
 	tray_output primary
 	colors {
             statusline         $white
