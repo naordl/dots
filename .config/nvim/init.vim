@@ -8,7 +8,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'dkarter/bullets.vim'
 Plug 'morhetz/gruvbox'
-Plug 'romainl/Apprentice'
 call plug#end()
 
 
@@ -26,9 +25,8 @@ call plug#end()
 " set background=dark
 " let g:gruvbox_contrast_dark='medium'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-colorscheme apprentice
 
-" Automatically enable Limelight in Goyo
+" Automatically toggle Limelight in Goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
@@ -91,10 +89,7 @@ nnoremap <silent> <F5> :%s/\s\+$//<CR>
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" Leader + w - save file silently
-nnoremap <silent><leader>w :silent w<CR>
-
-" Leader + t - show table of contents in md
+" Leader + t - show table of contents in markdown
 map <silent> <leader>t :Toc<CR>
 
 " Leader + b - show buffers with fzf
