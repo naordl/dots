@@ -35,10 +35,10 @@ set_from_resource $white       color15 #000000
 
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
 client.focused          $darkgrey   $darkgrey   $white      $darkgrey   $darkgrey
-client.unfocused        $black      $black      $darkgrey   $darkgrey
-client.focused_inactive $black      $black      $white      $darkgrey   $darkgrey
+client.unfocused        $darkgrey   $black      $darkgrey   $darkgrey
+client.focused_inactive $darkgrey   $black      $white      $darkgrey   $darkgrey
 client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $black
+client.background       $darkgrey
 
 bindsym $mod+Shift+q kill
 
@@ -122,7 +122,7 @@ bindsym $mod+Shift+r restart
 gaps inner 0
 gaps outer 0
 # smart_gaps on
-smart_borders on
+# smart_borders on
 
 new_window pixel 1
 new_float pixel 1

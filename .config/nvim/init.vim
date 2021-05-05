@@ -107,6 +107,11 @@ set undofile
 " Recognize filetypes
 filetype plugin indent on
 
+" Tab spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Enable line numbers
 set relativenumber
 set number
