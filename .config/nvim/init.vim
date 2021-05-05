@@ -8,6 +8,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'dkarter/bullets.vim'
 Plug 'morhetz/gruvbox'
+Plug 'romainl/Apprentice'
 call plug#end()
 
 
@@ -25,6 +26,7 @@ call plug#end()
 " set background=dark
 " let g:gruvbox_contrast_dark='medium'
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+colorscheme apprentice
 
 " Automatically enable Limelight in Goyo
 autocmd! User GoyoEnter Limelight
@@ -55,7 +57,7 @@ let g:UltiSnipsSnippetDirectories=["snips"]
 "" ----- STATUS LINE -----
 highlight clear StatusLine
 set laststatus=0
-set ruler
+set noruler
 
 
 "" ----- KEYBINDS -----
@@ -129,7 +131,7 @@ set undofile
 filetype plugin indent on
 
 " Enable line numbers
-set relativenumber
+" set relativenumber
 set number
 
 " Turn on syntax highlighting
