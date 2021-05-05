@@ -2,7 +2,6 @@
 
 # prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
-# unsetopt PROMPT_SP
 unsetopt prompt_cr prompt_sp
 
 # case insensitivity
@@ -59,8 +58,9 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 
-# purge the god forsaken ~/.pki file
+# purge the useless god forsaken ~/.pki file (and others)
 [ -f ~/.pki ] || rm -rf ~/.pki
+[ -f ~/.icons ] || rm -rf ~/.icons
 
 # startx
 alias startx="startx ~.config/X11/xinitrc"
@@ -72,7 +72,8 @@ es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDI
 # aliases
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='exa -lah --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first -A'
+alias ll='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -r'
@@ -95,9 +96,3 @@ alias n="ncmpcpp"
 
 # cd and ls at the same time
 chpwd() ls
-
-# if tmux is executable, X is running, and not inside a tmux session, then try to attach
-# if attachment fails, start a new session
-# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-#  [ -z "${TMUX}" ] && (tmux attach || tmux) >/dev/null 2>&1
-# fi

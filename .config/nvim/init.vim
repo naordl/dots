@@ -7,25 +7,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'dkarter/bullets.vim'
-Plug 'morhetz/gruvbox'
 call plug#end()
 
 
 "" ----- PLUGIN SETTINGS -----
-" Colorscheme
-" set termguicolors
-" let g:gruvbox_italic=1
-" let g:gruvbox_bold=1
-" let g:gruvbox_transparent_bg=1
-" let g:gruvbox_underline=1
-" let g:gruvbox_undercurl=1
-" let g:gruvbox_hls_cursor='orange'
-" let g:gruvbox_italicize_comments=0
-" autocmd vimenter * ++nested colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark='medium'
-" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-
 " Automatically toggle Limelight in Goyo
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -47,9 +32,6 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<C-l>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["snips"]
-
-" Show currect time in vim-airline
-" let g:airline_section_y = '%{strftime("%I:%M%P")}'
 
 
 "" ----- STATUS LINE -----
@@ -126,7 +108,7 @@ set undofile
 filetype plugin indent on
 
 " Enable line numbers
-" set relativenumber
+set relativenumber
 set number
 
 " Turn on syntax highlighting
@@ -165,10 +147,10 @@ set linebreak
 
 
 "" ----- DISABLE ARROW KEYS IN NORMAL MODE-----
-noremap <up> :echoerr "USE K INSTEAD RETARD."<CR>
-noremap <down> :echoerr "USE J INSTEAD RETARD."<CR>
-noremap <left> :echoerr "USE H INSTEAD RETARD."<CR>
-noremap <right> :echoerr "USE L INSTEAD RETARD."<CR>
+noremap <up> :echoerr "USE K INSTEAD."<CR>
+noremap <down> :echoerr "USE J INSTEAD."<CR>
+noremap <left> :echoerr "USE H INSTEAD."<CR>
+noremap <right> :echoerr "USE L INSTEAD."<CR>
 
 
 "" ----- AUTORUN ON FILESAVE -----

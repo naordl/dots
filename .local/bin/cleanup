@@ -12,7 +12,7 @@ fi
 printf "Remove orphaned packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	pacman -Rns $(sudo pacman -Qtdq) --noconfirm
+	sudo pacman -Rns $(pacman -Qtdq) --noconfirm
 	paru -Rns $(paru -Qtdq) --noconfirm
 fi
 

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+case $BLOCK_BUTTON in
+	1) networkmanager_dmenu ;;
+esac
+
 # Check to see if there is a wired connection
 CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 

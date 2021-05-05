@@ -1,5 +1,12 @@
 #!/bin/sh
 
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e pulsemixer ;;
+	3) pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -SIGRTMIN+2 i3blocks ;;
+	4) pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -SIGRTMIN+2 i3blocks ;;
+	5) pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -SIGRTMIN+2 i3blocks ;;
+esac
+
 # Check if the audio is muted. If it is, display a muted speaker.
 [ $(pamixer --get-mute) = true ] && echo  && exit
 
