@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely: ")
+choice=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely:")
 
 case "$choice" in
 	Lock)

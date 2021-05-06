@@ -70,6 +70,7 @@ alias startx="startx ~/.config/X11/xinitrc"
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # aliases
+alias h="cd ~"
 alias ls='ls --color=auto --group-directories-first -A'
 alias ll='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'

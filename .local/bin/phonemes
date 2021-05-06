@@ -3,4 +3,4 @@
 # dependencies: dmenu, xclip
 # source: http://www.antimoon.com/how/pronunc-soundsipa.htm
 
-printf "ʌ\nɑ:\næ\neə\nɜ:\nɪ\ni:\nɒ\nɔ:\nʊ\nu:\naɪ\naʊ\neɪ\noʊ\nɔɪ\neə\nɪə\nʊə\nŋ\nʃ\ntʃ\nθ\nð\nʒ\ndʒ" | dmenu -i -l 10 -p "Choose wisely: " | xclip -selection clipboard
+printf "ʌ\nɑ:\næ\neə\nɜ:\nɪ\ni:\nɒ\nɔ:\nʊ\nu:\naɪ\naʊ\neɪ\noʊ\nɔɪ\neə\nɪə\nʊə\nŋ\nʃ\ntʃ\nθ\nð\nʒ\ndʒ" | dmenu -i -l 10 -p "Choose wisely:" | xclip -selection clipboard

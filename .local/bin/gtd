@@ -1,46 +1,28 @@
 #!/bin/bash
 
-# Help with the flag "-h".
-if [ $1 = "-h" ]; then
-	echo "Usage:"
-	echo "  gtd [s] [b] [t]"
-	echo "s - Amount of time dedicated to studying (in mins)."
-	echo "b - Amount of time dedicated to breaks (in mins)."
-	echo "t - Amount of times to repeat the instance."
-	exit
-fi
-
-
-# Read first argument as studying minutes.
+# Read first argument as studying minutes
 study_mins="$1m"
 
-# Read second argument as break minutes.
+# Read second argument as break minutes
 break_mins="$2m"
 
-# Read third argument as how many times to repeat.
+# Read third argument as how many times to repeat
 multiplier="$3"
 
+# If no multiplier argument is specified, set its value to 1
+if [ "$multiplier" = "" ]; then; multiplier="1"; fi
 
-if [ "$multiplier" = "" ]; then # If no multiplier specified,
-	multiplier="1" # set its value to 1.
-fi
-
-
-# Loop through commands $3 amount of times.
+# Loop through commands $3 amount of times
 for ((i=$multiplier; i>0; i=i-1)); do
-	echo "Get things done! ($1 mins)"
-	playerctl --player=mpd pause > /dev/null             # Pause music.
-	polybar-msg cmd hide > /dev/null                     # Hide bar.
-	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
-	i3-msg gaps outer all toggle 20 > /dev/null          # Toggle gaps.
-	notify-send -u critical -t "5000" "Get things done!" # Send notification.
-	sleep "$study_mins"                                  # Start studying session.
+    echo "Get things done! ($1 mins)"
+    playerctl --player=mpd pause >/dev/null 2>&1         # Pause music
+    i3-msg bar mode toggle >/dev/null 2>&1               # Toggle bar
+    notify-send -u critical -t "5000" "Get things done!" # Send notification
+    sleep "$study_mins"                                  # Start studying session
 
-	echo "Break time! ($2 mins)"
-	playerctl --player=mpd play > /dev/null              # Play music.
-	polybar-msg cmd show > /dev/null                     # Show bar.
-	i3-msg gaps inner all toggle 8 > /dev/null           # Toggle gaps.
-	i3-msg gaps outer all toggle 20 > /dev/null          # Toggle gaps.
-	notify-send -u critical -t "5000" "Break time!"      # Send notification.
-	sleep $break_mins                                    # Start break session.
+    echo "Break time! ($2 mins)"
+    playerctl --player=mpd play >/dev/null 2>&1          # Play music
+    i3-msg bar mode toggle >/dev/null 2>&1               # Toggle bar
+    notify-send -u critical -t "5000" "Break time!"      # Send notification
+    sleep $break_mins                                    # Start break sessio
 done

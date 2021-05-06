@@ -6,7 +6,7 @@ bookmarks="$HOME/.local/bookmarks"
 # prompt the user for a choice
 choice=$(sort ~/.local/bookmarks | awk {'print $1'} | dmenu -i -l 10 -p 'Bookmark: ')
 
-# if the user did not choose anything, exit the script
+# if the user did not choose anything, exit the script, otherwise get the url
 if [ "$choice" != "" ]; then
 	url=$(grep -i $choice $bookmarks | awk {'print $2'}) # get the url from the file
 else
