@@ -3,7 +3,7 @@
 choice=$(printf "on\noff\nextreme" | dmenu -p "Turn nightlight on/off")
 case $choice in
 	on)
-	  redshift -PO 1600
+	  redshift -PO 3200
 	  ;;
 	off)
 	  redshift -PO 6500

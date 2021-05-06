@@ -1,0 +1,15 @@
+#!/bin/sh
+
+choice=$(printf "1366x768\n1600x900\n1920x1080" | dmenu -i -p "Scale resolution:")
+
+if [ "$choice" = 1366x768 ]; then
+    xrandr --output eDP1 --mode 1366x768 --panning 1366x768 --scale 1x1
+fi
+
+if [ "$choice" = 1600x900 ]; then
+    xrandr --output eDP1 --mode 1366x768 --panning 1600x900 --scale 1.17130307467x1.171875
+fi
+
+if [ "$choice" = 1920x1080 ]; then
+    xrandr --output eDP1 --mode 1366x768 --panning 1920x1080 --scale 1.40556369x1.40625
+fi
