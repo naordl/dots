@@ -4,9 +4,13 @@ CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
 if [ "$STATUS" = "Charging" ]; then
-	ICON=""
+    ICON=""
 else
-	ICON=""
+    ICON=""
+fi
+
+if [ "$CAPACITY" -lt 35 -a "$STATUS" = "Discharging" ]; then
+    notify-send -u critical -t "5000" "BATTERY LOW!"
 fi
 
 printf "$ICON $CAPACITY%%\n"

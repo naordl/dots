@@ -32,7 +32,7 @@ font:
   # Normal (roman) font face
   normal:
     family: DejaVu Sans Mono
-  size: 11
+  size: 10
 
   # Offset is the extra space around each character
   offset:

@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 set $exec exec --no-startup-id
@@ -7,7 +7,6 @@ set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
 $execa "setbg"
-# $execa "startpolybar"
 $execa "setxkbmap hu"
 $execa "picom"
 $exec "startdunst"
@@ -139,7 +138,7 @@ assign [class="discord"] 7
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango:DejaVu Sans Mono, Font Awesome 5 Free 10
+	font pango:DejaVu Sans Mono, Font Awesome 5 Free 9
 	tray_output primary
 	colors {
             statusline         $foreground
