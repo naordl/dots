@@ -93,5 +93,7 @@ alias mntfs="sudo mount -t ntfs"
 alias d="cd ~/.local/dots"
 alias n="ncmpcpp"
 
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+
 # cd and ls simultaneously
 chpwd() ls

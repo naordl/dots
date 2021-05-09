@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/roland/.gnupg'
+let g:netrw_dirhist_6='/home/roland/.password-store'
 let g:netrw_dirhist_5='/home/roland/.config/tmux'
 let g:netrw_dirhist_4='/home/roland/.local/bin/colorswitcher'
 let g:netrw_dirhist_3='/home/roland/.config/nvim/snips'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_1='/usr/share/doc/ranger/config/colorschemes'
 let g:netrw_dirhist_0='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Public Speaking'
 let g:netrw_dirhist_9='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing and Composition/8 - Literary Essay/Corrected'
 let g:netrw_dirhist_8='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing and Composition/8 - Literary Essay'
-let g:netrw_dirhist_7='/home/roland'
-let g:netrw_dirhist_6='/mnt/windows/Users/Roli/Desktop/Uni/II.-IV. Semester/Writing Specialized Texts/5 - Research Paper Outline/Corrected'

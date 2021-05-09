@@ -22,6 +22,11 @@ export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
+export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
 # start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/X11/xinitrc &> /dev/null; fi
