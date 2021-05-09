@@ -7,6 +7,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'dkarter/bullets.vim'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 
@@ -32,6 +33,9 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<C-l>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["snips"]
+
+" Ranger integration
+let g:ranger_map_keys = 0
 
 
 "" ----- STATUS LINE -----
@@ -77,8 +81,11 @@ map <silent> <leader>t :Toc<CR>
 " Leader + b - show buffers with fzf
 map <silent> <leader>b :Buffers<CR>
 
-" Leader + f - system-wide fuzzy finder using mlocate and fzf
-map <leader>f :Locate .<CR>
+" Leader + f - fuzzy finder
+map <leader>f :Files<CR>
+
+" Leader + r - ranger
+map <leader>r :Ranger<CR>
 
 " Leader + g - toggle Goyo
 map <silent> <leader>g :Goyo \| set linebreak<CR>
