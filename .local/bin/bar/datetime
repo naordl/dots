@@ -5,6 +5,6 @@ case $BLOCK_BUTTON in
 	3) $TERMINAL -o window.dimensions.columns=75 -o window.dimensions.lines=35 -t floatterm --hold -e cal -m -Y ;;
 esac
 
-datetime=$(date "+%a %d/%m %I:%M%P")
+DATETIME=$(date "+%a %d/%m %I:%M%P")
 
-printf " $datetime\n"
+printf " $DATETIME\n"

@@ -1,26 +1,20 @@
 #!/bin/sh
 
-choice=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely:")
+CHOICE=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely")
 
-case "$choice" in
-	Lock)
-	  lockscreen
-	  ;;
-	Logout)
-	  bspc quit || i3-msg exit
-	  ;;
-	Shutdown)
-	  systemctl poweroff
-	  ;;
-	Reboot)
-	  systemctl reboot
-	  ;;
-	Suspend)
-	  systemctl suspend
-	  ;;
-	Hibernate)
-	  systemctl hibernate
-	  ;;
-	*)
-	  exit
+case "$CHOICE" in
+    Lock)
+        lockscreen ;;
+    Logout)
+        bspc quit || i3-msg exit ;;
+    Shutdown)
+        systemctl poweroff ;;
+    Reboot)
+        systemctl reboot ;;
+    Suspend)
+        systemctl suspend ;;
+    Hibernate)
+        systemctl hibernate ;;
+    *)
+        exit
 esac

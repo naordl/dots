@@ -1,14 +1,14 @@
 #!/bin/sh
 
-# dependency: mpc, mpd
+# dependencies: mpc, mpd
 
-state=$(mpc -v | grep -o playing)
+STATE=$(mpc -v | grep -o playing)
 
-if [ "$state" != "playing" ]; then
-	echo ""
+if [ "$STATE" != "playing" ]; then
+    printf ""
 fi
 
-if [ "$state" = playing ]; then
-	song=$(mpc -v | awk NR==1)
-	printf " $song\n"
+if [ "$STATE" = playing ]; then
+    SONG=$(mpc -v | awk NR==1)
+    printf " $SONG\n"
 fi

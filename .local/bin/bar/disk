@@ -1,4 +1,5 @@
 #!/bin/sh
 
-disk=$(df -h | awk 'NR==4{print $4}')
-printf " $disk"
+DISK=$(df -h | awk 'NR==4{print $4}')
+
+printf " $DISK\n"

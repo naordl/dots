@@ -1,56 +1,41 @@
-#!/bin/bash
+#!/bin/sh
+
 # dependencies: dmenu, my dotfiles
 
-alacrittydir="$HOME/.config/alacritty"
-xresourcesdir="$HOME/.config/X11"
-colordir="$HOME/.local/bin/colorswitcher/colors"
-choice="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark\nGreenscreen Dark\nApprentice' | dmenu -i -p "Choose colorscheme:")"
+ALACRITTYDIR="$HOME/.config/alacritty"
+XRESOURCESDIR="$HOME/.config/X11"
+COLORDIR="$HOME/.local/bin/colorswitcher/colors"
+CHOICE="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark' | dmenu -i -p "Choose colorscheme")"
 
-if [ "$choice" == "Solarized Light" ]; then
-	cat $alacrittydir/base.yml $colordir/solarized_light/solarized_light.yml > $alacrittydir/alacritty.yml
-	cat $colordir/solarized_light/solarized_light.x > $xresourcesdir/Xresources
-	sed -i '2d;1 a gtk-theme-name=Breeze' ~/.config/gtk-3.0/settings.ini
-	sed -i '5d;4 a gtk-theme-name="Breeze"' ~/.config/gtk-2.0/gtkrc-2.0
-	killall dunst
-	xrdb ~/.config/X11/Xresources
-	bspc wm -r || i3-msg restart
-	notify-send "Changing color scheme to $choice!"
-elif [ "$choice" == "Solarized Dark" ]; then
-	cat $alacrittydir/base.yml $colordir/solarized_dark/solarized_dark.yml > $alacrittydir/alacritty.yml
-	cat $colordir/solarized_dark/solarized_dark.x > $xresourcesdir/Xresources
-	sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-	sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
-	killall dunst
-	xrdb ~/.config/X11/Xresources
-	bspc wm -r || i3-msg restart
-	notify-send "Changing color scheme to $choice!"
-elif [ "$choice" == "Gruvbox Dark" ]; then
-	cat $alacrittydir/base.yml $colordir/gruvbox_dark/gruvbox_dark.yml > $alacrittydir/alacritty.yml
-	cat $colordir/gruvbox_dark/gruvbox_dark.x > $xresourcesdir/Xresources
-	sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-	sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
-	killall dunst
-	xrdb ~/.config/X11/Xresources
-	bspc wm -r || i3-msg restart
-	notify-send "Changing color scheme to $choice!"
-elif [ "$choice" == "Greenscreen Dark" ]; then
-	cat $alacrittydir/base.yml $colordir/greenscreen_dark/greenscreen_dark.yml > $alacrittydir/alacritty.yml
-	cat $colordir/greenscreen_dark/greenscreen_dark.x > $xresourcesdir/Xresources
-	sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-	sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
-	killall dunst
-	xrdb ~/.config/X11/Xresources
-	bspc wm -r || i3-msg restart
-	notify-send "Changing color scheme to $choice!"
-elif [ "$choice" == "Apprentice" ]; then
-	cat $alacrittydir/base.yml $colordir/apprentince/apprentice.yml > $alacrittydir/alacritty.yml
-	cat $colordir/apprentice/apprentice.x > $xresourcesdir/Xresources
-	sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-	sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
-	killall dunst
-	xrdb ~/.config/X11/Xresources
-	bspc wm -r || i3-msg restart
-	notify-send "Changing color scheme to $choice!"
+if [ "$CHOICE" = "Solarized Light" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_light/solarized_light.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/solarized_light/solarized_light.x > $XRESOURCESDIR/Xresources
+    sed -i '2d;1 a gtk-theme-name=Breeze' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Breeze"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/Xresources
+    bspc wm -r || i3-msg restart
+    notify-send "Changing color scheme to $CHOICE!"
+
+elif [ "$CHOICE" = "Solarized Dark" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_dark/solarized_dark.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/solarized_dark/solarized_dark.x > $XRESOURCESDIR/Xresources
+    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/Xresources
+    bspc wm -r || i3-msg restart
+    notify-send "Changing color scheme to $CHOICE!"
+
+elif [ "$CHOICE" = "Gruvbox Dark" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/gruvbox_dark/gruvbox_dark.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/gruvbox_dark/gruvbox_dark.x > $XRESOURCESDIR/Xresources
+    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/Xresources
+    bspc wm -r || i3-msg restart
+    notify-send "Changing color scheme to $CHOICE!"
 else
-	exit
+    exit
 fi

@@ -5,4 +5,8 @@ case $BLOCK_BUTTON in
 	5) sudo xbacklight -dec 5; pkill -SIGRTMIN+1 i3blocks ;;
 esac
 
-printf " $(xbacklight -get)%%\n"
+# dependency: xbacklight
+
+BRIGHTNESS=$(xbacklight -get)
+
+printf " $BRIGHTNESS%%\n"

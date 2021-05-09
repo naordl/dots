@@ -7,11 +7,12 @@ set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
 $execa "setbg"
-$execa "setxkbmap hu"
+# $execa "setxkbmap hu"
 $execa "picom"
-$exec "startdunst"
+$execa "startdunst"
 $exec "unclutter"
-$exec "xss-lock -- ~/.local/bin/lockscreen"
+# $exec "xss-lock -- ~/.local/bin/lockscreen"
+$exec "xss-lock -- lockscreen"
 $exec "mpd"
 $exec "mpDris2"
 
@@ -34,12 +35,12 @@ set_from_resource $white       color15 #000000
 set_from_resource $background  background #000000
 set_from_resource $foreground  foreground #000000
 
-#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $darkgrey   $darkgrey   $white      $darkgrey   $darkgrey
-client.unfocused        $darkgrey   $black      $darkgrey   $darkgrey
-client.focused_inactive $darkgrey   $black      $white      $darkgrey   $darkgrey
-client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $darkgrey
+#                       BORDER        BACKGROUND    TEXT          INDICATOR     CHILD_BORDER
+client.focused          $background   $lightgrey    $foreground   $darkgrey     $darkgrey
+client.unfocused        $background   $background   $foreground   $background
+client.focused_inactive $background   $background   $foreground   $background   $background
+client.urgent           $darkred      $darkred      $black        $darkred      $darkred
+client.background       $background
 
 bindsym $mod+Shift+q kill
 

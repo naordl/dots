@@ -1,10 +1,12 @@
 #!/bin/sh
 
-external_monitor=$(xrandr --query | grep -w 'DP1' | awk {'print $2'})
-if [ "$external_monitor" = "connected" ]; then
-	xrandr --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --off
+EXTERNAL_MON=$(xrandr --query | grep -w 'DP1' | awk {'print $2'})
+
+if [ "$EXTERNAL_MON" = "connected" ]; then
+    xrandr --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --off
 else
-	xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP1 --off --output HDMI1 --off
+    xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP1 --off --output HDMI1 --off
 fi
 
+# fix wallpaper
 setbg

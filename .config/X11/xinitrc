@@ -1,3 +1,4 @@
+source ~/.zprofile
 ~/.local/bin/autodisplay
 xrdb ~/.config/X11/Xresources
 exec i3

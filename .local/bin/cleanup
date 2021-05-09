@@ -1,46 +1,46 @@
 #!/bin/sh
 
-# Remove cached packages
+# remove cached packages
 printf "Remove cached packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	sudo pacman -Scc --noconfirm
-	paru -Scc --noconfirm
+    sudo pacman -Scc --noconfirm
+    paru -Scc --noconfirm
 fi
 
-# Remove orphaned packages
+# remove orphaned packages
 printf "Remove orphaned packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	sudo pacman -Rns $(pacman -Qtdq) --noconfirm
-	paru -Rns $(paru -Qtdq) --noconfirm
+    sudo pacman -Rns $(pacman -Qtdq) --noconfirm
+    paru -Rns $(paru -Qtdq) --noconfirm
 fi
 
-# Remove unneeded packages
+# remove unneeded packages
 printf "Remove unneeded packages? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	pacman -Qdttq | sudo pacman -Rns -
-	paru -Qdttq | paru -Rns -
+    pacman -Qdttq | sudo pacman -Rns -
+    paru -Qdttq | paru -Rns -
 fi
 
-# Clean up the cache directory
+# clean up the cache directory
 printf "Clean up ~/.cache directory? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	rm -rf ~/.cache/*
+    rm -rf ~/.cache/*
 fi
 
-# Delete old journals
+# delete old journals
 printf "Delete old journals? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	sudo journalctl --vacuum-time=2weeks
+    sudo journalctl --vacuum-time=2weeks
 fi
 
-# Refresh pacman mirrorlist
+# refresh pacman mirrorlist
 printf "Refresh packman mirrorlist? (yes/no) "
 read CHOICE
 if [ "$CHOICE" = yes ]; then
-	sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 fi

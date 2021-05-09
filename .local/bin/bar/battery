@@ -10,7 +10,7 @@ else
 fi
 
 if [ "$CAPACITY" -lt 35 -a "$STATUS" = "Discharging" ]; then
-    notify-send -u critical -t "5000" "BATTERY LOW!"
+    notify-send -u critical "BATTERY LOW!"
 fi
 
 printf "$ICON $CAPACITY%%\n"

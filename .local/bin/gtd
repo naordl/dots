@@ -1,28 +1,28 @@
 #!/bin/bash
 
-# Read first argument as studying minutes
+# read first argument as studying minutes
 study_mins="$1m"
 
-# Read second argument as break minutes
+# read second argument as break minutes
 break_mins="$2m"
 
-# Read third argument as how many times to repeat
+# read third argument as how many times to repeat
 multiplier="$3"
 
-# If no multiplier argument is specified, set its value to 1
+# if no multiplier argument is specified, set its value to 1
 if [ "$multiplier" = "" ]; then; multiplier="1"; fi
 
-# Loop through commands $3 amount of times
+# loop through commands $3 amount of times
 for ((i=$multiplier; i>0; i=i-1)); do
     echo "Get things done! ($1 mins)"
-    playerctl --player=mpd pause >/dev/null 2>&1         # Pause music
-    i3-msg bar mode toggle >/dev/null 2>&1               # Toggle bar
-    notify-send -u critical -t "5000" "Get things done!" # Send notification
-    sleep "$study_mins"                                  # Start studying session
+    playerctl --player=mpd pause >/dev/null 2>&1         # pause music
+    i3-msg bar mode toggle >/dev/null 2>&1               # toggle bar
+    notify-send -u critical -t "5000" "Get things done!" # send notification
+    sleep "$study_mins"                                  # start studying session
 
     echo "Break time! ($2 mins)"
-    playerctl --player=mpd play >/dev/null 2>&1          # Play music
-    i3-msg bar mode toggle >/dev/null 2>&1               # Toggle bar
-    notify-send -u critical -t "5000" "Break time!"      # Send notification
-    sleep $break_mins                                    # Start break sessio
+    playerctl --player=mpd play >/dev/null 2>&1          # play music
+    i3-msg bar mode toggle >/dev/null 2>&1               # toggle bar
+    notify-send -u critical -t "5000" "Break time!"      # send notification
+    sleep $break_mins                                    # start break sessio
 done

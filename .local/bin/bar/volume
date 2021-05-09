@@ -7,8 +7,8 @@ case $BLOCK_BUTTON in
 	5) pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -SIGRTMIN+2 i3blocks ;;
 esac
 
-# Check if the audio is muted. If it is, display a muted speaker.
+# check if the audio is muted. If it is, display a muted speaker
 [ $(pamixer --get-mute) = true ] && echo  && exit
 
-# Otherwise, print a speaker and the volume percent.
+# otherwise, print a speaker and the volume percent
 printf " $(pamixer --get-volume)%%\n"

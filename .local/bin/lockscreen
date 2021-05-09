@@ -1,5 +1,12 @@
 #!/bin/sh
 
-maim /tmp/screen.png
-convert /tmp/screen.png -blur 0x6 /tmp/screen.png
-i3lock -e -f -c 000000 -i /tmp/screen.png
+# dependencies: maim, imagemagick, i3lock
+
+# take screenshot
+maim /tmp/lockscreen.png
+
+# blur it
+convert /tmp/lockscreen.png -blur 0x6 /tmp/lockscreen.png
+
+# lock the screen with i3lock
+i3lock -e -f -c 000000 -i /tmp/lockscreen.png
