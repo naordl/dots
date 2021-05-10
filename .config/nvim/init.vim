@@ -114,6 +114,12 @@ set undofile
 " Recognize filetypes
 filetype plugin indent on
 
+" Colorcolumn and text width
+" highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+" set colorcolumn=80
+set textwidth=80
+" au BufWinEnter *.md let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
 " Tab spaces
 set tabstop=4
 set shiftwidth=4
@@ -159,10 +165,10 @@ set linebreak
 
 
 "" ----- DISABLE ARROW KEYS IN NORMAL MODE-----
-noremap <up> :echoerr "USE K INSTEAD."<CR>
-noremap <down> :echoerr "USE J INSTEAD."<CR>
-noremap <left> :echoerr "USE H INSTEAD."<CR>
-noremap <right> :echoerr "USE L INSTEAD."<CR>
+noremap <up> :echoerr "USE K INSTEAD"<CR>
+noremap <down> :echoerr "USE J INSTEAD"<CR>
+noremap <left> :echoerr "USE H INSTEAD"<CR>
+noremap <right> :echoerr "USE L INSTEAD"<CR>
 
 
 "" ----- AUTORUN ON FILESAVE -----
