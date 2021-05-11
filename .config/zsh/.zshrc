@@ -89,6 +89,7 @@ alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/mus/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
+alias gacp="git add .; git commit -m 'yes'; git push"
 alias mntfs="sudo mount -t ntfs"
 alias d="cd ~/.local/dots"
 alias n="ncmpcpp"
