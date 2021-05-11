@@ -117,7 +117,7 @@ filetype plugin indent on
 " Colorcolumn and text width
 " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 " set colorcolumn=80
-set textwidth=80
+" set textwidth=80
 " au BufWinEnter *.md let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 " Tab spaces
