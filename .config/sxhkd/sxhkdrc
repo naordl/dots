@@ -1,127 +1,138 @@
-# wm independent hotkeys
-
-# terminal
+## --- Important Tools --- ##
+# Terminal
 super + Return
-	$TERMINAL
+    $TERMINAL
 
-# floating terminal
+# Floating terminal
 super + shift + Return
-	$TERMINAL -t floatterm
+    $TERMINAL -t floatterm
 
-# program launcher
+# Program launcher
 super + d
-	dmenu_run -i -p "Run: "
+    dmenu_run -i -p "Run:"
 
-# color switcher
-super + shift + o
-	colorswitcher
 
-# phonemes
-super + F1
-	phonemes
-
-# bookmarks
-super + b
-	bookmenu
-
-# nightlight
-super + shift + u
-	nightlight
-
-# brightness controls
+## --- Multimedia keys --- ##
+# Brightness controls
 XF86MonBrightnessUp
-	sudo xbacklight -inc 5; polybar-msg hook brightness 1 || pkill -SIGRTMIN+1 i3blocks
+    sudo xbacklight -inc 5; pkill -SIGRTMIN+1 i3blocks
 XF86MonBrightnessDown
-	sudo xbacklight -dec 5; polybar-msg hook brightness 1 || pkill -SIGRTMIN+1 i3blocks
+    sudo xbacklight -dec 5; pkill -SIGRTMIN+1 i3blocks
 
-# pulseaudio controls
+# Audio controls
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks #increase volume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -SIGRTMIN+2 i3blocks
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks #decrease volume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -SIGRTMIN+2 i3blocks
 XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle; polybar-msg hook volume 1 || pkill -SIGRTMIN+2 i3blocks # mute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -SIGRTMIN+2 i3blocks
 
-# media controls
+# Media controls
 XF86AudioPlay
-	playerctl play-pause
+    playerctl play-pause
 XF86XK_AudioNext
-	playerctl next
+    playerctl next
 XF86XK_AudioPrev
-	playerctl previous
+    playerctl previous
 
-# media controls (for mpd)
+# Media controls (mpd)
 super + F7
-	playerctl --player=mpd play-pause
+    playerctl --player=mpd play-pause
 super + F8
-	playerctl --player=mpd next
+    playerctl --player=mpd next
 super + F6
-	playerctl --player=mpd previous
+    playerctl --player=mpd previous
 
-# music player
-super + m
-	$TERMINAL -e ncmpcpp
+# Touchpad Toggle
+XF86TouchpadToggle
+    toggletouchpad
 
-# print screen
+# Lockscreen
+XF86ScreenSaver
+    lockscreen
+
+
+## --- Print screen functionality --- ##
+# Print screen(s)
 Print
-	maim /tmp/screenshot.png; xclip -selection clipboard -t image/png < /tmp/screenshot.png
+    maim /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
 
-# snip screen
+# Snip screen
 shift + Print
-	maim -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+    maim -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
-# snip active window
-control + Print
-	maim -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
+# Snip active window
+alt + Print
+    maim -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
 
-# networkmanager
-super + shift + n
-	networkmanager_dmenu
 
-# bluetooth manager
-super + shift + b
-	$TERMINAL -e bluetoothctl
-
-# pulseaudio mixer
-super + shift + p
-	$TERMINAL -e pulsemixer
-
-# htop
-super + shift + Escape
-	$TERMINAL -e htop
-
-# browser
+## --- Basic programs --- ##
+# Browser
 super + w
-	$BROWSER
+    $BROWSER
 
-# file manager
-super + r
-	$TERMINAL -e $FILE
-
-# pdf viewer
-super + y
-	zathura
-
-# calculator
-super + c
-	$TERMINAL -t calc -e bc -q
-
-# display settings
+# Display manager
 super + p
-	arandr
+    arandr
 
-# power menu
-super + F12
-	powermenu
+# Bluetooth manager
+super + shift + b
+    $TERMINAL -e bluetoothctl
 
-# toggle touchpad
-super + Insert
-	toggletouchpad
+# Network manager
+super + shift + n
+    networkmanager_dmenu
+
+# Task manager
+super + shift + Escape
+    $TERMINAL -e htop
+
+# File manager
+super + r
+    $TERMINAL -e $FILE
+
+# Audio mixer
+super + shift + p
+    $TERMINAL -e pulsemixer
+
+# Music player
+super + m
+    $TERMINAL -e ncmpcpp
+
+# Email client
+super + n
+    $TERMINAL -e neomutt
+
+# Calculator
+super + c
+    $TERMINAL -t floatterm -e bc -l -q
+
+
+## --- Personal Scripts --- ##
+# Colorscheme switcher menu
+super + shift + o
+    colorswitcher
+
+# Phoneme selector menu
+super + F1
+    phonemesel
+
+# Bookmark menu
+super + b
+    bookmenu
+
+# Night light menu
+super + shift + u
+    nightlight
+
+# Power menu
+super + shift + F12
+    powermenu
 
 # toggle bar
 super + shift + i
-	polybar-msg cmd toggle || i3-msg bar mode toggle
+    i3-msg bar mode toggle
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
