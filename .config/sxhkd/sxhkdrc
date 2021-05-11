@@ -114,7 +114,7 @@ super + shift + o
     colorswitcher
 
 # Phoneme selector menu
-super + F1
+super + shift + z
     phonemesel
 
 # Bookmark menu
@@ -129,10 +129,12 @@ super + shift + u
 super + shift + F12
     powermenu
 
-# toggle bar
+
+## --- Quality of life --- ##
+# Toggle bar
 super + shift + i
     i3-msg bar mode toggle
 
-# make sxhkd reload its configuration files:
+# Reload sxhkd
 super + Escape
     pkill -USR1 -x sxhkd
