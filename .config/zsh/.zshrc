@@ -70,31 +70,35 @@ alias startx="startx ~/.config/X11/xinitrc"
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # aliases
-alias h="cd ~"
+alias pac='sudo pacman'
 alias ls='ls --color=auto --group-directories-first -A'
 alias ll='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -r'
 alias rm='rm -r'
-alias pac='sudo pacman'
 alias mkd='mkdir -p'
 alias smkd='sudo mkdir -p'
 alias r='ranger'
 alias sr='sudo ranger'
-alias vim='nvim'
 alias v='nvim'
 alias sv='sudo nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias xx="extract $1"
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/mus/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias gacp="git add .; git commit -m 'yes'; git push"
 alias mntfs="sudo mount -t ntfs"
-alias d="cd ~/.local/dots"
-alias n="ncmpcpp"
 
-alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+# shortcuts
+alias gh="cd ~"
+alias gc="cd ~/.config/"
+alias gs="cd ~/.local/bin/"
+alias gu="cd /mnt/windows/Users/Roli/Desktop/Uni"
+alias gd="cd ~/.local/dots/"
 
 # cd and ls simultaneously
 chpwd() ls

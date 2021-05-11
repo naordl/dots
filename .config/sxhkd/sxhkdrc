@@ -125,6 +125,10 @@ super + b
 super + shift + u
     nightlight
 
+# Scale resolution menu
+super + shift + t
+    scaleres
+
 # Power menu
 super + shift + F12
     powermenu
