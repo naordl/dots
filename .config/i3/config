@@ -7,11 +7,9 @@ set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
 $execa "setbg"
-# $execa "setxkbmap hu"
 $execa "picom"
 $execa "startdunst"
 $exec "unclutter"
-# $exec "xss-lock -- ~/.local/bin/lockscreen"
 $exec "xss-lock -- lockscreen"
 $exec "mpd"
 $exec "mpDris2"

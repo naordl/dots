@@ -210,6 +210,8 @@ paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 paru -Qdttq | paru -Rns - --noconfirm
 mkdir -pv ~/{doc,dow,mus,pic,vid}
+mkdir -pv ~/.local/{mpd,gnupg}
+mkdir -pv ~/.config/{notmuch,mpop}
 xdg-user-dirs-update
 sudo fc-cache --force
 source ~/.zprofile

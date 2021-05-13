@@ -5,7 +5,7 @@
 ALACRITTYDIR="$HOME/.config/alacritty"
 XRESOURCESDIR="$HOME/.config/X11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
-CHOICE="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark' | dmenu -i -p "Choose colorscheme")"
+CHOICE="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark' | dmenu -i -p "Choose colorscheme")"
 
 if [ "$CHOICE" = "Solarized Light" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_light/solarized_light.yml > $ALACRITTYDIR/alacritty.yml
@@ -14,7 +14,7 @@ if [ "$CHOICE" = "Solarized Light" ]; then
     sed -i '5d;4 a gtk-theme-name="Breeze"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/Xresources
-    bspc wm -r || i3-msg restart
+    i3-msg restart
     notify-send "Changing color scheme to $CHOICE!"
 
 elif [ "$CHOICE" = "Solarized Dark" ]; then
@@ -24,7 +24,7 @@ elif [ "$CHOICE" = "Solarized Dark" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/Xresources
-    bspc wm -r || i3-msg restart
+    i3-msg restart
     notify-send "Changing color scheme to $CHOICE!"
 
 elif [ "$CHOICE" = "Gruvbox Dark" ]; then
@@ -34,7 +34,16 @@ elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/Xresources
-    bspc wm -r || i3-msg restart
+    i3-msg restart
+    notify-send "Changing color scheme to $CHOICE!"
+elif [ "$CHOICE" = "One Dark" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/one_dark/one_dark.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/one_dark/one_dark.x > $XRESOURCESDIR/Xresources
+    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/Xresources
+    i3-msg restart
     notify-send "Changing color scheme to $CHOICE!"
 else
     exit
