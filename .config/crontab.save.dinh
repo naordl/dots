@@ -1,2 +1,2 @@
 # */5 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.zprofile; ~/.local/bin/crons/battnotify
-*/30 * * * * /usr/bin/mailsync
+*/30 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.zprofile; /usr/bin/mailsync
