@@ -2,6 +2,11 @@
 
 # dependencies: mpc, mpd
 
+case $BLOCK_BUTTON in
+    1) playerctl --player=mpd play-pause ;;
+    4) playerctl --player=mpd next ;;
+esac
+
 STATE=$(mpc -v | grep -o playing)
 
 if [ "$STATE" != "playing" ]; then

@@ -97,11 +97,11 @@ super + shift + p
 
 # Music player
 super + m
-    $TERMINAL -e ncmpcpp
+    $TERMINAL -t ncmpcpp -e ncmpcpp
 
 # Email client
 super + n
-    $TERMINAL -e neomutt
+    $TERMINAL -t neomutt -e neomutt
 
 # Calculator
 super + c

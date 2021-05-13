@@ -5,7 +5,8 @@
 ALACRITTYDIR="$HOME/.config/alacritty"
 XRESOURCESDIR="$HOME/.config/X11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
-CHOICE="$(printf 'Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark' | dmenu -i -p "Choose colorscheme")"
+COLORS=$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark")
+CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
 
 if [ "$CHOICE" = "Solarized Light" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_light/solarized_light.yml > $ALACRITTYDIR/alacritty.yml
