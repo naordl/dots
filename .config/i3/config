@@ -124,9 +124,9 @@ assign [class="Virt-manager"] $ws9
 
 bindsym $mod+Shift+r restart
 
-gaps inner 8
+gaps inner 0
 gaps outer 0
-smart_gaps on
+# smart_gaps on
 # smart_borders on
 
 new_window pixel 1
