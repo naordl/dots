@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## THIS SCRIPT REQUIRES the "base-devel" PACKAGE TO BE INSTALLED.
+## THIS SCRIPT REQUIRES THE "base-devel" PACKAGE TO BE INSTALLED
 ## RUN THIS SCRIPT FROM TTY2!
 
 ## SET DOTFILES DIR
 export DOTDIR="$HOME/.local/dots"
 
-## Install the Paru AUR helper
+## INSTALL PARU
 sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
 
 ## ESSENTIALS
@@ -40,12 +40,6 @@ ESSENTIALS="
 # i3
 i3="i3-gaps i3blocks sxhkd" # AUR PACKAGE
 
-# bspwm
-bspwm="bspwm sxhkd bsp-layout xorg-xsetroot polybar" # AUR PACKAGE
-
-# DWM
-# mkdir -p ~/.local/share/; cd ~/.local/share; git clone https://github.com/demo2k20/dwm.git; git clone https://github.com/demo2k20/dwmblocks.git; git clone https://github.com/demo2k20/dmenu.git; cd ~/.local/share/dwm/; sudo make clean install; cd ../dwmblocks/; sudo make clean install; cd ../dmenu; sudo make clean install; sleep 1
-
 WM="
 	$i3
 	$bspwm
@@ -54,7 +48,7 @@ WM="
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
 icontheme="papirus-icon-theme" # AUR PACKAGE
-gtktheme="breeze lxappearance" # GITHUB REPO MANTIS NIGHT
+gtktheme="lxappearance" # GITHUB REPO MANTIS NIGHT
 
 AESTETHICS="
 	$iconfonts
@@ -127,12 +121,12 @@ DEPENDENCIES="
 	unzip
 	zip
 	rsync
+	reflector
 	i3lock
 	libnotify
 	youtube-dl
 	xdg-user-dirs
 	xorg-xrdb
-	reflector
 	dash
 	dashbinsh
 	checkbashisms
@@ -160,7 +154,6 @@ cd $DOTDIR
 cp -rv .config/ ~/
 cp -rv .local/ ~/
 cp -rv .zprofile ~/
-cp -rv .hushlogin ~/.hushlogin
 sudo cp -rv etc/* /etc/
 sudo cp -rv usr/* /usr/
 sudo cp -rv root/* /root/
@@ -170,7 +163,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ## CLONE MANTIS THEME
-cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis/ Mantis\ Dusk/ Mantis\ Night/ /usr/share/themes/
+cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis\ Night/ /usr/share/themes/
 
 ## CLONE WALLPAPERS REPO
 mkdir -pv ~/pic; cd ~/pic/; git clone https://github.com/DiscoBiscuit99/wallpapers.git
@@ -202,7 +195,6 @@ sudo systemctl enable tlp
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo updatedb
-#sudo pacman -Rns i3-wm --noconfirm
 sudo pacman -Rdd dmenu --noconfirm
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm

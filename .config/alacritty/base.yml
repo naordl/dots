@@ -22,7 +22,7 @@ window:
     general: Alacritty
 
 scrolling:
-  history: 5000
+  history: 10000
 
   # Line scrollback amount (history > 0).
   multiplier: 2
