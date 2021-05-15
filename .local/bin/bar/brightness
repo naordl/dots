@@ -1,8 +1,10 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	4) sudo xbacklight -inc 5; pkill -SIGRTMIN+1 i3blocks ;;
-	5) sudo xbacklight -dec 5; pkill -SIGRTMIN+1 i3blocks ;;
+    1) sudo xbacklight -set 75; pkill -SIGRTMIN+1 i3blocks ;;
+    3) sudo xbacklight -set 25; pkill -SIGRTMIN+1 i3blocks ;;
+    4) sudo xbacklight -inc 5; pkill -SIGRTMIN+1 i3blocks ;;
+    5) sudo xbacklight -dec 5; pkill -SIGRTMIN+1 i3blocks ;;
 esac
 
 # dependency: xbacklight
