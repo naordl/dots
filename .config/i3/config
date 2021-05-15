@@ -84,7 +84,7 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6: Music"
 set $ws7 "7: Discord"
-set $ws8 "8"
+set $ws8 "8: Gayming"
 set $ws9 "9: KVM"
 
 workspace $ws1 output DP1 eDP1
@@ -120,6 +120,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 assign [title="ncmpcpp"] $ws6
 for_window [title=ncmpcpp] focus
 assign [class="discord"] $ws7
+assign [class="Steam"] $ws8
+for_window [class=Steam] focus
 assign [class="Virt-manager"] $ws9
 
 bindsym $mod+Shift+r restart
@@ -136,6 +138,7 @@ hide_edge_borders none
 default_border pixel 2
 
 for_window [title="floatterm"] floating enable
+for_window [class="Steam"] floating enable
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf

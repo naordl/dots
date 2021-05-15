@@ -8,6 +8,8 @@ unsetopt prompt_cr prompt_sp
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 setopt MENU_COMPLETE
 
+unsetopt complete_aliases
+
 # enable autocd
 setopt autocd
 

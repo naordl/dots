@@ -1,0 +1,4 @@
+#!/bin/sh
+
+HOME=$HOME/.local/steam_garbage
+exec /usr/bin/steam "$@"
