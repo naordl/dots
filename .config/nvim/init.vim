@@ -1,13 +1,12 @@
 "" ----- CALL PLUGINS (VIM-PLUG) -----
 call plug#begin()
 Plug 'ap/vim-css-color'
-Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'SirVer/ultisnips'
+Plug 'plasticboy/vim-markdown'
 Plug 'dkarter/bullets.vim'
-Plug 'francoiscabrol/ranger.vim'
+Plug 'SirVer/ultisnips'
 call plug#end()
 
 
@@ -30,7 +29,7 @@ set conceallevel=0
 
 " Snippets
 let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<C-l>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 
@@ -75,17 +74,11 @@ nnoremap <silent> <F5> :%s/\s\+$//<CR>
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" Leader + t - show table of contents in markdown
-map <silent> <leader>t :Toc<CR>
-
-" Leader + b - show buffers with fzf
-map <silent> <leader>b :Buffers<CR>
+" Leader + b - next buffer
+map <silent> <leader>b :bn<CR>
 
 " Leader + f - fuzzy finder
 map <leader>f :Files<CR>
-
-" Leader + r - ranger
-map <leader>r :Ranger<CR>
 
 " Leader + g - toggle Goyo
 map <silent> <leader>g :Goyo \| set linebreak<CR>

@@ -10,19 +10,19 @@ break_mins="$2m"
 multiplier="$3"
 
 # if no multiplier argument is specified, set its value to 1
-if [ "$multiplier" = "" ]; then; multiplier="1"; fi
+if [ "$multiplier" = "" ]; then multiplier="1"; fi
 
 # loop through commands $3 amount of times
 for ((i=$multiplier; i>0; i=i-1)); do
     printf "Get things done! ($1 mins)\n"
     playerctl --player=mpd pause >/dev/null 2>&1         # pause music
     i3-msg bar mode toggle >/dev/null 2>&1               # toggle bar
-    notify-send -u critical "Get things done!"           # send notification
+    notify-send "Get things done!"                       # send notification
     sleep "$study_mins"                                  # start studying session
 
     printf "Break time! ($2 mins)\n"
     playerctl --player=mpd play >/dev/null 2>&1          # play music
     i3-msg bar mode toggle >/dev/null 2>&1               # toggle bar
-    notify-send -u critical "Break time!"                # send notification
+    notify-send "Break time!"                            # send notification
     sleep $break_mins                                    # start break sessio
 done

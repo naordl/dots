@@ -23,27 +23,27 @@ backlight="acpilight"
 fonts="ttf-dejavu"
 
 ESSENTIALS=" 
-	$xorg
-	$gpu
-	$wifi
-	$audio
-	$touchpad
-	$batterysaver
-	$backlight
-	$bluetooth
-	$raidcard
-	$westerndigital
-	$fonts
-	"
+    $xorg
+    $gpu
+    $wifi
+    $audio
+    $touchpad
+    $batterysaver
+    $backlight
+    $bluetooth
+    $raidcard
+    $westerndigital
+    $fonts
+    "
 
 ## WM
 # i3
 i3="i3-gaps i3blocks sxhkd" # AUR PACKAGE
 
 WM="
-	$i3
-	$bspwm
-	"
+    $i3
+    $bspwm
+    "
 
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
@@ -51,15 +51,15 @@ icontheme="papirus-icon-theme" # AUR PACKAGE
 gtktheme="lxappearance" # GITHUB REPO MANTIS NIGHT
 
 AESTETHICS="
-	$iconfonts
-	$icontheme
-	$gtktheme
-	"
+    $iconfonts
+    $icontheme
+    $gtktheme
+    "
 
 ## SOFTWARE
 shell="zsh"
 terminal="alacritty"
-# launcher="" # CLONE PERSONAL DMENU BUILD
+# launcher="" # CLONE DMENU BUILD
 notifications="dunst"
 browser="brave-bin"
 compositor="picom"
@@ -78,74 +78,76 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
+documents="libreoffice texlive-core pandoc"
 
 SOFTWARE="
-	$shell
-	$terminal
-	$launcher
-	$notifications
-	$browser
-	$compositor
-	$taskmanager
-	$networkmanager
-	$audiomixer
-	$filemanager
-	$mediaplayer
-	$imageviewer
-	$displaysettings
-	$nightlight
-	$printscreen
-	$ssh
-	$pdfviewer
-	$unclutter
-	$locate
-	$manuals
-	"
+    $shell
+    $terminal
+    $launcher
+    $notifications
+    $browser
+    $compositor
+    $taskmanager
+    $networkmanager
+    $audiomixer
+    $filemanager
+    $mediaplayer
+    $imageviewer
+    $displaysettings
+    $nightlight
+    $printscreen
+    $ssh
+    $pdfviewer
+    $unclutter
+    $locate
+    $manuals
+    $documents
+    "
 
 ## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
-	xss-lock
-	nm-connection-editor
-	xdotool
-	xclip
-	exa
-	playerctl
-	acpi
-	alsa-utils
-	pamixer
-	imagemagick
-	xwallpaper
-	wmctrl
-	python-pip
-	rar
-	unzip
-	zip
-	rsync
-	reflector
-	i3lock
-	libnotify
-	youtube-dl
-	xdg-user-dirs
-	xorg-xrdb
-	dash
-	dashbinsh
-	checkbashisms
-	acpi_call
-	fzf
-	cronie
-	ntfs-3g
-	bc
-	xorg-xinput
-	"
+    xss-lock
+    nm-connection-editor
+    xdotool
+    xclip
+    exa
+    playerctl
+    acpi
+    alsa-utils
+    pamixer
+    imagemagick
+    xwallpaper
+    wmctrl
+    python-pip
+    rar
+    unzip
+    zip
+    rsync
+    reflector
+    i3lock
+    libnotify
+    youtube-dl
+    xdg-user-dirs
+    xorg-xrdb
+    dash
+    dashbinsh
+    checkbashisms
+    acpi_call
+    fzf
+    cronie
+    ntfs-3g
+    bc
+    xorg-xinput
+    "
 
 ## SETUP FOR THE INSTALL COMMAND
 install="paru -Syu --noconfirm --needed
-	$ESSENTIALS
-	$WM
-	$AESTETHICS
-	$SOFTWARE
-	$DEPENDENCIES
-	"
+    $ESSENTIALS
+    $WM
+    $AESTETHICS
+    $SOFTWARE
+    $DEPENDENCIES
+    "
 ## RUN THE INSTALL COMMAND
 $install
 
@@ -204,6 +206,7 @@ paru -Qdttq | paru -Rns - --noconfirm
 mkdir -pv ~/{doc,dow,mus,pic,vid}
 mkdir -pv ~/.local/{mpd,gnupg}
 mkdir -pv ~/.config/{notmuch,mpop}
+chmod -R 700 ~/.local/share/gnupg/
 xdg-user-dirs-update
 sudo fc-cache --force
 source ~/.zprofile
