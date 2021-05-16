@@ -1,0 +1,15 @@
+#!/bin/sh
+
+RESOLUTIONS="\
+1920x1080
+1600x900
+1366x768
+"
+
+CHOICE=$(printf "$RESOLUTIONS" | dmenu -i -p "Resolution?")
+
+if [ "$CHOICE" = "" ]; then exit; fi
+
+NAME="recording_$(date +%y_%m_%d_%H_%M)"
+
+ffmpeg -f x11grab -s "$CHOICE" -i :0.0 $NAME.mp4

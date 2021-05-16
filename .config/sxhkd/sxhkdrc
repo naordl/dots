@@ -114,7 +114,7 @@ super + shift + o
     colorswitcher
 
 # Phoneme selector menu
-super + shift + z
+super + shift + y
     phonemesel
 
 # Bookmark menu

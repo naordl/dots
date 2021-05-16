@@ -63,6 +63,7 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 # purge the useless god forsaken ~/.pki file (and others)
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
+[ -f ~/.java ] || rm -rf ~/.java
 
 # startx
 alias startx="startx ~/.config/X11/xinitrc"

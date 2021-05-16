@@ -33,9 +33,6 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<C-h>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 
-" Ranger integration
-let g:ranger_map_keys = 0
-
 
 "" ----- STATUS LINE -----
 highlight clear StatusLine
@@ -44,9 +41,6 @@ set noruler
 
 
 "" ----- KEYBINDS -----
-" Set the leader key to ','
-let mapleader =","
-
 " Shift + arrow keys resize splits
 nnoremap <S-Up> :resize +2<CR>
 nnoremap <S-Down> :resize -2<CR>
@@ -66,35 +60,62 @@ map <silent> <C-w> :tabclose<CR>
 inoremap <C-H> <C-W>
 
 " F2 - toggle line numbers
-map <silent> <F2> :set nonumber! norelativenumber!<CR>
+nnoremap <silent> <F2> :set nonumber! norelativenumber!<CR>
+
+" F4 - source nvim config
+nnoremap <F4> :source ~/.config/nvim/init.vim<CR>
 
 " F5 - clear whitespace
-nnoremap <silent> <F5> :%s/\s\+$//<CR>
+nnoremap <F5> :%s/\s\+$//<CR>
 
 " F8 - enable spellchecking (use 'z=' for correction suggestions)
-map <F8> :setlocal spell! spelllang=en_us<CR>
+nnoremap <F8> :setlocal spell! spelllang=en_us<CR>
+
+" Leader bindings
+
+" Set the leader key to ','
+let mapleader =","
 
 " Leader + b - next buffer
-map <silent> <leader>b :bn<CR>
-
-" Leader + f - fuzzy finder
-map <leader>f :Files<CR>
+nnoremap <silent> <leader>b :bn<CR>
 
 " Leader + g - toggle Goyo
-map <silent> <leader>g :Goyo \| set linebreak<CR>
+nnoremap <silent> <leader>g :Goyo \| set linebreak<CR>
 
 " Leader + z - open the current file's pdf version using zathura
-map <leader>z :w! \| !zathura %:r.pdf &<CR>
+nnoremap <leader>z :w! \| !zathura %:r.pdf &<CR>
 
 " Leader + d - convert to docx using pandoc
-map <leader>d :!pandoc % -s -o %:r.docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
+nnoremap <leader>d :!pandoc % -s -o %:r.docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
 
 " Leader + c - compile to pdf using pandoc with the xelatex engine
-map <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=2cm'<CR>
+nnoremap <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=2cm'<CR>
+
+" Apostrophe bindings
+
+" ' + l - fzf locate
+nnoremap 'l :Locate ~/<CR>
+
+" ' + f - fzf in current directory
+nnoremap 'f :exe ":Files " . expand("%:h")<CR>
+
+" ' + c - fzf configs
+nnoremap 'c :Files ~/.config/<CR>
+
+" ' + s - fzf scripts
+nnoremap 's :Files ~/.local/bin/<CR>
+
+" ' + d - fzf documents
+nnoremap 'd :Files ~/doc<CR>
+
+" ' + u - fzf uni
+nnoremap 'u :Files /mnt/windows/Users/Roli/Desktop/Uni/II.-IV.\ Semester/<CR>
+
+" ' + v - edit nvim config
+nnoremap 'v :e ~/.config/nvim/init.vim<CR>
 
 
 "" ----- QUALITY OF LIFE ------
-
 " Cursor stays relatively in the middle while scrolling
 set scrolloff=8
 

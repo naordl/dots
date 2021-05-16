@@ -4,17 +4,18 @@
 BOOKMARKS="$HOME/.local/bookmarks"
 
 # prompt the user for a choice
-CHOICE=$(sort $BOOKMARKS | awk {'print $1'} | dmenu -i -l 10 -p 'Bookmarks')
+CHOICE=$(sort "$BOOKMARKS" | awk -F: '{print $1}' | dmenu -i -l 20 -p 'Bookmarks')
 
 # if the user did not choose anything, exit the script
 # otherwise, get the url
 if [ "$CHOICE" != "" ]; then
-    URL=$(grep -i $CHOICE $BOOKMARKS | awk {'print $2'}) # get the url from the file
+    URL=$(grep -i "$CHOICE" "$BOOKMARKS" | awk '{print $NF}') # get the url from the file
 else
     exit
 fi
 
 # if the url exists, launch it with the default browser
+# else, exit
 if [ "$URL" != "" ]; then
     $BROWSER $URL >/dev/null 2>&1
 else
