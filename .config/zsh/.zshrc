@@ -71,6 +71,15 @@ alias startx="startx ~/.config/X11/xinitrc"
 # fzf scripts
 # es - edit scripts and config files
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+# ranger_cd - cd with ranger
+ranger_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
 
 # aliases
 alias pac='sudo pacman'
@@ -82,7 +91,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias mkd='mkdir -p'
 alias smkd='sudo mkdir -p'
-alias r='ranger'
+alias r='ranger_cd'
 alias sr='sudo ranger'
 alias v='nvim'
 alias sv='sudo nvim'
@@ -100,8 +109,13 @@ alias mntfs="sudo mount -t ntfs"
 alias gh="cd ~"
 alias gc="cd ~/.config/"
 alias gs="cd ~/.local/bin/"
+alias gdc="cd ~/doc/"
+alias gdw="cd ~/dow/"
+alias gms="cd ~/mus/"
+alias gpc="cd ~/pic/"
+alias gvd="cd ~/vid/"
+alias gdt="cd ~/.local/dots/"
 alias gu="cd /mnt/windows/Users/Roli/Desktop/Uni"
-alias gd="cd ~/.local/dots/"
 
 # cd and ls simultaneously
 chpwd() ls
