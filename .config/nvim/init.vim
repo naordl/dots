@@ -2,7 +2,6 @@
 call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'dkarter/bullets.vim'
@@ -11,14 +10,6 @@ call plug#end()
 
 
 "" ----- PLUGIN SETTINGS -----
-" Automatically toggle Limelight in Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-" Limelight background settings
-hi Normal ctermbg=NONE guibg=NONE
-let g:limelight_conceal_ctermfg = 244
-
 " Markdown settings
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
