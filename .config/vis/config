@@ -1,6 +1,0 @@
-# Currently available ones are "mpd", "pulse", and "alsa". Defaults to "mpd".
-audio.sources=pulse
-
-# If pulse audio is not working with vis try switching the audio source. A list can be found by running the command
-# pacmd list-sinks  | grep -e 'name:'  -e 'index'
-audio.pulse.source=0
