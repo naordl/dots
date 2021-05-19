@@ -81,7 +81,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
+set $ws5 "5: Email"
 set $ws6 "6: Music"
 set $ws7 "7: Discord"
 set $ws8 "8: Gayming"
@@ -117,6 +117,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
+assign [title="neomutt"] $ws5
+for_window [title=neomutt] focus
 assign [title="ncmpcpp"] $ws6
 for_window [title=ncmpcpp] focus
 assign [class="discord"] $ws7

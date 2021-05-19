@@ -64,6 +64,7 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
+[ -f ~/.zoom ] || rm -rf ~/.zoom
 
 # startx
 alias startx="startx ~/.config/X11/xinitrc"
@@ -115,7 +116,7 @@ alias gms="cd ~/mus/"
 alias gpc="cd ~/pic/"
 alias gvd="cd ~/vid/"
 alias gdt="cd ~/.local/dots/"
-alias gu="cd /mnt/windows/Users/Roli/Desktop/Uni"
+alias gu="cd ~/doc/Uni"
 
 # cd and ls simultaneously
 chpwd() ls
