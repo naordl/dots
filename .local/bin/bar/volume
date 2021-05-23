@@ -1,14 +1,24 @@
 #!/bin/sh
 
+# check for cursor actions
 case $BLOCK_BUTTON in
-	1) $TERMINAL -e pulsemixer ;;
-	3) pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -SIGRTMIN+2 i3blocks ;;
-	4) pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -SIGRTMIN+2 i3blocks ;;
-	5) pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -SIGRTMIN+2 i3blocks ;;
+    1) $TERMINAL -e pulsemixer ;;
+    3) pulsemixer --toggle-mute; pkill -SIGRTMIN+2 i3blocks ;;
+    4) pulsemixer --change-volume +5; pkill -SIGRTMIN+2 i3blocks ;;
+    5) pulsemixer --change-volume -5; pkill -SIGRTMIN+2 i3blocks ;;
 esac
 
-# check if the audio is muted. If it is, display a muted speaker
-[ $(pamixer --get-mute) = true ] && echo  && exit
+# check for arguments
+case $1 in
+    toggle) pulsemixer --toggle-mute ;;
+    mute) pulsemixer --mute ;;
+    unmute) pulsemixer --unmute ;;
+    up) pulsemixer --change-volume +5 ;;
+    down) pulsemixer --change-volume -5 ;;
+esac
 
-# otherwise, print a speaker and the volume percent
-printf " $(pamixer --get-volume)%%\n"
+# if the audio is muted, display a muted speaker and refresh block
+[ $(pulsemixer --get-mute) = 1 ] && printf "\n" && pkill -SIGRTMIN+2 i3blocks && exit
+
+# otherwise, print a speaker and the volume and refresh block
+printf " $(pulsemixer --get-volume | awk '{print $1}')%%\n" && pkill -SIGRTMIN+2 i3blocks

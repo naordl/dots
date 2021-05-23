@@ -6,6 +6,7 @@ export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
+export PAGER="nvim -c 'set ft=man' -"
 
 # add ~/.local/bin/ to $PATH
 PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )

@@ -99,9 +99,6 @@ nnoremap 's :Files ~/.local/bin/<CR>
 " ' + d - fzf documents
 nnoremap 'd :Files ~/doc<CR>
 
-" ' + u - fzf uni
-nnoremap 'u :Files /mnt/windows/Users/Roli/Desktop/Uni/II.-IV.\ Semester/<CR>
-
 " ' + v - edit nvim config
 nnoremap 'v :e ~/.config/nvim/init.vim<CR>
 
@@ -111,7 +108,7 @@ nnoremap 'v :e ~/.config/nvim/init.vim<CR>
 set scrolloff=8
 
 " Show tabs and whitespaces
-set list listchars=nbsp:¬,tab:»·,trail:·,extends:>
+set list listchars=nbsp:¬,tab:»¬,trail:¬,extends:>
 
 " Enable undo history file
 set undofile
@@ -152,7 +149,7 @@ set wrap
 set linebreak
 
 " Use system clipboard (dependency: xclip)
-" set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 
 " Enable cursor line
 " set cursorline

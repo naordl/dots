@@ -12,7 +12,6 @@ $execa "startdunst"
 $exec "unclutter"
 $exec "xss-lock -- lockscreen"
 $exec "mpd"
-$exec "mpDris2"
 
 set_from_resource $black       color0  #000000
 set_from_resource $darkgrey    color8  #000000
@@ -143,7 +142,7 @@ for_window [title="floatterm"] floating enable
 for_window [class="Steam"] floating enable
 
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
     font pango:DejaVu Sans Mono, Font Awesome 5 Free 8
     tray_output primary
     position top
@@ -153,7 +152,7 @@ bar {
             separator          $black
 
 #                              BORDER       BACKGROUND   TEXT
-            focused_workspace  $background  $background $foreground
+            focused_workspace  $background  $background  $foreground
             inactive_workspace $background  $background  $lightgrey
             active_workspace   $lightgrey   $background  $foreground
             urgent_workspace   $darkred     $darkred     $foreground

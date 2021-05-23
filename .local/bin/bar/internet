@@ -1,30 +1,31 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
-	1) networkmanager_dmenu ;;
-esac
-
 # dependency: nmcli
 
-# if there's no internet connection, print exclamation marks
-UNMANAGED=$(nmcli | grep 'enp2s0f1' | grep -o 'unmanaged')
-if [ "$UNMANAGED" = "unmanaged" ]; then
-	printf "  /  \n"
-    exit
+case $BLOCK_BUTTON in
+    1) networkmanager_dmenu ;;
+esac
+
+# if there is no internet connection, print exclamation marks
+NOWIFI=$(nmcli | grep 'wlp3s0' | grep -E -o 'unmanaged|unavailable')
+NOETHERNET=$(nmcli | grep 'enp2s0f1' | grep -E -o 'unmanaged|unavailable')
+if [ "$NOWIFI" != "" ]; then
+    if [ "$NOETHERNET" != "" ]; then
+        printf "  /  \n"
+        exit
+    fi
 fi
 
-# check to see if there is a wired connection
-CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
-
 # if there is a wired connection, print it
+CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 if [ "$CONNTYPE" = "" ]; then
-	PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1) # local ip
-	printf "$CONNTYPE $PRIVATE\n"
+    LOCALIP=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
+    printf "$CONNTYPE $LOCALIP\n"
 fi
 
 # if there is not, check for wifi connection and print it
 if [ "$CONNTYPE" = "" ]; then
-	CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
-	WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $8}')
-	printf "$CONNTYPE $WIFISTRENGTH%%\n"
+    CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
+    WIFISTRENGTH=$(nmcli dev wifi | sed -n '2p' | awk '{print $10}')
+    printf "$CONNTYPE $WIFISTRENGTH%%\n"
 fi

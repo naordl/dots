@@ -22,7 +22,7 @@ bluetooth="bluez bluez-utils blueman bcm43142a0-firmware" # AUR PACKAGE # sudo s
 backlight="acpilight"
 fonts="ttf-dejavu"
 
-ESSENTIALS=" 
+ESSENTIALS="
     $xorg
     $gpu
     $wifi
@@ -37,12 +37,10 @@ ESSENTIALS="
     "
 
 ## WM
-# i3
-i3="i3-gaps i3blocks sxhkd" # AUR PACKAGE
+i3="i3-gaps i3blocks sxhkd"
 
 WM="
     $i3
-    $bspwm
     "
 
 ## AESTETHICS
@@ -78,7 +76,7 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
-documents="libreoffice texlive-core pandoc"
+documents="libreoffice hunspell-en_us hunspell-hu texlive-core pandoc"
 
 SOFTWARE="
     $shell

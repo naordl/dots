@@ -15,17 +15,25 @@ super + d
 ## --- Multimedia keys --- ##
 # Brightness controls
 XF86MonBrightnessUp
-    sudo xbacklight -inc 5; pkill -SIGRTMIN+1 i3blocks
+    brightness up
 XF86MonBrightnessDown
-    sudo xbacklight -dec 5; pkill -SIGRTMIN+1 i3blocks
+    brightness down
 
 # Audio controls
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -SIGRTMIN+2 i3blocks
+    volume up
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -SIGRTMIN+2 i3blocks
+    volume down
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -SIGRTMIN+2 i3blocks
+    volume toggle
+
+# Audio controls (mpc)
+super + F12
+    mpc volume +5
+super + F11
+    mpc volume -5
+super + F10
+    mpc toggle
 
 # Media controls
 XF86AudioPlay
@@ -35,13 +43,13 @@ XF86XK_AudioNext
 XF86XK_AudioPrev
     playerctl previous
 
-# Media controls (mpd)
+# Media controls (mpc)
 super + F7
-    playerctl --player=mpd play-pause
+    mpc toggle
 super + F8
-    playerctl --player=mpd next
+    mpc next
 super + F6
-    playerctl --player=mpd previous
+    mpc prev
 
 # Touchpad Toggle
 XF86TouchpadToggle
