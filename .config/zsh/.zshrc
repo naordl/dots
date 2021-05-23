@@ -117,8 +117,9 @@ alias gms="cd ~/mus/"
 alias gpc="cd ~/pic/"
 alias gvd="cd ~/vid/"
 alias gdt="cd ~/.local/dots/"
-alias gu="cd ~/doc/Uni"
-alias gw="cd /mnt/windows/Users/Roli/Desktop"
+alias gu="cd ~/doc/Uni/"
+alias gw="cd /mnt/windows/Users/Roli/"
+alias gm="cd /mnt/media/"
 
 # cd and ls simultaneously
-chpwd() ls
+# chpwd() ls
