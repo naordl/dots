@@ -106,6 +106,8 @@ alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias mi="cp -v config.def.h config.h; sudo make clean install"
 alias gacp="git add .; git commit -m 'yes'; git push"
 alias mntfs="sudo mount -t ntfs"
+alias mfat32="sudo mount -o gid=users,fmask=113,dmask=002"
+alias umnt="sync; sudo umount"
 
 # shortcuts
 alias gh="cd ~"
