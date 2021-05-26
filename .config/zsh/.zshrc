@@ -8,6 +8,7 @@ unsetopt prompt_cr prompt_sp
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 setopt MENU_COMPLETE
 
+# complete aliases
 unsetopt complete_aliases
 
 # enable autocd
@@ -60,7 +61,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 
-# purge the useless god forsaken ~/.pki file (and others)
+# purge the useless ~/.pki folder (and others)
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
@@ -70,18 +71,9 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 # startx
 alias startx="startx ~/.config/X11/xinitrc"
 
-# fzf scripts
-# es - edit scripts and config files
+# functions
+# es - edit scripts and config files using fzf
 es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-# ranger_cd - cd with ranger
-ranger_cd() {
-    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
-    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
-    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
-        cd -- "$chosen_dir"
-    fi
-    rm -f -- "$temp_file"
-}
 
 # aliases
 alias pac='sudo pacman'
@@ -93,7 +85,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias mkd='mkdir -p'
 alias smkd='sudo mkdir -p'
-alias r='ranger_cd'
+alias r='ranger'
 alias sr='sudo ranger'
 alias v='nvim'
 alias sv='sudo nvim'
@@ -121,7 +113,4 @@ alias gvd="cd ~/vid/"
 alias gdt="cd ~/.local/dots/"
 alias gu="cd ~/doc/Uni/"
 alias gw="cd /mnt/windows/Users/Roli/"
-alias gm="cd /mnt/media/"
-
-# cd and ls simultaneously
-# chpwd() ls
+alias gmnt="cd /mnt/"

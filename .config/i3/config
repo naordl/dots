@@ -6,6 +6,7 @@ set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
+$exec "alternating-layouts.py"
 $execa "setbg"
 $execa "picom"
 $execa "startdunst"
@@ -127,8 +128,8 @@ assign [class="Virt-manager"] $ws9
 
 bindsym $mod+Shift+r restart
 
-gaps inner 8
-gaps outer 8
+gaps inner 10
+gaps outer 20
 # smart_gaps on
 # smart_borders on
 
