@@ -6,6 +6,7 @@ set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
+$exec "i3-msg focus output primary"
 $exec "alternating-layouts.py"
 $execa "setbg"
 $execa "picom"
@@ -81,11 +82,11 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5: Email"
-set $ws6 "6: Music"
-set $ws7 "7: Discord"
-set $ws8 "8: Gayming"
-set $ws9 "9: KVM"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
 workspace $ws1 output DP1 eDP1
 workspace $ws2 output DP1 eDP1
@@ -93,8 +94,8 @@ workspace $ws3 output DP1 eDP1
 workspace $ws4 output DP1 eDP1
 workspace $ws5 output DP1 eDP1
 workspace $ws6 output DP1 eDP1
-workspace $ws7 output eDP1 DP1
-workspace $ws8 output eDP1 DP1
+workspace $ws7 output DP1 eDP1
+workspace $ws8 output DP1 eDP1
 workspace $ws9 output eDP1 DP1
 
 bindsym $mod+1 workspace number $ws1
@@ -117,15 +118,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
-assign [title="neomutt"] $ws5
-for_window [title=neomutt] focus
-assign [title="ncmpcpp"] $ws6
-for_window [title=ncmpcpp] focus
-assign [class="discord"] $ws7
-assign [class="Steam"] $ws8
-for_window [class=Steam] focus
-assign [class="Virt-manager"] $ws9
-
 bindsym $mod+Shift+r restart
 
 gaps inner 10
@@ -139,6 +131,7 @@ new_float pixel 1
 hide_edge_borders none
 default_border pixel 2
 
+assign [class="discord"] $ws9
 for_window [title="floatterm"] floating enable
 for_window [class="Steam"] floating enable
 
