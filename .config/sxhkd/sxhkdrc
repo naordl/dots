@@ -67,11 +67,11 @@ Print
 
 # Snip screen
 shift + Print
-    maim -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+    maim -u -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
 # Snip active window
 alt + Print
-    maim -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
+    maim -u -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
 
 
 ## --- Basic programs --- ##
