@@ -110,7 +110,7 @@ set scrolloff=8
 " Show tabs and whitespaces
 set listchars=tab:▸\ ,eol:¬
 
-" Remove tildas from empty newlines
+" Remove tildes from empty newlines
 set fillchars=eob:\ ,
 
 " Enable undo history file
