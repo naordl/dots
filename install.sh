@@ -45,7 +45,7 @@ WM="
 
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
-icontheme="papirus-icon-theme" # AUR PACKAGE
+# icontheme="papirus-icon-theme" # AUR PACKAGE
 gtktheme="lxappearance" # GITHUB REPO MANTIS NIGHT
 
 AESTETHICS="
@@ -57,7 +57,7 @@ AESTETHICS="
 ## SOFTWARE
 shell="zsh"
 terminal="alacritty"
-# launcher="" # CLONE DMENU BUILD
+# launcher="dmenu" # CLONE DMENU BUILD
 notifications="dunst"
 browser="brave-bin"
 compositor="picom"
@@ -106,13 +106,12 @@ SOFTWARE="
 DEPENDENCIES="
     xss-lock
     nm-connection-editor
-    xdotool
+    --xdotool
     xclip
     exa
     playerctl
     acpi
-    alsa-utils
-    pamixer
+    --alsa-utils
     imagemagick
     xwallpaper
     wmctrl
@@ -176,6 +175,7 @@ cd
 sudo ln -sfT dash /usr/bin/sh
 sudo chsh -s /bin/zsh root
 sudo chsh -s /bin/zsh $USER
+sudo ln -sf /home/$USER/.config/zsh/.zshrc /root/.zshrc
 crontab ~/.config/crontab.save.dinh
 sudo crontab ~/.config/root-crontab.save.dinh
 sudo chmod 644 /usr/share/fonts/WindowsFonts/*

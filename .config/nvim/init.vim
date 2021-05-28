@@ -21,7 +21,7 @@ set conceallevel=0
 " Snippets
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<C-h>'
+let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 
 
@@ -47,7 +47,7 @@ map <silent> <C-n> :tabnext<CR>
 " Ctrl + w - close tab
 map <silent> <C-w> :tabclose<CR>
 
-" Ctrl + Backspace - delete last word
+" Ctrl + backspace - delete last word
 inoremap <C-H> <C-W>
 
 " F2 - toggle line numbers
@@ -108,7 +108,10 @@ nnoremap 'v :e ~/.config/nvim/init.vim<CR>
 set scrolloff=8
 
 " Show tabs and whitespaces
-set list listchars=nbsp:¬,tab:»¬,trail:¬,extends:>
+set listchars=tab:▸\ ,eol:¬
+
+" Remove tildas from empty newlines
+set fillchars=eob:\ ,
 
 " Enable undo history file
 set undofile
