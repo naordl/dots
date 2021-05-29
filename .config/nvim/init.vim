@@ -24,6 +24,13 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 
+" Bullets
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
 
 "" ----- STATUS LINE -----
 highlight clear StatusLine
