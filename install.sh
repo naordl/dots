@@ -68,6 +68,7 @@ filemanager="ranger ueberzug dragon-drag-and-drop dosfstools mtools"
 mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpdris2 mpc"
 imageviewer="sxiv"
+webcammanager="guvcview"
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift-minimal"
 printscreen="maim"
@@ -91,6 +92,7 @@ SOFTWARE="
     $filemanager
     $mediaplayer
     $imageviewer
+    $webcammanager
     $displaysettings
     $nightlight
     $printscreen
