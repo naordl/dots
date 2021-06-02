@@ -61,7 +61,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 
-# purge the useless ~/.pki folder (and others)
+# purge the ~/.pki folder (and others)
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
@@ -77,8 +77,8 @@ es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDI
 
 # aliases
 alias pac='sudo pacman'
-alias ls='ls --color=auto --group-directories-first -A'
-alias ll='exa -lah --color=auto --group-directories-first'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='exa -lh --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -r'
@@ -91,7 +91,7 @@ alias v='nvim'
 alias sv='sudo nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias xx="extract $1"
+alias ex="extract $1"
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/mus/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -102,15 +102,15 @@ alias mfat32="sudo mount -o gid=users,fmask=113,dmask=002"
 alias umnt="sync; sudo umount"
 
 # shortcuts
-alias gh="cd ~"
+alias gh="cd"
 alias gc="cd ~/.config/"
 alias gs="cd ~/.local/bin/"
-alias gdc="cd ~/doc/"
-alias gdw="cd ~/dow/"
-alias gms="cd ~/mus/"
-alias gpc="cd ~/pic/"
-alias gvd="cd ~/vid/"
 alias gdt="cd ~/.local/dots/"
-alias gu="cd ~/doc/Uni/"
-alias gw="cd /mnt/windows/Users/Roli/"
+alias gu="cd ~/Documents/Uni/"
+alias gdc="cd ~/Documents/"
+alias gdw="cd ~/Downloads/"
+alias gms="cd ~/Music/"
+alias gpc="cd ~/Pictures/"
+alias gvd="cd ~/Videos/"
 alias gmnt="cd /mnt/"
+alias gw="cd /mnt/windows/Users/Roli/"

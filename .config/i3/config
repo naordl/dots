@@ -2,18 +2,20 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
+# force floating for all new windows
+# for_window [class="[.]*"] floating enable
+
 set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
 $exec "sxhkd"
-$exec "i3-msg focus output primary"
-$exec "alternating-layouts.py"
 $execa "setbg"
 $execa "picom"
 $execa "startdunst"
 $exec "unclutter"
-$exec "xss-lock -- lockscreen"
 $exec "mpd"
+$exec "xss-lock -- lockscreen"
+$exec "i3-msg focus output primary"
 
 set_from_resource $black       color0  #000000
 set_from_resource $darkgrey    color8  #000000

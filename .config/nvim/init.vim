@@ -39,11 +39,14 @@ set noruler
 
 
 "" ----- KEYBINDS -----
-" Shift + arrow keys resize splits
+" Shift + arrow keys - resize splits
 nnoremap <S-Up> :resize +2<CR>
 nnoremap <S-Down> :resize -2<CR>
 nnoremap <S-Left> :vertical resize +2<CR>
 nnoremap <S-Right> :vertical resize -2<CR>
+
+" é - command-line mode
+nnoremap é :
 
 " Ctrl + t - new tab
 map <silent> <C-t> :tabnew<CR>
@@ -60,25 +63,28 @@ inoremap <C-H> <C-W>
 " F2 - toggle line numbers
 nnoremap <silent> <F2> :set nonumber! norelativenumber!<CR>
 
+" F3 - toggle listchars
+nnoremap <silent> <F3> :set list!<CR>
+
 " F4 - source nvim config
 nnoremap <F4> :source ~/.config/nvim/init.vim<CR>
 
 " F5 - clear whitespace
 nnoremap <F5> :%s/\s\+$//<CR>
 
-" F8 - enable spellchecking (use 'z=' for correction suggestions)
-nnoremap <F8> :setlocal spell! spelllang=en_us<CR>
+" F6 - enable spellchecking (use 'z=' for correction suggestions)
+nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 
 " Leader bindings
 
 " Set the leader key to ','
-let mapleader =","
+let mapleader=","
 
 " Leader + b - next buffer
 nnoremap <silent> <leader>b :bn<CR>
 
 " Leader + g - toggle Goyo
-nnoremap <silent> <leader>g :Goyo \| set linebreak<CR>
+nnoremap <silent> <leader>g :Goyo<CR>
 
 " Leader + z - open the current file's pdf version using zathura
 nnoremap <leader>z :w! \| !zathura %:r.pdf &<CR>
@@ -115,6 +121,7 @@ nnoremap 'v :e ~/.config/nvim/init.vim<CR>
 set scrolloff=8
 
 " Show tabs and whitespaces
+set list
 set listchars=tab:▸\ ,eol:¬
 
 " Remove tildes from empty newlines
