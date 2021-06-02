@@ -162,7 +162,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis\ Night/ /usr/share/themes/; cd
 
 ## CLONE WALLPAPERS REPO
-mkdir -pv ~/pic; cd ~/pic/; git clone https://github.com/DiscoBiscuit99/wallpapers.git; cd
+mkdir -pv ~/Pictures; cd ~/pic/; git clone https://github.com/demo2k20/Wallpapers.git; cd
 
 ## CLONE PERSONAL DMENU BUILD
 mkdir -pv ~/.local/src; cd ~/.local/src; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; make; sudo make clean install; cd
@@ -197,7 +197,7 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 paru -Qdttq | paru -Rns - --noconfirm
-mkdir -pv ~/{doc,dow,mus,pic,vid}
+mkdir -pv ~/{Documents,Downloads,Music,Pictures,Videos}
 mkdir -pv ~/.local/{mpd,gnupg}
 mkdir -pv ~/.config/{notmuch,mpop}
 chmod -R 700 ~/.local/share/gnupg/
