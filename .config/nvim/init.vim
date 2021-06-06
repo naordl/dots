@@ -93,7 +93,7 @@ nnoremap <leader>z :w! \| !zathura %:r.pdf &<CR>
 nnoremap <leader>d :!pandoc % -s -o %:r.docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
 
 " Leader + c - compile to pdf using pandoc with the xelatex engine
-nnoremap <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=2cm'<CR>
+nnoremap <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=1in'<CR>
 
 " Apostrophe bindings
 
@@ -114,6 +114,9 @@ nnoremap 'd :Files ~/doc<CR>
 
 " ' + v - edit nvim config
 nnoremap 'v :e ~/.config/nvim/init.vim<CR>
+
+" ' + td - edit todo list
+nnoremap 'td :e ~/Documents/todo.md<CR>
 
 
 "" ----- QUALITY OF LIFE ------

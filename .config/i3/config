@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono
 floating_modifier $mod
 
 # force floating for all new windows
@@ -136,6 +136,9 @@ default_border pixel 2
 assign [class="discord"] $ws9
 for_window [title="floatterm"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="guvcview"] floating enable
+for_window [class="Guvcview"] floating enable
+for_window [class="Guvcview"] move workspace 10
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf

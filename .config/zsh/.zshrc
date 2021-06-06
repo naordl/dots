@@ -67,6 +67,7 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 [ -f ~/.java ] || rm -rf ~/.java
 [ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
+[ -f ~/.ssh ] || rm -rf ~/.ssh
 
 # startx
 alias startx="startx ~/.config/X11/xinitrc"
@@ -77,7 +78,7 @@ es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDI
 
 # aliases
 alias pac='sudo pacman'
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls -hN --color=auto --group-directories-first'
 alias ll='exa -lh --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
@@ -100,6 +101,7 @@ alias gacp="git add .; git commit -m 'yes'; git push"
 alias mntfs="sudo mount -t ntfs"
 alias mfat32="sudo mount -o gid=users,fmask=113,dmask=002"
 alias umnt="sync; sudo umount"
+alias td="$EDITOR ~/Documents/todo.md"
 
 # shortcuts
 alias gh="cd"
