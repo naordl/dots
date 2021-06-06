@@ -14,9 +14,9 @@ xorg="xorg-server xorg-xinit"
 gpu="xf86-video-intel"
 wifi="broadcom-wl"
 audio="pulseaudio pulseaudio-alsa"
-touchpad="libinput" # Insert the libinput file from github repo to /etc/X11/xorg.conf.d/40-libinput.conf
+touchpad="libinput"
 batterysaver="tlp"
-bluetooth="bluez bluez-utils blueman bcm43142a0-firmware" # AUR PACKAGE # sudo systemctl enable bluetooth.service
+bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
 # raidcard="aic94xx-firmware" # AUR PACKAGE
 # westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
@@ -46,7 +46,7 @@ WM="
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
 # icontheme="papirus-icon-theme" # AUR PACKAGE
-gtktheme="lxappearance" # GITHUB REPO MANTIS NIGHT
+gtktheme="lxappearance" # GTK THEME - GITHUB REPO - MANTIS NIGHT
 
 AESTETHICS="
     $iconfonts
@@ -64,9 +64,9 @@ compositor="picom"
 taskmanager="htop"
 networkmanager="networkmanager-dmenu-git"
 audiomixer="pulsemixer"
-filemanager="ranger ueberzug dragon-drag-and-drop dosfstools mtools"
+filemanager="ranger ueberzug dragon-drag-and-drop"
 mediaplayer="mpv"
-musicplayer="mpd ncmpcpp mpdris2 mpc"
+musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
 webcammanager="guvcview"
 displaysettings="xorg-xrandr arandr"
@@ -135,6 +135,8 @@ DEPENDENCIES="
     ntfs-3g
     bc
     xorg-xinput
+    dosfstools
+    mtools
     "
 
 ## SETUP FOR THE INSTALL COMMAND
