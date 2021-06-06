@@ -190,6 +190,7 @@ sudo systemctl enable getty@tty1
 sudo systemctl enable bluetooth
 #sudo systemctl enable sshd
 sudo systemctl enable tlp
+sudo systemctl enable fstrim.timer
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo updatedb
@@ -212,8 +213,9 @@ rm -rfv ~/.bash_profile
 rm -rfv ~/.bash_history
 rm -rfv ~/.bash_logout
 rm -rfv ~/.bash_login
+rm -rfv ~/.Xauthority
 rm -rfv ~/.pki/
 rm -rfv ~/.icons/
-rm -rfv ~/.Xauthority
+rm -rfv ~/.ssh/
 clear
 echo "Successfully finished deploying dotfiles. Reboot for the changes to take effect."
