@@ -20,7 +20,7 @@ bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
 # raidcard="aic94xx-firmware" # AUR PACKAGE
 # westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
-fonts="ttf-dejavu"
+fonts="ttf-dejavu nerd-fonts-dejavu-complete"
 
 ESSENTIALS="
     $xorg

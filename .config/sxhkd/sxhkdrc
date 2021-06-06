@@ -9,7 +9,7 @@ super + shift + Return
 
 # Program launcher
 super + d
-    dmenu_run -i -p "Run:"
+    dmenu_run -i -p "Run"
 
 
 ## --- Multimedia keys --- ##
