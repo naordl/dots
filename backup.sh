@@ -30,6 +30,7 @@ case "$choice" in
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
       cp -rv /etc/pulse/default.pa $DOTDIR/etc/pulse/
       cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
+      cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
       tput setaf 2; echo "Backup successful! You may now commit the changes."
       ;;
     no)
