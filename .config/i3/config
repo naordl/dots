@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:DejaVu Sans Mono
+font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # force floating for all new windows
@@ -40,7 +40,7 @@ set_from_resource $foreground  foreground #000000
 client.focused          $lightgrey    $lightgrey    $foreground   $darkred      $darkred
 client.unfocused        $background   $background   $foreground   $background
 client.focused_inactive $background   $background   $foreground   $background   $background
-client.urgent           $darkred      $darkred      $black        $darkred      $darkred
+client.urgent           $red      $red      $black        $red      $red
 client.background       $background
 
 bindsym $mod+Shift+q kill
