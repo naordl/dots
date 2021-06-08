@@ -40,7 +40,7 @@ set_from_resource $foreground  foreground #000000
 client.focused          $lightgrey    $lightgrey    $foreground   $darkred      $darkred
 client.unfocused        $background   $background   $foreground   $background
 client.focused_inactive $background   $background   $foreground   $background   $background
-client.urgent           $red      $red      $black        $red      $red
+client.urgent           $darkred      $darkred      $black        $darkred      $darkred
 client.background       $background
 
 bindsym $mod+Shift+q kill
