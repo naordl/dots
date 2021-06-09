@@ -78,6 +78,7 @@ unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
 documents="libreoffice hunspell-en_us hunspell-hu texlive-core pandoc"
+sync="syncthing"
 
 SOFTWARE="
     $shell
@@ -193,6 +194,8 @@ sudo systemctl enable bluetooth
 #sudo systemctl enable sshd
 sudo systemctl enable tlp
 sudo systemctl enable fstrim.timer
+sudo systemctl enable reflector.service
+systemctl enable --user syncthing
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo updatedb
