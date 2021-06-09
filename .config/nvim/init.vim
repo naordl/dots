@@ -199,3 +199,6 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Update binds when sxhkdrc is updated
 autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
+
+" Update shortcuts when writing to the shortcuts file
+autocmd BufWritePost ~/.local/shortcuts !shortcutgen

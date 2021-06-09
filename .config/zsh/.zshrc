@@ -104,15 +104,4 @@ alias umnt="sync; sudo umount"
 alias td="$EDITOR ~/Documents/todo.md"
 
 # shortcuts
-alias gh="cd"
-alias gc="cd ~/.config/"
-alias gs="cd ~/.local/bin/"
-alias gdt="cd ~/.local/dots/"
-alias gu="cd ~/Documents/Uni/"
-alias gdc="cd ~/Documents/"
-alias gdw="cd ~/Downloads/"
-alias gms="cd ~/Music/"
-alias gpc="cd ~/Pictures/"
-alias gvd="cd ~/Videos/"
-alias gmnt="cd /mnt/"
-alias gw="cd /mnt/windows/Users/Roli/"
+source ~/.config/zsh/shortcutrc

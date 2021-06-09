@@ -1,0 +1,12 @@
+#!/bin/sh
+
+SHORTCUTS="$HOME/.local/shortcuts"
+ZSH_SHORTCUTS="$HOME/.config/zsh/shortcutrc"
+RANGER_SHORTCUTS="$HOME/.config/ranger/shortcuts.conf"
+
+# awk magic - shell shortcuts
+awk '{print "alias g"$1"=\"cd "$2" && ls\""}' $SHORTCUTS > $ZSH_SHORTCUTS
+
+# awk magic - ranger shortcuts
+awk '{print "map g"$1" cd "$2""} BEGIN{print "\n# Shortcuts"}' $SHORTCUTS > $RANGER_SHORTCUTS
+cat $HOME/.config/ranger/rc_base.conf $RANGER_SHORTCUTS > $HOME/.config/ranger/rc.conf

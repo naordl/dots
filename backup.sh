@@ -13,13 +13,15 @@ case "$choice" in
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
       echo "Backing up config files..."
-      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,networkmanager-dmenu,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,bash,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,networkmanager-dmenu,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
       echo "Backing up scripts..."
       cp -rv ~/.local/bin $DOTDIR/.local/
       echo "Backing up pandoc templates..."
       cp -rv ~/.local/pandoc $DOTDIR/.local/
       echo "Backing up bookmarks..."
       cp -rv ~/.local/bookmarks $DOTDIR/.local/
+      echo "Backing up shortcuts..."
+      cp -rv ~/.local/shortcuts $DOTDIR/.local/
       echo "Backing up /etc/ stuff..."
       cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
@@ -34,12 +36,8 @@ case "$choice" in
       cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
       tput setaf 2; echo "Backup successful! You may now commit the changes."
       ;;
-    no)
-      echo "Exiting..."
-      exit
-      ;;
     *)
-      echo "Not a valid choice, exiting..."
+      echo "Exiting..."
       exit
       ;;
 esac
