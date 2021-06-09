@@ -1,3 +1,3 @@
 autodisplay
-xrdb ~/.config/X11/Xresources
+xrdb ~/.config/x11/xresources
 exec i3

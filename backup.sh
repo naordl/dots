@@ -13,7 +13,7 @@ case "$choice" in
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
       echo "Backing up config files..."
-      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,networkmanager-dmenu,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,X11,zsh,bash,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,networkmanager-dmenu,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,bash,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
       echo "Backing up scripts..."
       cp -rv ~/.local/bin $DOTDIR/.local/
       echo "Backing up pandoc templates..."
@@ -31,6 +31,7 @@ case "$choice" in
       cp -rv /etc/pulse/default.pa $DOTDIR/etc/pulse/
       cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
       cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
+      cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
       tput setaf 2; echo "Backup successful! You may now commit the changes."
       ;;
     no)
