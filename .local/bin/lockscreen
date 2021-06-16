@@ -6,7 +6,7 @@
 maim /tmp/lockscreen.png
 
 # blur it
-convert /tmp/lockscreen.png -blur 0x6 /tmp/lockscreen.png
+convert /tmp/lockscreen.png -blur 0x4 /tmp/lockscreen.png
 
 # lock the screen with i3lock
 i3lock -e -f -c 000000 -i /tmp/lockscreen.png
