@@ -70,7 +70,7 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 [ -f ~/.ssh ] || rm -rf ~/.ssh
 
 # startx
-alias startx="startx ~/.config/X11/xinitrc"
+alias startx="startx ~/.config/x11/xinitrc"
 
 # functions
 # es - edit scripts and config files using fzf
@@ -92,16 +92,15 @@ alias v='nvim'
 alias sv='sudo nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias ex="extract $1"
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
-alias gengrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mi="cp -v config.def.h config.h; sudo make clean install"
-alias gacp="git add .; git commit -m 'yes'; git push"
-alias mntfs="sudo mount -t ntfs"
-alias mfat32="sudo mount -o gid=users,fmask=113,dmask=002"
-alias umnt="sync; sudo umount"
-alias td="$EDITOR ~/Documents/todo.md"
+alias gengrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias mi='cp -v config.def.h config.h; sudo make clean install'
+alias gacp='git add .; git commit -m 'yes'; git push'
+alias mntfs='sudo mount -t ntfs'
+alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
+alias umnt='sync; sudo umount'
+alias td='$EDITOR ~/Documents/todo.md'
 
 # shortcuts
 source ~/.config/zsh/shortcutrc
