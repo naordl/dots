@@ -138,6 +138,7 @@ DEPENDENCIES="
     xorg-xinput
     dosfstools
     mtools
+    simple-mtpfs
     "
 
 ## SETUP FOR THE INSTALL COMMAND
