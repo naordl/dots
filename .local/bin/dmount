@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# check for mountable partitions
+MOUNTABLE=$(lsblk -lp | grep "part $" | awk '{print $1, "(" $4 ")"}')
+if [ "$MOUNTABLE" = "" ]; then exit; fi
+
+# have the user choose a partition
+CHOSEN=$(printf "$MOUNTABLE\n" | dmenu -i -p "Mount which partition?" | awk '{print $1}')
+if [ "$CHOSEN" = "" ]; then exit; fi
+
+# find mountable directories
+DIRECTORIES=$(find /mnt -type d -maxdepth 3 2>/dev/null)
+
+# have the user choose a mountable directory
+MOUNTPOINT=$(printf "$DIRECTORIES\n" | dmenu -i -p "Mount where?")
+if [ "$MOUNTPOINT" = "" ]; then exit; fi
+
+# if the directory doesn't exist, ask the user to create it or not
+if [ ! -d "$MOUNTPOINT" ]; then
+    CREATEDIRECTORY=$(printf "No\nYes\n" | dmenu -i -p "$MOUNTPOINT does not exist. Create it?")
+    if [ "$CREATEDIRECTORY" = Yes ]; then
+        sudo mkdir -p "$MOUNTPOINT"
+    fi
+fi
+
+# mount the partition to the desired directory
+sudo mount $CHOSEN $MOUNTPOINT && notify-send "$CHOSEN mounted to $MOUNTPOINT"

@@ -141,6 +141,14 @@ super + shift + t
 super + shift + F12
     powermenu
 
+# USB mounter
+super + F4
+    dmount
+
+# USB unmounter
+super + shift + F4
+    dumount
+
 
 ## --- Quality of life --- ##
 # Toggle bar

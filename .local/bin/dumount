@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# exclusion list
+EXCLUDE="\(/boot\|/home\|/\)$"
+
+# check for mounted partitions
+MOUNTED=$(lsblk -lp | grep "t /" | grep -v "$EXCLUDE" | awk '{print $1, "(" $4 ")", "on", $7}')
+if [ "$MOUNTED" = "" ]; then exit; fi
+
+# ask the user which partition to unmount
+CHOSEN=$(printf "$MOUNTED\n" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
+if [ "$CHOSEN" = "" ]; then exit; fi
+
+# unmount the partition
+sudo umount $CHOSEN && notify-send "$CHOSEN unmounted"
