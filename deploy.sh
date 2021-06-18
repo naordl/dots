@@ -171,7 +171,7 @@ cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-the
 mkdir -pv ~/Pictures; cd ~/pic/; git clone https://github.com/demo2k20/Wallpapers.git; cd
 
 ## CLONE PERSONAL DMENU BUILD
-mkdir -pv ~/.local/src; cd ~/.local/src; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; make; sudo make clean install; cd
+mkdir -pv ~/.local/share; cd ~/.local/share; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; make; sudo make clean install; cd
 
 ## CLEANUP
 sudo ln -sfT dash /usr/bin/sh

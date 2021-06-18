@@ -151,14 +151,6 @@ super + shift + F4
 
 
 ## --- Quality of life --- ##
-# Toggle bar
-super + shift + i
-    i3-msg bar mode toggle
-
-# Promote window
-super + a
-    promote-window.py
-
 # Reload sxhkd
 super + Escape
     pkill -USR1 -x sxhkd

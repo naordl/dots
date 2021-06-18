@@ -202,3 +202,6 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
 
 " Update shortcuts when writing to the shortcuts file
 autocmd BufWritePost ~/.local/shortcuts !shortcutgen
+
+" Recompile suckless programs when exiting
+autocmd BufWinLeave *config.def.h !cp config.def.h config.h; sudo make clean install
