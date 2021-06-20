@@ -1,4 +1,3 @@
 autodisplay
 xrdb ~/.config/x11/xresources
-sxhkd &
-exec i3
+exec dwm

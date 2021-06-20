@@ -8,11 +8,11 @@ case $BLOCK_BUTTON in
 esac
 
 case $1 in
-    toggle) pamixer -t ;;
-    mute) pamixer -m ;;
-    unmute) pamixer -u ;;
-    up) pamixer -i 5 ;;
-    down) pamixer -d 5 ;;
+    toggle) pamixer -t; pkill -SIGRTMIN+2 dwmblocks ;;
+    mute) pamixer -m; pkill -SIGRTMIN+2 dwmblocks ;;
+    unmute) pamixer -u; pkill -SIGRTMIN+2 dwmblocks ;;
+    up) pamixer -i 5; pkill -SIGRTMIN+2 dwmblocks ;;
+    down) pamixer -d 5; pkill -SIGRTMIN+2 dwmblocks ;;
 esac
 
 MUTED=$(pamixer --get-mute)
@@ -20,9 +20,6 @@ VOLUME=$(pamixer --get-volume)
 
 if [ "$MUTED" = "true" ]; then
     printf "\n"
-    pkill -SIGRTMIN+2 i3blocks
-    exit
 else
     printf " $VOLUME%%\n"
-    pkill -SIGRTMIN+2 i3blocks
 fi

@@ -8,12 +8,10 @@ case $BLOCK_BUTTON in
 esac
 
 case $1 in
-    up) xbacklight -inc 5 ;;
-    down) xbacklight -dec 5 ;;
+    up) xbacklight -inc 5; pkill -SIGRTMIN+1 dwmblocks ;;
+    down) xbacklight -dec 5; pkill -SIGRTMIN+1 dwmblocks ;;
 esac
 
 BRIGHTNESS=$(xbacklight -get)
 
 printf " $BRIGHTNESS%%\n"
-
-pkill -SIGRTMIN+1 i3blocks

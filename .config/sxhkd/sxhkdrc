@@ -92,7 +92,7 @@ super + shift + n
     networkmanager_dmenu
 
 # Task manager
-super + shift + Escape
+control + shift + Escape
     $TERMINAL -e htop
 
 # File manager
@@ -148,9 +148,3 @@ super + F4
 # USB unmounter
 super + shift + F4
     dumount
-
-
-## --- Quality of life --- ##
-# Reload sxhkd
-super + Escape
-    pkill -USR1 -x sxhkd
