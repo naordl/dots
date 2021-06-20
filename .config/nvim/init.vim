@@ -110,7 +110,7 @@ nnoremap 'c :Files ~/.config/<CR>
 nnoremap 's :Files ~/.local/bin/<CR>
 
 " ' + d - fzf documents
-nnoremap 'd :Files ~/doc<CR>
+nnoremap 'd :Files ~/Documents<CR>
 
 " ' + v - edit nvim config
 nnoremap 'v :e ~/.config/nvim/init.vim<CR>
@@ -124,8 +124,8 @@ nnoremap 'td :e ~/Documents/todo.md<CR>
 set scrolloff=8
 
 " Show tabs and whitespaces
-set list
-set listchars=tab:▸\ ,eol:¬
+" set list
+" set listchars=tab:▸\ ,eol:¬
 
 " Remove tildes from empty newlines
 set fillchars=eob:\ ,
@@ -204,4 +204,7 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
 autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 
 " Recompile suckless programs when exiting
-autocmd BufWinLeave *config.def.h !cp config.def.h config.h; sudo make clean install
+autocmd BufWinLeave *config.def.h,*blocks.def.h ![ -f config.def.h ] && cp config.def.h config.h; sudo make clean install || [ -f blocks.def.h ] && cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &
+
+" Same as the above, but with blocks
+" autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }

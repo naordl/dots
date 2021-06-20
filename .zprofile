@@ -10,7 +10,7 @@ export FILE="ranger"
 export PAGER="nvim -c 'set ft=man' -"
 
 # add ~/.local/bin/ to $PATH
-PATH=$PATH$( find $HOME/.local/bin/ -type d -printf ":%p" )
+PATH=$PATH$( find $HOME/.local/bin -type d -printf ":%p" )
 
 # environment variables
 export XDG_CONFIG_HOME="$HOME/.config"

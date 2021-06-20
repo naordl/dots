@@ -125,6 +125,7 @@ DEPENDENCIES="
     i3lock
     libnotify
     youtube-dl
+    pamixer
     xdg-user-dirs
     xorg-xrdb
     dash
