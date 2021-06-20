@@ -15,11 +15,14 @@ case $1 in
     down) pamixer -d 5 ;;
 esac
 
-if [ $(pamixer --get-mute) = "true" ]; then
+MUTED=$(pamixer --get-mute)
+VOLUME=$(pamixer --get-volume)
+
+if [ "$MUTED" = "true" ]; then
     printf "\n"
     pkill -SIGRTMIN+2 i3blocks
     exit
 else
-    printf " $(pamixer --get-volume)%%\n"
+    printf " $VOLUME%%\n"
     pkill -SIGRTMIN+2 i3blocks
 fi
