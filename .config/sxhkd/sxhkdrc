@@ -19,6 +19,11 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     brightness down
 
+super + control + {button4,Up}
+    brightness up
+super + control + {button5,Down}
+    brightness down
+
 # Audio controls
 XF86AudioRaiseVolume
     volume up
@@ -27,13 +32,16 @@ XF86AudioLowerVolume
 XF86AudioMute
     volume toggle
 
+super + shift + {button4,Up}
+    volume up
+super + shift + {button5,Down}
+    volume down
+
 # Audio controls (mpc)
-super + F12
+super + control + shift + Up
     mpc volume +5
-super + F11
+super + control + shift + Down
     mpc volume -5
-super + F10
-    mpc toggle
 
 # Media controls
 XF86AudioPlay
@@ -44,11 +52,11 @@ XF86XK_AudioPrev
     playerctl previous
 
 # Media controls (mpc)
-super + F7
+super + XF86AudioPlay
     mpc toggle
-super + F8
+super + XF86XK_AudioNext
     mpc next
-super + F6
+super + XF86XK_AudioPrev
     mpc prev
 
 # Touchpad Toggle
