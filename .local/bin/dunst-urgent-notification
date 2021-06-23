@@ -1,5 +1,6 @@
 #!/bin/sh
 
-# dependency: wmctrl
+# dependency: wmctrl, xdotool
 
 wmctrl -r $1 -b add,demands_attention
+xdotool search --class discord set_window --urgency 1

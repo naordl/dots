@@ -74,7 +74,7 @@ alias startx="startx ~/.config/x11/xinitrc"
 
 # functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+es() { du -a ~/.local/bin/* ~/.config/* ~/.local/share/{dmenu,dwm,dwmblocks} | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # aliases
 alias pac='sudo pacman'
