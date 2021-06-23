@@ -37,3 +37,10 @@
 ! white
 *.color7:       #4e4e4e
 *.color15:      #fdf6e3
+
+dwm.normbgcolor: #002b36
+dwm.normbordercolor: #002b36
+dwm.normfgcolor: #93a1a1
+dwm.selfgcolor: #fdf6e3
+dwm.selbordercolor: #dc322f
+dwm.selbgcolor: #657b83
