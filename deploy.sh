@@ -108,6 +108,7 @@ SOFTWARE="
 ## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
     xss-lock
+    xdotool
     nm-connection-editor
     xclip
     exa
