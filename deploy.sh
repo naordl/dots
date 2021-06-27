@@ -77,7 +77,8 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
-documents="libreoffice hunspell-en_us hunspell-hu texlive-core pandoc"
+documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc"
+imgtotxt="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
 sync="syncthing"
 
 SOFTWARE="
@@ -103,6 +104,7 @@ SOFTWARE="
     $locate
     $manuals
     $documents
+    $imgtotxt
     "
 
 ## MY SCRIPT DEPENDENCIES
