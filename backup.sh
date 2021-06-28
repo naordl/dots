@@ -1,10 +1,10 @@
 #!/bin/bash
 
-printf "Are you sure you want to merge your dotfiles? (yes/no) "
+printf "Are you sure you want to merge and back up your dotfiles? (y/n) "
 read choice
 
 case "$choice" in
-    yes)
+    y)
       export DOTDIR="$HOME/.local/dots"
       echo "Backing up dotfiles..."
       echo "Backing up .zprofile..."
