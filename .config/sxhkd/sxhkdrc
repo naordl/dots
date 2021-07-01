@@ -19,9 +19,9 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     brightness down
 
-super + control + {button4,Up}
+super + alt + {button4,Up}
     brightness up
-super + control + {button5,Down}
+super + alt + {button5,Down}
     brightness down
 
 # Audio controls
@@ -71,7 +71,7 @@ XF86ScreenSaver
 ## --- Print screen functionality --- ##
 # Print screen(s)
 Print
-    maim /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
+    maim -u /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
 
 # Snip screen
 shift + Print

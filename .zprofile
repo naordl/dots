@@ -1,6 +1,6 @@
 # ~/.zprofile
 
-# set default programs
+# Set default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
@@ -9,10 +9,10 @@ export READER="zathura"
 export FILE="ranger"
 export PAGER="nvim -c 'set ft=man' -"
 
-# add ~/.local/bin to $PATH
+# Add ~/.local/bin to $PATH
 PATH=$PATH$( find $HOME/.local/bin -type d -printf ":%p" )
 
-# environment variables
+# Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -31,8 +31,8 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad/xmonad.hs"
-XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad/xmonad-x86_64-linux"
-XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad/xmonad.errors"
+export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad/xmonad-x86_64-linux"
+export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad/xmonad.errors"
 
-# start graphical server on tty1 on login
+# Start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/x11/xinitrc &> /dev/null; fi
