@@ -28,7 +28,7 @@ case "$choice" in
       cp -rv /etc/sysctl.d/{20-quiet-printk.conf,dirty.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
       cp -rv /etc/systemd/system/{getty@tty1.service.d,getty@tty5.service.d,disablenvidia.service,systemd-fsck-root.service,systemd-fsck@.service} $DOTDIR/etc/systemd/system/
       cp -rv /etc/systemd/logind.conf $DOTDIR/etc/systemd/
-      cp -rv /etc/udev/rules.d/{98-backlight.rules,nouveau.rules} $DOTDIR/etc/udev/rules.d/
+      cp -rv /etc/udev/rules.d/{97-battery.rules,98-backlight.rules,nouveau.rules} $DOTDIR/etc/udev/rules.d/
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
       cp -rv /etc/pulse/default.pa $DOTDIR/etc/pulse/
       cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
