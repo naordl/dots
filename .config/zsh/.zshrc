@@ -80,6 +80,7 @@ es() { du -a ~/.local/bin/* ~/.config/* ~/.local/share/{dmenu,dwm,dwmblocks} | a
 alias pac='sudo pacman'
 alias ls='ls -hN --color=auto --group-directories-first'
 alias ll='exa -lh --color=auto --group-directories-first'
+alias la='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -r'
