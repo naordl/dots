@@ -55,7 +55,7 @@ map <silent> <C-t> :tabnew<CR>
 map <silent> <C-n> :tabnext<CR>
 
 " Ctrl + w - close tab
-map <silent> <C-w> :tabclose<CR>
+" map <silent> <C-w> :tabclose<CR>
 
 " Ctrl + backspace - delete last word
 inoremap <C-H> <C-W>

@@ -4,10 +4,10 @@
 ## RUN THIS SCRIPT FROM TTY2!
 
 ## SET DOTFILES DIR
-export DOTDIR="$HOME/.local/dots"
+DOTDIR="$HOME/.local/dots"
 
 ## INSTALL PARU
-sudo pacman -S --noconfirm --needed git; cd /tmp; git clone https://aur.archlinux.org/paru-bin.git; cd paru-bin; makepkg -si
+sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
 
 ## ESSENTIALS
 xorg="xorg-server xorg-xinit"
@@ -45,8 +45,8 @@ WM="
 
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
-# icontheme="papirus-icon-theme" # AUR PACKAGE
-gtktheme="lxappearance" # GTK THEME - GITHUB REPO - MANTIS NIGHT
+icontheme="papirus-icon-theme"
+gtktheme="lxappearance nordic-darker-theme" # GTK THEME - GITHUB REPO - MANTIS NIGHT
 
 AESTETHICS="
     $iconfonts
@@ -62,7 +62,7 @@ notifications="dunst"
 browser="brave-bin"
 compositor="picom"
 taskmanager="htop"
-# networkmanager="networkmanager-dmenu-git" # IT'S IN MY .local/bin DIRECTORY ALREADY
+# networkmanager="networkmanager-dmenu-git" # IT'S IN ~/.local/bin DIRECTORY ALREADY
 audiomixer="pulsemixer"
 filemanager="ranger ueberzug dragon-drag-and-drop"
 mediaplayer="mpv"
@@ -169,13 +169,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ## CLONE MANTIS THEME
-cd /tmp/; git clone https://github.com/mantissa-/mantis-theme.git; cd mantis-theme/; sudo cp -rv Mantis\ Night/ /usr/share/themes/; cd
+cd /tmp && git clone https://github.com/mantissa-/mantis-theme.git && cd mantis-theme && sudo cp -rv Mantis\ Night/ /usr/share/themes/ && cd
 
 ## CLONE WALLPAPERS REPO
-mkdir -pv ~/Pictures; cd ~/pic/; git clone https://github.com/demo2k20/Wallpapers.git; cd
+mkdir -pv ~/Pictures && cd ~/Pictures && git clone https://github.com/demo2k20/Wallpapers.git && cd
 
 ## CLONE PERSONAL DMENU BUILD
-mkdir -pv ~/.local/share; cd ~/.local/share; git clone https://github.com/demo2k20/dmenu.git; cd dmenu/; make; sudo make clean install; cd
+mkdir -pv ~/.local/share && cd ~/.local/share && git clone https://github.com/demo2k20/dmenu.git && cd dmenu && make && sudo make clean install && cd
 
 ## CLEANUP
 sudo ln -sfT dash /usr/bin/sh
@@ -196,15 +196,15 @@ sudo systemctl enable disablenvidia
 sudo systemctl enable cronie
 sudo systemctl enable getty@tty1
 sudo systemctl enable bluetooth
-#sudo systemctl enable sshd
+# sudo systemctl enable sshd
 sudo systemctl enable tlp
 sudo systemctl enable fstrim.timer
 sudo systemctl enable reflector.service
 systemctl enable --user syncthing
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
-sudo updatedb
 sudo pacman -Rdd dmenu --noconfirm
+sudo updatedb
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 paru -Syu --noconfirm
 paru -Scc --noconfirm
@@ -228,4 +228,4 @@ rm -rfv ~/.pki/
 rm -rfv ~/.icons/
 rm -rfv ~/.ssh/
 clear
-echo "Successfully finished deploying dotfiles. Reboot for the changes to take effect."
+printf "Successfully finished deploying dotfiles. Reboot for the changes to take effect.\n"

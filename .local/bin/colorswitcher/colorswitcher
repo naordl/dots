@@ -5,7 +5,7 @@
 ALACRITTYDIR="$HOME/.config/alacritty"
 XRESOURCESDIR="$HOME/.config/x11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
-COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark")"
+COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark\nNord")"
 CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
 
 if [ "$CHOICE" = "Solarized Light" ]; then
@@ -15,11 +15,10 @@ if [ "$CHOICE" = "Solarized Light" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
-#   i3-msg restart
-    xdotool key super+F5
-    startdunst && sleep 1
-    notify-send "Changed color scheme to $CHOICE!"
-
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Changed color scheme to $CHOICE"
+    exit
 elif [ "$CHOICE" = "Solarized Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_dark/solarized_dark.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/solarized_dark/solarized_dark.x > $XRESOURCESDIR/xresources
@@ -27,11 +26,10 @@ elif [ "$CHOICE" = "Solarized Dark" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
-#   i3-msg restart
-    xdotool key super+F5
-    startdunst && sleep 1
-    notify-send "Changed color scheme to $CHOICE!"
-
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Changed color scheme to $CHOICE"
+    exit
 elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/gruvbox_dark/gruvbox_dark.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/gruvbox_dark/gruvbox_dark.x > $XRESOURCESDIR/xresources
@@ -39,10 +37,10 @@ elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
-#   i3-msg restart
-    xdotool key super+F5
-    startdunst && sleep 1
-    notify-send "Changed color scheme to $CHOICE!"
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Changed color scheme to $CHOICE"
+    exit
 elif [ "$CHOICE" = "One Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/one_dark/one_dark.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/one_dark/one_dark.x > $XRESOURCESDIR/xresources
@@ -50,10 +48,21 @@ elif [ "$CHOICE" = "One Dark" ]; then
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
-    xdotool key super+F5
-    startdunst && sleep 1
-#   i3-msg restart
-    notify-send "Changed color scheme to $CHOICE!"
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Changed color scheme to $CHOICE"
+    exit
+elif [ "$CHOICE" = "Nord" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/nord/nord.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/nord/nord.x > $XRESOURCESDIR/xresources
+    sed -i '2d;1 a gtk-theme-name=Nordic-darker' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Nordic-darker"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/xresources
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Changed color scheme to $CHOICE"
+    exit
 else
     exit
 fi
