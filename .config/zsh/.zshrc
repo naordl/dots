@@ -1,31 +1,28 @@
 # ~/.config/zsh/.zshrc
 
-# prompt
+# Prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
 unsetopt prompt_cr prompt_sp
 
-# case insensitivity
+# Case insensitivity
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 setopt MENU_COMPLETE
 
-# complete aliases
+# Complete aliases
 unsetopt complete_aliases
 
-# enable autocd
-setopt autocd
-
-# disable ctrl+s
+# Disable ctrl+s
 stty stop undef
 
-# history
+# History
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh_history
 
-# ctrl + backspace kill previous word
+# Ctrl + backspace kill previous word
 bindkey '^H' backward-kill-word
 
-# autocompletion
+# Autocompletion
 autoload -Uz compinit
 zmodload zsh/complist
 compinit
@@ -34,18 +31,18 @@ setopt COMPLETE_ALIASES
 zstyle ':completion::complete:*' gain-privileges 1
 _comp_options+=(globdots)
 
-# vi mode
+# Vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# use vim keys in tab complete menu
+# Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# change cursor shape for different vi modes
+# Change cursor shape for different vi modes
 function zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
@@ -54,14 +51,14 @@ function zle-keymap-select () {
 }
 zle -N zle-keymap-select
 zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    zle -K viins # Initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # use beam shape cursor on startup
-preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
+echo -ne '\e[5 q' # Use beam shape cursor on startup
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
-# purge the ~/.pki folder (and others)
+# Purge (mostly) useless junk
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
@@ -69,14 +66,14 @@ preexec() { echo -ne '\e[5 q' ;} # use beam shape cursor for each new prompt
 [ -f ~/.mono ] || rm -rf ~/.mono
 [ -f ~/.ssh ] || rm -rf ~/.ssh
 
-# startx
+# Startx
 alias startx="startx ~/.config/x11/xinitrc"
 
-# functions
+# Functions
 # es - edit scripts and config files using fzf
 es() { du -a ~/.local/bin/* ~/.config/* ~/.local/share/{dmenu,dwm,dwmblocks} | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
-# aliases
+# Aliases
 alias pac='sudo pacman'
 alias ls='ls -hN --color=auto --group-directories-first'
 alias ll='exa -lh --color=auto --group-directories-first'
@@ -97,11 +94,11 @@ alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mi='cp -v config.def.h config.h; sudo make clean install'
-alias gacp='git add .; git commit -m 'yes'; git push'
+alias gacp='git add . && git commit -m 'Autocommit.' && git push'
 alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
 
-# shortcuts
+# Shortcuts
 source ~/.config/zsh/shortcutrc
