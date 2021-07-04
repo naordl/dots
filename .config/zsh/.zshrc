@@ -99,6 +99,7 @@ alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
+alias pt="sudo powertop"
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc
