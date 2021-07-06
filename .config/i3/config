@@ -2,9 +2,6 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
-# force floating for all new windows
-# for_window [class="[.]*"] floating enable
-
 set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
@@ -14,6 +11,7 @@ $execa "picom"
 $execa "startdunst"
 $exec "unclutter"
 $exec "mpd"
+$exec "xset s 180"
 $exec "xss-lock -- lockscreen"
 $exec "i3-msg focus output primary"
 

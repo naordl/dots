@@ -46,7 +46,7 @@ WM="
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
 icontheme="papirus-icon-theme"
-gtktheme="lxappearance nordic-darker-theme" # GTK THEME - GITHUB REPO - MANTIS NIGHT
+gtktheme="lxappearance nordic-darker-theme" # GTK THEME - GITHUB REPO - MANTIS NIGHT - AUR PACKAGE
 
 AESTETHICS="
     $iconfonts
@@ -80,6 +80,7 @@ manuals="man-db man-pages"
 documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc"
 imgtotxt="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
 sync="syncthing"
+fstools="dosfstools mtools simple-mtpfs"
 
 SOFTWARE="
     $shell
@@ -105,11 +106,13 @@ SOFTWARE="
     $manuals
     $documents
     $imgtotxt
+    $fstools
     "
 
 ## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
     xss-lock
+    xorg-xset
     xdotool
     nm-connection-editor
     xclip
@@ -140,9 +143,6 @@ DEPENDENCIES="
     ntfs-3g
     bc
     xorg-xinput
-    dosfstools
-    mtools
-    simple-mtpfs
     "
 
 ## SETUP FOR THE INSTALL COMMAND

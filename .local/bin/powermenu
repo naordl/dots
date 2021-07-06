@@ -1,12 +1,12 @@
 #!/bin/sh
 
-CHOICE=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Choose wisely")
+CHOICE=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Powermenu")
 
 case "$CHOICE" in
     Lock)
-        lockscreen ;;
+        loginctl lock-session ;;
     Logout)
-        bspc quit || i3-msg exit ;;
+        i3-msg exit || kill -TERM "$(pidof dwm)" || bspc quit ;;
     Shutdown)
         systemctl poweroff ;;
     Reboot)

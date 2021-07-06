@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# dependencies: maim, imagemagick, i3lock
+# dependencies: maim, imagemagick, i3lock, dwmblocks
 
 # take screenshot
 maim /tmp/lockscreen.png
@@ -8,5 +8,16 @@ maim /tmp/lockscreen.png
 # blur it
 convert /tmp/lockscreen.png -blur 0x4 /tmp/lockscreen.png
 
+# disable notifications before locking
+pkill -u "$USER" -USR1 dunst
+
 # lock the screen with i3lock
-i3lock -e -f -c 000000 -i /tmp/lockscreen.png
+i3lock -n -e -f -i /tmp/lockscreen.png
+
+# enable notifications after locking
+pkill -u "$USER" -USR2 dunst
+
+# restart dwmblocks if it's running
+# if it's not running, start it
+# this is done to refresh the bar so it displays relevant information
+pgrep -x dwmblocks > /dev/null && killall dwmblocks && dwmblocks || dwmblocks &
