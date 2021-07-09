@@ -147,7 +147,7 @@ super + b
 
 # Night light menu
 super + shift + u
-    nightlight
+    nightlight -dmenu
 
 # Scale resolution menu
 super + shift + t
