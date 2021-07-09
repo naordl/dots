@@ -6,6 +6,10 @@ read choice
 case "$choice" in
     y)
       export DOTDIR="$HOME/.local/dots"
+      echo "Backing up gpg secret key and 'pass' password store..."
+      gpg --export-secret-keys Roland Nemes > ~/Backups/secret-key-backup
+      gpg --export-ownertrust > ~/Backups/trustdb-backup
+      rm -rf ~/Backups/pass; cp -rv ~/.local/share/pass ~/Backups/
       echo "Backing up dotfiles..."
       echo "Backing up .zprofile..."
       cp -rv ~/.zprofile $DOTDIR/

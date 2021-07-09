@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CHOICE=$(cut -d ';' -f1 ~/.local/emojis | dmenu -i -l 30 | sed "s/ .*//")
+
+[ -z "$CHOICE" ] && exit
+
+printf "$CHOICE" | xclip -selection clipboard
+notify-send "'$CHOICE' copied to clipboard"

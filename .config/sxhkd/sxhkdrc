@@ -99,6 +99,10 @@ super + shift + b
 super + shift + n
     networkmanager_dmenu
 
+# Password manager
+super + shift + Insert
+    passmenu -i -l 20 -p "Password store"    
+
 # Task manager
 control + shift + Escape
     $TERMINAL -e htop
@@ -122,6 +126,10 @@ super + n
 # Calculator
 super + c
     $TERMINAL -t floatterm -e bc -l -q
+
+# VM manager
+super + v
+    virt-manager
 
 
 ## --- Personal Scripts --- ##
@@ -156,3 +164,7 @@ super + F4
 # USB unmounter
 super + shift + F4
     dumount
+
+# Emoji menu
+super + shift + F1
+    demoji
