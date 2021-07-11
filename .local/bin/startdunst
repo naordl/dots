@@ -3,4 +3,4 @@
 bg="$(xrdb -query | grep *.background | cut -f 2)"
 fg="$(xrdb -query | grep *.foreground | cut -f 2)"
 
-dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" -frame_color "$fg"
+setsid -f dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" -frame_color "$fg"

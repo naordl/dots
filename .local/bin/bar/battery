@@ -9,7 +9,7 @@ else
     ICON=""
 fi
 
-if [ "$CAPACITY" -lt 35 -a "$STATUS" = "Discharging" ]; then
+if [ "$CAPACITY" -lt 30 -a "$STATUS" = "Discharging" ]; then
     notify-send -u critical "BATTERY LOW!"
 fi
 

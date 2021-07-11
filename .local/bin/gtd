@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# read first argument as studying minutes
 study_mins="$1m"
-
-# read second argument as break minutes
 break_mins="$2m"
-
-# read third argument as how many times to repeat
 multiplier="$3"
 
 # if no multiplier argument is specified, then set its value to 1

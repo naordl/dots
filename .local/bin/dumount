@@ -12,4 +12,4 @@ CHOSEN=$(printf "$MOUNTED\n" | dmenu -i -p "Unmount which drive?" | awk '{print 
 if [ "$CHOSEN" = "" ]; then exit; fi
 
 # unmount the partition
-sync && sudo umount $CHOSEN && notify-send "$CHOSEN unmounted"
+sync; sudo umount $CHOSEN && notify-send "$CHOSEN unmounted"

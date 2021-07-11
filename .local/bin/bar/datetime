@@ -1,8 +1,8 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-    1) $TERMINAL -o window.dimensions.columns=22 -o window.dimensions.lines=10 -t floatterm --hold -e cal -m ;;
-    3) $TERMINAL -o window.dimensions.columns=75 -o window.dimensions.lines=35 -t floatterm --hold -e cal -m -Y ;;
+    1) setsid -f $TERMINAL -o window.dimensions.columns=22 -o window.dimensions.lines=10 -t floatterm --hold -e cal -m ;;
+    3) setsid -f $TERMINAL -o window.dimensions.columns=75 -o window.dimensions.lines=35 -t floatterm --hold -e cal -m -Y ;;
 esac
 
 DATETIME=$(date "+%a %d/%m %I:%M%P")

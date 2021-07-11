@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CHOICE=$(printf "1366x768\n1600x900\n1920x1080" | dmenu -i -p "Scale resolution")
+CHOICE=$(printf "1366x768\n1600x900\n1920x1080" | dmenu -i -l 3 -p "Scale resolution")
 
 if [ "$CHOICE" != "" ]; then
     case $CHOICE in

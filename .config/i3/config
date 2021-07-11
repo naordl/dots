@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 set $exec exec --no-startup-id
@@ -143,7 +143,7 @@ for_window [class="Guvcview"] move workspace 10
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono, Font Awesome 5 Free 8
+    font pango:DejaVu Sans Mono, Font Awesome 5 Free 9
     tray_output primary
     position top
     colors {

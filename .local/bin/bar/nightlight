@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" = "-dmenu" ]; then
-    CHOICE=$(printf "on\noff\nextreme" | dmenu -p "Turn nightlight on/off")
+    CHOICE=$(printf "on\noff\nextreme" | dmenu -p "Nightlight")
     case $CHOICE in
         on)
             redshift -PO 3200 && touch /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks ;;

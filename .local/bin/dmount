@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # ask the user what to mount
-CHOICE=$(printf "FAT32/EXT4/...\nNTFS\nAndroid Phone\n" | dmenu -p "What type of partition would you like to mount?")
+CHOICE=$(printf "FAT32/EXT4/...\nNTFS\nAndroid Phone\n" | dmenu -i -p "What type of partition would you like to mount?")
 
 if [ "$CHOICE" = "FAT32/EXT4/..." ]; then
     MOUNTCOMMAND="sudo mount -o gid=users,fmask=113,dmask=002"
@@ -11,6 +11,9 @@ elif [ "$CHOICE" = "Android Phone" ]; then
     notify-send "Mounting android phones not yet implemented."
     exit
 fi
+
+# exit if the user did not choose anything
+if [ "$CHOICE" = "" ]; then exit; fi
 
 # check for mountable partitions
 MOUNTABLE=$(lsblk -lp | grep "part $" | awk '{print $1, "(" $4 ")"}')

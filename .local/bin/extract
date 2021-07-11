@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# dependencies: rar, zip, unzip, p7zip, bzip2, gzip
+# dependencies: rar, zip, unzip, p7zip, bzip2, gzip, xz
 
 if [ -f "$1" ] ; then
     case "$1" in
         *.tar.bz2) tar xvjf "$1" ;;
         *.tar.gz) tar xvzf "$1" ;;
+        *.tar.xz) tar -xf "$1" ;;
         *.rar) rar x "$1" ;;
         *.tar) tar xvf "$1" ;;
         *.tbz2) tar xvjf "$1" ;;

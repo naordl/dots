@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CHOICE=$(cut -d ';' -f1 ~/.local/emojis | dmenu -i -l 30 | sed "s/ .*//")
+CHOICE=$(cut -d ';' -f1 ~/.local/emojis | dmenu -i -l 30 -p "Emoji" | sed "s/ .*//")
 
 [ -z "$CHOICE" ] && exit
 

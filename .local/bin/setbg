@@ -3,7 +3,7 @@
 # run 'setbg' on a file, the file will be copied to ~/.config/wall.png and set as wallpaper
 # if you pass it no arguments then it will just set the wallpaper
 
-# check if there are arguments, if there are, copy the file
+# check if there are arguments, if there are, copy the image
 [ -f "$1" ] && cp "$1" ~/.config/wall.png
 
 # use xwallpaper to set the wallpaper

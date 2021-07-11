@@ -14,10 +14,10 @@ pkill -u "$USER" -USR1 dunst
 # lock the screen with i3lock
 i3lock -n -e -f -i /tmp/lockscreen.png
 
-# enable notifications after locking
+# enable notifications after unlocking
 pkill -u "$USER" -USR2 dunst
 
 # restart dwmblocks if it's running
 # if it's not running, start it
 # this is done to refresh the bar so it displays relevant information
-pgrep -x dwmblocks > /dev/null && killall dwmblocks && dwmblocks || dwmblocks &
+pgrep -x dwmblocks > /dev/null && killall dwmblocks && setsid -f dwmblocks || setsid -f dwmblocks &

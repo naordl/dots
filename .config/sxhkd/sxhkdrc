@@ -7,6 +7,10 @@ super + Return
 super + shift + Return
     $TERMINAL -t floatterm
 
+# Dropdown temrinal
+super + control + Return
+    tdrop -w "" -h "" -x "" -y "" -a $TERMINAL -t tdropterm --class tdropterm
+
 # Program launcher
 super + d
     dmenu_run -i -p "Run"

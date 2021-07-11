@@ -4,7 +4,7 @@
 BOOKMARKS="$HOME/.local/bookmarks"
 
 # prompt the user for a choice
-CHOICE=$(sort "$BOOKMARKS" | awk -F: '{print $1}' | dmenu -i -l 20 -p 'Bookmarks')
+CHOICE=$(sort "$BOOKMARKS" | awk -F: '{print $1}' | dmenu -i -l 30 -p 'Bookmarks')
 
 # if the user did not choose anything, exit the script
 # otherwise, get the url
@@ -17,7 +17,7 @@ fi
 # if the url exists, launch it with the default browser
 # else, exit
 if [ "$URL" != "" ]; then
-    $BROWSER $URL >/dev/null 2>&1
+    setsid -f $BROWSER $URL >/dev/null 2>&1
 else
     exit
 fi
