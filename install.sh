@@ -3,9 +3,6 @@
 ## THIS SCRIPT REQUIRES THE "base-devel" PACKAGE TO BE INSTALLED!
 ## RUN THIS SCRIPT FROM TTY2!
 
-## SET DOTFILES DIR
-DOTDIR="$HOME/.local/dots"
-
 ## INSTALL PARU
 sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
 
@@ -106,6 +103,7 @@ SOFTWARE="
     $manuals
     $documents
     $imgtotxt
+    $sync
     $fstools
     "
 
@@ -146,7 +144,7 @@ DEPENDENCIES="
     "
 
 ## SETUP FOR THE INSTALL COMMAND
-install="paru -Syu --noconfirm --needed
+install="paru -Syu --needed
     $ESSENTIALS
     $WM
     $AESTETHICS
