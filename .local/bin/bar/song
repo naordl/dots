@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# dependencies: mpc, mpd
+# dependencies: mpc, mpd, playerctl
 
 case $BLOCK_BUTTON in
     1) playerctl --player=mpd play-pause ;;

@@ -9,7 +9,7 @@ super + shift + Return
 
 # Dropdown temrinal
 super + control + Return
-    tdrop -w "" -h "" -x "" -y "" -a $TERMINAL -t tdropterm --class tdropterm
+    tdrop -w "" -h "" -x "" -y "" $TERMINAL -t spterm
 
 # Program launcher
 super + d
