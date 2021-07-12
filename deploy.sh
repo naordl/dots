@@ -22,11 +22,11 @@ cd /tmp && git clone https://github.com/mantissa-/mantis-theme.git && cd /tmp/ma
 ## CLONE WALLPAPERS REPO
 mkdir -pv $HOME/Pictures && cd $HOME/Pictures && git clone https://github.com/demo2k20/Wallpapers.git && cd
 
-## CLONE PERSONAL DMENU BUILD
-mkdir -pv $HOME/.local/share && cd $HOME/.local/share && git clone https://github.com/demo2k20/dmenu.git && cd $HOME/.local/share/dmenu && make && sudo make clean install && cd
-
 ## CLONE WINDOWS FONTS
 mkdir -pv $HOME/.local && cd $HOME/.local && git clone https://github.com/demo2k20/winfonts.git && cd $HOME/.local/winfonts && sudo cp -rv $HOME/.local/winfonts/usr/* /usr/
+
+## CLONE PERSONAL DMENU BUILD
+mkdir -pv $HOME/.local/share && cd $HOME/.local/share && git clone https://github.com/demo2k20/dmenu.git && cd $HOME/.local/share/dmenu && make && sudo make clean install && cd
 
 ## CLEANUP
 sudo ln -sfT dash /usr/bin/sh
@@ -43,13 +43,13 @@ sudo cp -rv /etc/systemd/system/systemd-fsck-root.service /usr/lib/systemd/syste
 sudo chmod 644 /etc/systemd/system/systemd-fsck-root.service
 sudo cp -rv /etc/systemd/system/systemd-fsck@.service /usr/lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/systemd-fsck@.service
-sudo systemctl enable disablenvidia
+sudo systemctl enable disablenvidia # definitely breaks vms that don't use nvidia
 sudo systemctl enable cronie
 sudo systemctl enable getty@tty1
-sudo systemctl enable bluetooth
+sudo systemctl enable bluetooth # probably breaks vms that don't use bluetooth
 # sudo systemctl enable sshd
-sudo systemctl enable tlp
-sudo systemctl enable fstrim.timer
+sudo systemctl enable tlp # probably breaks vms that don't use batteries
+sudo systemctl enable fstrim.timer # probably breaks vms
 sudo systemctl enable reflector.service
 systemctl enable --user syncthing
 sudo grub-mkconfig -o /boot/grub/grub.cfg
