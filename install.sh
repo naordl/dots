@@ -54,6 +54,7 @@ AESTETHICS="
 ## SOFTWARE
 shell="zsh"
 terminal="alacritty"
+# dropdownterminal="tdrop-git" # DOESN'T BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
 notifications="dunst"
 browser="brave-bin"
@@ -65,6 +66,7 @@ filemanager="ranger ueberzug dragon-drag-and-drop"
 mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
+imageeditor="gimp"
 webcammanager="guvcview"
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift-minimal"
@@ -82,6 +84,7 @@ fstools="dosfstools mtools simple-mtpfs"
 SOFTWARE="
     $shell
     $terminal
+    $dropdownterminal
     $launcher
     $notifications
     $browser
@@ -92,6 +95,7 @@ SOFTWARE="
     $filemanager
     $mediaplayer
     $imageviewer
+    $imageeditor
     $webcammanager
     $displaysettings
     $nightlight
