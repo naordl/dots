@@ -42,7 +42,7 @@ WM="
 ## AESTETHICS
 iconfonts="ttf-font-awesome"
 icontheme="papirus-icon-theme"
-gtktheme="lxappearance nordic-darker-theme" # GTK THEME - GITHUB REPO - MANTIS NIGHT - AUR PACKAGE
+gtktheme="lxappearance" # GTK THEME - GITHUB REPO - MANTIS NIGHT - AUR PACKAGE
 
 AESTETHICS="
     $iconfonts

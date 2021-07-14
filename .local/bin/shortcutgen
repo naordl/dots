@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SHORTCUTS="$HOME/.local/shortcuts"
+SHORTCUTS="$HOME/.config/shortcuts"
 ZSH_SHORTCUTS="$HOME/.config/zsh/shortcutrc"
 RANGER_SHORTCUTS="$HOME/.config/ranger/shortcuts.conf"
 

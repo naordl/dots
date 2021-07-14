@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # specify bookmarks file location
-BOOKMARKS="$HOME/.local/bookmarks"
+BOOKMARKS="$HOME/.config/bookmarks"
 
 # prompt the user for a choice
 CHOICE=$(sort "$BOOKMARKS" | awk -F: '{print $1}' | dmenu -i -l 30 -p 'Bookmarks')

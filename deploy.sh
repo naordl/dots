@@ -3,10 +3,15 @@
 ## BEFORE RUNNING THIS SCRIPT, MAKE SURE TO HAVE RAN THE "install.sh" SCRIPT!
 ## RUN THIS SCRIPT FROM TTY2!
 
-## SET DOTFILES DIR
-DOTDIR="$HOME/.local/dots"
+## CREATE USER DIRECTORIES
+mkdir -pv $HOME/{'Documents','Downloads','Music','Pictures','Videos','Repos','.local','.config'}
+mkdir -pv $HOME/.local/share/{gnupg,mpd}
+chmod -R 700 $HOME/.local/share/gnupg/
+mkdir -pv $HOME/.config/{notmuch,mpop}
+xdg-user-dirs-update
 
-cd $DOTDIR
+## DEPLOY DOTFILES
+DOTDIR="$HOME/Repos/dots"
 cp -rv $DOTDIR/.config/* $HOME/.config/
 cp -rv $DOTDIR/.local/* $HOME/.local/
 cp -rv $DOTDIR/.zprofile $HOME/
@@ -16,17 +21,23 @@ sudo cp -rv $DOTDIR/etc/* /etc/
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-## CLONE MANTIS THEME
-cd /tmp && git clone https://github.com/mantissa-/mantis-theme.git && cd /tmp/mantis-theme && sudo cp -rv Mantis\ Night/ /usr/share/themes/ && cd
+## CLONE WALLPAPERS
+git clone https://github.com/demo2k20/Wallpapers.git $HOME/Repos/Wallpapers
+ln -sr $HOME/Repos/Wallpapers $HOME/Pictures/Wallpapers
 
-## CLONE WALLPAPERS REPO
-mkdir -pv $HOME/Pictures && cd $HOME/Pictures && git clone https://github.com/demo2k20/Wallpapers.git && cd
+## CLONE THEMES
+git clone https://github.com/demo2k20/Themes.git $HOME/Repos/Themes
+sudo ln -sr $HOME/Repos/Themes/* /usr/share/themes
 
 ## CLONE WINDOWS FONTS
-mkdir -pv $HOME/.local && cd $HOME/.local && git clone https://github.com/demo2k20/winfonts.git && cd $HOME/.local/winfonts && sudo cp -rv $HOME/.local/winfonts/usr/* /usr/
+git clone https://github.com/demo2k20/WindowsFonts.git $HOME/Repos/WindowsFonts
+sudo ln -sr $HOME/Repos/WindowsFonts /usr/share/fonts/WindowsFonts
+sudo chmod 644 /usr/share/fonts/WindowsFonts/*
+sudo fc-cache --force
 
 ## CLONE PERSONAL DMENU BUILD
-mkdir -pv $HOME/.local/share && cd $HOME/.local/share && git clone https://github.com/demo2k20/dmenu.git && cd $HOME/.local/share/dmenu && make && sudo make clean install && cd
+git clone https://github.com/demo2k20/dmenu.git $HOME/Repos/dmenu
+cd $HOME/Repos/dmenu && sudo make clean install && cd
 
 ## CLEANUP
 sudo ln -sfT dash /usr/bin/sh
@@ -35,7 +46,6 @@ sudo chsh -s /bin/zsh $USER
 sudo ln -sf /home/$USER/.config/zsh/.zshrc /root/.zshrc
 crontab $HOME/.config/crontab.save.dinh
 sudo crontab $HOME/.config/root-crontab.save.dinh
-sudo chmod 644 /usr/share/fonts/WindowsFonts/*
 chmod +x -R $HOME/.local/bin/
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
@@ -61,12 +71,6 @@ paru -Syu --noconfirm
 paru -Scc --noconfirm
 paru -Rns $(paru -Qtdq) --noconfirm
 paru -Qdttq | paru -Rns - --noconfirm
-mkdir -pv $HOME/{Documents,Downloads,Music,Pictures,Videos}
-mkdir -pv $HOME/.local/{mpd,gnupg}
-mkdir -pv $HOME/.config/{notmuch,mpop}
-chmod -R 700 $HOME/.local/share/gnupg/
-xdg-user-dirs-update
-sudo fc-cache --force
 source ~/.zprofile
 $SHELL
 rm -rfv $HOME/.bashrc
