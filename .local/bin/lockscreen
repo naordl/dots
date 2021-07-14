@@ -17,6 +17,9 @@ i3lock -n -e -f -i /tmp/lockscreen.png
 # enable notifications after unlocking
 pkill -u "$USER" -USR2 dunst
 
+# set xrate
+xset r rate 300 50 &
+
 # restart dwmblocks if it's running
 # if it's not running, start it
 # this is done to refresh the bar so it displays relevant information

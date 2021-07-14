@@ -8,11 +8,11 @@ case $BLOCK_BUTTON in
 esac
 
 case $1 in
-    toggle) pamixer -t; pkill -SIGRTMIN+2 dwmblocks ;;
-    mute) pamixer -m; pkill -SIGRTMIN+2 dwmblocks ;;
-    unmute) pamixer -u; pkill -SIGRTMIN+2 dwmblocks ;;
-    up) pamixer -i 5; pkill -SIGRTMIN+2 dwmblocks ;;
-    down) pamixer -d 5; pkill -SIGRTMIN+2 dwmblocks ;;
+    toggle) pamixer -t; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
+    mute) pamixer -m; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
+    unmute) pamixer -u; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
+    up) pamixer -i 5; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
+    down) pamixer -d 5; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
 esac
 
 MUTED=$(pamixer --get-mute)

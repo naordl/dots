@@ -1,0 +1,8 @@
+#!/bin/bash
+
+case $BUTTON in
+	1) notify-send "HELLO" ;;
+esac
+
+
+printf "TESTING\n"

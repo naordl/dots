@@ -3,4 +3,4 @@
 # dependencies: wmctrl, xdotool
 
 wmctrl -r $1 -b add,demands_attention
-xdotool search --class discord set_window --urgency 1
+xdotool search --class $1 set_window --urgency 1

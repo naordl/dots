@@ -4,11 +4,11 @@ if [ "$1" = "-dmenu" ]; then
     CHOICE=$(printf "on\noff\nextreme" | dmenu -p "Nightlight")
     case $CHOICE in
         on)
-            redshift -PO 3200 && touch /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks ;;
+            redshift -PO 3200 && touch /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks || pkill -SIGRTMIN+10 i3blocks ;;
         off)
-            redshift -PO 6500 && rm /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks ;;
+            redshift -PO 6500 && rm /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks || pkill -SIGRTMIN+10 i3blocks ;;
         extreme)
-            redshift -PO 1300 && touch /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks ;;
+            redshift -PO 1300 && touch /tmp/nightlight && pkill -SIGRTMIN+10 dwmblocks || pkill -SIGRTMIN+10 i3blocks ;;
         *)
             exit ;;
     esac

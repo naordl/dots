@@ -4,12 +4,12 @@ super + Return
     $TERMINAL
 
 # Floating terminal
-super + shift + Return
-    $TERMINAL -t floatterm
+# super + shift + Return
+#     $TERMINAL -t floatterm
 
-# Dropdown temrinal
-super + control + Return
-    tdrop -w "" -h "" -x "" -y "" $TERMINAL -t spterm
+# Dropdown terminal
+super + shift + Return
+    tdrop -w "" -h "" -x "" -y "" -s spterm $TERMINAL -t spterm
 
 # Program launcher
 super + d
@@ -105,7 +105,7 @@ super + shift + n
 
 # Password manager
 super + shift + Insert
-    passmenu -i -l 20 -p "Password store"    
+    passmenu -i -l 30 -p "Password store"    
 
 # Task manager
 control + shift + Escape
@@ -172,3 +172,7 @@ super + shift + F4
 # Emoji menu
 super + shift + F1
     demoji
+
+# Optical character recognition
+super + shift + c
+    ocr
