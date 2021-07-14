@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ## THIS SCRIPT REQUIRES THE "base-devel" PACKAGE TO BE INSTALLED!
-## RUN THIS SCRIPT FROM TTY2!
 
 ## INSTALL PARU
 sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
@@ -56,7 +55,7 @@ shell="zsh"
 terminal="alacritty"
 # dropdownterminal="tdrop-git" # DOESN'T BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
-notifications="dunst"
+notifications="libnotify dunst"
 browser="brave-bin"
 compositor="picom"
 taskmanager="htop"
@@ -77,7 +76,7 @@ unclutter="unclutter"
 locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
 documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc"
-imgtotxt="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
+ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
 sync="syncthing"
 fstools="dosfstools mtools simple-mtpfs"
 
@@ -106,7 +105,7 @@ SOFTWARE="
     $locate
     $manuals
     $documents
-    $imgtotxt
+    $ocr
     $sync
     $fstools
     "
@@ -131,7 +130,6 @@ DEPENDENCIES="
     rsync
     reflector
     i3lock
-    libnotify
     youtube-dl
     pamixer
     xdg-user-dirs
