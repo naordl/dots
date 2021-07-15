@@ -1,6 +1,6 @@
-# Adjust screen brightness according to power state
+# Adjust screen brightness according to power state and update brightness block
 # 1st rule for when on AC
-ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/roland/.config/x11/xauthority", RUN+="/bin/sh -c 'xbacklight -set 75; polybar-msg hook brightness 1 > /dev/null || pkill -SIGRTMIN+1 i3blocks || pkill -SIGRTMIN+1 dwmblocks'"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/roland/.config/x11/xauthority", RUN+="/bin/sh -c 'xbacklight -set 75 && pkill -SIGRTMIN+4 i3blocks || pkill -SIGRTMIN+4 dwmblocks'"
 
 # 2nd rule for when on battery
-ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/roland/.config/x11/xauthority", RUN+="/bin/sh -c 'xbacklight -set 25; polybar-msg hook brightness 1 > /dev/null || pkill -SIGRTMIN+1 i3blocks || pkill -SIGRTMIN+1 dwmblocks'"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/roland/.config/x11/xauthority", RUN+="/bin/sh -c 'xbacklight -set 25 && pkill -SIGRTMIN+4 i3blocks || pkill -SIGRTMIN+4 dwmblocks'"
