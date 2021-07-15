@@ -35,7 +35,7 @@ let g:bullets_enabled_file_types = [
 "" ----- STATUS LINE -----
 highlight clear StatusLine
 set laststatus=0
-set noruler
+set ruler
 
 
 "" ----- KEYBINDS -----
@@ -120,8 +120,11 @@ nnoremap 'td :e ~/Documents/todo.md<CR>
 
 
 "" ----- QUALITY OF LIFE ------
+" Enable mouse controls
+set mouse=a
+
 " Cursor stays relatively in the middle while scrolling
-set scrolloff=8
+set scrolloff=6
 
 " Show tabs and whitespaces
 " set list
@@ -195,7 +198,7 @@ noremap <right> :echoerr "USE L INSTEAD"<CR>
 
 "" ----- AUTORUN ON FILESAVE -----
 " Run xrdb when Xdefaults or Xresources are updated
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+autocmd BufWritePost *xresources,*xdefaults !xrdb %
 
 " Update binds when sxhkdrc is updated
 autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
@@ -208,6 +211,3 @@ autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 autocmd BufWritePost ~/Repos/dwm/config.def.h !cd ~/Repos/dwm/; cp config.def.h config.h; sudo make clean install
 autocmd BufWritePost ~/Repos/dmenu/config.def.h !cd ~/Repos/dmenu/; cp config.def.h config.h; sudo make clean install
 autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &
-
-" Same as the above, but with blocks
-" autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }

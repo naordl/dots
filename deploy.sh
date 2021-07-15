@@ -3,7 +3,7 @@
 ## BEFORE RUNNING THIS SCRIPT, MAKE SURE TO HAVE RAN THE "install.sh" SCRIPT!
 ## RUN THIS SCRIPT FROM TTY2!
 
-## CREATE USER DIRECTORIES
+## CREATE IMPORTANT USER DIRECTORIES
 mkdir -pv $HOME/{'Documents','Downloads','Music','Pictures','Videos','Repos','.local','.config'}
 mkdir -pv $HOME/.local/share/{gnupg,mpd}
 chmod -R 700 $HOME/.local/share/gnupg/
