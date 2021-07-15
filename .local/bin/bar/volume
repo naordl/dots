@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $BUTTON in
+case $BLOCK_BUTTON in
     1) setsid -f $TERMINAL -e pulsemixer ;;
     3) pamixer -t ;;
     4) pamixer -i 5 ;;
@@ -8,11 +8,11 @@ case $BUTTON in
 esac
 
 case $1 in
-    toggle) pamixer -t; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
-    mute) pamixer -m; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
-    unmute) pamixer -u; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
-    up) pamixer -i 5; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
-    down) pamixer -d 5; pkill -SIGRTMIN+2 dwmblocks || pkill -SIGRTMIN+2 i3blocks ;;
+    toggle) pamixer -t; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
+    mute) pamixer -m; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
+    unmute) pamixer -u; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
+    up) pamixer -i 5; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
+    down) pamixer -d 5; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
 esac
 
 MUTED=$(pamixer --get-mute)

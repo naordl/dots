@@ -1,15 +1,15 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-    1) xbacklight -set 75; pkill -SIGRTMIN+1 dwmblocks || pkill -SIGRTMIN+1 i3blocks ;;
-    3) xbacklight -set 25; pkill -SIGRTMIN+1 dwmblocks || pkill -SIGRTMIN+1 i3blocks ;;
-    4) xbacklight -inc 5; pkill -SIGRTMIN+1 dwmblocks || pkill -SIGRTMIN+1 i3blocks ;;
-    5) xbacklight -dec 5; pkill -SIGRTMIN+1 dwmblocks || pkill -SIGRTMIN+1 i3blocks ;;
+    1) xbacklight -set 75; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
+    3) xbacklight -set 25; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
+    4) xbacklight -inc 5; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
+    5) xbacklight -dec 5; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
 esac
 
 case $1 in
-    up) xbacklight -inc 5; pkill -SIGRTMIN+1 dwmblocks; pkill -SIGRTMIN+1 i3blocks ;;
-    down) xbacklight -dec 5; pkill -SIGRTMIN+1 dwmblocks; pkill -SIGRTMIN+1 i3blocks ;;
+    up) xbacklight -inc 5; pkill -SIGRTMIN+4 dwmblocks; pkill -SIGRTMIN+4 i3blocks ;;
+    down) xbacklight -dec 5; pkill -SIGRTMIN+4 dwmblocks; pkill -SIGRTMIN+4 i3blocks ;;
 esac
 
 BRIGHTNESS=$(xbacklight -get)

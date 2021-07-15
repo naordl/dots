@@ -3,8 +3,8 @@
 # dependencies: mpc, mpd, playerctl
 
 case $BLOCK_BUTTON in
-    1) playerctl --player=mpd play-pause ;;
-    4) playerctl --player=mpd next ;;
+    1) mpc toggle ;;
+    4) mpc next ;;
 esac
 
 STATE=$(mpc -v | grep -o playing)

@@ -55,8 +55,8 @@ elif [ "$CHOICE" = "One Dark" ]; then
 elif [ "$CHOICE" = "Nord" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/nord/nord.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/nord/nord.x > $XRESOURCESDIR/xresources
-    sed -i '2d;1 a gtk-theme-name=Nordic-darker' ~/.config/gtk-3.0/settings.ini
-    sed -i '5d;4 a gtk-theme-name="Nordic-darker"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '2d;1 a gtk-theme-name=Nordic Darker' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Nordic Darker"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
