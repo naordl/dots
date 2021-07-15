@@ -1,0 +1,11 @@
+#!/bin/sh
+
+TIME=$(date +%H)
+
+if [ "$TIME" -ge "21" ]; then
+    redshift -PO 3200
+    notify-send "Autolight" "Nightlight: ON"
+else
+    redshift -PO 6500
+    notify-send "Autolight" "Nightlight: OFF"
+fi

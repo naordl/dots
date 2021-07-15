@@ -1,4 +1,5 @@
 autodisplay
+autolight &
 xrdb ~/.config/x11/xresources
 setbg &
 pgrep -x picom > /dev/null || picom &
