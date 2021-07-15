@@ -60,10 +60,11 @@ bindsym $mod+e layout toggle tabbed split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-focus_follows_mouse no
+focus_follows_mouse yes
 title_align center
 
 bindsym $mod+Tab focus output left
+bindsym $mod+Shift+Tab move container to output left
 
 bindsym $mod+Up move up 20px
 bindsym $mod+Left move left 20px
@@ -87,7 +88,7 @@ workspace $ws4 output DP1 eDP1
 workspace $ws5 output DP1 eDP1
 workspace $ws6 output DP1 eDP1
 workspace $ws7 output DP1 eDP1
-workspace $ws8 output DP1 eDP1
+workspace $ws8 output eDP1 DP1
 workspace $ws9 output eDP1 DP1
 
 bindsym $mod+1 workspace number $ws1
@@ -128,6 +129,7 @@ default_border pixel 2
 
 assign [class="discord"] $ws9
 assign [class="Element"] $ws8
+for_window [title="floatterm"] floating enable
 for_window [title="spterm"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="guvcview"] floating enable
