@@ -7,6 +7,3 @@ if [ "$VGA" = "connected" ]; then
 else
     xrandr --dpi 96 --output eDP1 --primary --mode 1366x768 --rotate normal --output DP1 --off --output HDMI1 --off
 fi
-
-# fix wallpaper
-setbg

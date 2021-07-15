@@ -205,9 +205,9 @@ autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 
 " Recompile suckless programs when exiting
 " autocmd BufWritePost *config.def.h,*blocks.def.h ![ -f config.def.h ] && cp config.def.h config.h && sudo make clean install || [ -f blocks.def.h ] && cp blocks.def.h blocks.h && sudo make clean install && killall -q dwmblocks && setsid dwmblocks &
-autocmd BufWritePost ~/.local/share/dwm/config.def.h !cd ~/.local/share/dwm/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/.local/share/dmenu/config.def.h !cd ~/.local/share/dmenu/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/.local/share/dwmblocks/blocks.def.h !cd ~/.local/share/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &
+autocmd BufWritePost ~/Repos/dwm/config.def.h !cd ~/Repos/dwm/; cp config.def.h config.h; sudo make clean install
+autocmd BufWritePost ~/Repos/dmenu/config.def.h !cd ~/Repos/dmenu/; cp config.def.h config.h; sudo make clean install
+autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &
 
 " Same as the above, but with blocks
 " autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }

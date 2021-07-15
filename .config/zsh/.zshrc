@@ -67,11 +67,12 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.ssh ] || rm -rf ~/.ssh
 
 # Startx
-alias startx="startx ~/.config/x11/xinitrc"
+# alias startx="startx ~/.config/x11/xinitrc"
+alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
 
 # Functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.local/bin/* ~/.config/* ~/.local/share/{dmenu,dwm,dwmblocks} | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+es() { du -a ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,dwm,dwmblocks} | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
 
 # Aliases
 alias pac='sudo pacman'

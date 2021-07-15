@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
+case $BUTTON in
     1) setsid -f $TERMINAL -e pulsemixer ;;
     3) pamixer -t ;;
     4) pamixer -i 5 ;;

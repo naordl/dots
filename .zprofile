@@ -22,6 +22,7 @@ export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export XAUTHORITY="$XDG_CONFIG_HOME"/x11/xauthority
 export XINITRC="$XDG_CONFIG_HOME"/x11/xinitrc
+export XSERVERRC="$XDG_CONFIG_HOME"/x11/xserverrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
@@ -33,4 +34,4 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 
 # Start graphical server on tty1 on login
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx ~/.config/x11/xinitrc &> /dev/null; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1 &> /dev/null; fi

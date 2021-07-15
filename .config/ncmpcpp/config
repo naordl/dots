@@ -1,4 +1,4 @@
-lyrics_directory = ~/.local/lyrics
+lyrics_directory = ~/.local/share/lyrics
 mpd_music_dir = ~/Music
 
 visualizer_data_source = "/tmp/mpd.fifo"

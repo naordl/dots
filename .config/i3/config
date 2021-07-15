@@ -5,15 +5,15 @@ floating_modifier $mod
 set $exec exec --no-startup-id
 set $execa exec_always --no-startup-id
 
-$exec "sxhkd"
-$execa "setbg"
-$execa "picom"
-$execa "startdunst"
-$exec "unclutter"
-$exec "mpd"
-$exec "xset r rate 300 50"
-$exec "xset s 180"
-$exec "xss-lock -- lockscreen"
+# $exec "sxhkd"
+# $execa "setbg"
+# $execa "picom"
+# $execa "startdunst"
+# $exec "unclutter"
+# $exec "mpd"
+# $exec "xset r rate 300 50"
+# $exec "xset s 180"
+# $exec "xss-lock -- lockscreen"
 $exec "i3-msg focus output primary"
 
 set_from_resource $black       color0  #000000
