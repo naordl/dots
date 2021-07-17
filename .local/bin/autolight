@@ -2,10 +2,14 @@
 
 TIME=$(date +%H)
 
-if [ "$TIME" -ge "21" ]; then
-    redshift -PO 3200
+NIGHTLIGHT_ON() { \
+    redshift -PO 3200 > /dev/null
     notify-send "Autolight" "Nightlight: ON"
-else
-    redshift -PO 6500
+	}
+
+NIGHTLIGHT_OFF() { \
+    redshift -PO 6500 > /dev/null
     notify-send "Autolight" "Nightlight: OFF"
-fi
+	}
+
+[ "$TIME" -ge "21" -o "$TIME" -le "7" ] && NIGHTLIGHT_ON || NIGHTLIGHT_OFF

@@ -206,8 +206,10 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 -x sxhkd
 " Update shortcuts when writing to the shortcuts file
 autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 
-" Recompile suckless programs when exiting
-" autocmd BufWritePost *config.def.h,*blocks.def.h ![ -f config.def.h ] && cp config.def.h config.h && sudo make clean install || [ -f blocks.def.h ] && cp blocks.def.h blocks.h && sudo make clean install && killall -q dwmblocks && setsid dwmblocks &
+" Update rc.conf when writing to rc_base.conf
+autocmd BufWritePost ~/.config/ranger/rc_base.conf !shortcutgen
+
+" Compile suckless programs when saving
 autocmd BufWritePost ~/Repos/dwm/config.def.h !cd ~/Repos/dwm/; cp config.def.h config.h; sudo make clean install
 autocmd BufWritePost ~/Repos/dmenu/config.def.h !cd ~/Repos/dmenu/; cp config.def.h config.h; sudo make clean install
 autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &

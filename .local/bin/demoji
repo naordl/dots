@@ -1,8 +1,14 @@
 #!/bin/sh
 
-CHOICE=$(cut -d ';' -f1 $HOME/.config/emojis | dmenu -i -l 30 -p "Emoji" | sed "s/ .*//")
+# Emoji file location.
+EMOJIS="$HOME/.config/emojis"
 
+# Prompt the user for a choice.
+CHOICE=$(cut -d ';' -f1 "$EMOJIS" | dmenu -i -l 30 -p "Emoji" | sed "s/ .*//")
+
+# If the user did not choose anything, exit.
 [ -z "$CHOICE" ] && exit
 
+# Copy the emoji to the clipboard.
 printf "$CHOICE" | xclip -selection clipboard
 notify-send "'$CHOICE' copied to clipboard"

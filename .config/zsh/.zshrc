@@ -67,7 +67,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.ssh ] || rm -rf ~/.ssh
 
 # Startx
-# alias startx="startx ~/.config/x11/xinitrc"
 alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
 
 # Functions
@@ -84,18 +83,14 @@ alias diff='diff --color=auto'
 alias cp='cp -r'
 alias rm='rm -r'
 alias mkd='mkdir -p'
-alias smkd='sudo mkdir -p'
-alias r='ranger'
-alias sr='sudo ranger'
 alias v='nvim'
 alias sv='sudo nvim'
-alias vi='nvim'
-alias vim='nvim'
+alias r='ranger'
+alias sr='sudo ranger'
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
 alias gengrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias refresh='sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
-alias mi='cp -v config.def.h config.h; sudo make clean install'
 alias gacp='git add . && git commit -m 'Autocommit.' && git push'
 alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'

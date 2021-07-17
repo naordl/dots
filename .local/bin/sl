@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Compile suckless programs.
+# Always edit `config.def.h` instead of `config.h`.
+# Firstly, we check if the `def` header file exist in the current directory.
+# Secondly, we replace the user's header file with the `def` header file.
+# Lastly, we compile the program using `make`.
+[ -e config.def.h ] && cp -v config.def.h config.h && sudo make clean install || \
+[ -e blocks.def.h ] && cp -v blocks.def.h blocks.h && sudo make clean install || \
+
+printf "ERROR: Failed compiling suckless program.
+Could not find \`def\` header files. Is this the correct directory...?\n"

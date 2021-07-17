@@ -26,7 +26,7 @@ case "$choice" in
       cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
       cp -rv /etc/sysctl.d/{20-quiet-printk.conf,dirty.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
-      cp -rv /etc/systemd/system/{getty@tty1.service.d,getty@tty5.service.d,disablenvidia.service,systemd-fsck-root.service,systemd-fsck@.service} $DOTDIR/etc/systemd/system/
+      cp -rv /etc/systemd/system/{getty@tty1.service.d,disablenvidia.service,systemd-fsck-root.service,systemd-fsck@.service} $DOTDIR/etc/systemd/system/
       cp -rv /etc/systemd/logind.conf $DOTDIR/etc/systemd/
       cp -rv /etc/udev/rules.d $DOTDIR/etc/udev/
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
