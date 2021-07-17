@@ -1,6 +1,6 @@
 # ~/.zprofile
 
-# Set default programs
+# Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
@@ -9,7 +9,7 @@ export READER="zathura"
 export FILE="ranger"
 export PAGER="nvim -c 'set ft=man' -"
 
-# Add ~/.local/bin to $PATH
+# Add $HOME/.local/bin to $PATH
 PATH=$PATH$( find $HOME/.local/bin -type d -printf ":%p" )
 
 # Environment variables
