@@ -117,7 +117,7 @@ bindsym $mod+shift+Escape exit
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
 gaps inner 4
-gaps outer 4
+gaps outer 0
 # smart_gaps on
 # smart_borders on
 
@@ -134,11 +134,11 @@ for_window [title="spterm"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="guvcview"] floating enable
 for_window [class="Guvcview"] floating enable
-for_window [class="Guvcview"] move workspace 10
+for_window [class="Guvcview"] move workspace 9
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono, Font Awesome 5 Free 9
+    font pango:DejaVu Sans Mono, Font Awesome 5 Free Solid 9
     tray_output primary
     position top
     colors {
@@ -154,3 +154,5 @@ bar {
             binding_mode       $darkred     $darkred     $foreground
     }
 }
+
+# vim: ft=cfg
