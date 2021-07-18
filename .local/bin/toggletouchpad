@@ -1,7 +1,15 @@
 #!/bin/sh
 
+# Dependency: xinput.
+
+# Get the name of the touchpad.
 id=$(xinput | grep -i "TouchPad" | cut -f 2 | cut -d= -f 2)
+
+# Get the status of the touchpad.
 status=$(xinput --list-props $id | grep "Device Enabled" | cut -f 3)
+
+# If it's enabled, then disable it.
+# If it's disabled, then enable it.
 if [ $status -eq 1 ]; then
     xinput --disable $id && notify-send --hint=string:x-dunst-stack-tag:touchpad Touchpad Off
 else

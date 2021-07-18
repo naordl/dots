@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# dependency: lm_sensors
-
-TEMP=$(sensors | awk '/^temp1/ {print $2}' | awk NR==1 | cut -c 2-)
-
-printf " $TEMP\n"

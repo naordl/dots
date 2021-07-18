@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Emoji file location.
+# Specify emoji file location.
 EMOJIS="$HOME/.config/emojis"
 
 # Prompt the user for a choice.

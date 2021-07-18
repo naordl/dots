@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Bookmarks file location.
+# Specify bookmarks file location.
 BOOKMARKS="$HOME/.config/bookmarks"
 
 # Promp the user to choose a bookmark to open.

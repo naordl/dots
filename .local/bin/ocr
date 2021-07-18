@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Dependencies: maim, tesseract, notify-send, xclip.
+# Dependencies: maim, tesseract, xclip.
 
 # Take a screenshot (selection).
 IMAGE="/tmp/ocr.png"
@@ -10,7 +10,7 @@ maim -u -s "$IMAGE"
 STATUS=$?
 [ "$STATUS" -ne 0 ] && exit 1
 
-# Convert the screenshot to text.
+# Convert the screenshot to text using tesseract.
 TEXT="/tmp/ocr"
 tesseract "$IMAGE" "$TEXT"
 
@@ -20,10 +20,9 @@ sed -i 's/\x0c//' "$TEXT.txt"
 # Exit if there was no text detected.
 LINES=$(wc -l < "$TEXT.txt")
 if [ "$LINES" -eq 0 ]; then
-    notify-send "Optical Character Recognition" "No text was detected."
-    exit 1
+    notify-send "OCR" "No text was detected."
+    exit
 fi
 
-# Copy text to clipboard and send a notification.
-xclip -selection clipboard < "$TEXT.txt"
-notify-send "Optical Character Recognition" "$(cat "$TEXT.txt")"
+# Copy the text to clipboard and send a notification.
+xclip -selection clipboard < "$TEXT.txt" && notify-send "OCR" "$(cat "$TEXT.txt")"

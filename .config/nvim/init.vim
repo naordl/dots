@@ -197,7 +197,7 @@ noremap <right> :echoerr "USE L INSTEAD"<CR>
 
 
 "" ----- AUTORUN ON FILESAVE -----
-" Run xrdb when Xdefaults or Xresources are updated
+" Run xrdb when xdefaults or xresources are updated
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 
 " Update binds when sxhkdrc is updated
@@ -209,7 +209,7 @@ autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 " Update rc.conf when writing to rc_base.conf
 autocmd BufWritePost ~/.config/ranger/rc_base.conf !shortcutgen
 
-" Compile suckless programs when saving
+" Compile suckless programs when writing to their default header files
 autocmd BufWritePost ~/Repos/dwm/config.def.h !cd ~/Repos/dwm/; cp config.def.h config.h; sudo make clean install
 autocmd BufWritePost ~/Repos/dmenu/config.def.h !cd ~/Repos/dmenu/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid dwmblocks &
+autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid -f dwmblocks &

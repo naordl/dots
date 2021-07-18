@@ -1,12 +1,15 @@
 #!/bin/sh
 
+# Define the shortcuts location.
 SHORTCUTS="$HOME/.config/shortcuts"
 ZSH_SHORTCUTS="$HOME/.config/zsh/shortcutrc"
 RANGER_SHORTCUTS="$HOME/.config/ranger/shortcuts.conf"
 
-# awk magic - shell shortcuts
+# Awk magic - shell shortcuts.
 awk '{print "alias g"$1"=\"cd "$2" && ls\""}' $SHORTCUTS > $ZSH_SHORTCUTS
 
-# awk magic - ranger shortcuts
+# Awk magic - ranger shortcuts.
+# In this case, be sure to always edit rc_base.conf, and run 'shortcutgen'.
+# This is a workaround, because ranger does not allow sourceing external files.
 awk '{print "map g"$1" cd "$2""} BEGIN{print "\n# Shortcuts"}' $SHORTCUTS > $RANGER_SHORTCUTS
 cat $HOME/.config/ranger/rc_base.conf $RANGER_SHORTCUTS > $HOME/.config/ranger/rc.conf

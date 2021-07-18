@@ -1,14 +1,18 @@
 #!/bin/sh
 
+# Define list of resolutions.
 RESOLUTIONS="\
 1920x1080
 1600x900
 1366x768
 "
 
+# Prompt the user for a choice.
 CHOICE=$(printf "$RESOLUTIONS" | dmenu -i -l 3 -p "Choose resolution")
 if [ "$CHOICE" = "" ]; then exit; fi
 
+# Name of the recording.
 NAME="recording_$(date +%y_%m_%d_%H_%M)"
 
+# Start recording the screen and send a notification.
 ffmpeg -f x11grab -s "$CHOICE" -i :0.0 $NAME.mp4 & notify-send " Recording in $CHOICE."

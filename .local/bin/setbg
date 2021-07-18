@@ -1,10 +1,12 @@
 #!/bin/sh
 
-# run 'setbg' on a file, the file will be copied to ~/.config/wall.png and set as wallpaper
-# if you pass it no arguments then it will just set the wallpaper
+# Run 'setbg' on a file.
+# The file will be copied to ~/.config/wall.png and set as wallpaper.
+# If you pass it no arguments then it will just set the wallpaper.
 
-# check if there are arguments, if there are, copy the image
+# Check if there are arguments.
+# If there are, copy $1 to ~/.config/wall.png.
 [ -f "$1" ] && cp "$1" ~/.config/wall.png
 
-# use xwallpaper to set the wallpaper
+# In any case, use xwallpaper to set the wallpaper.
 xwallpaper --zoom ~/.config/wall.png

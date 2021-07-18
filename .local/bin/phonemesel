@@ -1,8 +1,9 @@
 #!/bin/sh
 
-# Dependencies: dmenu, xclip
+# Dependencies: dmenu, xclip.
 # Source: http://www.antimoon.com/how/pronunc-soundsipa.htm
 
+# Specify list of phonemes and romanji counterparts for easy selection.
 PHONEMES="\
 /ʌ/ a
 /ɑ:/ a
@@ -32,4 +33,5 @@ PHONEMES="\
 /dʒ/ dzs
 "
 
+# Prompt the user for a choice, and copy the selected phoneme to clipboard.
 printf "$PHONEMES" | dmenu -i -l 30 -p "Choose phoneme" | awk '{print $1}' | tr -d '\n' | xclip -selection clipboard

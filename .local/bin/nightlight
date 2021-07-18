@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Dependencies: redshift, dmenu.
+
+# Prompt the user for a choice.
+# ON = Turn on nightlight with redshift.
+# OFF = Turn off nightlight with redshift.
 CHOICE=$(printf "ON\nOFF" | dmenu -i -p "Nightlight")
 case $CHOICE in
     ON)
@@ -10,4 +15,5 @@ case $CHOICE in
         exit ;;
 esac
 
+# Send a notification about the user's choice.
 notify-send "Nightlight" "$CHOICE"

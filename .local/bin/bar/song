@@ -1,18 +1,22 @@
 #!/bin/sh
 
-# dependencies: mpc, mpd, playerctl
+# Dependencies: mpc, mpd.
 
+# Mouse actions.
 case $BLOCK_BUTTON in
     1) mpc toggle ;;
     4) mpc next ;;
 esac
 
+# Get the state of the music player.
 STATE=$(mpc -v | grep -o playing)
 
+# If it isn't playing music, then print nothing.
 if [ "$STATE" != "playing" ]; then
     printf ""
 fi
 
+# If it is playing music, then print it's name.
 if [ "$STATE" = playing ]; then
     SONG=$(mpc -v | awk NR==1)
     printf " $SONG\n"

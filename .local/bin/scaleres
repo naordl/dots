@@ -1,7 +1,9 @@
 #!/bin/sh
 
+# Primpt the user for a choice.
 CHOICE=$(printf "1366x768\n1600x900\n1920x1080" | dmenu -i -l 3 -p "Scale resolution")
 
+# Actions based on choice.
 if [ "$CHOICE" != "" ]; then
     case $CHOICE in
         1366x768)
@@ -13,5 +15,5 @@ if [ "$CHOICE" != "" ]; then
         *)
             exit
     esac
-    setbg # fix wallpaper
+    setbg # Fix wallpaper.
 fi

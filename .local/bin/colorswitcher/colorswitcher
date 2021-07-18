@@ -1,13 +1,19 @@
 #!/bin/sh
 
-# dependencies: dmenu, my dotfiles
+# Dependencies: dmenu, my dotfiles.
 
+# Define directories.
 ALACRITTYDIR="$HOME/.config/alacritty"
 XRESOURCESDIR="$HOME/.config/x11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
+
+# Define the available colorschemes.
 COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark\nNord")"
+
+# Prompt the user for a choice.
 CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
 
+# Change to the colorscheme chosen by the user.
 if [ "$CHOICE" = "Solarized Light" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_light/solarized_light.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/solarized_light/solarized_light.x > $XRESOURCESDIR/xresources

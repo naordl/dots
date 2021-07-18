@@ -1,12 +1,13 @@
 #!/bin/sh
 
-# dependency: nmcli
+# Dependency: nmcli.
 
+# Mouse actions.
 case $BLOCK_BUTTON in
     1) networkmanager_dmenu ;;
 esac
 
-# if there is no internet connection, print exclamation marks
+# If there is no internet connection, print exclamation marks.
 NOWIFI=$(nmcli | grep 'wlp3s0' | grep -E -o 'unmanaged|unavailable')
 NOETHERNET=$(nmcli | grep 'enp2s0f1' | grep -E -o 'unmanaged|unavailable')
 if [ "$NOWIFI" != "" ]; then
@@ -16,14 +17,14 @@ if [ "$NOWIFI" != "" ]; then
     fi
 fi
 
-# if there is a wired connection, print it
+# If there is a wired connection, print that.
 CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
 LOCALIP=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
 if [ "$CONNTYPE" = "" ]; then
     printf "$CONNTYPE $LOCALIP\n"
 fi
 
-# if there is not, check for wifi connection and print it
+# If all else fails, check for wifi connection, and print that.
 if [ "$CONNTYPE" = "" ]; then
     CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
     printf "$CONNTYPE $LOCALIP\n"

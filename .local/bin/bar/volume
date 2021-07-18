@@ -1,23 +1,32 @@
 #!/bin/sh
 
+# Store block update commands in a function.
+UPDATE_BLOCK() { \
+    pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks
+	}
+
+# Mouse actions.
 case $BLOCK_BUTTON in
     1) setsid -f $TERMINAL -e pulsemixer ;;
-    3) pamixer -t ;;
-    4) pamixer -i 5 ;;
-    5) pamixer -d 5 ;;
+    3) pamixer -t; UPDATE_BLOCK ;;
+    4) pamixer -i 5; UPDATE_BLOCK ;;
+    5) pamixer -d 5; UPDATE_BLOCK ;;
 esac
 
+# Argument actions.
 case $1 in
-    toggle) pamixer -t; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
-    mute) pamixer -m; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
-    unmute) pamixer -u; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
-    up) pamixer -i 5; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
-    down) pamixer -d 5; pkill -SIGRTMIN+3 dwmblocks || pkill -SIGRTMIN+3 i3blocks ;;
+    toggle) pamixer -t; UPDATE_BLOCK ;;
+    mute) pamixer -m; UPDATE_BLOCK ;;
+    unmute) pamixer -u; UPDATE_BLOCK ;;
+    up) pamixer -i 5; UPDATE_BLOCK ;;
+    down) pamixer -d 5; UPDATE_BLOCK ;;
 esac
 
+# Define states.
 MUTED=$(pamixer --get-mute)
 VOLUME=$(pamixer --get-volume)
 
+# If the volume isn't muted, print the state and the percentage.
 if [ "$MUTED" = "true" ]; then
     printf "\n"
 else

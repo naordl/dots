@@ -8,5 +8,6 @@
 [ -e config.def.h ] && cp -v config.def.h config.h && sudo make clean install || \
 [ -e blocks.def.h ] && cp -v blocks.def.h blocks.h && sudo make clean install || \
 
+# If we can't compile, print an error message.
 printf "ERROR: Failed compiling suckless program.
 Could not find \`def\` header files. Is this the correct directory...?\n"

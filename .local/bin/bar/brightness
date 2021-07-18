@@ -1,17 +1,24 @@
 #!/bin/sh
 
+# Store block update commands in a function.
+UPDATE_BLOCK() { \
+    pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks
+	}
+
+# Mouse actions.
 case $BLOCK_BUTTON in
-    1) xbacklight -set 75; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
-    3) xbacklight -set 25; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
-    4) xbacklight -inc 5; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
-    5) xbacklight -dec 5; pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks ;;
+    1) xbacklight -set 75; UPDATE_BLOCK ;;
+    3) xbacklight -set 25; UPDATE_BLOCK ;;
+    4) xbacklight -inc 5; UPDATE_BLOCK ;;
+    5) xbacklight -dec 5; UPDATE_BLOCK ;;
 esac
 
+# Argument actions.
 case $1 in
-    up) xbacklight -inc 5; pkill -SIGRTMIN+4 dwmblocks; pkill -SIGRTMIN+4 i3blocks ;;
-    down) xbacklight -dec 5; pkill -SIGRTMIN+4 dwmblocks; pkill -SIGRTMIN+4 i3blocks ;;
+    up) xbacklight -inc 5; UPDATE_BLOCK ;;
+    down) xbacklight -dec 5; UPDATE_BLOCK ;;
 esac
 
+# Print the current brightness level.
 BRIGHTNESS=$(xbacklight -get)
-
 printf " $BRIGHTNESS%%\n"
