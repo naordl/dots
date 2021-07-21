@@ -28,3 +28,5 @@ dwm.normfgcolor: #D8DEE9
 dwm.selfgcolor: #D8DEE9
 dwm.selbordercolor: #BF616A
 dwm.selbgcolor: #4C566A
+
+# vim: ft=cfg

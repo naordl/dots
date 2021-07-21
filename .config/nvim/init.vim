@@ -48,15 +48,6 @@ nnoremap <S-Right> :vertical resize -2<CR>
 " é - command-line mode
 nnoremap é :
 
-" Ctrl + t - new tab
-map <silent> <C-t> :tabnew<CR>
-
-" Ctrl + n - next tab
-map <silent> <C-n> :tabnext<CR>
-
-" Ctrl + w - close tab
-" map <silent> <C-w> :tabclose<CR>
-
 " Ctrl + backspace - delete last word
 inoremap <C-H> <C-W>
 
@@ -77,7 +68,7 @@ nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 
 " Leader bindings
 
-" Set the leader key to ','
+" Set the leader key to comma
 let mapleader=","
 
 " Leader + b - next buffer
