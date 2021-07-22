@@ -9,7 +9,7 @@ super + Return
 
 # Dropdown terminal
 super + shift + Return
-    tdrop -w "" -h "" -x "" -y "" $TERMINAL -t spterm
+    tdrop -n 1 -w "" -h "" -x "" -y "" $TERMINAL -t spterm
 
 # Program launcher
 super + d
@@ -129,7 +129,8 @@ super + n
 
 # Calculator
 super + c
-    $TERMINAL -t floatterm -e bc -l -q
+#   $TERMINAL -t floatterm -e bc -l -q
+    tdrop -n 2 -w "" -h "" -x "" -y "" $TERMINAL -t bcterm -e bc -l -q
 
 # VM manager
 super + v

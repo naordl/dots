@@ -100,3 +100,6 @@ alias pt="sudo powertop"
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc
+
+# Zsh-z
+source ~/Repos/zsh-z/zsh-z.plugin.zsh
