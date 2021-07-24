@@ -4,7 +4,7 @@
 
 # Take a screenshot (selection).
 IMAGE="/tmp/ocr.png"
-maim -u -s "$IMAGE"
+maim -o -u -s "$IMAGE"
 
 # Exit if the user chose not to take the screenshot.
 STATUS=$?

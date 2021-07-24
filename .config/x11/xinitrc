@@ -2,7 +2,7 @@ autodisplay
 autolight &
 xrdb ~/.config/x11/xresources
 setbg &
-pgrep -x picom > /dev/null || picom &
+pgrep -x picom > /dev/null || picom --experimental-backends &
 pgrep -x startdunst > /dev/null || startdunst &
 pgrep -x unclutter > /dev/null || unclutter &
 pgrep -x mpd > /dev/null || mpd &

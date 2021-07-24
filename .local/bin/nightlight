@@ -16,4 +16,4 @@ case $CHOICE in
 esac
 
 # Send a notification about the user's choice.
-notify-send "Nightlight" "$CHOICE"
+notify-send " Nightlight" "$CHOICE"

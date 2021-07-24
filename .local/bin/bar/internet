@@ -1,31 +1,35 @@
 #!/bin/sh
 
-# Dependency: nmcli.
+# Dependencies: networkmanager, nmcli
 
 # Mouse actions.
 case $BLOCK_BUTTON in
-    1) networkmanager_dmenu ;;
+    1) setsid -f networkmanager_dmenu ;;
+    3) setsid -f nm-connection-editor ;;
 esac
 
-# If there is no internet connection, print exclamation marks.
-NOWIFI=$(nmcli | grep 'wlp3s0' | grep -E -o 'unmanaged|unavailable')
-NOETHERNET=$(nmcli | grep 'enp2s0f1' | grep -E -o 'unmanaged|unavailable')
-if [ "$NOWIFI" != "" ]; then
-    if [ "$NOETHERNET" != "" ]; then
-        printf "  /  \n"
-        exit
-    fi
-fi
+# Ethernet status: exit 0 for connected, 1 for disconnected.
+ETHERNET=$(nmcli -t | grep 'Wired connection' | sed 's/.*/connected/')
+# Wifi status: exit 0 for connected, 1 for disconnected.
+WIFI=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*/connected/')
 
-# If there is a wired connection, print that.
-CONNTYPE=$(nmcli -a | grep 'Wired connection' | sed 's/.*//')
-LOCALIP=$(nmcli -a | grep 'inet4 192' | awk '{print $2}' | cut -d '/' -f 1)
-if [ "$CONNTYPE" = "" ]; then
-    printf "$CONNTYPE $LOCALIP\n"
-fi
-
-# If all else fails, check for wifi connection, and print that.
-if [ "$CONNTYPE" = "" ]; then
-    CONNTYPE=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*//')
-    printf "$CONNTYPE $LOCALIP\n"
+if [ "$ETHERNET" = "connected" ]; then
+    # Local IP address.
+    LOCAL_IP=$(nmcli -t | grep -m 1 'inet4 192' | sed 's/^.......//;s/...$//')
+    # Print the result.
+    printf " $LOCAL_IP\n"
+    # We're done here, so exit without an error.
+    exit 0
+elif [ "$WIFI" = "connected" ]; then
+    # Wifi strength in percentage.
+    WIFI_STRENGTH=$(nmcli -f IN-USE,SIGNAL,SSID device wifi | awk '/^\*/{if (NR!=1) {print $2"%"}}')
+    # Print the result.
+    printf " $WIFI_STRENGTH%\n"
+    # We're done here, so exit without an error.
+    exit 0
+elif [ "$WIFI" = "" -a "$ETHERNET" = "" ]; then
+    # Print connection error.
+    printf "  \n"
+    # We're done here, so exit without an error.
+    exit 0
 fi

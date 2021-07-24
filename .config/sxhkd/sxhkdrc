@@ -75,15 +75,15 @@ XF86ScreenSaver
 ## --- Print screen functionality --- ##
 # Print screen(s)
 Print
-    maim -u /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
+    maim -o -u /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
 
 # Snip screen
 shift + Print
-    maim -u -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+    maim -o -u -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
 
 # Snip active window
 alt + Print
-    maim -u -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
+    maim -o -u -i $(xdotool getactivewindow) > /tmp/windowsnippet.png | xclip -selection clipboard -t image/png
 
 
 ## --- Basic programs --- ##
