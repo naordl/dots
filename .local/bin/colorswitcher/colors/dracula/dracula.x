@@ -1,3 +1,5 @@
+! vim: ft=cfg
+
 *.foreground: #F8F8F2
 *.background: #282A36
 *.selbackground: #4D4D4D
@@ -18,12 +20,3 @@
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
-
-dwm.normbgcolor: #282A36
-dwm.normbordercolor: #282A36
-dwm.normfgcolor: #F8F8F2
-dwm.selfgcolor: #F8F8F2
-dwm.selbordercolor: #FF6E67
-dwm.selbgcolor: #4D4D4D
-
-# vim: ft=cfg

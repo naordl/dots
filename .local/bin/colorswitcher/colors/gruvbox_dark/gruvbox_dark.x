@@ -1,7 +1,9 @@
-*.selbackground: #928374
-! hard contrast: *.background: #1d2021
+! vim: ft=cfg
+
+! *.background: #1d2021
+! *.background: #32302f
 *.background: #282828
-! soft contrast: *.background: #32302f
+*.selbackground: #928374
 *.foreground: #ebdbb2
 ! Black + DarkGrey
 *.color0:  #282828
@@ -27,10 +29,3 @@
 ! LightGrey + White
 *.color7:  #a89984
 *.color15: #ebdbb2
-
-dwm.normbgcolor: #282828
-dwm.normbordercolor: #282828
-dwm.normfgcolor: #ebdbb2
-dwm.selfgcolor: #ebdbb2
-dwm.selbordercolor: #cc241d
-dwm.selbgcolor: #928374

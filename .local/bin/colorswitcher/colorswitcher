@@ -8,7 +8,7 @@ XRESOURCESDIR="$HOME/.config/x11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
 
 # Define the available colorschemes.
-COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nOne Dark\nNord\nDracula")"
+COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nNord\nDracula")"
 
 # Prompt the user for a choice.
 CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
@@ -23,7 +23,7 @@ if [ "$CHOICE" = "Solarized Light" ]; then
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
-    notify-send "Changed color scheme to $CHOICE"
+    notify-send "Colorscheme changed to $CHOICE"
     exit
 elif [ "$CHOICE" = "Solarized Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_dark/solarized_dark.yml > $ALACRITTYDIR/alacritty.yml
@@ -34,7 +34,7 @@ elif [ "$CHOICE" = "Solarized Dark" ]; then
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
-    notify-send "Changed color scheme to $CHOICE"
+    notify-send "Colorscheme changed to $CHOICE"
     exit
 elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/gruvbox_dark/gruvbox_dark.yml > $ALACRITTYDIR/alacritty.yml
@@ -45,18 +45,7 @@ elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
-    notify-send "Changed color scheme to $CHOICE"
-    exit
-elif [ "$CHOICE" = "One Dark" ]; then
-    cat $ALACRITTYDIR/base.yml $COLORDIR/one_dark/one_dark.yml > $ALACRITTYDIR/alacritty.yml
-    cat $COLORDIR/one_dark/one_dark.x > $XRESOURCESDIR/xresources
-    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
-    killall dunst
-    xrdb $XRESOURCESDIR/xresources
-    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
-    startdunst &
-    notify-send "Changed color scheme to $CHOICE"
+    notify-send "Colorscheme changed to $CHOICE"
     exit
 elif [ "$CHOICE" = "Nord" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/nord/nord.yml > $ALACRITTYDIR/alacritty.yml
@@ -67,7 +56,7 @@ elif [ "$CHOICE" = "Nord" ]; then
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
-    notify-send "Changed color scheme to $CHOICE"
+    notify-send "Colorscheme changed to $CHOICE"
     exit
 elif [ "$CHOICE" = "Dracula" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/dracula/dracula.yml > $ALACRITTYDIR/alacritty.yml
@@ -78,7 +67,7 @@ elif [ "$CHOICE" = "Dracula" ]; then
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
-    notify-send "Changed color scheme to $CHOICE"
+    notify-send "Colorscheme changed to $CHOICE"
     exit
 else
     exit

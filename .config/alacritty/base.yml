@@ -31,7 +31,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: DejaVu Sans Mono Nerd Font
+    family: DejaVu Sans Mono
   size: 10
 
   # Offset is the extra space around each character
@@ -69,7 +69,7 @@ live_config_reload: true
 key_bindings:
   - { key: V,		mods: Control|Shift, 	action: Paste            }
   - { key: C,		mods: Control|Shift, 	action: Copy             }
-  - { key: 0,	        mods: Control,       	action: ResetFontSize    }
+  - { key: 0,       mods: Control,       	action: ResetFontSize    }
   - { key: K,		mods: Control,       	action: IncreaseFontSize }
   - { key: J,   	mods: Control,       	action: DecreaseFontSize }
   - { key: K,		mods: Control|Shift,   	action: ScrollLineUp	 }
@@ -79,33 +79,5 @@ key_bindings:
 draw_bold_text_with_bright_colors: true
 
 # Background transparency
-background_opacity: 0.9
+background_opacity: 0.8
 
-# This color sceme is called 'default' on terminal.sexy
-#colors:
-#  # Default colors
-#  primary:
-#    background: '0x151515'
-#    foreground: '0xd0d0d0'
-#
-#  # Normal colors
-#  normal:
-#    black:   '0x151515'
-#    red:     '0xac4142'
-#    green:   '0x90a959'
-#    yellow:  '0xf4bf75'
-#    blue:    '0x6a9fb5'
-#    magenta: '0xaa759f'
-#    cyan:    '0x75b5aa'
-#    white:   '0xd0d0d0'
-#
-#  # Bright colors
-#  bright:
-#    black:   '0x505050'
-#    red:     '0xac4142'
-#    green:   '0x90a959'
-#    yellow:  '0xf4bf75'
-#    blue:    '0x6a9fb5'
-#    magenta: '0xaa759f'
-#    cyan:    '0x75b5aa'
-#    white:   '0xf5f5f5'

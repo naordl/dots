@@ -8,7 +8,7 @@ case "$CHOICE" in
     Lock)
         loginctl lock-session ;;
     Logout)
-        i3-msg exit || kill -TERM "$(pidof dwm)" || bspc quit ;;
+        i3-msg exit || kill -TERM "$(pidof dwm)" ;;
     Shutdown)
         systemctl poweroff ;;
     Reboot)
