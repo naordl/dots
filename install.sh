@@ -43,7 +43,7 @@ WM="
 iconfonts="ttf-font-awesome"
 emojifonts="ttf-joypixels"
 icontheme="papirus-icon-theme"
-gtktheme="lxappearance" # GTK THEME - GITHUB REPO - MANTIS NIGHT - AUR PACKAGE
+gtktheme="lxappearance" # MANTIS NIGHT THEME FROM MY GITHUB
 
 AESTETHICS="
     $iconfonts
@@ -117,7 +117,6 @@ DEPENDENCIES="
     xss-lock
     xorg-xset
     xdotool
-    nm-connection-editor
     xclip
     exa
     playerctl
