@@ -17,7 +17,7 @@ case "$choice" in
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
       echo "Backing up config files..."
-      cp -rv ~/.config/{bookmarks,shortcuts,emojis,alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,networkmanager-dmenu,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{bookmarks,shortcuts,emojis,alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
       echo "Backing up scripts..."
       cp -rv ~/.local/bin $DOTDIR/.local/
       echo "Backing up pandoc templates..."

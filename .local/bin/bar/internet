@@ -4,8 +4,7 @@
 
 # Mouse actions.
 case $BLOCK_BUTTON in
-    1) setsid -f networkmanager_dmenu ;;
-    3) setsid -f $TERMINAL -e nmtui ;;
+    1) setsid -f $TERMINAL -e nmtui ;;
 esac
 
 # Ethernet status: exit 0 for connected, 1 for disconnected.
@@ -27,9 +26,9 @@ elif [ "$WIFI" = "connected" ]; then
     printf " $WIFI_STRENGTH%\n"
     # We're done here, so exit without an error.
     exit 0
-elif [ "$WIFI" = "" -a "$ETHERNET" = "" ]; then
+elif [ "$ETHERNET" = "" -a "$WIFI" = "" ]; then
     # Print connection error.
-    printf "  \n"
+    printf "  \n"
     # We're done here, so exit without an error.
     exit 0
 fi
