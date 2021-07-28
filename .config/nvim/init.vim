@@ -200,8 +200,8 @@ autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 " Update rc.conf when writing to rc_base.conf
 autocmd BufWritePost ~/.config/ranger/rc_base.conf !shortcutgen
 
-" Compile suckless programs when writing to their default header files
-autocmd BufWritePost ~/Repos/dwm/config.def.h !cd ~/Repos/dwm/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/Repos/dmenu/config.def.h !cd ~/Repos/dmenu/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/Repos/st/config.def.h !cd ~/Repos/st/; cp config.def.h config.h; sudo make clean install
-autocmd BufWritePost ~/Repos/dwmblocks/blocks.def.h !cd ~/Repos/dwmblocks/; cp blocks.def.h blocks.h; sudo make clean install; killall -q dwmblocks; setsid -f dwmblocks &
+" Compile suckless programs when writing to their header files
+autocmd BufWritePost ~/Repos/dwm/config.h !cd ~/Repos/dwm/ && sudo make clean install
+autocmd BufWritePost ~/Repos/dmenu/config.h !cd ~/Repos/dmenu/ && sudo make clean install
+autocmd BufWritePost ~/Repos/st/config.h !cd ~/Repos/st/ && sudo make clean install
+autocmd BufWritePost ~/Repos/dwmblocks/blocks.h !cd ~/Repos/dwmblocks/ && sudo make clean install && killall -q dwmblocks && setsid -f dwmblocks &
