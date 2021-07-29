@@ -99,8 +99,8 @@ alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
 alias pt='sudo powertop'
-# alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
-alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
+# alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc
