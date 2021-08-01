@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Determine the mime type of the file
+TYPE=$(file --mime-type "$@" -bL)
+
+# Open the file using the appropriate program
+case "$TYPE" in
+    video/* | audio/* | image/gif)
+        devour mpv "$@"
+        ;;
+    image/png | image/jpeg)
+        devour sxiv "$@"
+        ;;
+    application/pdf | application/postscript)
+        devour zathura "$@"
+        ;;
+    *)
+        printf "Don't know how to open $@...\n"
+        exit 1
+        ;;
+esac

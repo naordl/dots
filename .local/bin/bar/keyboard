@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Get current keyboard layout.
+# Get current keyboard layout
 LAYOUT=$(setxkbmap -query | awk {'print $2'} | awk NR==3)
 
-# Print result.
+# Print result
 printf " $LAYOUT\n"

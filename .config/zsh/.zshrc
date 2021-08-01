@@ -101,6 +101,7 @@ alias td='$EDITOR ~/Documents/todo.md'
 alias pt='sudo powertop'
 alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
 # alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+alias o='open'
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc

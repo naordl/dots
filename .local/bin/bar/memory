@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Get current free memory.
+# Get currently used memory in percentage
 MEMORY=$(free | awk '/Mem/{printf("%.0f%"), $3/($2+.000000001)*100} /buffers\/cache/{printf(", buffers: %.1f%"), $4/($3+$4)+.000000001*100}';)
 
-# Print the result.
+# Print the result
 printf " $MEMORY%\n"

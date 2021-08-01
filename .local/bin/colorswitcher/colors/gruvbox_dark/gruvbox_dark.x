@@ -3,7 +3,11 @@
 ! *.background: #1d2021
 ! *.background: #32302f
 *.background: #282828
-*.selbackground: #928374
+! *.selbackground: #928374
+
+*.selforeground: #ffffff
+*.selbackground: #d79921
+
 *.foreground: #ebdbb2
 ! Black + DarkGrey
 *.color0:  #282828

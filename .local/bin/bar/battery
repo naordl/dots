@@ -1,20 +1,18 @@
 #!/bin/sh
 
-# Get status and capacity.
+# Get battery status and capacity
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 
-# Select an icon based on power state.
+# Choose an icon based on power state
 if [ "$STATUS" = "Charging" ]; then
     ICON=""
 else
     ICON=""
 fi
 
-# Send a warning notification if below 30%.
-if [ "$CAPACITY" -lt 30 -a "$STATUS" = "Discharging" ]; then
-    notify-send -u critical "BATTERY LOW!"
-fi
+# Send a warning notification if below 30%
+[ "$CAPACITY" -lt 30 -a "$STATUS" = "Discharging" ] && notify-send -u critical "BATTERY LOW!"
 
-# Print the result.
+# Print result
 printf "$ICON $CAPACITY%%\n"

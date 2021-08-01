@@ -2,33 +2,33 @@
 
 # Dependencies: networkmanager, nmcli
 
-# Mouse actions.
+# Mouse actions
 case $BLOCK_BUTTON in
     1) setsid -f $TERMINAL -e nmtui ;;
 esac
 
-# Ethernet status: exit 0 for connected, 1 for disconnected.
+# Ethernet status: exit 0 for connected, 1 for disconnected
 ETHERNET=$(nmcli -t | grep 'Wired connection' | sed 's/.*/connected/')
-# Wifi status: exit 0 for connected, 1 for disconnected.
+# Wifi status: exit 0 for connected, 1 for disconnected
 WIFI=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*/connected/')
 
 if [ "$ETHERNET" = "connected" ]; then
-    # Local IP address.
+    # Local IP address
     LOCAL_IP=$(nmcli -t | grep -m 1 'inet4 192' | sed 's/^.......//;s/...$//')
-    # Print the result.
+    # Print result
     printf " $LOCAL_IP\n"
-    # We're done here, so exit without an error.
+    # We're done here, so exit without an error
     exit 0
 elif [ "$WIFI" = "connected" ]; then
-    # Wifi strength in percentage.
+    # Wifi strength in percentage
     WIFI_STRENGTH=$(nmcli -f IN-USE,SIGNAL,SSID device wifi | awk '/^\*/{if (NR!=1) {print $2"%"}}')
-    # Print the result.
+    # Print result
     printf " $WIFI_STRENGTH%\n"
-    # We're done here, so exit without an error.
+    # We're done here, so exit without an error
     exit 0
-elif [ "$ETHERNET" = "" -a "$WIFI" = "" ]; then
-    # Print connection error.
+elif [ -z "$ETHERNET" -a -z "$WIFI" ]; then
+    # Print connection error
     printf "  \n"
-    # We're done here, so exit without an error.
+    # We're done here, so exit without an error
     exit 0
 fi
