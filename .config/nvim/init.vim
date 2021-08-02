@@ -22,7 +22,7 @@ set conceallevel=0
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
-let g:UltiSnipsSnippetDirectories=["snips"]
+let g:UltiSnipsSnippetDirectories=["snippets"]
 
 " Bullets
 let g:bullets_enabled_file_types = [
