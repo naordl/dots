@@ -121,7 +121,7 @@ super + shift + p
 
 # Music player
 super + m
-    $TERMINAL -t ncmpcpp -e ncmpcpp
+    $TERMINAL -t ncmpcpp -e ncmpcpp -q
 
 # Email client
 super + n

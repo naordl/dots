@@ -17,13 +17,19 @@ case "$choice" in
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
       printf "Backing up config files...\n"
-      cp -rv ~/.config/{bookmarks,shortcuts,emojis,alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
       printf "Backing up scripts...\n"
       cp -rv ~/.local/bin $DOTDIR/.local/
       printf "Backing up pandoc templates...\n"
       cp -rv ~/.local/pandoc $DOTDIR/.local/
       printf "Backing up vocabulary database...\n"
       cp -rv ~/.local/vocab $DOTDIR/.local/
+      printf "Backing up bookmark database...\n"
+      cp -rv ~/.local/bookmarks $DOTDIR/.local/
+      printf "Backing up shortcut database...\n"
+      cp -rv ~/.local/shortcuts $DOTDIR/.local/
+      printf "Backing up emoji database...\n"
+      cp -rv ~/.local/emojis $DOTDIR/.local/
       printf "Backing up /etc/ stuff...\n"
       cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/

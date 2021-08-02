@@ -146,7 +146,7 @@ DEPENDENCIES="
     xorg-xinput
     "
 
-## SETUP FOR THE INSTALL COMMAND
+## SET UP THE INSTALL COMMAND
 install="paru -Syu --needed
     $ESSENTIALS
     $WM
