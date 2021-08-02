@@ -71,7 +71,7 @@ alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xse
 
 # Functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,dwm,st,dwmblocks} | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+es() { du -a ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --height=50% | xargs -r $EDITOR ;}
 
 # Aliases
 alias pac='sudo pacman'

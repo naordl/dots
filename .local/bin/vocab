@@ -8,9 +8,9 @@ VOCABFILE="$HOME/.local/vocab"
 # Arguments
 # `-a`; ask for new word/phrase to add to the database
 if [ "$1" = "-a" ]; then
-    PHRASE=$(printf "" | fzf --print-query --prompt="New word/phrase: ")
+    PHRASE=$(printf "" | fzf --print-query --height=1% --prompt="New word/phrase: ")
     [ -z "$PHRASE" ] && exit 1
-    MEANING=$(printf "" | fzf --print-query --prompt="Meaning of word/phrase: ")
+    MEANING=$(printf "" | fzf --print-query --height=1% --prompt="Meaning of word/phrase: ")
     [ -z "$MEANING" ] && exit 1
     printf "$PHRASE - $MEANING\n" >> "$VOCABFILE" && exit 0
 
