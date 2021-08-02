@@ -103,6 +103,9 @@ alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
 # alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias o='open'
 
+# Print random phrase from the vocabulary database
+vocab
+
 # Shortcuts
 source ~/.config/zsh/shortcutrc
 

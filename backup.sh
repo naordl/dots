@@ -6,23 +6,25 @@ read choice
 case "$choice" in
     y)
       export DOTDIR="$HOME/Repos/dots"
-      echo "Backing up gpg secret key and 'pass' password store..."
+      printf "Backing up gpg secret key and 'pass' password store...\n"
       gpg --export-secret-keys Roland Nemes > ~/Backups/secret-key-backup
       gpg --export-ownertrust > ~/Backups/trustdb-backup
       rm -rf ~/Backups/pass; cp -rv ~/.local/share/pass ~/Backups/
-      echo "Backing up dotfiles..."
-      echo "Backing up .zprofile..."
+      printf "Backing up dotfiles...\n"
+      printf "Backing up .zprofile...\n"
       cp -rv ~/.zprofile $DOTDIR/
-      echo "Backing up crontab..."
+      printf "Backing up crontab...\n"
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
-      echo "Backing up config files..."
+      printf "Backing up config files...\n"
       cp -rv ~/.config/{bookmarks,shortcuts,emojis,alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
-      echo "Backing up scripts..."
+      printf "Backing up scripts...\n"
       cp -rv ~/.local/bin $DOTDIR/.local/
-      echo "Backing up pandoc templates..."
+      printf "Backing up pandoc templates...\n"
       cp -rv ~/.local/pandoc $DOTDIR/.local/
-      echo "Backing up /etc/ stuff..."
+      printf "Backing up vocabulary database...\n"
+      cp -rv ~/.local/vocab $DOTDIR/.local/
+      printf "Backing up /etc/ stuff...\n"
       cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
       cp -rv /etc/sysctl.d/{20-quiet-printk.conf,dirty.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
@@ -34,10 +36,10 @@ case "$choice" in
       cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
       cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
       cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
-      tput setaf 2; echo "Backup successful! You may now commit the changes."
+      tput setaf 2 && printf "Backup successful! You may now commit the changes.\n"
       ;;
     *)
-      echo "Exiting..."
+      printf "Exiting...\n"
       exit
       ;;
 esac

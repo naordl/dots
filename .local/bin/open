@@ -1,12 +1,14 @@
 #!/bin/sh
 
+# Dependencies: file, devour, mpv, sxiv, zathura
+
 # Determine the mime type of the file
 TYPE=$(file --mime-type "$@" -bL)
 
 # Open the file using the appropriate program
 case "$TYPE" in
     video/* | audio/* | image/gif)
-        devour mpv "$@"
+        devour mpv --loop "$@"
         ;;
     image/png | image/jpeg)
         devour sxiv "$@"
