@@ -101,7 +101,7 @@ super + shift + b
 
 # Network manager
 super + shift + n
-    $TERMINAL -e nmtui
+    dnm
 
 # Password manager
 super + shift + Insert
