@@ -154,5 +154,6 @@ install="paru -Syu --needed
     $SOFTWARE
     $DEPENDENCIES
     "
+
 ## RUN THE INSTALL COMMAND
 $install
