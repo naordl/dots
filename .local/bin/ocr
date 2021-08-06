@@ -1,28 +1,28 @@
 #!/bin/sh
 
-# Dependencies: maim, tesseract, xclip.
+# Dependencies: maim, tesseract, xclip
 
-# Take a screenshot (selection).
+# Take a screenshot (selection)
 IMAGE="/tmp/ocr.png"
 maim -o -u -s "$IMAGE"
 
-# Exit if the user chose not to take the screenshot.
+# Exit if the user chose not to take the screenshot
 STATUS=$?
 [ "$STATUS" -ne 0 ] && exit 1
 
-# Convert the screenshot to text using tesseract.
+# Convert the screenshot to text using tesseract
 TEXT="/tmp/ocr"
 tesseract "$IMAGE" "$TEXT"
 
-# Delete newline characters.
+# Delete newline characters
 sed -i 's/\x0c//' "$TEXT.txt"
 
-# Exit if there was no text detected.
+# Exit if there was no text detected
 LINES=$(wc -l < "$TEXT.txt")
 if [ "$LINES" -eq 0 ]; then
-    notify-send "OCR" "No text was detected."
-    exit
+    notify-send "OCR" "No text was detected"
+    exit 1
 fi
 
-# Copy the text to clipboard and send a notification.
+# Copy the text to clipboard and send a notification
 xclip -selection clipboard < "$TEXT.txt" && notify-send "OCR" "$(cat "$TEXT.txt")"

@@ -11,7 +11,7 @@ setopt MENU_COMPLETE
 # Complete aliases
 unsetopt complete_aliases
 
-# Disable ctrl+s
+# Disable Ctrl+s
 stty stop undef
 
 # History
@@ -58,7 +58,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
-# Purge junk
+# Delete junk
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
@@ -81,7 +81,7 @@ alias la='exa -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -riv'
-alias rm='rm -riv'
+alias rm='rm -rv'
 alias mkd='mkdir -pv'
 alias v='nvim'
 alias sv='sudo nvim'
@@ -102,9 +102,6 @@ alias pt='sudo powertop'
 alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
 # alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias o='open'
-
-# Print random phrase from the vocabulary database
-vocab
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc

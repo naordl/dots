@@ -3,6 +3,11 @@
 # Dynamic Network Manager
 # Manage network connections dynamically
 # Dependencies: nmcli, dmenu, libnotify
+# This thing can probably be rewritten with a case statement
+
+UPDATE_BLOCK() { \
+    pkill -SIGRTMIN+5 dwmblocks || pkill -SIGRTMIN+5 i3blocks
+	}
 
 # Check for general networking state
 NETWORKING=$(nmcli n | sed 's/enabled/ON/;s/disabled/OFF/')
@@ -24,22 +29,26 @@ CHOICE=$(printf "$INFO" | dmenu -l 5 -p "Dynamic Network Manager")
 # If networking is off, turn it on
 if [ "$CHOICE" = "Networking: OFF" ]; then
     nmcli n on
+    sleep 1 && UPDATE_BLOCK
     notify-send "DNM" "Networking: ON"
 
 # If wifi is off, turn it on
 elif [ "$CHOICE" = "Wifi: OFF" ]; then
     nmcli r wifi on 
     notify-send "DNM" "Wifi: ON"
+    sleep 3 && UPDATE_BLOCK
 
 # If networking is on, turn it off
 elif [ "$CHOICE" = "Networking: ON" ]; then
     nmcli n off
+    sleep 1 && UPDATE_BLOCK
     notify-send "DNM" "Networking: OFF"
 
 # If wifi is on, turn it off
 elif [ "$CHOICE" = "Wifi: ON" ]; then
     nmcli r wifi off 
     notify-send "DNM" "Wifi: OFF"
+    sleep 3 && UPDATE_BLOCK
 
 # If the user chooses to, open nmtui
 elif [ "$CHOICE" = "Network Manager TUI" ]; then

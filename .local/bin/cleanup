@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Remove cached packages.
+# Remove cached packages
 printf "Remove cached packages? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
@@ -10,7 +10,7 @@ if [ "$CHOICE" = "y" ]; then
     paru -Sc --noconfirm
 fi
 
-# Remove orphaned packages.
+# Remove orphaned packages
 printf "Remove orphaned packages? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
@@ -18,7 +18,7 @@ if [ "$CHOICE" = "y" ]; then
     paru -Rns $(paru -Qtdq) --noconfirm
 fi
 
-# Remove unneeded packages.
+# Remove unneeded packages
 printf "Remove unneeded packages? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
@@ -26,21 +26,21 @@ if [ "$CHOICE" = "y" ]; then
     paru -Qdttq | paru -Rns -
 fi
 
-# Clean up the cache directory.
+# Clean up the cache directory
 printf "Clean up ~/.cache directory? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
     rm -rf ~/.cache/*
 fi
 
-# Delete old journals.
+# Delete old journals
 printf "Delete old journals? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
     sudo journalctl --vacuum-time=2weeks
 fi
 
-# Refresh pacman mirrorlist.
+# Refresh pacman mirrorlist
 printf "Refresh pacman mirrorlist? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then

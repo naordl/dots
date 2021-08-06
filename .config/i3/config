@@ -1,3 +1,5 @@
+# vim: ft=cfg
+
 set $mod Mod4
 font pango:DejaVu Sans Mono 9
 floating_modifier $mod
@@ -33,7 +35,7 @@ client.focused_inactive $background   $background   $foreground   $background   
 client.urgent           $darkred      $darkred      $black        $darkred      $darkred
 client.background       $background
 
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -116,8 +118,8 @@ bindsym $mod+shift+Escape exit
 
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
-gaps inner 4
-gaps outer 0
+gaps inner 16
+gaps outer 16
 # smart_gaps on
 # smart_borders on
 
@@ -154,5 +156,3 @@ bar {
             binding_mode       $darkred     $darkred     $foreground
     }
 }
-
-# vim: ft=cfg

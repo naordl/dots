@@ -1,9 +1,9 @@
 #!/bin/sh
 
+# Make $1 urgent with two separate programs
+# This is done so every wm highlights the workspace the window is on
+# $1 is the name of the window, and it's aquired from dunst
 # Dependencies: wmctrl, xdotool
 
-# Make $1 urgent with two separate programs.
-# This is done so every wm highlights the workspace the window is on.
-# $1 is the name of the window, and it's aquired from dunst.
 wmctrl -r $1 -b add,demands_attention
 xdotool search --class $1 set_window --urgency 1

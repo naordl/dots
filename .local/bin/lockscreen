@@ -1,23 +1,23 @@
 #!/bin/sh
 
-# Dependencies: maim, imagemagick, i3lock, dunst.
+# Dependencies: maim, imagemagick, i3lock, dunst
 
-# Take a screenshot.
+# Take a screenshot
 maim /tmp/lockscreen.png
 
-# Blur it.
+# Blur it
 convert /tmp/lockscreen.png -blur 0x8 /tmp/lockscreen.png
 
-# Disable notifications before locking the screen.
+# Disable notifications before locking the screen
 pkill -u "$USER" -USR1 dunst
 
-# Lock the screen with i3lock.
+# Lock the screen with i3lock
 i3lock -n -e -f -i /tmp/lockscreen.png
 
-# Enable notifications after unlocking.
+# Enable notifications after unlocking
 pkill -u "$USER" -USR2 dunst
 
-# Restart dwmblocks if it's running.
-# If it's not running, start it.
-# This is done to refresh the bar, so it displays relevant information.
+# Restart dwmblocks if it's running
+# If it's not running, start it
+# This is done to refresh the bar, so it displays relevant information
 pgrep -x dwmblocks > /dev/null && killall dwmblocks && setsid -f dwmblocks || setsid -f dwmblocks &

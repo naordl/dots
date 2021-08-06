@@ -4,7 +4,7 @@
 
 # Mouse actions
 case $BLOCK_BUTTON in
-    1) setsid -f $TERMINAL -e nmtui ;;
+    1) setsid -f dnm ;;
 esac
 
 # Ethernet status: exit 0 for connected, 1 for disconnected

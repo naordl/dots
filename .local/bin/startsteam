@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Specify dummy $HOME.
-# This is done to let Steam dump its garbage outside of our $HOME.
+# Specify dummy $HOME
+# This is done to let Steam dump its garbage outside of our $HOME
 HOME=$HOME/.local/share/steam
 
-# Start Steam using the dummy $HOME.
+# Start Steam using the dummy $HOME
 exec /usr/bin/steam "$@"

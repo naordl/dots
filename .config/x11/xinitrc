@@ -1,3 +1,5 @@
+#!/bin/sh
+
 autodisplay
 autolight &
 xrdb ~/.config/x11/xresources

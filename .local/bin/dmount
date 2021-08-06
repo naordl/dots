@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Ask the user what to mount.
+# Ask the user what to mount
 CHOICE=$(printf "FAT32/EXT4/...\nNTFS\nAndroid Phone\n" | dmenu -i -p "What type of partition would you like to mount?")
 
 if [ "$CHOICE" = "FAT32/EXT4/..." ]; then
@@ -9,28 +9,28 @@ elif [ "$CHOICE" = "NTFS" ]; then
     MOUNTCOMMAND="sudo mount -t ntfs"
 elif [ "$CHOICE" = "Android Phone" ]; then
     notify-send "Mounting android phones not yet implemented."
-    exit
+    exit 1
 fi
 
-# Exit if the user did not choose anything.
+# Exit if the user did not choose anything
 if [ "$CHOICE" = "" ]; then exit; fi
 
-# Check for mountable partitions.
+# Check for mountable partitions
 MOUNTABLE=$(lsblk -lp | grep "part $" | awk '{print $1, "(" $4 ")"}')
 if [ "$MOUNTABLE" = "" ]; then exit; fi
 
-# Have the user choose a partition to mount.
+# Have the user choose a partition to mount
 CHOSEN=$(printf "$MOUNTABLE\n" | dmenu -i -p "Mount which partition?" | awk '{print $1}')
 if [ "$CHOSEN" = "" ]; then exit; fi
 
-# Find mountable directories.
+# Find mountable directories
 DIRECTORIES=$(find /mnt -type d -maxdepth 3 2>/dev/null)
 
-# Have the user choose a mountable directory.
+# Have the user choose a mountable directory
 MOUNTPOINT=$(printf "$DIRECTORIES\n" | dmenu -i -p "Mount where?")
 if [ "$MOUNTPOINT" = "" ]; then exit; fi
 
-# If the directory doesn't exist, ask the user to create it or not.
+# If the directory doesn't exist, ask the user to create it or not
 if [ ! -d "$MOUNTPOINT" ]; then
     CREATEDIRECTORY=$(printf "No\nYes\n" | dmenu -i -p "$MOUNTPOINT does not exist. Create it?")
     if [ "$CREATEDIRECTORY" = Yes ]; then
@@ -38,5 +38,5 @@ if [ ! -d "$MOUNTPOINT" ]; then
     fi
 fi
 
-# Mount the chosen partition to the desired directory.
+# Mount the chosen partition to the desired directory
 $MOUNTCOMMAND $CHOSEN $MOUNTPOINT && notify-send "$CHOSEN mounted to $MOUNTPOINT with the command '$MOUNTCOMMAND'"

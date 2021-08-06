@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Dependencies: rar, zip, unzip, p7zip, bzip2, gzip, xz.
+# Dependencies: rar, zip, unzip, p7zip, bzip2, gzip, xz
 
-# Extract $1 based on its filetype.
+# Extract $1 based on its filetype
 if [ -f "$1" ] ; then
     case "$1" in
         *.tar.bz2) tar xvjf "$1" ;;

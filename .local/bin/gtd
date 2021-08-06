@@ -1,26 +1,26 @@
 #!/bin/bash
 
-# Specify length of studying and taking breaks.
+# Specify length of studying and taking breaks
 study_mins="$1m"
 break_mins="$2m"
 multiplier="$3"
 
-# If no multiplier argument is specified, then set its value to 1.
+# If no multiplier argument is specified, then set its value to 1
 if [ "$multiplier" = "" ]; then multiplier="1"; fi
 
-# Loop through commands $3 amount of times.
+# Loop through commands $3 amount of times
 for ((i=$multiplier; i>0; i=i-1)); do
-    printf "Get things done! ($1 mins)\n"                # Print state.
-    notify-send "Get things done!"                       # Send notification.
-    killall -SIGUSR1 dunst                               # Disable notifications.
-    mpc pause >/dev/null 2>&1                            # Pause music.
-    volume mute >/dev/null 2>&1                          # Mute sound.
-    sleep "$study_mins"                                  # Start studying session.
+    printf "Get things done! ($1 mins)\n"                # Print state
+    notify-send "Get things done!"                       # Send notification
+    killall -SIGUSR1 dunst                               # Disable notifications
+    mpc pause >/dev/null 2>&1                            # Pause music
+    volume mute >/dev/null 2>&1                          # Mute sound
+    sleep "$study_mins"                                  # Start studying session
 
-    printf "Break time! ($2 mins)\n"                     # Print state.
-    killall -SIGUSR2 dunst                               # Enable notifications.
-    notify-send "Break time!"                            # Send notification.
-    mpc play >/dev/null 2>&1                             # Play music.
-    volume unmute >/dev/null 2>&1                        # Unmute sound.
-    sleep $break_mins                                    # Start break session.
+    printf "Break time! ($2 mins)\n"                     # Print state
+    killall -SIGUSR2 dunst                               # Enable notifications
+    notify-send "Break time!"                            # Send notification
+    mpc play >/dev/null 2>&1                             # Play music
+    volume unmute >/dev/null 2>&1                        # Unmute sound
+    sleep $break_mins                                    # Start break session
 done

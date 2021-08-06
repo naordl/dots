@@ -1,20 +1,17 @@
 #!/bin/sh
 
-# Check the current time.
+# Check the current time
 TIME=$(date +%H)
 
-# Store commands in functions.
+# Store commands in functions
 NIGHTLIGHT_ON() { \
     redshift -PO 3200 > /dev/null
-    notify-send "Autolight" " Nightlight: ON"
+    notify-send " Autolight" "Nightlight: ON"
 	}
-
 NIGHTLIGHT_OFF() { \
-    redshift -PO 6500 > /dev/null
-    notify-send "Autolight" " Nightlight: OFF"
+    redshift -x > /dev/null
+    notify-send " Autolight" "Nightlight: OFF"
 	}
 
-# If it's after 21:00 or before 7:00, turn on nightlight.
-# In any other case, turn it off.
-# This makes it so nightlight is turned on from 9pm until 7am.
-[ "$TIME" -ge "21" -o "$TIME" -le "7" ] && NIGHTLIGHT_ON || NIGHTLIGHT_OFF
+# Turn on nightlight from 8pm until 7am, else turn it off
+[ "$TIME" -ge "20" -o "$TIME" -le "7" ] && NIGHTLIGHT_ON || NIGHTLIGHT_OFF
