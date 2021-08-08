@@ -2,11 +2,8 @@
 
 *.foreground:   #D8DEE9
 *.background:   #2E3440
-*.cursorColor:  #D8DEE9
-*fading: 35
-*fadeColor: #4C566A
 
-!! *.selforeground: #ffffff
+*.selforeground: #ffffff
 *.selbackground: #4C566A
 !! *.selbackground: #81A1C1
 *.color0: #3B4252

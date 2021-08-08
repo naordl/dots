@@ -7,5 +7,4 @@
 [ -e blocks.h ] && sudo make clean install && exit 0 || \
 
 # If we can't compile, print an error message
-printf "ERROR: Failed compiling suckless program.
-Can't find header files. Is this the correct directory...?\n"
+printf "ERROR: Failed compiling suckless program...\n"

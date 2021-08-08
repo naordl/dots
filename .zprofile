@@ -31,6 +31,7 @@ export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export _JAVA_AWT_WM_NONREPARENTING=1
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export _Z_DATA="$XDG_DATA_HOME/z"
 

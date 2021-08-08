@@ -118,8 +118,8 @@ bindsym $mod+shift+Escape exit
 
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
-gaps inner 16
-gaps outer 16
+gaps inner 8
+gaps outer 32
 # smart_gaps on
 # smart_borders on
 
@@ -131,12 +131,9 @@ default_border pixel 2
 
 assign [class="discord"] $ws9
 assign [class="Element"] $ws8
-for_window [title="floatterm"] floating enable
 for_window [title="spterm"] floating enable
+for_window [title="bcterm"] floating enable
 for_window [class="Steam"] floating enable
-for_window [class="guvcview"] floating enable
-for_window [class="Guvcview"] floating enable
-for_window [class="Guvcview"] move workspace 9
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
