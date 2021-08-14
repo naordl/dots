@@ -1,9 +1,10 @@
 #!/bin/bash
 
-## THIS SCRIPT REQUIRES THE "base-devel" PACKAGE TO BE INSTALLED!
+## INSTALL BASE-DEVEL GROUP (IF IT ISN'T ALREADY)
+sudo pacman -S --needed base-devel
 
 ## INSTALL PARU
-sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si
+sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si && cd
 
 ## ESSENTIALS
 xorg="xorg-server xorg-xinit"
@@ -16,7 +17,7 @@ bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
 # raidcard="aic94xx-firmware" # AUR PACKAGE
 # westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
-fonts="ttf-dejavu nerd-fonts-dejavu-complete"
+fonts="ttf-dejavu terminus-font" # Terminus as monospace font
 
 ESSENTIALS="
     $xorg
@@ -54,21 +55,21 @@ AESTETHICS="
 
 ## SOFTWARE
 shell="zsh"
-terminal="alacritty"
+# terminal="alacritty" # CLONE ST BUILD
 # dropdownterminal="tdrop-git" # DOESN'T BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
 notifications="libnotify dunst"
 browser="brave-bin"
 compositor="picom"
 taskmanager="htop"
-# networkmanager="networkmanager-dmenu-git" # IT'S IN ~/.local/bin DIRECTORY ALREADY
+# networkmanager="networkmanager-dmenu-git" # WROTE A SCRIPT MYSELF INSTEAD
 audiomixer="pulsemixer"
-filemanager="ranger ueberzug dragon-drag-and-drop"
+filemanager="ranger ueberzug dragon-drag-and-drop" # EXPERIMENTING WITH LF
 mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
 imageeditor="gimp"
-webcammanager="guvcview"
+# webcammanager="guvcview" # SWITCHED TO MPV INSTEAD
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift-minimal"
 printscreen="maim"
@@ -114,6 +115,7 @@ SOFTWARE="
 
 ## MY SCRIPT DEPENDENCIES
 DEPENDENCIES="
+    lm_sensors
     xss-lock
     xorg-xset
     xdotool
