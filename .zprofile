@@ -6,7 +6,7 @@ export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
-export FILE="ranger"
+export FILE="lf"
 export PAGER="nvim -c 'set ft=man' -"
 
 # Add $HOME/.local/bin to $PATH

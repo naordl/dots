@@ -2,7 +2,7 @@
 
 autodisplay
 autolight &
-xrdb ~/.config/x11/xresources
+# xrdb ~/.config/x11/xresources
 setbg &
 # pgrep -x picom > /dev/null || picom --experimental-backends &
 pgrep -x xcompmgr > /dev/null || xcompmgr &

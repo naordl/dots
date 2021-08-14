@@ -65,6 +65,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
 [ -f ~/.ssh ] || rm -rf ~/.ssh
+[ -f ~/.bash_history ] || rm -rf ~/.bash_history
 
 # Startx
 alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
