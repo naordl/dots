@@ -64,7 +64,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.java ] || rm -rf ~/.java
 [ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
-[ -f ~/.ssh ] || rm -rf ~/.ssh
+# [ -f ~/.ssh ] || rm -rf ~/.ssh
 [ -f ~/.bash_history ] || rm -rf ~/.bash_history
 
 # Startx

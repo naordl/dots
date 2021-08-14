@@ -12,6 +12,9 @@ case "$choice" in
       gpg --export-ownertrust > ~/Backups/trustdb-backup
       rm -rf ~/Backups/pass; cp -rv ~/.local/share/pass ~/Backups/
 
+      printf "Backing up ssh keys...\n"
+      cp -rv $HOME/.ssh $HOME/Backups/ssh
+
       printf "Backing up dotfiles...\n"
 
       printf "Backing up zprofile...\n"
