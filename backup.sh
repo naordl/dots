@@ -13,7 +13,7 @@ case "$choice" in
       rm -rf ~/Backups/pass; cp -rv ~/.local/share/pass ~/Backups/
 
       printf "Backing up ssh keys...\n"
-      cp -rv $HOME/.ssh $HOME/Backups/ssh
+      cp -rv ~/.ssh ~/Backups/ssh
 
       printf "Backing up dotfiles...\n"
 
