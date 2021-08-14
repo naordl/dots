@@ -64,7 +64,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.java ] || rm -rf ~/.java
 [ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
-# [ -f ~/.ssh ] || rm -rf ~/.ssh
 [ -f ~/.bash_history ] || rm -rf ~/.bash_history
 
 # Startx
@@ -72,7 +71,7 @@ alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xse
 
 # Functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --height=50% | xargs -r $EDITOR ;}
+es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --height=50% | xargs -r $EDITOR ;}
 
 # Aliases
 alias pac='sudo pacman'
@@ -86,8 +85,6 @@ alias rm='rm -rv'
 alias mkd='mkdir -pv'
 alias v='nvim'
 alias sv='sudo nvim'
-alias r='ranger'
-alias sr='sudo ranger'
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
 alias ytaudio='youtube-dl -i -f bestaudio'
