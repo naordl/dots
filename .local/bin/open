@@ -7,8 +7,11 @@ TYPE=$(file --mime-type "$@" -bL)
 
 # Open the file using the appropriate program
 case "$TYPE" in
-    video/* | audio/* | image/gif)
+    video/* | image/gif)
         devour mpv --loop "$@"
+        ;;
+    audio/*)
+        mpv --loop "$@"
         ;;
     image/png | image/jpeg)
         devour sxiv "$@"
@@ -16,8 +19,14 @@ case "$TYPE" in
     application/pdf | application/postscript)
         devour zathura "$@"
         ;;
+    *officedocument* | text/rtf | application/octet-stream)
+        devour libreoffice "$@"
+        ;;
+    text/*)
+        $EDITOR "$@"
+        ;;
     *)
-        printf "Don't know how to open '$@'...\n"
-        exit 1
+        printf "Don't know how to open '$@', attempting to use xdg-open...\n"
+        xdg-open "$@"
         ;;
 esac

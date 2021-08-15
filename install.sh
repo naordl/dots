@@ -119,6 +119,7 @@ DEPENDENCIES="
     xss-lock
     xorg-xset
     xdotool
+    vimv-git
     xclip
     exa
     playerctl

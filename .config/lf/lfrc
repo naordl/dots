@@ -1,0 +1,42 @@
+# Basic variables
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+
+# Functions
+# File opener script
+cmd open ${{
+    /bin/sh -c "open '$fx'"
+}}
+
+# Make directory
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+# Trash
+%mkdir -p ~/.local/trash
+cmd trash %set -f; mv -i $fx ~/.local/trash
+
+# FZF JUMP
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 2 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ]; then
+        cmd="cd"
+    else 
+        cmd="select"                                                       
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+# Keymaps
+map <enter> shell
+map <c-n> push :mkdir<space>
+map D trash
+map <delete> $rm -rfi $fx
+map x $$f
+map X $extract $fx
+map Z $zip -r output.zip $fx
+map B $vimv $fx
+map <c-d> $dragon-drag-and-drop -a -x $fx --and-exit
+map <c-f> :fzf_jump
+map gacp $git add . && git commit -m "Autocommit." && git push
