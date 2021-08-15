@@ -100,6 +100,7 @@ alias pt='sudo powertop'
 alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
 # alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias o='open'
+alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -itf'
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc

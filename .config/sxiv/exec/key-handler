@@ -1,0 +1,16 @@
+#!/bin/sh
+while read file
+do
+    fullpath="$(pwd)/$file"
+    case $1 in
+        b)
+            setbg "$file"
+            ;;
+        r)
+            convert -rotate 90 "$file" "$file"
+            ;;
+        R)
+            convert -rotate -90 "$file" "$file"
+            ;;
+    esac
+done

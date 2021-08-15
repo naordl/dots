@@ -6,7 +6,13 @@ VGA=$(xrandr --query | grep -w 'DP1' | awk {'print $2'})
 # If the VGA monitor is connected, then extend the displays
 # Else, output only to the laptop display
 if [ "$VGA" = "connected" ]; then
-    xrandr --dpi 96 --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --off
+    xrandr --dpi 96 \
+           --output eDP1 --mode 1366x768 --pos 0x312 --rotate normal \
+           --output DP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal \
+           --output HDMI1 --off
 else
-    xrandr --dpi 96 --output eDP1 --primary --mode 1366x768 --rotate normal --output DP1 --off --output HDMI1 --off
+    xrandr --dpi 96 \
+           --output eDP1 --primary --mode 1366x768 --rotate normal \
+           --output DP1 --off \
+           --output HDMI1 --off
 fi

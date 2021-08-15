@@ -2,9 +2,9 @@
 
 autodisplay
 autolight &
-# xrdb ~/.config/x11/xresources
+xrdb ~/.config/x11/xresources
 setbg &
-# pgrep -x picom > /dev/null || picom --experimental-backends &
+# pgrep -x picom > /dev/null || picom &
 pgrep -x xcompmgr > /dev/null || xcompmgr &
 pgrep -x startdunst > /dev/null || startdunst &
 pgrep -x unclutter > /dev/null || unclutter --timeout 3 &
@@ -13,5 +13,5 @@ xset s 300
 pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x dwmblocks > /dev/null && killall dwmblocks && dwmblocks || dwmblocks &
+pgrep -x dwmblocks > /dev/null || dwmblocks &
 startdwm

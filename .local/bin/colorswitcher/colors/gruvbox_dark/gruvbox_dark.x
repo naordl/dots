@@ -6,7 +6,7 @@
 ! *.selbackground: #928374
 
 *.selforeground: #ffffff
-*.selbackground: #d79921
+*.selbackground: #454545
 
 *.foreground: #ebdbb2
 ! Black + DarkGrey

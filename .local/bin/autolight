@@ -6,11 +6,11 @@ TIME=$(date +%H)
 # Store commands in functions
 NIGHTLIGHT_ON() { \
     redshift -PO 3200 > /dev/null
-    notify-send " Autolight" "Nightlight: ON"
+#   notify-send " Autolight" "Nightlight: ON"
 	}
 NIGHTLIGHT_OFF() { \
     redshift -x > /dev/null
-    notify-send " Autolight" "Nightlight: OFF"
+#   notify-send " Autolight" "Nightlight: OFF"
 	}
 
 # Turn on nightlight from 8pm until 7am, else turn it off
