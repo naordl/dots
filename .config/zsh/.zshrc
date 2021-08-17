@@ -71,7 +71,7 @@ alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xse
 
 # Functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --height=50% | xargs -r $EDITOR ;}
+es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --layout=reverse --height=40% | xargs -r $EDITOR ;}
 
 # Aliases
 alias pac='sudo pacman'
@@ -97,13 +97,10 @@ alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
 alias pt='sudo powertop'
-alias webcam='mpv  --profile=low-latency --untimed /dev/video0'
-# alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
+# alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias o='open'
-alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -itf'
+alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
 
 # Shortcuts
 source ~/.config/zsh/shortcutrc
-
-# Zsh-z
-source ~/Repos/zsh-z/zsh-z.plugin.zsh

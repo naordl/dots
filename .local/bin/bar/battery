@@ -7,8 +7,10 @@ CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 # Choose an icon based on power state
 if [ "$STATUS" = "Charging" ]; then
     ICON=""
-else
+elif [ "$STATUS" = "Discharging" ]; then
     ICON=""
+elif [ "$STATUS" = "Not charging" ]; then
+    ICON=""
 fi
 
 # Send a warning notification if below 30%

@@ -22,6 +22,9 @@ case "$TYPE" in
     *officedocument* | text/rtf | application/octet-stream)
         devour libreoffice "$@"
         ;;
+    application/java-archive)
+        devour java -jar "$@"
+        ;;
     text/*)
         $EDITOR "$@"
         ;;

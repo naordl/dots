@@ -7,11 +7,14 @@ set scrolloff 10
 # Functions
 # File opener script
 cmd open ${{
-    /bin/sh -c "open '$fx'"
+    /bin/sh -c 'open "$fx"'
 }}
 
 # Make directory
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+# Make file
+cmd mkfile $$EDITOR "$(echo $* | tr ' ' '\ ')"
 
 # Trash
 %mkdir -p ~/.local/trash
@@ -31,6 +34,7 @@ cmd fzf_jump ${{
 # Keymaps
 map <enter> shell
 map <c-n> push :mkdir<space>
+map n push :mkfile<space>
 map D trash
 map <delete> $rm -rfi $fx
 map x $$f
