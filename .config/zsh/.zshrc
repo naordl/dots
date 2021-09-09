@@ -76,8 +76,8 @@ es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblo
 # Aliases
 alias pac='sudo pacman'
 alias ls='ls -hN --color=auto --group-directories-first'
-alias ll='exa -lh --color=auto --group-directories-first'
-alias la='exa -lah --color=auto --group-directories-first'
+alias ll='exa -l --color=auto --group-directories-first'
+alias la='exa -la --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -rv'

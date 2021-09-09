@@ -36,7 +36,7 @@ map <enter> shell
 map <c-n> push :mkdir<space>
 map n push :mkfile<space>
 map D trash
-map <delete> $rm -rfi $fx
+map <delete> $rm -rf $fx
 map x $$f
 map X $extract $fx
 map Z $zip -r output.zip $fx

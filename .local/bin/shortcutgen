@@ -6,7 +6,7 @@ ZSH_SHORTCUTS="$HOME/.config/zsh/shortcutrc"
 RANGER_SHORTCUTS="$HOME/.config/ranger/shortcuts.conf"
 
 # Awk magic - shell shortcuts
-awk '{print "alias g"$1"=\"cd "$2" && ls -hN --color=auto --group-directories-first\""}' $SHORTCUTS > $ZSH_SHORTCUTS
+awk '{print "alias g"$1"=\"cd "$2" && exa -l --color=auto --group-directories-first\""}' $SHORTCUTS > $ZSH_SHORTCUTS
 
 # Awk magic - ranger shortcuts
 # In this case, be sure to always edit rc_base.conf, and run 'shortcutgen'
