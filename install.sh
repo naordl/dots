@@ -14,8 +14,6 @@ audio="pulseaudio pulseaudio-alsa"
 touchpad="libinput"
 batterysaver="tlp"
 bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
-# raidcard="aic94xx-firmware" # AUR PACKAGE
-# westerndigital="wd719x-firmware" # AUR PACKAGE
 backlight="acpilight"
 fonts="ttf-dejavu terminus-font" # Terminus as monospace font
 
@@ -28,8 +26,6 @@ ESSENTIALS="
     $batterysaver
     $backlight
     $bluetooth
-    $raidcard
-    $westerndigital
     $fonts
     "
 
@@ -60,9 +56,8 @@ shell="zsh"
 # launcher="dmenu" # CLONE DMENU BUILD
 notifications="libnotify dunst"
 browser="brave-bin"
-compositor="picom"
+compositor="xcompmgr"
 taskmanager="htop"
-# networkmanager="networkmanager-dmenu-git" # WROTE A SCRIPT MYSELF INSTEAD
 audiomixer="pulsemixer"
 filemanager="ranger ueberzug dragon-drag-and-drop" # EXPERIMENTING WITH LF
 mediaplayer="mpv"
@@ -73,7 +68,7 @@ imageeditor="gimp"
 displaysettings="xorg-xrandr arandr"
 nightlight="redshift-minimal"
 printscreen="maim"
-ssh="openssh" # systemctl enable sshd
+ssh="openssh"
 pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate" # sudo updatedb
@@ -92,7 +87,6 @@ SOFTWARE="
     $browser
     $compositor
     $taskmanager
-    $networkmanager
     $audiomixer
     $filemanager
     $mediaplayer

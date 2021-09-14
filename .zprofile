@@ -6,13 +6,14 @@ export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
-export FILE="lf"
-export PAGER="nvim -c 'set ft=man' -"
+export FILE="nnn"
+export PAGER="less"
 
 # Add $HOME/.local/bin to $PATH
 PATH=$PATH$( find $HOME/.local/bin -type d -printf ":%p" )
 
 # Environment variables
+export LC_COLLATE="C"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DATA_HOME="$HOME/.local/share"

@@ -73,6 +73,26 @@ alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xse
 # es - edit scripts and config files using fzf
 es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --layout=reverse --height=40% | xargs -r $EDITOR ;}
 
+# n - nnn with cd on exit
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export"
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # Launch NNN with custom flags
+    nnn -Rde "$@"
+    # CD to directory on exit
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE" && exa -l --color=auto --group-directories-first
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
 # Aliases
 alias pac='sudo pacman'
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -96,11 +116,15 @@ alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
-alias pt='sudo powertop'
-alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
-# alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
-alias o='open'
+# alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
+alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
 
-# Shortcuts
+# Shell shortcuts
 source ~/.config/zsh/shortcutrc
+
+# NNN
+export NNN_PLUG='d:dragdrop;x:!sh $nnn;X:!extract $nnn'
+export NNN_OPENER='o'
+export NNN_COLORS='1267'
+source ~/.config/nnn/nnn_shortcuts
