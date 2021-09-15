@@ -4,7 +4,7 @@
 sudo pacman -S --needed base-devel
 
 ## INSTALL PARU
-sudo pacman -S --noconfirm --needed git && cd /tmp && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -si && cd
+sudo pacman -S --noconfirm --needed git && git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin && cd /tmp/paru-bin && makepkg -si && cd
 
 ## ESSENTIALS
 xorg="xorg-server xorg-xinit"
@@ -59,7 +59,7 @@ browser="brave-bin"
 compositor="xcompmgr"
 taskmanager="htop"
 audiomixer="pulsemixer"
-filemanager="ranger ueberzug dragon-drag-and-drop" # EXPERIMENTING WITH LF
+filemanager="ranger ueberzug dragon-drag-and-drop"
 mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
@@ -75,7 +75,7 @@ locate="mlocate" # sudo updatedb
 manuals="man-db man-pages"
 documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc"
 ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
-sync="syncthing"
+# sync="syncthing" # NOT AS USEFUL AS I THOUGHT
 fstools="dosfstools mtools simple-mtpfs"
 
 SOFTWARE="
@@ -113,7 +113,6 @@ DEPENDENCIES="
     xss-lock
     xorg-xset
     xdotool
-    vimv-git
     xclip
     exa
     playerctl

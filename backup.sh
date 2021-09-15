@@ -25,7 +25,7 @@ case "$choice" in
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
 
       printf "Backing up config files...\n"
-      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,tmux,neofetch,nnn,nvim,mpd,ncmpcpp,picom,paru,ranger,lf,sxhkd,sxiv,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,neofetch,nnn,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,sxiv,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
 
       printf "Backing up ~/.local/ stuff...\n"
 
