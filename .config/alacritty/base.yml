@@ -31,7 +31,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: DejaVu Sans Mono
+    family: Terminus
   size: 10
 
   # Offset is the extra space around each character

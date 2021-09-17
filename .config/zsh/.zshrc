@@ -119,6 +119,7 @@ alias td='$EDITOR ~/Documents/todo.md'
 # alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
 alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
+alias q='exit'
 
 # Shell shortcuts
 source ~/.config/zsh/shortcutrc

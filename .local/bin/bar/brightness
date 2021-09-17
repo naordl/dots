@@ -7,18 +7,18 @@ UPDATE_BLOCK() { \
 
 # Mouse actions
 case $BLOCK_BUTTON in
-    1) xbacklight -set 75; UPDATE_BLOCK ;;
-    3) xbacklight -set 25; UPDATE_BLOCK ;;
-    4) xbacklight -inc 5; UPDATE_BLOCK ;;
-    5) xbacklight -dec 5; UPDATE_BLOCK ;;
+    1) xbacklight -set 60 && UPDATE_BLOCK ;;
+    3) xbacklight -set 20 && UPDATE_BLOCK ;;
+    4) xbacklight -inc 10 && UPDATE_BLOCK ;;
+    5) xbacklight -dec 10 && UPDATE_BLOCK ;;
 esac
 
 # Argument actions
 case $1 in
-    up) xbacklight -inc 5; UPDATE_BLOCK ;;
-    down) xbacklight -dec 5; UPDATE_BLOCK ;;
-    high) xbacklight -set 75; UPDATE_BLOCK ;;
-    low) xbacklight -set 25; UPDATE_BLOCK ;;
+    high) xbacklight -set 60 && UPDATE_BLOCK ;;
+    low) xbacklight -set 20 && UPDATE_BLOCK ;;
+    up) xbacklight -inc 10 && UPDATE_BLOCK ;;
+    down) xbacklight -dec 10 && UPDATE_BLOCK ;;
 esac
 
 # Print the current brightness level
