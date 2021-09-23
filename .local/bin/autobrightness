@@ -1,0 +1,9 @@
+#!/bin/sh
+
+BATTERY_STATUS="$(cat /sys/class/power_supply/BAT0/status)"
+
+if [ "$BATTERY_STATUS" = "Charging" ]; then
+    xbacklight -set 60
+elif [ "$BATTERY_STATUS" = "Discharging" ]; then
+    xbacklight -set 20
+fi

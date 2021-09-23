@@ -110,16 +110,15 @@ alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp
 alias ytaudio='youtube-dl -i -f bestaudio'
 alias yt720p='youtube-dl -i -f 22'
 alias gengrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias refresh='sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias gacp='git add . && git commit -m 'Autocommit.' && git push'
 alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
 # alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
-alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+# alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
-alias q='exit'
 
 # Shell shortcuts
 source ~/.config/zsh/shortcutrc

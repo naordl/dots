@@ -2,7 +2,8 @@
 
 autodisplay
 autolight &
-xrdb ~/.config/x11/xresources
+autobrightness &
+# xrdb ~/.config/x11/xresources
 setbg &
 pgrep -x xcompmgr > /dev/null || xcompmgr &
 pgrep -x startdunst > /dev/null || startdunst &
