@@ -27,7 +27,7 @@ elif [ "$WIFI" = "connected" ]; then
     # We're done here, so exit without an error
     exit 0
 elif [ -z "$ETHERNET" -a -z "$WIFI" ]; then
-    # Print connection error
+    # Print no connection
     printf "  \n"
     # We're done here, so exit without an error
     exit 0

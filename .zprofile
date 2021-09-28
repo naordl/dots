@@ -6,7 +6,7 @@ export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
-export FILE="nnn"
+export FILE="ranger"
 export PAGER="less"
 
 # Add $HOME/.local/bin to $PATH
@@ -34,7 +34,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SSB_HOME="$XDG_DATA_HOME"/zoom
-export _Z_DATA="$XDG_DATA_HOME/z"
 
 # Start graphical server on tty1 on login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1 &> /dev/null; fi
