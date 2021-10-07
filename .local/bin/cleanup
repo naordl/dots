@@ -1,48 +1,69 @@
 #!/bin/sh
 
-# Remove cached packages
-printf "Remove cached packages? (y/n) "
-read CHOICE
-if [ "$CHOICE" = "y" ]; then
+# Define functions
+CLR_CACHE() { \
     sudo pacman -Scc --noconfirm
     paru -Scc --noconfirm
     sudo pacman -Sc --noconfirm
     paru -Sc --noconfirm
+    rm -rf ~/.cache/*
+	}
+CLR_ORPHANS() { \
+    sudo pacman -Rns $(pacman -Qtdq) --noconfirm
+    paru -Rns $(paru -Qtdq) --noconfirm
+	}
+CLR_UNNEEDED() { \
+    pacman -Qdttq | sudo pacman -Rns -
+    paru -Qdttq | paru -Rns -
+	}
+CLR_JOURNALS() { \
+    sudo journalctl --vacuum-time=2weeks
+	}
+UP_MIRRORS() { \
+    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+	}
+
+# Option "-y" automatically assumes yes to all
+if [ "$1" = "-y" ]; then
+    CLR_CACHE
+    CLR_ORPHANS
+    CLR_UNNEEDED
+    CLR_JOURNALS
+    UP_MIRRORS
+    exit 0
+fi
+
+# Remove cached packages
+printf "Remove cached packages and ~/.cache? (y/n) "
+read CHOICE
+if [ "$CHOICE" = "y" ]; then
+    CLR_CACHE
 fi
 
 # Remove orphaned packages
 printf "Remove orphaned packages? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
-    sudo pacman -Rns $(pacman -Qtdq) --noconfirm
-    paru -Rns $(paru -Qtdq) --noconfirm
+    CLR_ORPHANS
 fi
 
 # Remove unneeded packages
 printf "Remove unneeded packages? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
-    pacman -Qdttq | sudo pacman -Rns -
-    paru -Qdttq | paru -Rns -
-fi
-
-# Clean up the cache directory
-printf "Clean up ~/.cache directory? (y/n) "
-read CHOICE
-if [ "$CHOICE" = "y" ]; then
-    rm -rf ~/.cache/*
+    CLR_UNNEEDED
 fi
 
 # Delete old journals
 printf "Delete old journals? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
-    sudo journalctl --vacuum-time=2weeks
+    CLR_JOURNALS
 fi
 
 # Refresh pacman mirrorlist
 printf "Refresh pacman mirrorlist? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
-    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    UP_MIRRORS
 fi

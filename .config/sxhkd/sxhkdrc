@@ -117,7 +117,7 @@ super + r
 
 # Audio mixer
 super + shift + p
-    $TERMINAL -e pulsemixer
+    $TERMINAL -t floatterm -e pulsemixer
 
 # Music player
 super + m

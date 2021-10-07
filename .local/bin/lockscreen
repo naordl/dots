@@ -5,8 +5,9 @@
 # Take a screenshot
 maim /tmp/lockscreen.png
 
-# Blur it
-convert /tmp/lockscreen.png -blur 0x8 /tmp/lockscreen.png
+# Modify it
+# convert /tmp/lockscreen.png -blur 0x8 /tmp/lockscreen.png
+convert /tmp/lockscreen.png -paint 1 -swirl 360 /tmp/lockscreen.png
 
 # Disable notifications before locking the screen
 pkill -u "$USER" -USR1 dunst
@@ -25,5 +26,5 @@ setsid -f xcompmgr &
 
 # Restart dwmblocks if it's running
 # If it's not running, start it
-# This is done to refresh the bar, so it displays relevant information
+# This is done to refresh the bar, so it always displays relevant information
 pgrep -x dwmblocks > /dev/null && killall dwmblocks && setsid -f dwmblocks || setsid -f dwmblocks &

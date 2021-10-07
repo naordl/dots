@@ -1,7 +1,7 @@
 # vim: ft=cfg
 
 set $mod Mod4
-font pango:DejaVu Sans Mono 9
+font pango:Terminus 8
 floating_modifier $mod
 
 set $exec exec --no-startup-id
@@ -119,7 +119,7 @@ bindsym $mod+shift+Escape exit
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
 gaps inner 8
-gaps outer 32
+gaps outer 16
 # smart_gaps on
 # smart_borders on
 
@@ -131,13 +131,14 @@ default_border pixel 2
 
 assign [class="discord"] $ws9
 assign [class="Element"] $ws8
+for_window [class="Steam"] floating enable
 for_window [title="spterm"] floating enable
 for_window [title="bcterm"] floating enable
-for_window [class="Steam"] floating enable
+for_window [title="floatterm"] floating enable
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono, Font Awesome 5 Free Solid 9
+    font pango:Terminus, Font Awesome 5 Free Solid 8
     tray_output primary
     position top
     colors {
