@@ -64,7 +64,9 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.java ] || rm -rf ~/.java
 [ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
+[ -f ~/.scim ] || rm -rf ~/.scim
 [ -f ~/.bash_history ] || rm -rf ~/.bash_history
+[ -f ~/.python_history ] || rm -rf ~/.python_history
 
 # Startx
 alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
@@ -72,6 +74,16 @@ alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xse
 # Functions
 # es - edit scripts and config files using fzf
 es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --layout=reverse --height=40% | xargs -r $EDITOR ;}
+
+# ranger_cd - cd to current dir upon exiting ranger
+ranger_cd() {
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
 
 # Aliases
 alias pac='sudo pacman'
@@ -85,7 +97,7 @@ alias rm='rm -rv'
 alias mkd='mkdir -pv'
 alias v='nvim'
 alias sv='sudo nvim'
-alias r='ranger'
+alias r='ranger_cd'
 alias sr='sudo ranger'
 alias cal='cal -m'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
@@ -99,7 +111,9 @@ alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
 # alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
 # alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
-alias webcam='mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+alias webcam='devour mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
+# alias webcam='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+# alias webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
 
 # Shell shortcuts

@@ -12,6 +12,7 @@ gpu="xf86-video-intel"
 wifi="broadcom-wl"
 audio="pulseaudio pulseaudio-alsa"
 touchpad="libinput"
+# webcam="linux-headers v4l2loopback-dkms"
 batterysaver="tlp"
 bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
 backlight="acpilight"
@@ -23,6 +24,7 @@ ESSENTIALS="
     $wifi
     $audio
     $touchpad
+    $webcam
     $batterysaver
     $backlight
     $bluetooth
