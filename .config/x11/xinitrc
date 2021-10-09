@@ -9,8 +9,10 @@ pgrep -x xcompmgr > /dev/null || xcompmgr &
 pgrep -x startdunst > /dev/null || startdunst &
 pgrep -x unclutter > /dev/null || unclutter --timeout 3 &
 pgrep -x mpd > /dev/null || mpd &
-xset s 300
+xset s 600
 pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen &
+
+sudo modprobe v4l2loopback &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x dwmblocks > /dev/null || dwmblocks &
