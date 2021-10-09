@@ -60,7 +60,7 @@ case "$choice" in
       cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
       cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
 
-      tput setaf 2 && printf "Backup successful! You may now commit the changes.\n"
+      tput setaf 2; printf "Backup successful! You may now commit the changes.\n"; tput sgr0
       ;;
 
     *)

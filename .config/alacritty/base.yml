@@ -57,27 +57,26 @@ cursor:
 #   - _ Underline
 #   - | Beam
     shape: Block
-    blinking: Never
+    blinking: Always
 
 # If this is `true`, the cursor will be rendered as a hollow box when the window is unfocused
   unfocused_hollow: true
 
-# Live config reload (changes require restart)
+# Live config reload
 live_config_reload: true
 
-# Key bindings
+# Keybindings
 key_bindings:
-  - { key: V,		mods: Control|Shift, 	action: Paste            }
-  - { key: C,		mods: Control|Shift, 	action: Copy             }
-  - { key: 0,       mods: Control,       	action: ResetFontSize    }
-  - { key: K,		mods: Control,       	action: IncreaseFontSize }
-  - { key: J,   	mods: Control,       	action: DecreaseFontSize }
-  - { key: K,		mods: Control|Shift,   	action: ScrollLineUp	 }
-  - { key: J,   	mods: Control|Shift,   	action: ScrollLineDown   }
+  - { key: C,		mods: Alt,          action: Copy             }
+  - { key: V,		mods: Alt,          action: Paste            }
+  - { key: K,		mods: Alt,          action: ScrollLineUp	 }
+  - { key: J,   	mods: Alt,          action: ScrollLineDown   }
+  - { key: K,		mods: Alt|Shift,    action: IncreaseFontSize }
+  - { key: J,   	mods: Alt|Shift,    action: DecreaseFontSize }
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
 # Background transparency
-background_opacity: 0.8
+background_opacity: 0.9
 
