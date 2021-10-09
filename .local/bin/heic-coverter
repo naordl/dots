@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Dependencies: libheif
+
+# Get a list of ".heic" files in the current directory
+list=$(find . -iname "*.heic" | sed "s/^..//g")
+
+# Sum up the amount of files
+printf "Amount of files: "$(printf "$list\n" | wc -l)"\n\n"
+
+# Create a "converted" subdirectory if it does not exist already
+[ ! -d "./converted" ] && mkdir ./converted/
+
+# Do the magic
+for file in $list; do
+    echo Converting file "$file"
+    heif-convert "$file" ./converted/"$file".jpg
+    mv "./converted/$file.jpg" "`echo "./converted/$file.jpg" | sed "s/.heic//g"`"
+done

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Dependencies: curl, networkmanager, nmcli
+
+# Mouse actions
+case $BLOCK_BUTTON in
+    1) $TERMINAL -e shell-wrapper curl wttr.in ;;
+esac
+
+# Basic variables
+URL="wttr.in/?format=2"
+FILE="/tmp/weatherreport"
+ETHERNET=$(nmcli -t | grep 'Wired connection' | sed 's/.*/connected/')
+WIFI=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | sed 's/.*/connected/')
+
+# Check for internet connection, download weather report, print it
+if [ -z "$ETHERNET" -a "$WIFI" ]; then
+    curl -s "$URL" > "$FILE"
+    cat "$FILE"
+    exit 0
+
+# Else print error message
+else
+    printf " \n"
+    exit 1
+fi

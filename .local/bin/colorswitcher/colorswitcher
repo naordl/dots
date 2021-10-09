@@ -8,7 +8,7 @@ XRESOURCESDIR="$HOME/.config/x11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
 
 # Define the available colorschemes.
-COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nNord\nDracula")"
+COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nNord\nDracula\nUmbercobble")"
 
 # Prompt the user for a choice.
 CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
@@ -63,6 +63,17 @@ elif [ "$CHOICE" = "Dracula" ]; then
     cat $COLORDIR/dracula/dracula.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Dracula' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Dracula"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/xresources
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Colorscheme changed to $CHOICE"
+    exit
+elif [ "$CHOICE" = "Umbercobble" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/umbercobble/umbercobble.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/umbercobble/umbercobble.x > $XRESOURCESDIR/xresources
+    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5

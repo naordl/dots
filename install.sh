@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## INSTALL BASE-DEVEL GROUP (IF IT ISN'T ALREADY)
+## INSTALL BASE-DEVEL GROUP (IF IT IS NOT INSTALLED ALREADY)
 sudo pacman -S --needed base-devel
 
 ## INSTALL PARU
@@ -13,10 +13,10 @@ wifi="broadcom-wl"
 audio="pulseaudio pulseaudio-alsa"
 touchpad="libinput"
 # webcam="linux-headers v4l2loopback-dkms"
-batterysaver="tlp"
-bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR PACKAGE
+batterysaver="tlp powertop"
+bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR
 backlight="acpilight"
-fonts="ttf-dejavu terminus-font" # Terminus as monospace font
+fonts="ttf-dejavu terminus-font"
 
 ESSENTIALS="
     $xorg
@@ -26,8 +26,8 @@ ESSENTIALS="
     $touchpad
     $webcam
     $batterysaver
-    $backlight
     $bluetooth
+    $backlight
     $fonts
     "
 
@@ -42,7 +42,7 @@ WM="
 iconfonts="ttf-font-awesome"
 emojifonts="ttf-joypixels"
 icontheme="papirus-icon-theme"
-gtktheme="lxappearance" # MANTIS NIGHT THEME FROM MY GITHUB
+gtktheme="lxappearance" # CLONE THEMES FROM GITHUB
 
 AESTETHICS="
     $iconfonts
@@ -54,31 +54,32 @@ AESTETHICS="
 ## SOFTWARE
 shell="zsh"
 # terminal="alacritty" # CLONE ST BUILD
-# dropdownterminal="tdrop-git" # DOESN'T BUILD FROM AUR
+# dropdownterminal="tdrop-git" # DOES NOT BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
 notifications="libnotify dunst"
-browser="brave-bin"
+browser="brave-bin" # AUR
+calculator="bc"
 compositor="xcompmgr"
 taskmanager="htop"
 audiomixer="pulsemixer"
-filemanager="ranger ueberzug dragon-drag-and-drop"
+filemanager="ranger ueberzug dragon-drag-and-drop" # AUR
 mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
 imageeditor="gimp"
 # webcammanager="guvcview" # SWITCHED TO MPV INSTEAD
 displaysettings="xorg-xrandr arandr"
-nightlight="redshift-minimal"
+nightlight="redshift-minimal" # AUR
 printscreen="maim"
 ssh="openssh"
 pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
-locate="mlocate" # sudo updatedb
+locate="mlocate"
 manuals="man-db man-pages"
-documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc sc-im"
-ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron"
+documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-core pandoc sc-im" # AUR
+ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron" # AUR
 # sync="syncthing" # NOT AS USEFUL AS I THOUGHT
-fstools="dosfstools mtools simple-mtpfs"
+fstools="dosfstools mtools simple-mtpfs ntfs-3g" # AUR
 
 SOFTWARE="
     $shell
@@ -87,6 +88,7 @@ SOFTWARE="
     $launcher
     $notifications
     $browser
+    $calculator
     $compositor
     $taskmanager
     $audiomixer
@@ -139,8 +141,6 @@ DEPENDENCIES="
     acpi_call
     fzf
     cronie
-    ntfs-3g
-    bc
     xorg-xinput
     "
 
