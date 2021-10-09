@@ -64,7 +64,7 @@ case "$choice" in
       ;;
 
     *)
-      printf "Exiting...\n"
+      tput setaf 1; printf "Exiting...\n"; tput sgr0
       exit
       ;;
 esac
