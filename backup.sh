@@ -35,9 +35,6 @@ case "$choice" in
       printf "Backing up pandoc templates...\n"
       cp -rv ~/.local/pandoc $DOTDIR/.local/
 
-      printf "Backing up vocabulary database...\n"
-      cp -rv ~/.local/vocab $DOTDIR/.local/
-
       printf "Backing up bookmark database...\n"
       cp -rv ~/.local/bookmarks $DOTDIR/.local/
 
