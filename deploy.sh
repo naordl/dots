@@ -26,17 +26,17 @@ git clone https://github.com/salman-abedin/devour.git $HOME/Repos/devour
 cd $HOME/Repos/devour && sudo make clean install && cd
 
 ## CLONE WALLPAPERS
-git clone https://github.com/demo2k20/Wallpapers.git $HOME/Repos/Wallpapers
-ln -sr $HOME/Repos/Wallpapers $HOME/Pictures/Wallpapers
+git clone https://github.com/demo2k20/wallpapers.git $HOME/Repos/wallpapers
+ln -sr $HOME/Repos/wallpapers $HOME/Pictures/Wallpapers
 
 ## CLONE THEMES
-git clone https://github.com/demo2k20/Themes.git $HOME/Repos/Themes
-sudo ln -sr $HOME/Repos/Themes/* /usr/share/themes
+git clone https://github.com/demo2k20/themes.git $HOME/Repos/themes
+sudo ln -sr $HOME/Repos/themes/* /usr/share/themes
 
 ## CLONE WINDOWS FONTS
-git clone https://github.com/demo2k20/WindowsFonts.git $HOME/Repos/WindowsFonts
-sudo ln -sr $HOME/Repos/WindowsFonts /usr/share/fonts/WindowsFonts
-sudo chmod 644 /usr/share/fonts/WindowsFonts/*
+git clone https://github.com/demo2k20/windowsfonts.git $HOME/Repos/windowsfonts
+sudo ln -sr $HOME/Repos/windowsfonts /usr/share/fonts/windowsfonts
+sudo chmod 644 /usr/share/fonts/windowsfonts/*
 sudo fc-cache --force
 
 ## CLONE PERSONAL DMENU BUILD
@@ -65,7 +65,7 @@ sudo systemctl enable bluetooth # probably breaks vms that don't use bluetooth
 sudo systemctl enable tlp # probably breaks vms that don't use batteries
 sudo systemctl enable fstrim.timer # probably breaks vms
 sudo systemctl enable reflector.service
-systemctl enable --user syncthing
+# systemctl enable --user syncthing # not using it anymore
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkinitcpio -P
 sudo pacman -Rdd dmenu --noconfirm
@@ -87,4 +87,4 @@ rm -rfv $HOME/.pki/
 rm -rfv $HOME/.icons/
 rm -rfv $HOME/.ssh/
 clear
-tput setaf 2 && printf "Successfully finished deploying dotfiles. Reboot for the changes to take effect.\n"
+tput setaf 2; printf "Successfully finished deploying dotfiles. Reboot for the changes to take effect.\n"; tput sgr0
