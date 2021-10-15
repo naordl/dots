@@ -81,6 +81,7 @@ ranger_cd() {
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
     if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
         cd -- "$chosen_dir"
+        exa -l --color=auto --group-directories-first
     fi
     rm -f -- "$temp_file"
 }
