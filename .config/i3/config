@@ -9,30 +9,32 @@ set $execa exec_always --no-startup-id
 
 $exec "i3-msg focus output primary"
 
-set_from_resource $black       color0  #000000
-set_from_resource $darkgrey    color8  #000000
-set_from_resource $darkred     color1  #000000
-set_from_resource $red         color9  #000000
-set_from_resource $darkgreen   color2  #000000
-set_from_resource $green       color10 #000000
-set_from_resource $darkyellow  color3  #000000
-set_from_resource $yellow      color11 #000000
-set_from_resource $darkblue    color4  #000000
-set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
-set_from_resource $magenta     color13 #000000
-set_from_resource $darkcyan    color6  #000000
-set_from_resource $cyan        color14 #000000
-set_from_resource $lightgrey   color7  #000000
-set_from_resource $white       color15 #000000
-set_from_resource $background  background #000000
-set_from_resource $foreground  foreground #000000
+set_from_resource $black          color0  #000000
+set_from_resource $darkgrey       color8  #000000
+set_from_resource $darkred        color1  #000000
+set_from_resource $red            color9  #000000
+set_from_resource $darkgreen      color2  #000000
+set_from_resource $green          color10 #000000
+set_from_resource $darkyellow     color3  #000000
+set_from_resource $yellow         color11 #000000
+set_from_resource $darkblue       color4  #000000
+set_from_resource $blue           color12 #000000
+set_from_resource $darkmagenta    color5  #000000
+set_from_resource $magenta        color13 #000000
+set_from_resource $darkcyan       color6  #000000
+set_from_resource $cyan           color14 #000000
+set_from_resource $lightgrey      color7  #000000
+set_from_resource $white          color15 #000000
+set_from_resource $background     background #000000
+set_from_resource $foreground     foreground #000000
+set_from_resource $selbackground  selbackground #000000
+set_from_resource $selforeground  selforeground #000000
 
-#                       BORDER        BACKGROUND    TEXT          INDICATOR     CHILD_BORDER
-client.focused          $lightgrey    $lightgrey    $foreground   $darkred      $darkred
-client.unfocused        $background   $background   $foreground   $background
-client.focused_inactive $background   $background   $foreground   $background   $background
-client.urgent           $darkred      $darkred      $black        $darkred      $darkred
+#                       BORDER            BACKGROUND        TEXT             INDICATOR     CHILD_BORDER
+client.focused          $selbackground    $selbackground    $selforeground   $darkred      $darkred
+client.unfocused        $background       $background       $foreground      $background
+client.focused_inactive $background       $background       $foreground      $background   $background
+client.urgent           $darkred          $darkred          $black           $darkred      $darkred
 client.background       $background
 
 bindsym $mod+q kill
@@ -138,7 +140,7 @@ for_window [title="floatterm"] floating enable
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:Terminus, Font Awesome 5 Free Solid 8
+    font pango: Terminus, Font Awesome 5 Free Solid 8
     tray_output primary
     position top
     colors {
@@ -146,11 +148,11 @@ bar {
             background         $background
             separator          $black
 
-#                              BORDER       BACKGROUND   TEXT
-            focused_workspace  $background  $background  $foreground
-            inactive_workspace $background  $background  $lightgrey
-            active_workspace   $background  $background  $foreground
-            urgent_workspace   $darkred     $darkred     $foreground
-            binding_mode       $darkred     $darkred     $foreground
+#                              BORDER          BACKGROUND      TEXT
+            focused_workspace  $selbackground  $selbackground  $selforeground
+            inactive_workspace $background     $background     $lightgrey
+            active_workspace   $background     $background     $foreground
+            urgent_workspace   $darkred        $darkred        $foreground
+            binding_mode       $darkred        $darkred        $foreground
     }
 }
