@@ -88,8 +88,8 @@ ranger_cd() {
 
 # Aliases
 alias pac='sudo pacman'
-alias ls='ls -hN --color=auto --group-directories-first'
-alias ll='exa -l --color=auto --group-directories-first'
+# alias ls='ls -hN --color=auto --group-directories-first'
+alias ls='exa -l --color=auto --group-directories-first'
 alias la='exa -la --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
@@ -110,12 +110,7 @@ alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias td='$EDITOR ~/Documents/todo.md'
-# alias webcam='sudo mpv  --profile=low-latency --untimed /dev/video0'
-# alias webcam='sudo mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
-alias webcam='devour mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0'
-# alias webcam='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
-# alias webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
-alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | devour sxiv -it >/dev/null 2>&1'
+alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -it >/dev/null 2>&1'
 
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc
