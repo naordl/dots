@@ -6,8 +6,8 @@
 maim /tmp/lockscreen.png
 
 # Modify it
-# convert /tmp/lockscreen.png -blur 0x8 /tmp/lockscreen.png
-convert /tmp/lockscreen.png -paint 1 -swirl 360 /tmp/lockscreen.png
+convert /tmp/lockscreen.png -blur 0x4 /tmp/lockscreen.png
+# convert /tmp/lockscreen.png -paint 1 -swirl 360 /tmp/lockscreen.png
 
 # Disable notifications before locking the screen
 pkill -u "$USER" -USR1 dunst

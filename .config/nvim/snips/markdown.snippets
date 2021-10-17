@@ -14,6 +14,10 @@ snippet date
 `!v strftime("%d.%m.%Y")`
 endsnippet
 
+snippet time
+`!v strftime("%I:%M%P")`
+endsnippet
+
 snippet [
 [${1:text}](${2:https://address})
 endsnippet
@@ -23,25 +27,41 @@ snippet ![
 endsnippet
 
 snippet **
-**${1:bold}**
+**${1:bold}** 
 endsnippet
 
 snippet __
-__${1:bold}__
+__${1:bold}__ 
+endsnippet
+
+snippet b
+**${1:bold}** 
 endsnippet
 
 snippet *
-*${1:italic}*
+*${1:italic}* 
 endsnippet
 
 snippet _
-_${1:italic}_
+_${1:italic}_ 
+endsnippet
+
+snippet i
+*${1:italic}* 
 endsnippet
 
 snippet ~
-~${1:strikethrough}~
+~${1:strikethrough}~ 
+endsnippet
+
+snippet s
+~${1:strikethrough}~ 
 endsnippet
 
 snippet "
-"${1:quote}"
+"${1:doublequote}" 
+endsnippet
+
+snippet '
+'${1:singlequote}' 
 endsnippet

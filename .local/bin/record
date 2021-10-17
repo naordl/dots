@@ -1,18 +1,16 @@
 #!/bin/sh
 
-# Define list of resolutions
-RESOLUTIONS="\
-1920x1080
-1600x900
-1366x768
-"
+# Name the recording with current date and time
+name="recording_$(date +%y_%m_%d_%H_%M)"
 
-# Prompt the user for a choice
-CHOICE=$(printf "$RESOLUTIONS" | dmenu -i -l 3 -p "Choose resolution")
-if [ "$CHOICE" = "" ]; then exit; fi
+# Get primary monitor's resolution
+res=$(xrandr | grep primary | awk '{print $4}' | sed 's/+.*//g')
+offset=$(xrandr | grep primary | awk '{print $4}' | sed 's/[^+]*//;s/+/,/2')
 
-# Name of the recording
-NAME="recording_$(date +%y_%m_%d_%H_%M)"
-
-# Start recording the screen and send a notification
-ffmpeg -f x11grab -s "$CHOICE" -i :0.0 $NAME.mp4 & notify-send " Recording in $CHOICE"
+# Start recording primary screen and default mic with ffmpeg
+ffmpeg -y \
+-f x11grab \
+-s "$res" \
+-i :0.0"$offset" \
+-f alsa -i default \
+$name.mp4 \
