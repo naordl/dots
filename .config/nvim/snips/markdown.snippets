@@ -18,6 +18,14 @@ snippet time
 `!v strftime("%I:%M%P")`
 endsnippet
 
+snippet datetime
+`!v strftime("%d.%m.%Y %I:%M%P")`
+endsnippet
+
+snippet task
+* [ ] `!v strftime("%d.%m.%Y %I:%M%P")` - _$1_
+endsnippet
+
 snippet [
 [${1:text}](${2:https://address})
 endsnippet
@@ -26,42 +34,18 @@ snippet ![
 ![${1:alttext}](${2:/images/image.jpg})
 endsnippet
 
-snippet **
-**${1:bold}** 
+snippet ** "bold"
+**${1:bold}**
 endsnippet
 
-snippet __
-__${1:bold}__ 
+snippet _ "italic"
+_${1:italic}_
 endsnippet
 
-snippet b
-**${1:bold}** 
+snippet ~ "strikethrough"
+~~${1:strikethrough}~~
 endsnippet
 
-snippet *
-*${1:italic}* 
-endsnippet
-
-snippet _
-_${1:italic}_ 
-endsnippet
-
-snippet i
-*${1:italic}* 
-endsnippet
-
-snippet ~
-~${1:strikethrough}~ 
-endsnippet
-
-snippet s
-~${1:strikethrough}~ 
-endsnippet
-
-snippet "
-"${1:doublequote}" 
-endsnippet
-
-snippet '
-'${1:singlequote}' 
+snippet " "quote"
+"${1:quote}"
 endsnippet

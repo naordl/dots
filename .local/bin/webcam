@@ -1,16 +1,18 @@
 #!/bin/sh
 
 # Store present webcams in variables
-external_webcam=$(du /dev/video* | awk '{print $2}' | grep '2')
-integrated_webcam=$(du /dev/video* | awk '{print $2}' | grep '0')
+external_webcam=$(v4l2-ctl --list-devices 2>/dev/null | grep -A 1 'C615' | sed '1s/.*//;2s/\t//' | tr -d '\n\r')
+integrated_webcam=$(v4l2-ctl --list-devices 2>/dev/null | grep -A 1 'USB Camera' | sed '1s/.*//;2s/\t//' | tr -d '\n\r')
 
 # If the external webcam is connected, open that
 if [ ! -z "$external_webcam" ]; then
-    setsid -f mpv --profile=low-latency --untimed -v av://v4l2:/dev/video2 &
+    printf "Using external webcam...\n"
+    setsid -f mpv --profile=low-latency --untimed -v av://v4l2:"$external_webcam" &
     exit 0
 # If not, open the integrated one
 elif [ ! -z "$integrated_webcam" ]; then
-    setsid -f mpv --profile=low-latency --untimed -v av://v4l2:/dev/video0 &
+    printf "Using integrated webcam...\n"
+    setsid -f mpv --profile=low-latency --untimed -v av://v4l2:"$integrated_webcam" &
     exit 0
 # Else, print error message and exit
 else

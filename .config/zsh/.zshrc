@@ -86,6 +86,18 @@ ranger_cd() {
     rm -f -- "$temp_file"
 }
 
+# cd_with_fzf - cd using fzf
+cd_with_fzf() {
+    cd $HOME && cd "$(find -type d | fzf --preview="tree -L 1 {}" --preview-window=:nohidden)" && echo "$PWD" && tree -L 2
+}
+bindkey -s '^F' 'cd_with_fzf\n'
+
+# locate_with_fzf - cd anywhere on the system using fzf
+locate_with_fzf() {
+    cd $HOME && cd "$(locate home | fzf -e -i --preview="tree -L 1 {}" --preview-window=:nohidden)" && echo "$PWD" && tree -L 2
+}
+bindkey -s '^G' 'locate_with_fzf\n'
+
 # Aliases
 alias pac='sudo pacman'
 # alias ls='ls -hN --color=auto --group-directories-first'
@@ -114,3 +126,5 @@ alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | s
 
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc
+
+fortune | cowsay

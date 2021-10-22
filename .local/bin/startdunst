@@ -8,8 +8,8 @@ if [ -z "$STATUS" ]; then
     setsid -f dunst
 else
     # Define $bg and $fg variables to colors based on xresources
-    bg="$(xrdb -query | grep *.background | cut -f 2)"
-    fg="$(xrdb -query | grep *.foreground | cut -f 2)"
+    bg="$(xrdb -query | grep "*.background" | cut -f 2)"
+    fg="$(xrdb -query | grep "*.foreground" | cut -f 2)"
     # Start dunst using those colors
     setsid -f dunst -lb "$bg" -nb "$bg" -cb "$bg" -lf "$fg" -bf "$fg" -cf "$fg" -nf "$fg" -frame_color "$fg"
 fi

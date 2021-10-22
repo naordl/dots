@@ -9,7 +9,7 @@ super + Return
 
 # Dropdown terminal
 super + shift + Return
-    tdrop --name="spterm" -n 1 -w "" -h "" -x "" -y "" $TERMINAL -t "spterm"
+    tdrop -s "dropdown" --name="spterm" -n 1 -w "" -h "" -x "" -y "" $TERMINAL -t "spterm"
 
 # Program launcher
 super + d
@@ -117,7 +117,8 @@ super + r
 
 # Audio mixer
 super + shift + p
-    $TERMINAL -t floatterm -e pulsemixer
+#   $TERMINAL -t floatterm -e pulsemixer
+    tdrop --name="pulsemixer" -n 2 -w "" -h "" -x "" -y "" $TERMINAL -t "pulsemixer" -e pulsemixer
 
 # Music player
 super + m
@@ -130,7 +131,7 @@ super + n
 # Calculator
 super + c
 #   $TERMINAL -t floatterm -e bc -l -q
-    tdrop --name="bcterm" -n 2 -w "" -h "" -x "" -y "" $TERMINAL -t "bcterm" -e bc -l -q
+    tdrop --name="bcterm" -n 3 -w "" -h "" -x "" -y "" $TERMINAL -t "bcterm" -e bc -l -q
 
 # VM manager
 super + v

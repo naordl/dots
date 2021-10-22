@@ -6,17 +6,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'dkarter/bullets.vim'
 Plug 'SirVer/ultisnips'
+Plug 'vimwiki/vimwiki'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 
 "" ----- PLUGIN SETTINGS -----
 " Markdown settings
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_disabled = 0
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
-set conceallevel=0
+set conceallevel=2
 
 " Snippets
 let g:UltiSnipsExpandTrigger='<tab>'
@@ -31,6 +33,24 @@ let g:bullets_enabled_file_types = [
     \ 'scratch'
     \]
 
+" Vimwiki
+set nocompatible
+filetype plugin on
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
+let g:vimwiki_table_mappings = 0
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_url_maxsave = 0
+hi VimwikiHeader1 guifg=#FF0000
+hi VimwikiHeader2 guifg=#00FF00
+hi VimwikiHeader3 guifg=#0000FF
+hi VimwikiHeader4 guifg=#FF00FF
+hi VimwikiHeader5 guifg=#00FFFF
+hi VimwikiHeader6 guifg=#FFFF00
+
+" Colorscheme
+colorscheme gruvbox
+set background=dark
+autocmd VimEnter * hi Normal ctermbg=none
 
 "" ----- STATUS LINE -----
 highlight clear StatusLine
@@ -58,7 +78,7 @@ nnoremap <silent> <F2> :set nonumber! norelativenumber!<CR>
 nnoremap <silent> <F3> :set list!<CR>
 
 " F4 - source nvim config
-nnoremap <F4> :source ~/.config/nvim/init.vim<CR>
+nnoremap <F4> :source ~/.config/nvim/init.vim \| :hi Normal ctermbg=none<CR>
 
 " F5 - clear whitespace
 nnoremap <F5> :%s/\s\+$//<CR>
@@ -128,7 +148,7 @@ set fillchars=eob:\ ,
 set undofile
 
 " Recognize filetypes
-filetype plugin indent on
+" filetype plugin indent on
 
 " Tabs
 set tabstop=4
@@ -155,6 +175,11 @@ set wildmode=longest,list,full
 " Enable wrapping and linebreak
 set wrap
 set linebreak
+
+" Enable textwidth and colorcolumn (for markdown and vimwiki files)
+" set textwidth=80
+autocmd FileType markdown,vimwiki setlocal textwidth=80
+set colorcolumn=+1
 
 " Use system clipboard (dependency: xclip)
 set clipboard+=unnamedplus
