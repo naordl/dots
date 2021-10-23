@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Dynamic Network Manager
-# Manage network connections dynamically
-# Dependencies: nmcli, dmenu, libnotify
+# Manage network connections dynamically using dmenu
+# Dependencies: nmcli (networkmanager), dmenu, libnotify
 # This thing can probably be rewritten with a case statement
 
 UPDATE_BLOCK() { \
@@ -17,41 +17,40 @@ if [ "$NETWORKING" = "ON" ]; then
     INFO="Networking: ON\n$(nmcli d | sed '1d;/unmanaged/d;s/unavailable/OFF/g;s/ethernet/Ethernet:/;s/wifi/Wifi:/;s/connected/ON/;s/connecting/Connecting/' | awk '{print $2, $3}')\nNetwork Manager TUI"
 
 elif [ "$NETWORKING" = "OFF" ]; then
-    INFO="Networking: OFF" 
-fi
+    INFO="Networking: OFF"
 
+fi
 
 # Prompt the user for a choice
 CHOICE=$(printf "$INFO" | dmenu -i -l 5 -p "Dynamic Network Manager")
 [ -z "$CHOICE" ] && exit 1
 
-
 # If networking is off, turn it on
 if [ "$CHOICE" = "Networking: OFF" ]; then
     nmcli n on
-    sleep 1 && UPDATE_BLOCK
+    sleep 3 && UPDATE_BLOCK
     notify-send "DNM" "Networking: ON"
 
 # If wifi is off, turn it on
 elif [ "$CHOICE" = "Wifi: OFF" ]; then
-    nmcli r wifi on 
+    nmcli r wifi on
     notify-send "DNM" "Wifi: ON"
     sleep 3 && UPDATE_BLOCK
 
 # If networking is on, turn it off
 elif [ "$CHOICE" = "Networking: ON" ]; then
     nmcli n off
-    sleep 1 && UPDATE_BLOCK
+    sleep 3 && UPDATE_BLOCK
     notify-send "DNM" "Networking: OFF"
 
 # If wifi is on, turn it off
 elif [ "$CHOICE" = "Wifi: ON" ]; then
-    nmcli r wifi off 
+    nmcli r wifi off
     notify-send "DNM" "Wifi: OFF"
     sleep 3 && UPDATE_BLOCK
 
 # If the user chooses to, open nmtui
 elif [ "$CHOICE" = "Network Manager TUI" ]; then
-    setsid -f $TERMINAL -e "nmtui"
+    setsid -f $TERMINAL -e "nmtui" &
 
 fi
