@@ -57,7 +57,7 @@ cursor:
 #   - _ Underline
 #   - | Beam
     shape: Block
-    blinking: On
+    blinking: Never
 
   # Vi mode cursor style
   vi_mode_style: Block

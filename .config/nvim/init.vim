@@ -7,7 +7,6 @@ Plug 'junegunn/fzf.vim'
 " Plug 'dkarter/bullets.vim'
 Plug 'SirVer/ultisnips'
 Plug 'vimwiki/vimwiki'
-Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -35,16 +34,17 @@ let g:UltiSnipsSnippetDirectories=["snips"]
 
 " Vimwiki
 set nocompatible
-filetype plugin on
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_table_mappings = 0
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_url_maxsave = 0
+let g:markdown_folding = 1
 
 " Colorscheme
-colorscheme gruvbox
-set background=dark
-autocmd VimEnter * hi Normal ctermbg=none
+set background=light
 
 "" ----- STATUS LINE -----
 highlight clear StatusLine
@@ -59,9 +59,6 @@ nnoremap <S-Down> :resize -2<CR>
 nnoremap <S-Left> :vertical resize +2<CR>
 nnoremap <S-Right> :vertical resize -2<CR>
 
-" é - command-line mode
-nnoremap é :
-
 " Ctrl + backspace - delete last word
 inoremap <C-H> <C-W>
 
@@ -72,7 +69,7 @@ nnoremap <silent> <F2> :set nonumber! norelativenumber!<CR>
 nnoremap <silent> <F3> :set list!<CR>
 
 " F4 - source nvim config
-nnoremap <F4> :source ~/.config/nvim/init.vim \| :hi Normal ctermbg=none<CR>
+nnoremap <F4> :source ~/.config/nvim/init.vim<CR>
 
 " F5 - clear whitespace
 nnoremap <F5> :%s/\s\+$//<CR>
@@ -92,20 +89,19 @@ nnoremap <silent> <leader>b :bn<CR>
 nnoremap <silent> <leader>g :Goyo<CR>
 
 " Leader + z - open the current file's pdf version using zathura
-nnoremap <leader>z :w! \| !zathura %:r.pdf &<CR>
+nnoremap <leader>z :w! \| !zathura "%:r".pdf &<CR>
 
 " Leader + d - convert to docx using pandoc
-nnoremap <leader>d :!pandoc % -s -o %:r.docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
+nnoremap <leader>d :!pandoc "%" -s -o "%:r".docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
 
 " Leader + c - compile to pdf using pandoc with the xelatex engine
-nnoremap <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=1in'<CR>
+nnoremap <leader>c :w! \| !pandoc "%" -s -o "%:r".pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=1in'<CR>
 
 " Apostrophe bindings
-
 " ' + g - fzf locate
 nnoremap 'g :Locate ~/<CR>
 
-" ' + f - fzf in current directory
+" ' + f - fzf current directory
 nnoremap 'f :exe ":Files " . expand("%:h")<CR>
 
 " ' + d - fzf documents
@@ -127,7 +123,7 @@ set scrolloff=6
 
 " Show tabs and whitespaces
 " set list
-" set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 " Remove tildes from empty newlines
 set fillchars=eob:\ ,
@@ -136,7 +132,7 @@ set fillchars=eob:\ ,
 set undofile
 
 " Recognize filetypes
-" filetype plugin indent on
+filetype plugin indent on
 
 " Tab characters
 set tabstop=4
@@ -168,7 +164,7 @@ set linebreak
 " set textwidth=80
 autocmd FileType markdown,vimwiki setlocal textwidth=80
 set colorcolumn=+1
-hi! ColorColumn ctermbg=black
+hi! ColorColumn ctermbg=235
 
 " Use system clipboard (dependency: xclip)
 set clipboard+=unnamedplus
@@ -178,11 +174,11 @@ set clipboard+=unnamedplus
 " hi cursorline cterm=none term=none
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
-" highlight CursorLine guibg=#303000 ctermbg=234
+" highlight CursorLine ctermbg=235
 
 " Enable cursor column
 " set cursorcolumn
-" highlight CursorColumn guibg=#303000 ctermbg=234
+" highlight CursorColumn ctermbg=234
 
 " Enable the deletion of whitespace on save
 " autocmd BufWritePre * %s/\s\+$//e
