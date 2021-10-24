@@ -54,14 +54,13 @@ bindsym $mod+Ctrl+j resize grow height 2 px or 2 ppt
 bindsym $mod+Ctrl+k resize shrink height 2 px or 2 ppt
 bindsym $mod+Ctrl+l resize grow width 2 px or 2 ppt
 
-bindsym $mod+period split v
-bindsym $mod+Shift+period split h
+bindsym $mod+period split toggle
 
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f floating toggle
 
 bindsym $mod+e layout toggle tabbed split
 
-bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 focus_follows_mouse yes
@@ -121,7 +120,7 @@ bindsym $mod+shift+Escape exit
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
 gaps inner 8
-gaps outer 32
+gaps outer 8
 # smart_gaps on
 # smart_borders on
 
@@ -134,24 +133,26 @@ default_border pixel 2
 assign [class="discord"] $ws9
 assign [class="Element"] $ws8
 for_window [class="Steam"] floating enable
+for_window [class="zoom"] floating enable
 for_window [title="spterm"] floating enable
 for_window [title="bcterm"] floating enable
 for_window [title="floatterm"] floating enable
+for_window [title="pulsemixer"] floating enable
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     font pango: Terminus, Font Awesome 5 Free Solid 8
-    tray_output primary
+    tray_output none
     position top
     colors {
             statusline         $foreground
             background         $background
-            separator          $black
+            separator          $background
 
 #                              BORDER          BACKGROUND      TEXT
             focused_workspace  $selbackground  $selbackground  $selforeground
-            inactive_workspace $background     $background     $lightgrey
-            active_workspace   $background     $background     $foreground
+            inactive_workspace $background     $background     $darkgrey
+            active_workspace   $selbackground  $selbackground  $selforeground
             urgent_workspace   $darkred        $darkred        $foreground
             binding_mode       $darkred        $darkred        $foreground
     }

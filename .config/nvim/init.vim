@@ -3,8 +3,8 @@ call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'dkarter/bullets.vim'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'dkarter/bullets.vim'
 Plug 'SirVer/ultisnips'
 Plug 'vimwiki/vimwiki'
 Plug 'morhetz/gruvbox'
@@ -13,11 +13,11 @@ call plug#end()
 
 "" ----- PLUGIN SETTINGS -----
 " Markdown settings
-let g:vim_markdown_folding_disabled = 0
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_strikethrough = 0
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_auto_insert_bullets = 0
+" let g:vim_markdown_folding_disabled = 0
+" let g:vim_markdown_frontmatter = 1
+" let g:vim_markdown_strikethrough = 0
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_auto_insert_bullets = 0
 set conceallevel=2
 
 " Snippets
@@ -27,11 +27,11 @@ let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
 let g:UltiSnipsSnippetDirectories=["snips"]
 
 " Bullets
-let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
+" let g:bullets_enabled_file_types = [
+"     \ 'markdown',
+"     \ 'gitcommit',
+"     \ 'scratch'
+"     \]
 
 " Vimwiki
 set nocompatible
@@ -40,12 +40,6 @@ let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 let g:vimwiki_table_mappings = 0
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_url_maxsave = 0
-hi VimwikiHeader1 guifg=#FF0000
-hi VimwikiHeader2 guifg=#00FF00
-hi VimwikiHeader3 guifg=#0000FF
-hi VimwikiHeader4 guifg=#FF00FF
-hi VimwikiHeader5 guifg=#00FFFF
-hi VimwikiHeader6 guifg=#FFFF00
 
 " Colorscheme
 colorscheme gruvbox
@@ -108,17 +102,11 @@ nnoremap <leader>c :w! \| !pandoc % -s -o %:r.pdf --pdf-engine=xelatex -V 'mainf
 
 " Apostrophe bindings
 
-" ' + l - fzf locate
-nnoremap 'l :Locate ~/<CR>
+" ' + g - fzf locate
+nnoremap 'g :Locate ~/<CR>
 
 " ' + f - fzf in current directory
 nnoremap 'f :exe ":Files " . expand("%:h")<CR>
-
-" ' + c - fzf configs
-nnoremap 'c :Files ~/.config/<CR>
-
-" ' + s - fzf scripts
-nnoremap 's :Files ~/.local/bin/<CR>
 
 " ' + d - fzf documents
 nnoremap 'd :Files ~/Documents<CR>
@@ -150,7 +138,7 @@ set undofile
 " Recognize filetypes
 " filetype plugin indent on
 
-" Tabs
+" Tab characters
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -180,6 +168,7 @@ set linebreak
 " set textwidth=80
 autocmd FileType markdown,vimwiki setlocal textwidth=80
 set colorcolumn=+1
+hi! ColorColumn ctermbg=black
 
 " Use system clipboard (dependency: xclip)
 set clipboard+=unnamedplus

@@ -3,7 +3,7 @@
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"

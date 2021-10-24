@@ -127,4 +127,4 @@ alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | s
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc
 
-fortune | cowsay
+printf "$(fortune | cowsay)\n\n"
