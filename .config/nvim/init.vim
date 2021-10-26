@@ -137,13 +137,13 @@ inoremap <C-H> <C-W>
 
 " SNIPPETS
 " Markdown
-inoremap <leader><Space> <ESC>f<c4l
+inoremap <leader><Space> <ESC>f<"_c4l
 autocmd FileType markdown inoremap ,i ** <++><ESC>5hi
 autocmd FileType markdown inoremap ,b **** <++><ESC>6hi
 autocmd FileType markdown inoremap ,s ~~~~ <++><ESC>6hi
 autocmd FileType markdown inoremap ,d <ESC>:put =strftime('%d.%m.%Y')<CR>i<Backspace><ESC>A<Space>
 autocmd FileType markdown inoremap ,t <ESC>:put =strftime('%I:%M%P')<CR>i<Backspace><ESC>A<Space>
-autocmd FileType markdown inoremap ,l [](https://<++>) <++><ESC>F[a
+autocmd FileType markdown inoremap ,l [](<++>) <++><ESC>F[a
 autocmd FileType markdown inoremap ,I ![](<++>) <++><ESC>F[a
 
 " AUTO COMMANDS
