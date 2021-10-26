@@ -13,14 +13,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 call plug#end()
-" Ultisnips
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
-let g:UltiSnipsSnippetDirectories=["snips"]
 " Vimwiki
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_table_mappings = 0
@@ -95,7 +89,7 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 
 " Goyo
-map <leader>r :Goyo \| set bg=light \| set linebreak<CR>
+map <leader>r :Goyo \| set bg=light \| hi! ColorColumn ctermbg=235<CR>
 
 " FZF
 " Buffers
@@ -138,13 +132,13 @@ inoremap <C-H> <C-W>
 " SNIPPETS
 " Markdown
 inoremap <leader><Space> <ESC>f<"_c4l
-autocmd FileType markdown inoremap ,i ** <++><ESC>5hi
-autocmd FileType markdown inoremap ,b **** <++><ESC>6hi
-autocmd FileType markdown inoremap ,s ~~~~ <++><ESC>6hi
+autocmd FileType markdown inoremap ,i **<Space><++><ESC>5hi
+autocmd FileType markdown inoremap ,b ****<Space><++><ESC>6hi
+autocmd FileType markdown inoremap ,s ~~~~<Space><++><ESC>6hi
 autocmd FileType markdown inoremap ,d <ESC>:put =strftime('%d.%m.%Y')<CR>i<Backspace><ESC>A<Space>
 autocmd FileType markdown inoremap ,t <ESC>:put =strftime('%I:%M%P')<CR>i<Backspace><ESC>A<Space>
-autocmd FileType markdown inoremap ,l [](<++>) <++><ESC>F[a
-autocmd FileType markdown inoremap ,I ![](<++>) <++><ESC>F[a
+autocmd FileType markdown inoremap ,l [](<++>)<Space><++><ESC>F[a
+autocmd FileType markdown inoremap ,I ![](<++>)<Space><++><ESC>F[a
 
 " AUTO COMMANDS
 " Disable autocommenting
