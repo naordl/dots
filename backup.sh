@@ -24,8 +24,11 @@ case "$choice" in
       crontab -l > ~/.config/crontab.save.dinh; cp -rv ~/.config/crontab.save.dinh $DOTDIR/.config/
       sudo crontab -l > ~/.config/root-crontab.save.dinh; cp -rv ~/.config/root-crontab.save.dinh $DOTDIR/.config/
 
+      printf "Backing up nvim config...\n"
+      cp -rv ~/.config/nvim/init.vim $DOTDIR/.config/nvim/
+
       printf "Backing up config files...\n"
-      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,neofetch,nvim,mpd,ncmpcpp,picom,paru,ranger,sxhkd,sxiv,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
+      cp -rv ~/.config/{alacritty,dunst,git,gtk-2.0,gtk-3.0,i3,mpd,ncmpcpp,picom,paru,ranger,sxhkd,sxiv,x11,zsh,zathura,user-dirs.dirs,wall.png} $DOTDIR/.config/
 
       printf "Backing up ~/.local/ stuff...\n"
 

@@ -17,14 +17,6 @@ cp -rv $DOTDIR/.local/* $HOME/.local/
 cp -rv $DOTDIR/.zprofile $HOME/
 sudo cp -rv $DOTDIR/etc/* /etc/
 
-## INSTALL VIMPLUG
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-## CLONE DEVOUR
-git clone https://github.com/salman-abedin/devour.git $HOME/Repos/devour
-cd $HOME/Repos/devour && sudo make clean install && cd
-
 ## CLONE WALLPAPERS
 git clone https://github.com/demo2k20/wallpapers.git $HOME/Repos/wallpapers
 ln -sr $HOME/Repos/wallpapers $HOME/Pictures/Wallpapers
