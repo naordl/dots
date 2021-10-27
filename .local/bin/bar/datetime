@@ -1,16 +1,9 @@
 #!/bin/sh
 
-# Mouse actions (Alacritty)
+# Mouse actions
 case $BLOCK_BUTTON in
-    1) setsid -f $TERMINAL -o window.dimensions.columns=22 -o window.dimensions.lines=10 -t floatterm --hold -e cal -m ;;
-    3) setsid -f $TERMINAL -o window.dimensions.columns=75 -o window.dimensions.lines=35 -t floatterm --hold -e cal -m -Y ;;
+    1) setsid -f $TERMINAL -e calcurse ;;
 esac
-
-# Mouse actions (st)
-# case $BLOCK_BUTTON in
-#     1) setsid -f $TERMINAL -g 21x10 -t floatterm -e shell-wrapper cal -m ;;
-#     3) setsid -f $TERMINAL -g 70x35 -t floatterm -e shell-wrapper cal -my ;;
-# esac
 
 # Get current time
 DATETIME=$(date "+%I:%M%P")
