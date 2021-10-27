@@ -105,7 +105,7 @@ super + shift + n
 
 # Password manager
 super + shift + Insert
-    passmenu -i -l 30 -p "Password store"    
+    passmenu -i -l 30 -p "Password store"
 
 # Task manager
 control + shift + Escape
