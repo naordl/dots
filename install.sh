@@ -53,12 +53,13 @@ AESTETHICS="
 
 ## SOFTWARE
 shell="zsh"
-# terminal="alacritty" # CLONE ST BUILD
+terminal="alacritty"
 # dropdownterminal="tdrop-git" # DOES NOT BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
 notifications="libnotify dunst"
 browser="brave-bin" # AUR
 calculator="bc"
+calendar="calcurse"
 compositor="xcompmgr"
 taskmanager="htop"
 audiomixer="pulsemixer"
@@ -89,6 +90,7 @@ SOFTWARE="
     $notifications
     $browser
     $calculator
+    $calendar
     $compositor
     $taskmanager
     $audiomixer
