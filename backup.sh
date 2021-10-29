@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "Merge and back up dotfiles? (y/n) "
+printf "Merge and back up dotfiles? (y/N) "
 read choice
 
 case "$choice" in
@@ -10,7 +10,6 @@ case "$choice" in
       printf "Backing up gpg secret key and 'pass' password store...\n"
       gpg --export-secret-keys Roland Nemes > ~/Backups/secret-key-backup
       gpg --export-ownertrust > ~/Backups/trustdb-backup
-      rm -rf ~/Backups/pass; cp -rv ~/.local/share/pass ~/Backups/
 
       printf "Backing up ssh keys...\n"
       cp -rv ~/.ssh ~/Backups/ssh
@@ -56,7 +55,7 @@ case "$choice" in
       cp -rv /etc/udev/rules.d $DOTDIR/etc/udev/
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
       cp -rv /etc/pulse/default.pa $DOTDIR/etc/pulse/
-      cp -rv /etc/{bash.bashrc,DIR_COLORS,makepkg.conf,mkinitcpio.conf,pacman.conf} $DOTDIR/etc/
+      cp -rv /etc/pacman.conf $DOTDIR/etc/
       cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
       cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
 

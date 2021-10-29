@@ -1,4 +1,4 @@
-## --- Important Tools --- ##
+## --- Basic stuff --- ##
 # Terminal
 super + Return
     $TERMINAL
@@ -9,7 +9,7 @@ super + Return
 
 # Dropdown terminal
 super + shift + Return
-    tdrop -s "dropdown" --name="spterm" -n 1 -w "" -h "" -x "" -y "" $TERMINAL -t "spterm"
+    tdrop -s "spterm" --name="spterm" -n 1 -w "" -h "" -x "" -y "" $TERMINAL -t "spterm"
 
 # Program launcher
 super + d
@@ -97,23 +97,19 @@ super + p
 
 # Bluetooth manager
 super + shift + b
-    $TERMINAL -e bluetoothctl
+    $TERMINAL -t bluetoothctl -e bluetoothctl
 
 # Network manager
 super + shift + n
     dnm
 
-# Password manager
-super + shift + Insert
-    passmenu -i -l 30 -p "Password store"
-
 # Task manager
 control + shift + Escape
-    $TERMINAL -e htop
+    $TERMINAL -t htop -e htop
 
 # File manager
 super + r
-    $TERMINAL -e $FILE
+    $TERMINAL -t $FILE -e $FILE
 
 # Audio mixer
 super + shift + p
@@ -124,9 +120,9 @@ super + shift + p
 super + m
     $TERMINAL -t ncmpcpp -e ncmpcpp -q
 
-# Email client
+# Notes
 super + n
-    $TERMINAL -t neomutt -e neomutt
+    $TERMINAL -t vimwiki -e $EDITOR ~/Documents/vimwiki/index.md
 
 # Calculator
 super + c
@@ -150,14 +146,6 @@ super + shift + y
 # Bookmark menu
 super + b
     bookmenu
-
-# Night light menu
-super + shift + u
-    nightlight -dmenu
-
-# Scale resolution menu
-super + shift + t
-    scaleres
 
 # Power menu
 super + shift + F12

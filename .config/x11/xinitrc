@@ -1,18 +1,20 @@
 #!/bin/sh
 
-autodisplay
-autolight &
-autobrightness &
-xrdb ~/.config/x11/xresources
-setbg &
-pgrep -x xcompmgr > /dev/null || xcompmgr &
-pgrep -x startdunst > /dev/null || startdunst &
-pgrep -x unclutter > /dev/null || unclutter --timeout 3 &
-# pgrep -x mpd > /dev/null || mpd &
-# xset s 600
-# pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen &
-sudo modprobe v4l2loopback &
+autodisplay # Adjust screen(s)
+autolight & # Adjust nightlight
+autobrightness & # Adjust screen brightness
+xrdb ~/.config/x11/xresources # Load Xresources colors
+setbg # Set desktop background
+pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
+pgrep -x startdunst > /dev/null || startdunst & # Notification daemon
+pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
+# pgrep -x mpd > /dev/null || mpd & # Music player daemon
+# xset s 600 # Lockscreen timeout
+# pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen & # Lock the screen upon idle
+setxkbmap hu & # Change keyboard layout to Hungarian
+setxkbmap -option caps:swapescape & # Swap Caps with Escape
+sudo modprobe v4l2loopback & # Fix webcam behavior
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-pgrep -x dwmblocks > /dev/null || dwmblocks &
-startdwm
+pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon
+pgrep -x dwmblocks > /dev/null || dwmblocks & # Status bar
+startdwm # Window manager

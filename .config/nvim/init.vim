@@ -131,14 +131,14 @@ inoremap <C-H> <C-W>
 
 " SNIPPETS
 " Markdown
-inoremap <leader><Space> <ESC>f<"_c4l
-autocmd FileType markdown inoremap ,i **<Space><++><ESC>5hi
-autocmd FileType markdown inoremap ,b ****<Space><++><ESC>6hi
-autocmd FileType markdown inoremap ,s ~~~~<Space><++><ESC>6hi
-autocmd FileType markdown inoremap ,l [](<++>)<Space><++><ESC>F[a
-autocmd FileType markdown inoremap ,I ![](<++>)<Space><++><ESC>F[a
-autocmd FileType markdown inoremap ,d <ESC>:put =strftime('%d.%m.%Y')<CR>i<Backspace><ESC>A<Space>
-autocmd FileType markdown inoremap ,t <ESC>:put =strftime('%I:%M%P')<CR>i<Backspace><ESC>A<Space>
+inoremap ;<Space> <ESC>f<"_c4l
+autocmd FileType markdown inoremap ;i **<Space><++><ESC>5hi
+autocmd FileType markdown inoremap ;b ****<Space><++><ESC>6hi
+autocmd FileType markdown inoremap ;s ~~~~<Space><++><ESC>6hi
+autocmd FileType markdown inoremap ;l [](<++>)<Space><++><ESC>F[a
+autocmd FileType markdown inoremap ;I ![](<++>)<Space><++><ESC>F[a
+autocmd FileType markdown inoremap ;d <ESC>:put =strftime('%d.%m.%Y')<CR>i<Backspace><ESC>A<Space>
+autocmd FileType markdown inoremap ;t <ESC>:put =strftime('%I:%M%P')<CR>i<Backspace><ESC>A<Space>
 
 " AUTO COMMANDS
 " Disable autocommenting
