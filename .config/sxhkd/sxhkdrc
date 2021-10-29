@@ -129,6 +129,10 @@ super + c
 #   $TERMINAL -t floatterm -e bc -l -q
     tdrop --name="bcterm" -n 3 -w "" -h "" -x "" -y "" $TERMINAL -t "bcterm" -e bc -l -q
 
+# Calendar
+super + shift + c
+    $TERMINAL -t calcurse -e calcurse
+
 # VM manager
 super + v
     virt-manager
@@ -162,7 +166,3 @@ super + shift + F4
 # Emoji menu
 super + shift + F1
     demoji
-
-# Optical character recognition
-super + shift + c
-    ocr

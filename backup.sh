@@ -7,10 +7,6 @@ case "$choice" in
     y)
       export DOTDIR="$HOME/Repos/dots"
 
-      printf "Backing up gpg secret key...\n"
-      gpg --export-secret-keys Roland Nemes > ~/Backups/secret-key-backup
-      gpg --export-ownertrust > ~/Backups/trustdb-backup
-
       printf "Backing up ssh keys...\n"
       cp -rv ~/.ssh ~/Backups/ssh
 

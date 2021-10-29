@@ -52,7 +52,7 @@ AESTETHICS="
     "
 
 ## SOFTWARE
-shell="zsh"
+shell="zsh dash dashbinsh" # AUR
 terminal="alacritty"
 # dropdownterminal="tdrop-git" # DOES NOT BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD
@@ -122,11 +122,9 @@ DEPENDENCIES="
     xclip
     exa
     playerctl
-    acpi
     imagemagick
     xwallpaper
     wmctrl
-    python-pip
     rar
     unzip
     zip
@@ -137,9 +135,6 @@ DEPENDENCIES="
     pamixer
     xdg-user-dirs
     xorg-xrdb
-    dash
-    dashbinsh
-    checkbashisms
     acpi_call
     fzf
     cronie
