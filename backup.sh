@@ -7,7 +7,7 @@ case "$choice" in
     y)
       export DOTDIR="$HOME/Repos/dots"
 
-      printf "Backing up gpg secret key and 'pass' password store...\n"
+      printf "Backing up gpg secret key...\n"
       gpg --export-secret-keys Roland Nemes > ~/Backups/secret-key-backup
       gpg --export-ownertrust > ~/Backups/trustdb-backup
 
@@ -49,8 +49,8 @@ case "$choice" in
       printf "Backing up /etc/ stuff...\n"
       cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
-      cp -rv /etc/sysctl.d/{20-quiet-printk.conf,dirty.conf,disable_watchdog.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
-      cp -rv /etc/systemd/system/{getty@tty1.service.d,disablenvidia.service,systemd-fsck-root.service,systemd-fsck@.service} $DOTDIR/etc/systemd/system/
+      cp -rv /etc/sysctl.d/{dirty.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
+      cp -rv /etc/systemd/system/disablenvidia.service $DOTDIR/etc/systemd/system/
       cp -rv /etc/systemd/logind.conf $DOTDIR/etc/systemd/
       cp -rv /etc/udev/rules.d $DOTDIR/etc/udev/
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/

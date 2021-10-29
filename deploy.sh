@@ -46,11 +46,6 @@ sudo crontab $HOME/.config/root-crontab.save.dinh
 # Copy the onboard nvidia graphics card disabler service
 sudo cp -rv /etc/systemd/system/disablenvidia.service /lib/systemd/system/
 sudo chmod 644 /etc/systemd/system/disablenvidia.service
-# Copy the filesystem trimming service (only good for ssd)
-sudo cp -rv /etc/systemd/system/systemd-fsck-root.service /usr/lib/systemd/system/
-sudo chmod 644 /etc/systemd/system/systemd-fsck-root.service
-sudo cp -rv /etc/systemd/system/systemd-fsck@.service /usr/lib/systemd/system/
-sudo chmod 644 /etc/systemd/system/systemd-fsck@.service
 # Enable some systemd services
 sudo systemctl enable disablenvidia # Definitely breaks vms that don't use nvidia
 sudo systemctl enable cronie
