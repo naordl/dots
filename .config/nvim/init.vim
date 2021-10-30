@@ -11,7 +11,9 @@ call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -33,6 +35,8 @@ set ttimeoutlen=1
 set ttyfast
 " Mouse
 set mouse=a
+" Hidden
+set hidden
 " Scrolling
 set scrolloff=6
 " Empty newlines
