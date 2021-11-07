@@ -42,7 +42,7 @@ WM="
 iconfonts="ttf-font-awesome"
 emojifonts="ttf-joypixels"
 icontheme="papirus-icon-theme"
-gtktheme="lxappearance" # CLONE THEMES FROM GITHUB
+gtktheme="arc-gtk-theme lxappearance" # CLONE THEMES FROM GITHUB
 
 AESTETHICS="
     $iconfonts

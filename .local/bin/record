@@ -13,4 +13,4 @@ ffmpeg -y \
 -s "$res" \
 -i :0.0"$offset" \
 -f alsa -i default \
-$name.mp4 \
+$HOME/"$name".mp4 \

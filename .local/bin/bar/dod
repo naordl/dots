@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Basic variables
+dod="2070/8/23"
+dod_sec=$(date -d "${dod}" +%s)
+curr_sec=$(date +%s)
+
+# Math
+years=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')' / 31536000)
+months=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')' / 2628000)
+days=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')' / 86400)
+hours=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')' / 3600)
+minutes=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')' / 60)
+seconds=$(expr '(' ${dod_sec} - ${curr_sec} + 86399 ')')
+
+# Print results
+printf " ${years} years ${months} months ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds\n"

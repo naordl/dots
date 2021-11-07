@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-surround'
 call plug#end()
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -22,11 +23,16 @@ let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_table_mappings = 0
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_url_maxsave = 0
-let g:markdown_folding = 1
+let g:markdown_folding = 0
+let g:vimwiki_conceallevel = 0
+" Markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " BASICS
 " Colors
-set background=light
+" set termguicolors
+set background=dark
 " Cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -54,7 +60,8 @@ set expandtab
 " Indentation
 set autoindent
 " Conceal
-set conceallevel=2
+set conceallevel=0
+set concealcursor=n
 " Encoding
 set encoding=utf-8
 set nocompatible
@@ -155,6 +162,8 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd FileType markdown setlocal textwidth=80
 set colorcolumn=+1
 hi! ColorColumn ctermbg=235
+hi! OverLength ctermfg=darkred
+match OverLength /\%>79v.\+/
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc

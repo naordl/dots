@@ -6,7 +6,7 @@ case $BLOCK_BUTTON in
 esac
 
 # Get current time
-DATETIME=$(date "+%I:%M%P")
+DATETIME=$(date "+%I:%M:%S%P")
 
 # Print result
 printf " $DATETIME\n"

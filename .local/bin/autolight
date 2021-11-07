@@ -12,4 +12,4 @@ NIGHTLIGHT_OFF() { \
 	}
 
 # Turn on nightlight from 7pm until 7am, else turn it off
-[ "$TIME" -ge "19" -o "$TIME" -le "7" ] && NIGHTLIGHT_ON || NIGHTLIGHT_OFF
+[ "$TIME" -ge "17" -o "$TIME" -le "7" ] && NIGHTLIGHT_ON || NIGHTLIGHT_OFF

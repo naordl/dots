@@ -1,0 +1,9 @@
+#!/bin/sh
+
+compositor="xcompmgr"
+
+if [ -z "$(pidof $compositor)" ]; then
+    setsid -f $compositor
+else
+    killall $compositor
+fi

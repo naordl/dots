@@ -3,6 +3,7 @@
 *.foreground: #F8F8F2
 *.background: #282A36
 *.selbackground: #4D4D4D
+*.selforeground: #F8F8F2
 *.cursorcolor: #F8F8F2
 *.color0:     #000000
 *.color8:     #4D4D4D

@@ -14,6 +14,7 @@ super + shift + Return
 # Program launcher
 super + d
     dmenu_run -i -p "Run"
+#   rofi -m -4 -show run
 
 
 ## --- Multimedia keys --- ##
@@ -139,6 +140,10 @@ super + v
 
 
 ## --- Personal Scripts --- ##
+# Toggle compositor
+super + Delete
+    togglecompositor
+
 # Colorscheme switcher menu
 super + shift + o
     colorswitcher

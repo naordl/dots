@@ -8,7 +8,7 @@ XRESOURCESDIR="$HOME/.config/x11"
 COLORDIR="$HOME/.local/bin/colorswitcher/colors"
 
 # Define the available colorschemes
-COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nNord\nDracula\nUmbercobble")"
+COLORS="$(printf "Solarized Light\nSolarized Dark\nGruvbox Dark\nNord\nDracula\nUmbercobble\nNightfly")"
 
 # Prompt the user for a choice
 CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
@@ -17,10 +17,13 @@ CHOICE="$(printf "$COLORS" | dmenu -i -p "Choose colorscheme")"
 if [ "$CHOICE" = "Solarized Light" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_light/solarized_light.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/solarized_light/solarized_light.x > $XRESOURCESDIR/xresources
-    sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
-    sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '2d;1 a gtk-theme-name=Arc' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Light' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Arc"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"
@@ -29,9 +32,12 @@ elif [ "$CHOICE" = "Solarized Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/solarized_dark/solarized_dark.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/solarized_dark/solarized_dark.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"
@@ -40,9 +46,12 @@ elif [ "$CHOICE" = "Gruvbox Dark" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/gruvbox_dark/gruvbox_dark.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/gruvbox_dark/gruvbox_dark.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"
@@ -51,9 +60,12 @@ elif [ "$CHOICE" = "Nord" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/nord/nord.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/nord/nord.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Nordic Darker' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Nordic Darker"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"
@@ -62,9 +74,12 @@ elif [ "$CHOICE" = "Dracula" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/dracula/dracula.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/dracula/dracula.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Dracula' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Dracula"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"
@@ -73,9 +88,26 @@ elif [ "$CHOICE" = "Umbercobble" ]; then
     cat $ALACRITTYDIR/base.yml $COLORDIR/umbercobble/umbercobble.yml > $ALACRITTYDIR/alacritty.yml
     cat $COLORDIR/umbercobble/umbercobble.x > $XRESOURCESDIR/xresources
     sed -i '2d;1 a gtk-theme-name=Mantis Night' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
     sed -i '5d;4 a gtk-theme-name="Mantis Night"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
     killall dunst
     xrdb $XRESOURCESDIR/xresources
+    roficolors
+    i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
+    startdunst &
+    notify-send "Colorscheme" "$CHOICE"
+    exit
+elif [ "$CHOICE" = "Nightfly" ]; then
+    cat $ALACRITTYDIR/base.yml $COLORDIR/nightfly/nightfly.yml > $ALACRITTYDIR/alacritty.yml
+    cat $COLORDIR/nightfly/nightfly.x > $XRESOURCESDIR/xresources
+    sed -i '2d;1 a gtk-theme-name=Arc-Dark' ~/.config/gtk-3.0/settings.ini
+    sed -i '3d;1 a gtk-icon-theme-name=Papirus-Dark' ~/.config/gtk-3.0/settings.ini
+    sed -i '5d;4 a gtk-theme-name="Arc-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
+    sed -i '6d;4 a gtk-icon-theme-name="Papirus-Dark"' ~/.config/gtk-2.0/gtkrc-2.0
+    killall dunst
+    xrdb $XRESOURCESDIR/xresources
+    roficolors
     i3-msg restart >/dev/null 2>&1 || xdotool key super+F5
     startdunst &
     notify-send "Colorscheme" "$CHOICE"

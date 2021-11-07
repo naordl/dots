@@ -6,6 +6,7 @@
 *.background:   #002b36
 *.cursorColor:  #93a1a1
 *.selbackground: #657b83
+*.selforeground: #fdf6e3
 ! black
 *.color0:       #002b36
 *.color8:       #657b83
