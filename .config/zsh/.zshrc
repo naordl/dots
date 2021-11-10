@@ -1,15 +1,15 @@
 # ~/.config/zsh/.zshrc
 
 # Print newline after every command
-# function precmd() {
-#     # Print a newline before the prompt, unless it's the
-#     # first prompt in the process.
-#     if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
-#         NEW_LINE_BEFORE_PROMPT=1
-#     elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
-#         printf "\n"
-#     fi
-# }
+#function precmd() {
+#    # Print a newline before the prompt, unless it's the
+#    # first prompt in the process.
+#    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+#        NEW_LINE_BEFORE_PROMPT=1
+#    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+#        printf "\n"
+#    fi
+#}
 
 # Prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
@@ -133,6 +133,7 @@ alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -it >/dev/null 2>&1'
+alias ta='tmux new-session -A -s main'
 
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc

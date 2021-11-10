@@ -16,6 +16,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-surround'
 call plug#end()
+
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
@@ -88,6 +89,8 @@ let g:netrw_dirhistmax = 0
 highlight clear StatusLine
 set laststatus=0
 set noruler
+set noshowcmd
+set noshowmode
 
 " REMAPS
 " Leader
@@ -110,7 +113,7 @@ nnoremap <silent> <leader>g :Locate ~/<CR>
 " Files
 nnoremap <silent> <leader>f :exe ":Files " . expand("%:h")<CR>
 " Documents
-nnoremap <silent> <leader>d :Files ~/Documents<CR>
+nnoremap <silent> <leader>D :Files ~/Documents<CR>
 
 " CONVERSION
 " Zathura current file
@@ -142,7 +145,7 @@ inoremap <C-H> <C-W>
 
 " SNIPPETS
 " Markdown
-inoremap ;<Space> <ESC>f<"_c4l
+autocmd FileType markdown inoremap ;<Space> <ESC>f<"_c4l
 autocmd FileType markdown inoremap ;i **<Space><++><ESC>5hi
 autocmd FileType markdown inoremap ;b ****<Space><++><ESC>6hi
 autocmd FileType markdown inoremap ;s ~~~~<Space><++><ESC>6hi
@@ -160,10 +163,10 @@ autocmd BufEnter * silent! lcd %:p:h
 autocmd BufWritePre * %s/\s\+$//e
 " Textwidth and colorcolumn for markdown files
 autocmd FileType markdown setlocal textwidth=80
-set colorcolumn=+1
-hi! ColorColumn ctermbg=235
-hi! OverLength ctermfg=darkred
-match OverLength /\%>79v.\+/
+autocmd FileType markdown set colorcolumn=+1
+autocmd FileType markdown hi! ColorColumn ctermbg=256
+autocmd FileType markdown hi! OverLength ctermfg=darkred
+autocmd FileType markdown match OverLength /\%>79v.\+/
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc

@@ -1,34 +1,35 @@
 ! vim: ft=cfg
 
-! special
-*.foreground:   #acb4c2
-*.background:   #011627
-*.cursorColor:  #acb4c2
+! *.background: #1d2021
+! *.background: #32302f
+*.background: #282828
+! *.selbackground: #928374
 
 *.selforeground: #ffffff
-*.selbackground: #1d3b53
+*.selbackground: #454545
 
-! black
-*.color0:       #1d3b53
-*.color8:       #7c8f8f
-! red
-*.color1:       #fc514e
-*.color9:       #ff5874
-! green
-*.color2:       #a1cd5e
-*.color10:      #21c7a8
-! yellow
-*.color3:       #e7d37a
-*.color11:      #ecc48d
-! blue
-*.color4:       #82aaff
-*.color12:      #82aaff
-! magenta
-*.color5:       #c792ea
-*.color13:      #ae81ff
-! cyan
-*.color6:       #7fdbca
-*.color14:      #7fdbca
-! white
-*.color7:       #a1aab8
-*.color15:      #d6deeb
+*.foreground: #ebdbb2
+! Black + DarkGrey
+*.color0:  #282828
+*.color8:  #928374
+! DarkRed + Red
+*.color1:  #cc241d
+*.color9:  #fb4934
+! DarkGreen + Green
+*.color2:  #98971a
+*.color10: #b8bb26
+! DarkYellow + Yellow
+*.color3:  #d79921
+*.color11: #fabd2f
+! DarkBlue + Blue
+*.color4:  #458588
+*.color12: #83a598
+! DarkMagenta + Magenta
+*.color5:  #b16286
+*.color13: #d3869b
+! DarkCyan + Cyan
+*.color6:  #689d6a
+*.color14: #8ec07c
+! LightGrey + White
+*.color7:  #a89984
+*.color15: #ebdbb2
