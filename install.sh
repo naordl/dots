@@ -52,7 +52,7 @@ AESTETHICS="
     "
 
 ## SOFTWARE
-shell="zsh dash dashbinsh" # AUR
+shell="zsh zsh-syntax-highlighting dash dashbinsh" # AUR
 terminal="alacritty"
 # dropdownterminal="tdrop-git" # DOES NOT BUILD FROM AUR
 # launcher="dmenu" # CLONE DMENU BUILD

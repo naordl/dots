@@ -123,7 +123,7 @@ alias v='nvim'
 alias sv='sudo nvim'
 alias r='ranger_cd'
 alias sr='sudo ranger'
-alias cal='cal -m'
+alias cal='calcurse'
 alias ytmusic='youtube-dl -i -o "~/Music/%(title)s.%(ext)s" -x --audio-format mp3'
 alias ytaudio='youtube-dl -i -f bestaudio'
 alias yt720p='youtube-dl -i -f 22'
@@ -133,7 +133,15 @@ alias mntfs='sudo mount -t ntfs'
 alias mfat32='sudo mount -o gid=users,fmask=113,dmask=002'
 alias umnt='sync; sudo umount'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -it >/dev/null 2>&1'
-alias ta='tmux new-session -A -s main'
+alias t='tmux new-session -A -s main'
 
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Syntax highlighting style
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
