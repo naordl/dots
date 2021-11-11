@@ -5,7 +5,7 @@ autolight & # Adjust nightlight
 autobrightness & # Adjust screen brightness
 xrdb ~/.config/x11/xresources # Load Xresources colors
 setbg # Set desktop background
-pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
+# pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
 pgrep -x startdunst > /dev/null || startdunst & # Notification daemon
 pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
 # pgrep -x mpd > /dev/null || mpd & # Music player daemon

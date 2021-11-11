@@ -49,7 +49,7 @@ set scrolloff=6
 " Empty newlines
 set fillchars=eob:\ ,
 " Search
-set hlsearch
+set nohlsearch
 set incsearch
 " Clipboard
 set clipboard+=unnamedplus
