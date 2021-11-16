@@ -92,6 +92,10 @@ alt + Print
 super + w
     $BROWSER
 
+# Incognito Browser
+super + shift + w
+    $BROWSER --incognito
+
 # Display manager
 super + p
     arandr

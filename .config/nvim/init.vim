@@ -17,6 +17,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-surround'
 call plug#end()
 
+" Goyo
+let g:goyo_width = 80
+
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
@@ -166,7 +169,7 @@ autocmd FileType markdown setlocal textwidth=80
 autocmd FileType markdown set colorcolumn=+1
 autocmd FileType markdown hi! ColorColumn ctermbg=256
 autocmd FileType markdown hi! OverLength ctermfg=darkred
-autocmd FileType markdown match OverLength /\%>79v.\+/
+autocmd FileType markdown match OverLength /\%>80v.\+/
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc

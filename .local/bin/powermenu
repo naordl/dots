@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# Prompt the user for a choice
+# Prompt user for choice
 CHOICE=$(printf 'Lock\nLogout\nShutdown\nReboot\nSuspend\nHibernate' | dmenu -i -p "Powermenu")
 
-# Action based on choice
+# Take action based on user choice
 case "$CHOICE" in
     Lock)
         loginctl lock-session ;;
