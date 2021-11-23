@@ -57,7 +57,7 @@ cursor:
 #   - _ Underline
 #   - | Beam
     shape: Block
-    blinking: Always
+    blinking: Never
 
   # Vi mode cursor style
   vi_mode_style: Block
@@ -132,4 +132,4 @@ key_bindings:
 draw_bold_text_with_bright_colors: true
 
 # Background transparency
-background_opacity: 1
+background_opacity: 0.9

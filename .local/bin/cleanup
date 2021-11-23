@@ -6,7 +6,7 @@ CLR_CACHE() { \
     paru -Scc --noconfirm
     sudo pacman -Sc --noconfirm
     paru -Sc --noconfirm
-    rm -rf ~/.cache/*
+    rm -rf $HOME/.cache/*
 	}
 CLR_ORPHANS() { \
     sudo pacman -Rns $(pacman -Qtdq) --noconfirm
@@ -34,7 +34,7 @@ if [ "$1" = "-y" ]; then
 fi
 
 # Remove cached packages
-printf "Remove cached packages and ~/.cache? (y/n) "
+printf "Remove cached packages and $HOME/.cache? (y/n) "
 read CHOICE
 if [ "$CHOICE" = "y" ]; then
     CLR_CACHE
