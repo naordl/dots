@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Test for batteries
+BATTERY=$(du -h /sys/class/power_supply/* | grep "BAT*")
+
+# Exit if there are no batteries
+if [ -z "$BATTERY" ]; then
+    exit 0
+fi
+
 # Get battery status and capacity
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)

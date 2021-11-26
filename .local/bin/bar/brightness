@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Test for batteries (to see if it's a laptop)
+BATTERY=$(du -h /sys/class/power_supply/* | grep "BAT*")
+
+# Exit if there are no batteries
+if [ -z "$BATTERY" ]; then
+    exit 0
+fi
+
 # Store block update commands in a function
 UPDATE_BLOCK() { \
     pkill -SIGRTMIN+4 dwmblocks || pkill -SIGRTMIN+4 i3blocks

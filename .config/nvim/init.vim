@@ -12,8 +12,8 @@ Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
-Plug 'vimwiki/vimwiki'
 Plug 'plasticboy/vim-markdown'
+Plug 'dkarter/bullets.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -21,17 +21,29 @@ call plug#end()
 let g:goyo_width = 80
 
 " Vimwiki
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_markdown_link_ext = 1
-let g:vimwiki_table_mappings = 0
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_url_maxsave = 0
-let g:markdown_folding = 0
-let g:vimwiki_conceallevel = 0
+" let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" let g:vimwiki_markdown_link_ext = 1
+" let g:vimwiki_table_mappings = 0
+" let g:vimwiki_hl_headers = 1
+" let g:vimwiki_url_maxsave = 0
+" let g:markdown_folding = 0
+" let g:vimwiki_conceallevel = 0
 " Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+" Bullets
+let g:bullets_enable_in_empty_buffers = 0
+let g:bullets_delete_last_bullet_if_empty = 1
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \]
 
 " BASICS
 " Colors
@@ -51,6 +63,8 @@ set hidden
 set scrolloff=6
 " Empty newlines
 set fillchars=eob:\ ,
+" Hide intro message
+set shortmess+=I
 " Search
 set nohlsearch
 set incsearch
@@ -104,9 +118,16 @@ nnoremap <leader>S :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " Edit config
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
+" Edit todo list
+nnoremap <leader>td :e ~/Documents/Notes/raw/todo.md<CR>
 
-" Goyo
-map <leader>r :Goyo \| set bg=light \| hi! ColorColumn ctermbg=235<CR>
+" GOYO
+map <leader>r :Goyo \| set bg=dark \| hi! ColorColumn ctermbg=235<CR>
+" MARKDOWN
+" Table of contents
+nnoremap <leader>toc :Toc<CR>
+" Table format
+nnoremap <leader>tf :TableFormat<CR>
 
 " FZF
 " Buffers
@@ -115,8 +136,8 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>g :Locate ~/<CR>
 " Files
 nnoremap <silent> <leader>f :exe ":Files " . expand("%:h")<CR>
-" Documents
-nnoremap <silent> <leader>D :Files ~/Documents<CR>
+" Uni
+nnoremap <silent> <leader>u :Files ~/Documents/Uni<CR>
 
 " CONVERSION
 " Zathura current file
@@ -165,11 +186,13 @@ autocmd BufEnter * silent! lcd %:p:h
 " Autodelete all trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 " Textwidth and colorcolumn for markdown files
-autocmd FileType markdown setlocal textwidth=80
+" autocmd FileType markdown setlocal textwidth=80
 autocmd FileType markdown set colorcolumn=+1
 autocmd FileType markdown hi! ColorColumn ctermbg=256
 autocmd FileType markdown hi! OverLength ctermfg=darkred
 autocmd FileType markdown match OverLength /\%>80v.\+/
+" Always treat *.md as markdown
+autocmd BufEnter,BufRead,BufNewFile *.md set filetype=markdown
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc
