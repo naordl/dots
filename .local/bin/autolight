@@ -5,10 +5,10 @@ TIME=$(date +%H)
 
 # Store commands in functions
 NIGHTLIGHT_ON() { \
-    redshift -PO 3200 > /dev/null
+    sct 2500
 	}
 NIGHTLIGHT_OFF() { \
-    redshift -x > /dev/null
+    sct
 	}
 
 # Turn on nightlight from 7pm until 7am, else turn it off

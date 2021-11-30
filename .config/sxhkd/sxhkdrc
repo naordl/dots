@@ -127,7 +127,7 @@ super + m
 
 # Notes
 super + n
-    $TERMINAL -t vimwiki -e $EDITOR ~/Documents/vimwiki/index.md
+    $TERMINAL -t vimwiki -e $EDITOR ~/Documents/Notes/raw/todo.md
 
 # Calculator
 super + c
