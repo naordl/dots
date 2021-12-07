@@ -8,7 +8,7 @@ case "$choice" in
       export DOTDIR="$HOME/Repos/dots"
 
       printf "Backing up ssh keys...\n"
-      cp -rv ~/.ssh ~/Backups/ssh
+      cp -rv ~/.ssh ~/Backups/PERSONAL/ssh
 
       printf "Backing up dotfiles...\n"
 
