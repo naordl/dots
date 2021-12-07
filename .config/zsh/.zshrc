@@ -97,6 +97,12 @@ ranger_cd() {
     rm -f -- "$temp_file"
 }
 
+# open_with_fzf - editor open using fzf
+open_with_fzf() {
+    find -type f | fzf -m --preview="cat {}" | xargs -ro -d "\n" $EDITOR 2>&-
+}
+bindkey -s '^O' 'open_with_fzf\n'
+
 # cd_with_fzf - cd using fzf
 cd_with_fzf() {
     cd $HOME && cd "$(find -type d | fzf --preview="tree -L 1 {}" --preview-window=:nohidden)" && echo "$PWD" && tree -L 2

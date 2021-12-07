@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'dkarter/bullets.vim'
+Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -32,6 +33,9 @@ let g:vim_markdown_new_list_item_indent = 0
 " Bullets
 let g:bullets_delete_last_bullet_if_empty = 1
 let g:bullets_enabled_file_types = [ 'markdown' ]
+" Pencil
+let g:pencil#wrapModeDefault = 'soft'
+autocmd FileType markdown call pencil#init()
 
 " BASICS
 " Colors
