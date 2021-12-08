@@ -10,7 +10,7 @@ export FILE="ranger"
 export PAGER="less"
 
 # Add $HOME/.local/bin to $PATH
-PATH=$PATH$( find $HOME/.local/bin -type d -printf ":%p" )
+PATH=$PATH$( find -L $HOME/.local/bin -type d -printf ":%p" )
 
 # Environment variables
 export LC_COLLATE="C"

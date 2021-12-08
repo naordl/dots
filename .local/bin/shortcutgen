@@ -1,9 +1,12 @@
 #!/bin/sh
 
+# Variables
+DOTDIR="$HOME/.local/src/dots"
+
 # Define the shortcut locations
-SHORTCUTS="$HOME/.local/shortcuts"
-ZSH_SHORTCUTS="$HOME/.config/zsh/shortcutrc"
-RANGER_SHORTCUTS="$HOME/.config/ranger/shortcuts.conf"
+SHORTCUTS="$DOTDIR/.local/shortcuts"
+ZSH_SHORTCUTS="$DOTDIR/.config/zsh/shortcutrc"
+RANGER_SHORTCUTS="$DOTDIR/.config/ranger/shortcuts.conf"
 
 # Shell shortcuts
 awk '{print "alias g"$1"=\"cd "$2" && exa -l --color=auto --group-directories-first\""}' $SHORTCUTS > $ZSH_SHORTCUTS
@@ -12,7 +15,4 @@ awk '{print "alias g"$1"=\"cd "$2" && exa -l --color=auto --group-directories-fi
 # In this case, be sure to always edit rc_base.conf, and run 'shortcutgen'
 # This is a workaround, because ranger does not allow sourceing external files
 awk '{print "map g"$1" cd "$2""} BEGIN{print "\n# Shortcuts"}' $SHORTCUTS > $RANGER_SHORTCUTS
-cat $HOME/.config/ranger/rc_base.conf $RANGER_SHORTCUTS > $HOME/.config/ranger/rc.conf
-
-# NNN shortcuts
-# printf "export NNN_BMS='$(awk '{print $1":"$2";"}' $SHORTCUTS | tr -d '\n')'" > $NNN_SHORTCUTS
+cat $DOTDIR/.config/ranger/rc_base.conf $RANGER_SHORTCUTS > $DOTDIR/.config/ranger/rc.conf

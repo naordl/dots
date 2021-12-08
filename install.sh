@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## INSTALL BASE-DEVEL GROUP (IF IT IS NOT INSTALLED ALREADY)
+# Install the 'base-devel' group (if it is not installed already)
 sudo pacman -S --needed base-devel
 
-## INSTALL PARU
+# Install the 'paru' AUR helper
 sudo pacman -S --noconfirm --needed git && git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin && cd /tmp/paru-bin && makepkg -si && cd
 
-## ESSENTIALS
+# Essentials
 xorg="xorg-server xorg-xinit"
 gpu="xf86-video-intel"
 wifi="broadcom-wl"
@@ -31,14 +31,14 @@ ESSENTIALS="
     $fonts
     "
 
-## WM
+# WM
 i3="i3-gaps i3blocks sxhkd"
 
 WM="
     $i3
     "
 
-## AESTETHICS
+# Aestethics
 iconfonts="ttf-font-awesome"
 emojifonts="ttf-joypixels"
 icontheme="papirus-icon-theme"
@@ -51,11 +51,11 @@ AESTETHICS="
     $gtktheme
     "
 
-## SOFTWARE
+# Software
 shell="zsh zsh-syntax-highlighting dash dashbinsh" # AUR
 terminal="alacritty"
-# dropdownterminal="tdrop-git" # DOES NOT BUILD FROM AUR
-# launcher="dmenu" # CLONE DMENU BUILD
+#dropdownterminal="tdrop-git" # Does not build from the AUR
+#launcher="dmenu" # Clone dmenu build
 notifications="libnotify dunst"
 browser="brave-bin" # AUR
 calculator="bc"
@@ -68,7 +68,7 @@ mediaplayer="mpv"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
 imageeditor="gimp"
-# webcammanager="guvcview" # SWITCHED TO MPV INSTEAD
+webcammanager="guvcview"
 displaysettings="xorg-xrandr arandr"
 nightlight="sct" # AUR
 printscreen="maim"
@@ -79,7 +79,7 @@ locate="mlocate"
 manuals="man-db man-pages"
 documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-most pandoc sc-im" # AUR
 ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron" # AUR
-# sync="syncthing" # NOT AS USEFUL AS I THOUGHT
+#sync="syncthing" # Not as useful as I thought
 fstools="dosfstools mtools simple-mtpfs ntfs-3g" # AUR
 
 SOFTWARE="
@@ -113,7 +113,7 @@ SOFTWARE="
     $fstools
     "
 
-## MY SCRIPT DEPENDENCIES
+# My script dependencies
 DEPENDENCIES="
     lm_sensors
     xss-lock
@@ -141,7 +141,7 @@ DEPENDENCIES="
     xorg-xinput
     "
 
-## SET UP THE INSTALL COMMAND
+# Set up the install command
 install="paru -Syu --needed
     $ESSENTIALS
     $WM
@@ -150,5 +150,5 @@ install="paru -Syu --needed
     $DEPENDENCIES
     "
 
-## RUN THE INSTALL COMMAND
+# Run the install command
 $install

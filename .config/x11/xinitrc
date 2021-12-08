@@ -3,7 +3,7 @@
 autodisplay # Adjust screen(s)
 autolight & # Adjust nightlight
 autobrightness & # Adjust screen brightness
-xrdb ~/.config/x11/xresources # Load Xresources colors
+xrdb $HOME/.config/x11/xresources # Load Xresources colors
 setbg # Set desktop background
 pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
 pgrep -x startdunst > /dev/null || startdunst & # Notification daemon

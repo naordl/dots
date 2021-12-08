@@ -80,11 +80,11 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.python_history ] || rm -rf ~/.python_history
 
 # Startx
-alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
+alias startx='startx "$HOME/.local/src/dots/.config/x11/xinitrc" -- "$HOME/.local/src/dots/.config/x11/xserverrc" vt1'
 
 # Functions
 # es - edit scripts and config files using fzf
-es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/Repos/{dmenu,st,dwm,dwmblocks} | awk '{print $2}' | fzf --layout=reverse --height=40% | xargs -r $EDITOR ;}
+es() { du -a ~/.zprofile ~/.local/bin/* ~/.config/* ~/.local/* | awk '{print $2}' | fzf --layout=reverse --height=40% | xargs -r $EDITOR ;}
 
 # ranger_cd - cd to current dir upon exiting ranger
 ranger_cd() {
