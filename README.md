@@ -4,7 +4,7 @@
 
 ### Prerequisites
 - Have a base install of Arch Linux ready, along with a user that has `sudo` privileges.
-- Make all the shell scripts executable using the following command: `chmod +x install.sh deploy.sh configure.sh`
+- Make all the relevant shell scripts executable using the following command: `chmod +x install.sh deploy.sh configure.sh`
 - You must place this repository in $HOME/.local/src/, otherwise the scripts will complain.
     * This is done to keep $HOME clean.
 
