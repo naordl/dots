@@ -80,7 +80,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.python_history ] || rm -rf ~/.python_history
 
 # Startx
-alias startx='startx "$HOME/.local/src/dots/.config/x11/xinitrc" -- "$HOME/.local/src/dots/.config/x11/xserverrc" vt1'
+alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
 
 # Functions
 # es - edit scripts and config files using fzf
@@ -92,7 +92,7 @@ ranger_cd() {
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
     if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
         cd -- "$chosen_dir"
-        exa -l --color=auto --group-directories-first
+        #exa -l --color=auto --group-directories-first
     fi
     rm -f -- "$temp_file"
 }
