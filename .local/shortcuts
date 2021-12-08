@@ -2,11 +2,10 @@ h    ~
 c    ~/.config
 s    ~/.local/bin
 .    ~/.local/src/dots
-u    ~/Documents/Uni
-d    ~/Documents
-D    ~/Downloads
-m    ~/Music
-p    ~/Pictures
-v    ~/Videos
-w    ~/Pictures/Wallpapers
+u    ~/dox/Uni
+d    ~/dox
+m    ~/mus
+p    ~/pix
+v    ~/vids
+w    ~/pix/Wallpapers
 W    /mnt/windows/Users/Roland
