@@ -111,7 +111,7 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " Edit config
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 " Edit todo list
-nnoremap <leader>td :e ~/Documents/Notes/raw/todo.md<CR>
+nnoremap <leader>td :e ~/dox/Notes/raw/todo.md<CR>
 
 " GOYO
 " Toggle
@@ -205,8 +205,8 @@ autocmd BufWritePost ~/.local/shortcuts !shortcutgen
 " Update rc.conf when writing to rc_base.conf
 autocmd BufWritePost ~/.config/ranger/rc_base.conf !shortcutgen
 " Compile suckless programs when writing to their header files
-autocmd BufWritePost ~/Repos/dwm/config.h !cd ~/Repos/dwm/ && sudo make clean install
-autocmd BufWritePost ~/Repos/dmenu/config.h !cd ~/Repos/dmenu/ && sudo make clean install
-autocmd BufWritePost ~/Repos/st/config.h !cd ~/Repos/st/ && sudo make clean install
-autocmd BufWritePost ~/Repos/slock/config.h !cd ~/Repos/slock/ && sudo make clean install
-autocmd BufWritePost ~/Repos/dwmblocks/blocks.h !cd ~/Repos/dwmblocks/ && sudo make clean install && killall -q dwmblocks; setsid -f dwmblocks &
+autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/ && sudo make clean install
+autocmd BufWritePost ~/.local/src/dmenu/config.h !cd ~/.local/src/dmenu/ && sudo make clean install
+autocmd BufWritePost ~/.local/src/st/config.h !cd ~/.local/src/st/ && sudo make clean install
+autocmd BufWritePost ~/.local/src/slock/config.h !cd ~/.local/src/slock/ && sudo make clean install
+autocmd BufWritePost ~/.local/src/dwmblocks/blocks.h !cd ~/.local/src/dwmblocks/ && sudo make clean install && killall -q dwmblocks; setsid -f dwmblocks &

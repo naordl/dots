@@ -20,7 +20,8 @@ clr_journals() { \
     sudo journalctl --vacuum-time=2weeks
 	}
 up_mirrors() { \
-    sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    #sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+    sudo reflector --verbose -c Romania -a 12 -p https --sort rate --save /etc/pacman.d/mirrorlist
 	}
 
 clr_cache
