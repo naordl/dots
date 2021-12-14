@@ -66,5 +66,5 @@ fi
 
 # Done
 tput setaf 2; printf "Successfully finished deploying dotfiles. Reboot for the changes to fully take effect.\n"; tput sgr0
-tput setaf 2; printf "The 'configure' script changes the shell, starts systemd services etc.\n"; tput sgr0
+tput setaf 2; printf "The 'configure.sh' script changes the shell, starts systemd services etc.\n"; tput sgr0
 tput setaf 2; printf "Consider running it if this is a fresh installation.\n"; tput sgr0
