@@ -190,12 +190,12 @@ autocmd BufWritePre * %s/\s\+$//e
 " Always treat *.md as markdown
 autocmd BufEnter,BufRead,BufNewFile *.md set filetype=markdown
 " Header colors for markdown
-autocmd FileType markdown highlight htmlH1 cterm=none ctermfg=red
-autocmd FileType markdown highlight htmlH2 cterm=none ctermfg=lightgreen
-autocmd FileType markdown highlight htmlH3 cterm=none ctermfg=lightblue
-autocmd FileType markdown highlight htmlH4 cterm=none ctermfg=brown
-autocmd FileType markdown highlight htmlH5 cterm=none ctermfg=yellow
-autocmd FileType markdown highlight htmlH6 cterm=none ctermfg=darkgrey
+" autocmd FileType markdown highlight htmlH1 cterm=none ctermfg=red
+" autocmd FileType markdown highlight htmlH2 cterm=none ctermfg=lightgreen
+" autocmd FileType markdown highlight htmlH3 cterm=none ctermfg=lightblue
+" autocmd FileType markdown highlight htmlH4 cterm=none ctermfg=brown
+" autocmd FileType markdown highlight htmlH5 cterm=none ctermfg=yellow
+" autocmd FileType markdown highlight htmlH6 cterm=none ctermfg=darkgrey
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc
