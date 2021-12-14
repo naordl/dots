@@ -1,6 +1,7 @@
 h    ~
 c    ~/.config
-s    ~/.local/bin
+b    ~/.local/bin
+s    ~/.local/src
 .    ~/.local/src/dots
 u    ~/dox/Uni
 d    ~/dox

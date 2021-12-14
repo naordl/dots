@@ -1,6 +1,7 @@
 alias gh="cd ~ && exa -l --color=auto --group-directories-first"
 alias gc="cd ~/.config && exa -l --color=auto --group-directories-first"
-alias gs="cd ~/.local/bin && exa -l --color=auto --group-directories-first"
+alias gb="cd ~/.local/bin && exa -l --color=auto --group-directories-first"
+alias gs="cd ~/.local/src && exa -l --color=auto --group-directories-first"
 alias g.="cd ~/.local/src/dots && exa -l --color=auto --group-directories-first"
 alias gu="cd ~/dox/Uni && exa -l --color=auto --group-directories-first"
 alias gd="cd ~/dox && exa -l --color=auto --group-directories-first"

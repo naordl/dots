@@ -117,9 +117,9 @@ bindkey -s '^G' 'locate_with_fzf\n'
 
 # Aliases
 alias pac='sudo pacman'
-# alias ls='ls -hN --color=auto --group-directories-first'
-alias ls='exa -l --color=auto --group-directories-first'
-alias la='exa -la --color=auto --group-directories-first'
+#alias ls='ls -hN --color=auto --group-directories-first'
+alias ls='exa --icons --color=auto --group-directories-first'
+alias la='exa -la --icons --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias cp='cp -rv'

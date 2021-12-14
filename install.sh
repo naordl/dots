@@ -16,7 +16,7 @@ webcam="linux-headers v4l2loopback-dkms" # FIXES WEBCAM RANDOMLY NOT WORKING
 batterysaver="tlp powertop"
 bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR
 backlight="acpilight"
-fonts="ttf-dejavu terminus-font"
+fonts="ttf-dejavu terminus-font nerd-fonts-dejavu-complete" # AUR
 
 ESSENTIALS="
     $xorg
