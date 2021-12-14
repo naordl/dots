@@ -3,7 +3,7 @@
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
@@ -22,6 +22,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export XAUTHORITY="$XDG_CONFIG_HOME"/x11/xauthority
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export XINITRC="$XDG_CONFIG_HOME"/x11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/x11/xserverrc
 export GIT_CONFIG="$XDG_CONFIG_HOME"/git/config
