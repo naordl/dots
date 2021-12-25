@@ -148,6 +148,10 @@ super + v
 super + Delete
     togglecompositor
 
+# Toggle do not disturb mode
+super + shift + Delete
+    dnd
+
 # Colorscheme switcher menu
 super + shift + o
     colorswitcher

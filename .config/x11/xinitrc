@@ -8,11 +8,11 @@ setbg # Set desktop background
 pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
 pgrep -x startdunst > /dev/null || startdunst & # Notification daemon
 pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
-# pgrep -x mpd > /dev/null || mpd & # Music player daemon
-# xset s 600 # Lockscreen timeout
-# pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen & # Lock the screen upon idle
+#pgrep -x mpd > /dev/null || mpd & # Music player daemon
+#xset s 600 # Lockscreen timeout
+#pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen & # Lock the screen upon idle
 setxkbmap hu # Change keyboard layout to Hungarian
-setxkbmap -option caps:swapescape & # Swap Caps with Escape
+setxkbmap -option caps:swapescape & # Swap Capslock with Escape
 sudo modprobe v4l2loopback & # Fix webcam behavior
 
 pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon

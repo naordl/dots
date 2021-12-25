@@ -2,6 +2,11 @@
 
 # Specify dummy $HOME
 # This is done to let Steam dump its garbage outside of our $HOME
+# First we make sure the folder exists...
+steam_data_dir="$HOME/.local/share/steam"
+[ ! -f "$steam_data_dir" ] && mkdir "$steam_data_dir"
+
+# Set dummy $HOME
 HOME=$HOME/.local/share/steam
 
 # Start Steam using the dummy $HOME

@@ -1,28 +1,31 @@
 #!/bin/sh
 
 # Test for batteries
-BATTERY=$(du -h /sys/class/power_supply/* | grep "BAT*")
+battery=$(du -h /sys/class/power_supply/* | grep "BAT*")
 
 # Exit if there are no batteries
-if [ -z "$BATTERY" ]; then
+if [ -z "$battery" ]; then
+    printf "No batteries found.\n"
     exit 0
 fi
 
 # Get battery status and capacity
-STATUS=$(cat /sys/class/power_supply/BAT0/status)
-CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 
 # Choose an icon based on power state
-if [ "$STATUS" = "Charging" ]; then
-    ICON=""
-elif [ "$STATUS" = "Discharging" ]; then
-    ICON=""
-elif [ "$STATUS" = "Not charging" ]; then
-    ICON=""
+if [ "$status" = "Charging" ]; then
+    icon=""
+elif [ "$status" = "Discharging" ]; then
+    icon=""
+elif [ "$status" = "Not charging" ]; then
+    icon=""
 fi
 
-# Send a warning notification if below 30%
-[ "$CAPACITY" -lt 30 -a "$STATUS" = "Discharging" ] && notify-send -u critical "BATTERY LOW!"
+# Send a warning notification if below set threshold
+if [ "$capacity" -lt 15 -a "$status" = "Discharging" ]; then
+    notify-send -u critical "BATTERY LOW!"
+fi
 
 # Print result
-printf "$ICON $CAPACITY%%\n"
+printf "$icon $capacity%%\n"

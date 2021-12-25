@@ -4,6 +4,10 @@ compositor="xcompmgr"
 
 if [ -z "$(pidof $compositor)" ]; then
     setsid -f $compositor
+    printf "Enabling compositor...\n"
+    notify-send "Compositor" "Enabled"
 else
     killall $compositor
+    printf "Disabling compositor...\n"
+    notify-send "Compositor" "Disabled"
 fi

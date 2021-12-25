@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Dependencies: acpi
+
+# Test for batteries
+battery=$(du -h /sys/class/power_supply/* | grep "BAT*")
+
+# Exit if there are no batteries
+if [ -z "$battery" ]; then
+    printf "No batteries found.\n"
+    exit 0
+fi
+
+# Base
+acpi | \
+    # Remove unnecessary info
+    cut -d " " -f3-5 | \
+    # Remove separator commas and unnecessary zeros and
+    # replace text with icons based on state
+    sed " \
+    s/,//g; \
+    s/ 0*/ /g; \
+    s/ :/ /g; \
+    s/Discharging//; \
+    s/Charging//; \
+    s/Full//; \
+    s/Unknown//; \
+    "
+
