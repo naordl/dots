@@ -24,13 +24,13 @@ else
 fi
 
 # Create user directories
-mkdir -pv $HOME/{'dox','mus','pix','vids','.local','.config'}
+mkdir -pv $HOME/{'Documents','Music','Pictures','Videos','.local','.config'}
 xdg-user-dirs-update
 
 # Clone more repos
 clone_wallpapers() { \
     git clone https://github.com/demo2k20/wallpapers.git $SOURCEDIR/wallpapers
-    ln -srv $SOURCEDIR/wallpapers $HOME/pix/Wallpapers
+    ln -srv $SOURCEDIR/wallpapers $HOME/Pictures/Wallpapers
 }
 
 clone_themes() { \

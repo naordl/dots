@@ -23,6 +23,7 @@ acpi | \
     s/ :/ /g; \
     s/Discharging//; \
     s/Charging//; \
+    s/Not charging//; \
     s/Full//; \
     s/Unknown//; \
     "

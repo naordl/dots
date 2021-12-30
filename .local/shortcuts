@@ -3,10 +3,10 @@ c    ~/.config
 b    ~/.local/bin
 s    ~/.local/src
 .    ~/.local/src/dots
-u    ~/dox/Uni
-d    ~/dox
-m    ~/mus
-p    ~/pix
-v    ~/vids
-w    ~/pix/Wallpapers
+u    ~/Documents/Uni
+d    ~/Documents
+m    ~/Music
+p    ~/Pictures
+v    ~/Videos
+w    ~/Pictures/Wallpapers
 W    /mnt/windows/Users/Roland

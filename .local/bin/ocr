@@ -12,7 +12,7 @@ STATUS=$?
 
 # Convert the screenshot to text using tesseract
 TEXT="/tmp/ocr"
-tesseract "$IMAGE" "$TEXT"
+tesseract -l hun "$IMAGE" "$TEXT"
 
 # Delete newline characters
 sed -i 's/\x0c//' "$TEXT.txt"

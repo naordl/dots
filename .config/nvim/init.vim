@@ -111,7 +111,7 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
 " Edit config
 nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 " Edit todo list
-nnoremap <leader>td :e ~/dox/Notes/raw/todo.md<CR>
+nnoremap <leader>td :e ~/Documents/Notes/raw/todo.md<CR>
 
 " GOYO
 " Toggle

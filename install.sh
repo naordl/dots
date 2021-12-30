@@ -77,7 +77,8 @@ pdfviewer="zathura zathura-pdf-poppler"
 unclutter="unclutter"
 locate="mlocate"
 manuals="man-db man-pages"
-documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-most pandoc sc-im" # AUR
+documents="libreoffice hunspell-en_us hunspell-hu hunspell-ro texlive-most pandoc" # AUR
+spreadsheets="libxlsxwriter sc-im-git" # AUR
 ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron" # AUR
 #sync="syncthing" # Not as useful as I thought
 fstools="dosfstools mtools simple-mtpfs ntfs-3g" # AUR
@@ -108,6 +109,7 @@ SOFTWARE="
     $locate
     $manuals
     $documents
+    $spreadsheets
     $ocr
     $sync
     $fstools
