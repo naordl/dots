@@ -148,10 +148,6 @@ super + v
 super + Delete
     togglecompositor
 
-# Toggle do not disturb mode
-super + shift + Delete
-    dnd
-
 # Colorscheme switcher menu
 super + shift + o
     colorswitcher
@@ -171,10 +167,6 @@ super + shift + F12
 # USB mounter
 super + F4
     dmount
-
-# USB unmounter
-super + shift + F4
-    dumount
 
 # Emoji menu
 super + shift + F1
