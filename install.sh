@@ -7,7 +7,6 @@ sudo pacman -S --needed base-devel
 sudo pacman -S --noconfirm --needed git && git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin && cd /tmp/paru-bin && makepkg -si && cd
 
 # Essentials
-su="opendoas"
 xorg="xorg-server xorg-xinit"
 gpu="xf86-video-intel"
 wifi="broadcom-wl"
@@ -20,7 +19,6 @@ backlight="acpilight"
 fonts="ttf-dejavu terminus-font nerd-fonts-dejavu-complete" # AUR
 
 ESSENTIALS="
-    $su
     $xorg
     $gpu
     $wifi
