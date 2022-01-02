@@ -116,6 +116,7 @@ locate_with_fzf() {
 bindkey -s '^G' 'locate_with_fzf\n'
 
 # Aliases
+alias sudo='doas'
 alias pac='sudo pacman'
 #alias ls='ls -hN --color=auto --group-directories-first'
 alias ls='exa --icons --color=auto --group-directories-first'
