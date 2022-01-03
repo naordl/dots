@@ -82,6 +82,7 @@ spreadsheets="libxlsxwriter sc-im-git" # AUR
 ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron" # AUR
 #sync="syncthing" # Not as useful as I thought
 fstools="dosfstools mtools simple-mtpfs ntfs-3g" # AUR
+java="liberica-jdk-8-full-bin" # AUR
 
 SOFTWARE="
     $shell
@@ -133,7 +134,7 @@ DEPENDENCIES="
     rsync
     reflector
     i3lock
-    youtube-dl
+    yt-dlp
     pamixer
     xdg-user-dirs
     xorg-xrdb
