@@ -1,0 +1,82 @@
+#!/bin/sh
+
+# Dependencies: transmission-cli
+
+# Start the daemon if it's not already running
+state=$(pidof transmission-daemon)
+if [ -z "$state" ]; then
+    printf "Starting Transmission daemon.\n"
+    transmission-daemon
+fi
+
+# Print help if there are no arguments
+script_name=$(basename -- "$0")
+if [ -z "$1" ]; then
+    printf "OPTIONS:\n"
+    printf "  "$script_name" add \"...\"\n"
+    printf "    Adds a torrent to the queue.\n\n"
+    printf "  "$script_name" list\n"
+    printf "    Lists the queue.\n\n"
+    printf "  "$script_name" start\n"
+    printf "    Starts a (stopped/paused) torrent in the queue.\n\n"
+    printf "  "$script_name" stop\n"
+    printf "    Starts a (downloading) torrent in the queue.\n\n"
+    printf "  "$script_name" remove\n"
+    printf "    Removes a torrent from the queue.\n\n"
+    printf "  "$script_name" purge\n"
+    printf "    Purges a torrent from the queue and local data from the hard drive.\n\n"
+    printf "  "$script_name" watch\n"
+    printf "    Refreshes the torrent queue every second.\n\n"
+    printf "  "$script_name" web\n"
+    printf "    Launches web interface.\n\n"
+fi
+
+# Add
+if [ "$1" = "add" -a ! -z "$2" ]; then
+    printf "Adding torrent.\n"
+    transmission-remote --add "$2"
+
+# List
+elif [ "$1" = "list" ]; then
+    transmission-remote --list
+
+# Start
+elif [ "$1" = "start" ]; then
+    transmission-remote --list
+    printf "Start which torrent(s)? (Comma separated list.)\n"
+    printf "ID: "
+    read input
+    transmission-remote --torrent "$input" --start
+
+# Stop
+elif [ "$1" = "stop" ]; then
+    transmission-remote --list
+    printf "Stop which torrent(s)? (Comma separated list.)\n"
+    printf "ID: "
+    read input
+    transmission-remote --torrent "$input" --stop
+
+# Remove
+elif [ "$1" = "remove" ]; then
+    transmission-remote --list
+    printf "Remove which torrent(s)? (Comma separated list.)\n"
+    printf "ID: "
+    read input
+    transmission-remote --torrent "$input" --remove
+
+# Purge
+elif [ "$1" = "purge" ]; then
+    transmission-remote --list
+    printf "Purge which torrent(s)? (Comma separated list.)\n"
+    printf "ID: "
+    read input
+    transmission-remote --torrent "$input" --remove-and-delete
+
+# Watch
+elif [ "$1" = "watch" ]; then
+    watch -n1 transmission-remote --list
+
+# Web interface
+elif [ "$1" = "web" ]; then
+    setsid -f $BROWSER "http://localhost:9091/transmission/web/" >/dev/null 2>&1
+fi
