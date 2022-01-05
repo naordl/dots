@@ -13,6 +13,7 @@ pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
 #pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen & # Lock the screen upon idle
 setxkbmap hu # Change keyboard layout to Hungarian
 setxkbmap -option caps:swapescape & # Swap Capslock with Escape
+transmission-daemon & # Start torrent daemon
 sudo modprobe v4l2loopback & # Fix webcam behavior
 
 pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon

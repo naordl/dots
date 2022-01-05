@@ -80,3 +80,6 @@ elif [ "$1" = "watch" ]; then
 elif [ "$1" = "web" ]; then
     setsid -f $BROWSER "http://localhost:9091/transmission/web/" >/dev/null 2>&1
 fi
+
+# Refresh status bar blocklet
+sleep 15 && pkill -SIGRTMIN+6 dwmblocks || pkill -SIGRTMIN+6 i3blocks &

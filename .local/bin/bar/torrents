@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Dependencies: transmission-cli
+# Statuses: idle, up & down, downloading, stopped, uploading, seeding
+
+# Exit if transmission-daemon is not running
+state=$(pidof transmission-daemon)
+if [ -z "$state" ]; then
+    exit
+fi
+
+# Exit if there are no torrents in the queue
+# Else, print statuses
+number_of_torrents=$(transmission-remote --list | sed '1d;$d' | wc -l)
+if [ -z "$number_of_torrents" ]; then
+    exit
+else
+    number_of_downloading=$(transmission-remote --list | grep -i -c "downloading")
+    number_of_uploading=$(transmission-remote --list | grep -i -c "uploading")
+    number_of_updown=$(transmission-remote --list | grep -i -c "up & down")
+    number_of_seeding=$(transmission-remote --list | grep -i -c "seeding")
+    number_of_idle=$(transmission-remote --list | grep -i -c "idle")
+    number_of_stopped=$(transmission-remote --list | grep -i -c "stopped")
+    printf " $number_of_downloading  $number_of_uploading  $number_of_updown  $number_of_seeding  $number_of_idle  $number_of_stopped\n"
+fi
