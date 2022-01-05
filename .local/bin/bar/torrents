@@ -3,6 +3,11 @@
 # Dependencies: transmission-cli
 # Statuses: idle, up & down, downloading, stopped, uploading, seeding
 
+# Mouse actions
+case $BLOCK_BUTTON in
+    1) setsid -f $BROWSER http://localhost:9091/transmission/web/ ;;
+esac
+
 # Exit if transmission-daemon is not running
 state=$(pidof transmission-daemon)
 if [ -z "$state" ]; then
