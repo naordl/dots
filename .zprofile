@@ -3,7 +3,7 @@
 # Default programs
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL='"st" -g 125x25'
+export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
