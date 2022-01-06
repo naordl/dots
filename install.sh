@@ -54,7 +54,7 @@ AESTETHICS="
 # Software
 shell="zsh zsh-syntax-highlighting dash dashbinsh" # AUR
 terminal="alacritty"
-#dropdownterminal="tdrop-git" # Does not build from the AUR
+dropdownterminal="tdrop"
 #launcher="dmenu" # Clone dmenu build
 notifications="libnotify dunst"
 browser="brave-bin" # AUR
