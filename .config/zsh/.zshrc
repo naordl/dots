@@ -1,16 +1,5 @@
 # ~/.config/zsh/.zshrc
 
-# Print newline after every command
-#function precmd() {
-#    # Print a newline before the prompt, unless it's the
-#    # first prompt in the process.
-#    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
-#        NEW_LINE_BEFORE_PROMPT=1
-#    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
-#        printf "\n"
-#    fi
-#}
-
 # Prompt
 PROMPT="%F{red}[%f%B%F{3}%n%f%b%F{10}@%f%F{14}%m%f %F{13}%~%f%F{red}]%f$ "
 unsetopt prompt_cr prompt_sp
@@ -73,14 +62,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
-[ -f ~/.zoom ] || rm -rf ~/.zoom
 [ -f ~/.mono ] || rm -rf ~/.mono
 [ -f ~/.scim ] || rm -rf ~/.scim
 [ -f ~/.bash_history ] || rm -rf ~/.bash_history
 [ -f ~/.python_history ] || rm -rf ~/.python_history
-
-# Startx
-alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
 
 # Functions
 # es - edit scripts and config files using fzf
@@ -114,6 +99,9 @@ locate_with_fzf() {
     cd $HOME && cd "$(locate home | fzf -e -i --preview="tree -L 1 {}" --preview-window=:nohidden)" && echo "$PWD" && tree -L 2
 }
 bindkey -s '^G' 'locate_with_fzf\n'
+
+# Startx
+alias startx='startx "$XDG_CONFIG_HOME/x11/xinitrc" -- "$XDG_CONFIG_HOME/x11/xserverrc" vt1'
 
 # Aliases
 alias pac='sudo pacman'

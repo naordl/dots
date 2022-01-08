@@ -18,7 +18,7 @@ fi
 # Else, print statuses
 list=$(transmission-remote --list)
 number_of_torrents=$(echo "$list" | sed '1d;$d' | wc -l)
-if [ -z "$number_of_torrents" ]; then
+if [ "$number_of_torrents" = "0" ]; then
     exit
 else
     number_of_downloading=$(echo "$list" | grep -i -c "downloading")
