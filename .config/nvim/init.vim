@@ -98,7 +98,7 @@ let g:netrw_dirhistmax = 0
 highlight clear StatusLine
 set laststatus=0
 set noruler
-set noshowcmd
+set showcmd
 set showmode
 
 " REMAPS

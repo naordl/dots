@@ -58,7 +58,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
-# Delete junk
+# BEGONE
 [ -f ~/.pki ] || rm -rf ~/.pki
 [ -f ~/.icons ] || rm -rf ~/.icons
 [ -f ~/.java ] || rm -rf ~/.java
@@ -110,6 +110,7 @@ alias ls='exa --icons --color=auto --group-directories-first'
 alias la='exa -la --icons --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias df='df -h'
 alias cp='cp -rv'
 alias rm='rm -rv'
 alias mkd='mkdir -pv'
@@ -125,6 +126,9 @@ alias gengrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias gacp='git add . && git commit -m 'Autocommit.' && git push'
 alias b='find $HOME/Pictures/Wallpapers/ -name "*jpg" -o -name "*png" | shuf | sxiv -it >/dev/null 2>&1'
 alias t='tmux new-session -A -s main'
+alias pdf90='pdfjam --landscape --angle 90'
+alias pdf270='pdfjam --landscape --angle 270'
+alias pdf180='pdfjam --angle 180'
 
 # Shell shortcuts
 [ "$(whoami)" != "root" ] && source ~/.config/zsh/shortcutrc

@@ -4,8 +4,8 @@ super + Return
     $TERMINAL
 
 # Floating terminal
-# super + shift + Return
-#     $TERMINAL -t floatterm
+#super + shift + Return
+#    $TERMINAL -t floatterm
 
 # Dropdown terminal
 super + shift + Return
@@ -14,7 +14,6 @@ super + shift + Return
 # Program launcher
 super + d
     dmenu_run -i -p "Run"
-#   rofi -m -4 -show run
 
 
 ## --- Multimedia keys --- ##
@@ -23,7 +22,6 @@ XF86MonBrightnessUp
     brightness up
 XF86MonBrightnessDown
     brightness down
-
 super + alt + {button4,Up}
     brightness up
 super + alt + {button5,Down}
@@ -36,17 +34,10 @@ XF86AudioLowerVolume
     volume down
 XF86AudioMute
     volume toggle
-
 super + shift + {button4,Up}
     volume up
 super + shift + {button5,Down}
     volume down
-
-# Audio controls (mpc)
-super + control + shift + Up
-    mpc volume +5
-super + control + shift + Down
-    mpc volume -5
 
 # Media controls
 XF86AudioPlay
@@ -56,15 +47,7 @@ XF86XK_AudioNext
 XF86XK_AudioPrev
     playerctl previous
 
-# Media controls (mpc)
-super + XF86AudioPlay
-    mpc toggle
-super + XF86XK_AudioNext
-    mpc next
-super + XF86XK_AudioPrev
-    mpc prev
-
-# Touchpad Toggle
+# Toggle touchpad
 XF86TouchpadToggle
     toggletouchpad
 
@@ -92,7 +75,7 @@ alt + Print
 super + w
     $BROWSER
 
-# Incognito Browser
+# Incognito browser
 super + shift + w
     $BROWSER --incognito
 
@@ -125,9 +108,9 @@ super + shift + p
 super + m
     $TERMINAL -t ncmpcpp -e ncmpcpp -q
 
-# Notes
-super + n
-    $TERMINAL -t vimwiki -e $EDITOR ~/Documents/Notes/raw/todo.md
+# Mail client
+super + shift + m
+    $TERMINAL -t neomutt -e neomutt
 
 # Calculator
 super + c
@@ -138,7 +121,7 @@ super + c
 super + shift + c
     $TERMINAL -t calcurse -e calcurse
 
-# VM manager
+# Virtual machine manager
 super + v
     virt-manager
 
@@ -151,10 +134,6 @@ super + Delete
 # Colorscheme switcher menu
 super + shift + o
     colorswitcher
-
-# Phoneme selector menu
-super + shift + y
-    phonemesel
 
 # Bookmark menu
 super + b

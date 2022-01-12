@@ -31,10 +31,10 @@ set_from_resource $selbackground  selbackground #000000
 set_from_resource $selforeground  selforeground #000000
 
 #                       BORDER            BACKGROUND        TEXT             INDICATOR     CHILD_BORDER
-client.focused          $selbackground    $selbackground    $selforeground   $darkred      $darkred
-client.unfocused        $background       $background       $foreground      $background
-client.focused_inactive $background       $background       $foreground      $background   $background
-client.urgent           $darkred          $darkred          $black           $darkred      $darkred
+client.focused          $selbackground    $selbackground    $selforeground   $white      $darkred
+client.unfocused        $background       $background       $foreground      $white
+client.focused_inactive $background       $background       $foreground      $white   $background
+client.urgent           $darkred          $darkred          $black           $white      $darkred
 client.background       $background
 
 bindsym $mod+q kill
@@ -120,9 +120,9 @@ bindsym $mod+shift+Escape exit
 bindsym $mod+Shift+i $exec "i3-msg bar mode toggle"
 
 gaps inner 8
-gaps outer 8
+gaps outer 16
 #smart_gaps on
-#smart_borders on
+smart_borders on
 
 new_window pixel 1
 new_float pixel 1
