@@ -16,6 +16,6 @@ setxkbmap -option caps:swapescape & # Swap Capslock with Escape
 transmission-daemon & # Start torrent daemon
 sudo modprobe v4l2loopback & # Fix webcam behavior
 
-pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon
+#pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon
 pgrep -x dwmblocks > /dev/null || dwmblocks & # Status bar
 startdwm # Window manager

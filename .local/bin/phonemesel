@@ -5,32 +5,32 @@
 
 # Specify list of phonemes and romanji counterparts for easy selection
 PHONEMES="\
-/ʌ/ a
-/ɑ:/ a
-/æ/ a
-/ɜ:/ ö/ő
-/ə/ ö/ő
-/ɪ/ i
-/i:/ i
-/ɒ/ o
-/ɔ:/ o
-/ʊ/ u
-/u:/ u
-/aɪ/ ai
-/aʊ/ au
-/eɪ/ ei
-/oʊ/ ou
-/ɔɪ/ oi
-/eə/ ea
-/ɪə/ ia
-/ʊə/ ua
-/ŋ/ n
-/ʃ/ s
-/tʃ/ cs
-/θ/ th
-/ð/ th
-/ʒ/ zs
-/dʒ/ dzs
+[ʌ] a
+[ɑ:] a
+[æ] a
+[ɜ:] ö/ő
+[ə] ö/ő
+[ɪ] i
+[i:] i
+[ɒ] o
+[ɔ:] o
+[ʊ] u
+[u:] u
+[aɪ] ai
+[aʊ] au
+[eɪ] ei
+[oʊ] ou
+[ɔɪ] oi
+[eə] ea
+[ɪə] ia
+[ʊə] ua
+[ŋ] n
+[ʃ] s
+[tʃ] cs
+[θ] th
+[ð] th
+[ʒ] zs
+[dʒ] dzs
 "
 
 # Prompt the user for a choice, and copy the selected phoneme to clipboard

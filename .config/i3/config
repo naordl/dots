@@ -128,7 +128,7 @@ new_window pixel 1
 new_float pixel 1
 
 hide_edge_borders none
-default_border pixel 2
+default_border pixel 3
 
 assign [class="discord"] $ws9
 assign [class="Element"] $ws8

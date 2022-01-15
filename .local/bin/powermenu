@@ -8,7 +8,7 @@ case "$CHOICE" in
     Lock)
         loginctl lock-session ;;
     Logout)
-        i3-msg exit || killall xinit ;;
+        killall xinit ;;
     Shutdown)
         systemctl poweroff ;;
     Reboot)

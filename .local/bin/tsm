@@ -82,4 +82,4 @@ elif [ "$1" = "web" ]; then
 fi
 
 # Refresh status bar blocklet
-sleep 15 && pkill -SIGRTMIN+6 dwmblocks || pkill -SIGRTMIN+6 i3blocks &
+sleep 15 && kill -39 $(pidof dwmblocks) &

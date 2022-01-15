@@ -4,6 +4,7 @@ b    ~/.local/bin
 s    ~/.local/src
 .    ~/.local/src/dots
 u    ~/Documents/Uni
+n    ~/Documents/Notes
 d    ~/Documents
 m    ~/Music
 p    ~/Pictures

@@ -6,7 +6,7 @@
 # This thing can probably be rewritten with a case statement
 
 UPDATE_BLOCK() { \
-    pkill -SIGRTMIN+5 dwmblocks || pkill -SIGRTMIN+5 i3blocks
+    kill -38 $(pidof dwmblocks)
 	}
 
 # Check for general networking state

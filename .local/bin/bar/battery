@@ -5,9 +5,17 @@ battery=$(du -h /sys/class/power_supply/* | grep "BAT*")
 
 # Exit if there are no batteries
 if [ -z "$battery" ]; then
-    printf "No batteries found.\n"
-    exit 0
+    exit
 fi
+
+# Mouse actions
+# Change brightness by clicking/scrolling
+case $BLOCK_BUTTON in
+    1) xbacklight -set 60 ;;
+    3) xbacklight -set 20 ;;
+    4) xbacklight -inc 10 ;;
+    5) xbacklight -dec 10 ;;
+esac
 
 # Get battery status and capacity
 status=$(cat /sys/class/power_supply/BAT0/status)
@@ -22,8 +30,8 @@ elif [ "$status" = "Not charging" ]; then
     icon=""
 fi
 
-# Send a warning notification if below set threshold
-if [ "$capacity" -lt 15 -a "$status" = "Discharging" ]; then
+# Send a warning notification if below set threshold and discharging
+if [ "$capacity" -lt 10 -a "$status" = "Discharging" ]; then
     notify-send -u critical "BATTERY LOW!"
 fi
 

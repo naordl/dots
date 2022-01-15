@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Dependencies: maim, xclip, xdotool
+
+# Print entire screen
+if [ "$1" = "--printscreen" ]; then
+    maim -o -u /tmp/printscreen.png; xclip -selection clipboard -t image/png < /tmp/printscreen.png
+# Select area
+elif [ "$1" = "--snipscreen" ]; then
+    maim -o -u -s /tmp/snippet.png; xclip -selection clipboard -t image/png < /tmp/snippet.png
+# Print active window
+elif [ "$1" = "--snipactive" ]; then
+    maim -o -u -i $(xdotool getactivewindow) > /tmp/windowsnippet.png ; xclip -selection clipboard -t image/png < /tmp/windowsnippet.png
+else
+    printf "Don't know what to do...\n"
+    printf "Exiting...\n"
+    exit 1
+fi
