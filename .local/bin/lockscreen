@@ -7,7 +7,7 @@ maim /tmp/lockscreen.png
 
 # Modify it
 convert /tmp/lockscreen.png -blur 0x4 /tmp/lockscreen.png
-# convert /tmp/lockscreen.png -paint 1 -swirl 360 /tmp/lockscreen.png
+#convert /tmp/lockscreen.png -paint 1 -swirl 360 /tmp/lockscreen.png
 
 # Disable notifications before locking the screen
 pkill -u "$USER" -USR1 dunst &
@@ -15,7 +15,7 @@ pkill -u "$USER" -USR1 dunst &
 # Kill compositor before locking the screen
 killall xcompmgr &
 
-# Lock the screen with i3lock
+# Lock the screen
 i3lock -n -e -f -i /tmp/lockscreen.png
 
 # Enable notifications after unlocking

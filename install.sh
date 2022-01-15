@@ -54,7 +54,6 @@ AESTETHICS="
 # Software
 shell="zsh zsh-syntax-highlighting dash dashbinsh" # AUR
 terminal="alacritty"
-dropdownterminal="tdrop"
 #launcher="dmenu" # Clone dmenu build
 notifications="libnotify dunst"
 browser="brave-bin" # AUR
@@ -87,7 +86,6 @@ java="liberica-jdk-8-full-bin" # AUR
 SOFTWARE="
     $shell
     $terminal
-    $dropdownterminal
     $launcher
     $notifications
     $browser
