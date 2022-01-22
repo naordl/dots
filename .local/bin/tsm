@@ -35,10 +35,12 @@ fi
 if [ "$1" = "add" -a ! -z "$2" ]; then
     printf "Adding torrent.\n"
     transmission-remote --add "$2"
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # List
 elif [ "$1" = "list" ]; then
     transmission-remote --list
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Start
 elif [ "$1" = "start" ]; then
@@ -47,6 +49,7 @@ elif [ "$1" = "start" ]; then
     printf "ID: "
     read input
     transmission-remote --torrent "$input" --start
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Stop
 elif [ "$1" = "stop" ]; then
@@ -55,6 +58,7 @@ elif [ "$1" = "stop" ]; then
     printf "ID: "
     read input
     transmission-remote --torrent "$input" --stop
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Remove
 elif [ "$1" = "remove" ]; then
@@ -63,6 +67,7 @@ elif [ "$1" = "remove" ]; then
     printf "ID: "
     read input
     transmission-remote --torrent "$input" --remove
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Purge
 elif [ "$1" = "purge" ]; then
@@ -71,15 +76,19 @@ elif [ "$1" = "purge" ]; then
     printf "ID: "
     read input
     transmission-remote --torrent "$input" --remove-and-delete
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Watch
 elif [ "$1" = "watch" ]; then
     watch -n1 transmission-remote --list
+    sleep 5 && kill -39 $(pidof dwmblocks) &
 
 # Web interface
 elif [ "$1" = "web" ]; then
     setsid -f $BROWSER "http://localhost:9091/transmission/web/" >/dev/null 2>&1
+    sleep 5 && kill -39 $(pidof dwmblocks) &
+
 fi
 
 # Refresh status bar blocklet
-sleep 15 && kill -39 $(pidof dwmblocks) &
+sleep 20 && kill -39 $(pidof dwmblocks) &

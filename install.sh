@@ -12,7 +12,7 @@ gpu="xf86-video-intel"
 wifi="broadcom-wl"
 audio="pulseaudio pulseaudio-alsa"
 touchpad="libinput"
-webcam="linux-headers v4l2loopback-dkms" # FIXES WEBCAM RANDOMLY NOT WORKING
+webcam="linux-headers v4l2loopback-dkms" # Fixes webcam randomly not working
 batterysaver="tlp powertop"
 bluetooth="bluez bluez-utils bcm43142a0-firmware" # AUR
 backlight="acpilight"
@@ -32,7 +32,8 @@ ESSENTIALS="
     "
 
 # WM
-i3="i3-gaps i3blocks sxhkd"
+#i3="i3-gaps i3blocks sxhkd"
+# I use dwm now, it needs to be cloned from github
 
 WM="
     $i3
@@ -42,7 +43,7 @@ WM="
 iconfonts="ttf-font-awesome"
 emojifonts="ttf-joypixels"
 icontheme="papirus-icon-theme"
-gtktheme="arc-gtk-theme lxappearance" # CLONE THEMES FROM GITHUB
+gtktheme="arc-gtk-theme lxappearance" # Clone themes from github
 
 AESTETHICS="
     $iconfonts
@@ -57,6 +58,7 @@ terminal="alacritty"
 #launcher="dmenu" # Clone dmenu build
 notifications="libnotify dunst"
 browser="brave-bin" # AUR
+torrent="transmission-cli"
 calculator="bc"
 calendar="calcurse"
 compositor="xcompmgr"
@@ -81,6 +83,7 @@ spreadsheets="libxlsxwriter sc-im-git" # AUR
 ocr="tesseract tesseract-data-eng tesseract-data-hun tesseract-data-ron" # AUR
 #sync="syncthing" # Not as useful as I thought
 fstools="dosfstools mtools simple-mtpfs ntfs-3g" # AUR
+compressiontools="rar zip unzip p7zip bzip2 gzip xz"
 java="liberica-jdk-8-full-bin" # AUR
 
 SOFTWARE="
@@ -89,6 +92,7 @@ SOFTWARE="
     $launcher
     $notifications
     $browser
+    $torrent
     $calculator
     $calendar
     $compositor
@@ -112,6 +116,7 @@ SOFTWARE="
     $ocr
     $sync
     $fstools
+    $compressiontools
     "
 
 # My script dependencies
@@ -126,9 +131,6 @@ DEPENDENCIES="
     imagemagick
     xwallpaper
     wmctrl
-    rar
-    unzip
-    zip
     rsync
     reflector
     i3lock
