@@ -35,6 +35,10 @@ _comp_options+=(globdots)
 bindkey -v
 export KEYTIMEOUT=1
 
+# Edit line in vim with Ctrl + e
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
 # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

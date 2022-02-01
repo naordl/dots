@@ -1,0 +1,35 @@
+snippet b
+**${1:bold}**
+endsnippet
+
+snippet i
+*${1:italic}*
+endsnippet
+
+snippet s
+~~${1:strikethrough}~~
+endsnippet
+
+snippet l
+[${1:text}](${2:https://address})
+endsnippet
+
+snippet I
+![${1:alttext}](${2:/images/image.jpg})
+endsnippet
+
+snippet date
+`!v strftime("%d.%m.%Y")`
+endsnippet
+
+snippet note
+---
+toc: true
+toc-title: Table of Contents
+---
+
+> Instructor: $1 \
+> Date: `!v strftime("%d.%m.%Y")` \
+
+# $2
+endsnippet

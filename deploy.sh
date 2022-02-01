@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-DOTDIR="$HOME/.local/src/dots"
 SOURCEDIR="$HOME/.local/src"
+DOTDIR="$HOME/.local/src/dots"
 
 # Deploy dotfiles function
 deploy_dotfiles() { \

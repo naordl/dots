@@ -1,21 +1,21 @@
 #!/bin/sh
 
 # Prompt user for choice
-CHOICE=$(printf ' Lock\n Logout\n Shutdown\n Reboot\n Suspend\n Hibernate' | dmenu -i -p "Powermenu")
+CHOICE=$(printf " Lock\n Logout\n Shutdown\n Reboot\n Suspend\n Hibernate" | dmenu -i -p "Powermenu")
 
 # Take action based on user choice
 case "$CHOICE" in
-     Lock)
+    *Lock)
         loginctl lock-session ;;
-     Logout)
+    *Logout)
         killall xinit ;;
-     Shutdown)
+    *Shutdown)
         systemctl poweroff ;;
-     Reboot)
+    *Reboot)
         systemctl reboot ;;
-     Suspend)
+    *Suspend)
         systemctl suspend ;;
-     Hibernate)
+    *Hibernate)
         systemctl hibernate ;;
     *)
         exit

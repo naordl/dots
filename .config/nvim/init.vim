@@ -1,10 +1,10 @@
 " PLUGINS
 " Download vim-plug
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+    echo "Downloading junegunn/vim-plug to manage plugins."
+    silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+    autocmd VimEnter * PlugInstall
 endif
 " Call plugins
 call plug#begin()
@@ -16,11 +16,23 @@ Plug 'plasticboy/vim-markdown'
 Plug 'dkarter/bullets.vim'
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+
+Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
+
+" Colorscheme (plugin)
+augroup nord-theme-overrides
+    autocmd!
+    autocmd ColorScheme nord highlight Comment ctermfg=244
+    autocmd ColorScheme nord highlight Visual ctermbg=240
+augroup END
+
+colorscheme nord
 
 " Goyo
 let g:goyo_width = 80
-
 " Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
@@ -36,6 +48,11 @@ let g:bullets_enabled_file_types = [ 'markdown' ]
 " Pencil
 let g:pencil#wrapModeDefault = 'soft'
 autocmd FileType markdown call pencil#init()
+" Snippets
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<shift-tab>'
+let g:UltiSnipsSnippetDirectories=["snips"]
 
 " BASICS
 " Colors
@@ -99,7 +116,7 @@ highlight clear StatusLine
 set laststatus=0
 set noruler
 set showcmd
-set showmode
+set noshowmode
 
 " REMAPS
 " Leader
@@ -161,17 +178,6 @@ nnoremap S :%s///g<Left><Left><Left>
 " Delete previous word
 inoremap <C-H> <C-W>
 
-" SNIPPETS
-" Markdown
-autocmd FileType markdown inoremap ;<Space> <ESC>f<"_c4l
-autocmd FileType markdown inoremap ;i **<Space><++><ESC>5hi
-autocmd FileType markdown inoremap ;b ****<Space><++><ESC>6hi
-autocmd FileType markdown inoremap ;s ~~~~<Space><++><ESC>6hi
-autocmd FileType markdown inoremap ;l [](<++>)<Space><++><ESC>F[a
-autocmd FileType markdown inoremap ;I ![](<++>)<Space><++><ESC>F[a
-autocmd FileType markdown inoremap ;d <ESC>:put =strftime('%d.%m.%Y')<CR>i<Backspace><ESC>A<Space>
-autocmd FileType markdown inoremap ;t <ESC>:put =strftime('%I:%M%P')<CR>i<Backspace><ESC>A<Space>
-
 " AUTO COMMANDS
 " Disable autocommenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -189,13 +195,11 @@ autocmd BufWritePre * %s/\s\+$//e
 " autocmd FileType markdown match OverLength /\%>80v.\+/
 " Always treat *.md as markdown
 autocmd BufEnter,BufRead,BufNewFile *.md set filetype=markdown
-" Header colors for markdown
-" autocmd FileType markdown highlight htmlH1 cterm=none ctermfg=red
-" autocmd FileType markdown highlight htmlH2 cterm=none ctermfg=lightgreen
-" autocmd FileType markdown highlight htmlH3 cterm=none ctermfg=lightblue
-" autocmd FileType markdown highlight htmlH4 cterm=none ctermfg=brown
-" autocmd FileType markdown highlight htmlH5 cterm=none ctermfg=yellow
-" autocmd FileType markdown highlight htmlH6 cterm=none ctermfg=darkgrey
+" Enable spellchecking in markdown
+autocmd BufEnter,BufRead,BufNewFile *.md setlocal spell
+autocmd BufEnter,BufRead,BufNewFile *.md setlocal spelllang=en_us
+" -> turns to → in markdown
+" inoremap -> →
 " Run xrdb when writing to xdefaults or xresources
 autocmd BufWritePost *xresources,*xdefaults !xrdb %
 " Update binds when writing to sxhkdrc

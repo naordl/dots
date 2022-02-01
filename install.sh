@@ -66,6 +66,7 @@ taskmanager="htop"
 audiomixer="pulsemixer"
 filemanager="ranger ueberzug dragon-drag-and-drop" # AUR
 mediaplayer="mpv"
+videoconverter="handbrake"
 musicplayer="mpd ncmpcpp mpc"
 imageviewer="sxiv"
 imageeditor="gimp"
@@ -100,6 +101,7 @@ SOFTWARE="
     $audiomixer
     $filemanager
     $mediaplayer
+    $videoconverter
     $imageviewer
     $imageeditor
     $webcammanager
@@ -121,6 +123,7 @@ SOFTWARE="
 
 # My script dependencies
 DEPENDENCIES="
+    python-pynvim
     lm_sensors
     xss-lock
     xorg-xset
