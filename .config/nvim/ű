@@ -117,6 +117,34 @@ nnoremap <leader>v :e ~/.config/nvim/init.vim<CR>
 " Edit todo list
 nnoremap <leader>td :e ~/Documents/Notes/raw/todo.md<CR>
 
+" GOYO
+" Toggle
+map <leader>r :Goyo \| set bg=dark \| hi! ColorColumn ctermbg=235<CR>
+
+" MARKDOWN
+" Table of contents
+nnoremap <leader>toc :Toc<CR>
+" Table format
+nnoremap <leader>tf :TableFormat<CR>
+
+" FZF
+" Buffers
+nnoremap <silent> <leader>b :Buffers<CR>
+" Locate
+nnoremap <silent> <leader>g :Locate ~/<CR>
+" Files
+nnoremap <silent> <leader>f :exe ":Files ~" . expand("%:h")<CR>
+" Uni
+nnoremap <silent> <leader>u :Files ~/Documents/Uni<CR>
+
+" CONVERSION
+" Zathura current file
+nnoremap <leader>z :w! \| !zathura "%:r".pdf &<CR><CR>
+" Convert to docx using pandoc
+nnoremap <leader>d :!pandoc "%" -s -o "%:r".docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
+" Compile to pdf using pandoc
+nnoremap <leader>c :w! \| !pandoc "%" -s -o "%:r".pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=1in'<CR>
+
 " Disable arrow keys
 noremap <up> :echoerr "USE K INSTEAD!"<CR>
 noremap <down> :echoerr "USE J INSTEAD!"<CR>
@@ -136,36 +164,6 @@ nnoremap <silent> <S-Right> :vertical resize -2<CR>
 nnoremap S :%s///g<Left><Left><Left>
 " Delete previous word
 inoremap <C-H> <C-W>
-
-" GOYO
-" Toggle
-map <leader>r :Goyo<CR>
-
-" MARKDOWN
-" Table of contents
-nnoremap <leader>toc :Toc<CR>
-" Table format
-nnoremap <leader>tf :TableFormat<CR>
-
-" FZF
-" Buffers
-nnoremap <silent> <leader>b :Buffers<CR>
-" Locate
-nnoremap <silent> <leader>g :Locate ~/<CR>
-" All Files
-nnoremap <silent> <leader>F :exe ":Files ~" . expand("%:h")<CR>
-" Files
-nnoremap <silent> <leader>f :exe ":Files " . expand("%:h")<CR>
-" Uni Files
-nnoremap <silent> <leader>u :Files ~/Documents/Uni<CR>
-
-" CONVERSION
-" Zathura current file
-nnoremap <leader>z :w! \| !zathura "%:r".pdf &<CR><CR>
-" Convert to docx using pandoc
-nnoremap <leader>d :!pandoc "%" -s -o "%:r".docx --reference-doc=$HOME/.local/pandoc/custom-reference.docx<CR>
-" Compile to pdf using pandoc
-nnoremap <leader>c :w! \| !pandoc "%" -s -o "%:r".pdf --pdf-engine=xelatex -V 'mainfont:Times New Roman' -V 'geometry:margin=2cm'<CR>
 
 " AUTO COMMANDS
 " Disable autocommenting

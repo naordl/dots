@@ -23,5 +23,12 @@ VOLUME=$(pamixer --get-volume)
 if [ "$MUTED" = "true" ]; then
     printf "\n"
 else
-    printf " $VOLUME%%\n"
+    HEADPHONES=$(pamixer --get-default-sink | grep HyperX)
+    # Print the headphones icon if the default audio device is headphones
+    if [ ! -z "$HEADPHONES" ]; then
+        printf " $VOLUME%%\n"
+    else
+    # Else print volume icon
+        printf " $VOLUME%%\n"
+    fi
 fi
