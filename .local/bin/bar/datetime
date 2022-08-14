@@ -6,7 +6,10 @@ case $BLOCK_BUTTON in
 esac
 
 # Get current time
-DATETIME=$(date "+%I:%M%P")
+TIME=$(date "+%I:%M%P")
+
+# Get the current date
+DATE=$(date "+%d/%m/%Y")
 
 # Print result
-printf " $DATETIME\n"
+printf " $TIME  $DATE\n"

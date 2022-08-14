@@ -7,7 +7,7 @@ xrdb $HOME/.config/x11/xresources # Load Xresources colors
 setbg # Set desktop background
 pgrep -x xcompmgr > /dev/null || xcompmgr & # Compositor
 pgrep -x startdunst > /dev/null || startdunst & # Notification daemon
-pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
+#pgrep -x unclutter > /dev/null || unclutter --timeout 3 & # Hide cursor
 #pgrep -x mpd > /dev/null || mpd & # Music player daemon
 #xset s 600 # Lockscreen timeout
 #pgrep -x xss-lock > /dev/null || xss-lock -- lockscreen & # Lock the screen upon idle
@@ -17,5 +17,5 @@ transmission-daemon & # Start torrent daemon
 sudo modprobe v4l2loopback & # Fix webcam behavior
 
 #pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon
-pgrep -x dwmblocks > /dev/null || dwmblocks & # Status bar
+grep -x dwmblocks > /dev/null || dwmblocks & # Status bar
 startdwm # Window manager

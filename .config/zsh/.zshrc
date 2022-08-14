@@ -11,7 +11,7 @@ setopt MENU_COMPLETE
 # Complete aliases
 unsetopt complete_aliases
 
-# Disable Ctrl+s
+# Disable Ctrl + s
 stty stop undef
 
 # History
@@ -115,6 +115,7 @@ alias la='exa -la --icons --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
+alias du='du -h'
 alias cp='cp -rv'
 alias rm='rm -rv'
 alias mkd='mkdir -pv'
@@ -139,8 +140,6 @@ alias pdf180='pdfjam --angle 180'
 
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Syntax highlighting style
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none

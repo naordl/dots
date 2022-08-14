@@ -1,24 +1,23 @@
 ! vim: ft=cfg
 
-*.foreground:   #D8DEE9
-*.background:   #2E3440
+*.foreground:       #ddcca8
+*.background:       #0E120C
+*.selforeground:    #ffffff
+*.selbackground:    #c6632f
 
-*.selforeground: #ffffff
-*.selbackground: #4C566A
-!! *.selbackground: #81A1C1
-*.color0: #3B4252
-*.color1: #BF616A
-*.color2: #A3BE8C
-*.color3: #EBCB8B
-*.color4: #81A1C1
-*.color5: #B48EAD
-*.color6: #88C0D0
-*.color7: #E5E9F0
-*.color8: #4C566A
-*.color9: #BF616A
-*.color10: #A3BE8C
-*.color11: #EBCB8B
-*.color12: #81A1C1
-*.color13: #B48EAD
-*.color14: #8FBCBB
-*.color15: #ECEFF4
+*.color0: #0E120C
+*.color1: #cc241d
+*.color2: #C6632F
+*.color3: #9B704C
+*.color4: #688F77
+*.color5: #B09358
+*.color6: #CDA857
+*.color7: #ddcca8
+*.color8: #9a8e75
+*.color9: #fb4934
+*.color10: #C6632F
+*.color11: #9B704C
+*.color12: #688F77
+*.color13: #B09358
+*.color14: #CDA857
+*.color15: #ddcca8
