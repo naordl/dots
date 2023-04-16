@@ -28,6 +28,8 @@ elif [ "$status" = "Discharging" ]; then
     icon=""
 elif [ "$status" = "Not charging" ]; then
     icon=""
+elif [ "$status" = "Full" ]; then
+    icon=""    
 fi
 
 # Send a warning notification if below set threshold and discharging
