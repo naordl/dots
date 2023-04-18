@@ -63,13 +63,13 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
 # BEGONE
-[ -f ~/.pki ] || rm -rf ~/.pki
-[ -f ~/.icons ] || rm -rf ~/.icons
-[ -f ~/.java ] || rm -rf ~/.java
-[ -f ~/.mono ] || rm -rf ~/.mono
-[ -f ~/.scim ] || rm -rf ~/.scim
-[ -f ~/.bash_history ] || rm -rf ~/.bash_history
-[ -f ~/.python_history ] || rm -rf ~/.python_history
+[ -f ~/.pki ] && rm -rf ~/.pki
+[ -f ~/.icons ] && rm -rf ~/.icons
+[ -f ~/.java ] && rm -rf ~/.java
+[ -f ~/.mono ] && rm -rf ~/.mono
+[ -f ~/.scim ] && rm -rf ~/.scim
+[ -f ~/.bash_history ] && rm -rf ~/.bash_history
+[ -f ~/.python_history ] && rm -rf ~/.python_history
 
 # Functions
 # es - edit scripts and config files using fzf
