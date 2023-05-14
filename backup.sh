@@ -16,7 +16,6 @@ case "$choice" in
       tput setaf 2; printf "Success!\n"; tput sgr0
 
       tput setaf 2; printf "Backing up /etc/ stuff...\n"; tput sgr0
-      cp -rv /etc/default/grub $DOTDIR/etc/default/
       cp -rv /etc/modprobe.d/nouveau.conf $DOTDIR/etc/modprobe.d/
       cp -rv /etc/sysctl.d/{dirty.conf,laptop.conf} $DOTDIR/etc/sysctl.d/
       cp -rv /etc/systemd/system/disablenvidia.service $DOTDIR/etc/systemd/system/
@@ -24,8 +23,6 @@ case "$choice" in
       cp -rv /etc/udev/rules.d $DOTDIR/etc/udev/
       cp -rv /etc/X11/xorg.conf.d $DOTDIR/etc/X11/
       cp -rv /etc/pulse/default.pa $DOTDIR/etc/pulse/
-      cp -rv /etc/pacman.conf $DOTDIR/etc/
-      cp -rv /etc/libreoffice/sofficerc $DOTDIR/etc/libreoffice/
       cp -rv /etc/xdg/reflector/reflector.conf $DOTDIR/etc/xdg/reflector/
 
       tput setaf 2; printf "Backup successful! You may now commit the changes.\n"; tput sgr0

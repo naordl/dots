@@ -14,7 +14,6 @@ pgrep -x startdunst > /dev/null || startdunst & # Notification daemon
 setxkbmap hu # Change keyboard layout to Hungarian
 setxkbmap -option caps:swapescape & # Swap Capslock with Escape
 transmission-daemon & # Start torrent daemon
-sudo modprobe v4l2loopback & # Fix webcam behavior
 
 #pgrep -x sxhkd > /dev/null || sxhkd & # Hotkey daemon
 grep -x dwmblocks > /dev/null || dwmblocks & # Status bar

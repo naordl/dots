@@ -1,4 +1,5 @@
 # Refresh battery block when plugging in/unplugging the device
+
 # 1st rule for when on AC
 ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/roland/.config/x11/xauthority", RUN+="/bin/sh -c 'pkill -SIGRTMIN+2 dwmblocks'"
 
